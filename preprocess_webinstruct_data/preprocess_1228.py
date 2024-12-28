@@ -30,21 +30,23 @@ def parse_single_critic(text):
     elif "right" in res_seg or "correct" in res_seg:
         return True
     else:
-        print("*******************recognize failed\n", res_seg, text)
+        # print("*******************recognize failed\n", res_seg, text)
         return False
 
 
 def transfer_single(item, mode):
     question = item.get("question", "")
     answer = item.get("answer", "")
-    # index = item.get("index", "")
+    index = item.get("index", "")
     gpt4o_answer = item.get("gpt4o_answer", "")
     if gpt4o_answer is None:
+        print("gpt4o_answer is None index\n", index)
+        print("gpt4o_answer is None item\n", item)
         return None
     is_correct = parse_single_critic(gpt4o_answer)
-    if is_correct is None:
-        print("parse_single_critic failed", gpt4o_answer)
-        return None
+    # if is_correct is None:
+    #     # print("parse_single_critic failed", gpt4o_answer)
+    #     return None
     if mode == "correct_only":
         if is_correct:
             return format_correct_only(question, answer)
