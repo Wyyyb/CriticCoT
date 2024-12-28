@@ -11,7 +11,7 @@ deepspeed: examples/deepspeed/ds_z3_config.json  # choices: [ds_z0_config.json, 
 ### dataset
 dataset: CriticCoT_correct_only_data_1228
 template: qwen
-cutoff_len: 4096
+cutoff_len: 2048
 max_samples: 1000000
 overwrite_cache: true
 preprocessing_num_workers: 16
