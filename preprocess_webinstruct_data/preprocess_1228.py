@@ -95,4 +95,6 @@ def main():
         fo.write(json.dumps(training_data, indent=2))
 
 
+if __name__ == "__main__":
+    main()
 
