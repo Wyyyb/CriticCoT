@@ -1,4 +1,10 @@
 {
+  "CriticCoT_correct_only_data_1228": {
+    "file_name": "CriticCoT_correct_only_data_1228.json"
+  },
+  "CriticCoT_critic_data_1228": {
+    "file_name": "CriticCoT_critic_data_1228.json"
+  },
   "identity": {
     "file_name": "identity.json"
   },

@@ -1,0 +1,11 @@
+model_path:
+/gpfs/public/research/xy/yubowang/models/Qwen2.5-7B
+
+
+
+
+
+
+
+
+
