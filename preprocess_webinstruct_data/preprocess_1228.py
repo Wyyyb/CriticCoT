@@ -84,7 +84,7 @@ def main():
         if curr is not None:
             training_data.append(curr)
     os.makedirs("../local_data", exist_ok=True)
-    os.makedirs("../local_data/training_data_1228", exist_ok=True)
+    os.makedirs("../local_data/critic_training_data_1228", exist_ok=True)
     with open("../local_data/critic_training_data_1228/CriticCoT_correct_only_data_1228.json", "w") as fo:
         fo.write(json.dumps(training_data, indent=2))
     print("length of correct_only data", len(training_data))
