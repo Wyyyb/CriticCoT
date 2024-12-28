@@ -20,18 +20,18 @@ def load_jsonl(data_dir):
 
 
 def parse_single_critic(text):
-    if "Conclusion" not in text:
-        print("Conclusion not found", text)
-        return None
+    # if "Conclusion" not in text:
+    #     print("Conclusion not found", text)
+    #     return None
     segs = text.split("Conclusion")
     res_seg = segs[-1].lower()
-    if "right" in res_seg or "correct" in res_seg:
-        return True
-    elif "wrong" in res_seg or "incorrect" in res_seg:
+    if "wrong" in res_seg or "incorrect" in res_seg:
         return False
+    elif "right" in res_seg or "correct" in res_seg:
+        return True
     else:
-        print("recognize failed", res_seg, text)
-        return None
+        print("*******************recognize failed\n", res_seg, text)
+        return False
 
 
 def transfer_single(item, mode):
