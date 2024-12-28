@@ -20,10 +20,10 @@ def load_jsonl(data_dir):
 
 
 def parse_single_critic(text):
-    if "Conclusion:" not in text:
-        print("Conclusion: not found", text)
+    if "Conclusion" not in text:
+        print("Conclusion not found", text)
         return None
-    segs = text.split("Conclusion:")
+    segs = text.split("Conclusion")
     res_seg = segs[-1].lower()
     if "right" in res_seg or "correct" in res_seg:
         return True
