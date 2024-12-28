@@ -2,7 +2,7 @@ set -ex
 
 PROMPT_TYPE=$1
 MODEL_NAME_OR_PATH=$2
-
+OUTPUT_DIR=$3
 # ======= Base Models =======
 # PROMPT_TYPE="cot" # direct / cot / pal / tool-integrated
 # MODEL_NAME_OR_PATH=${HF_MODEL_DIR}/mistral/Mistral-7B-v0.1
@@ -17,12 +17,13 @@ MODEL_NAME_OR_PATH=$2
 # MODEL_NAME_OR_PATH=${HF_MODEL_DIR}/deepseek/deepseek-math-7b-instruct
 
 
-OUTPUT_DIR=${MODEL_NAME_OR_PATH}/math_eval
-DATA_NAMES="gsm8k,minerva_math"
-# DATA_NAMES="gsm8k,minerva_math,svamp,asdiv,mawps,tabmwp,mathqa,mmlu_stem,sat_math"
+#OUTPUT_DIR=${OUTPUT_DIR}/math_eval
+# DATA_NAMES="gsm8k,minerva_math"
+DATA_NAMES="gsm8k,minerva_math,svamp,asdiv,mawps,tabmwp,mathqa,mmlu_stem,sat_math"
 SPLIT="test"
 NUM_TEST_SAMPLE=-1
 
+mkdir -p ${OUTPUT_DIR}
 
 # single-gpu
 CUDA_VISIBLE_DEVICES=0 TOKENIZERS_PARALLELISM=false \
