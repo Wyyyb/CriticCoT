@@ -11,7 +11,7 @@ def load_jsonl(data_dir):
             continue
         file_path = os.path.join(data_dir, file)
         with open(file_path, "r") as fi:
-            for line in fi.read():
+            for line in fi.readlines():
                 curr = json.loads(line)
                 # curr["critic_id"] = str(critic_id)
                 # critic_id += 1
