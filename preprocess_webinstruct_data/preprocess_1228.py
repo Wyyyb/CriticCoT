@@ -120,9 +120,10 @@ def transfer_single(item, mode):
 
 
 def format_correct_only(question, answer):
-    question = "Please analyze and answer the following question:\n" + question
+    ins = "Please analyze and answer the following question:"
     response = answer.replace("####\n", "\nSummary:\n")
-    return {"instruction": question,
+    return {"instruction": ins,
+            "input": question,
             "output": response}
 
 
