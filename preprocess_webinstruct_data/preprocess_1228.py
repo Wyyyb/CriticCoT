@@ -39,6 +39,8 @@ def transfer_single(item, mode):
     answer = item.get("answer", "")
     # index = item.get("index", "")
     gpt4o_answer = item.get("gpt4o_answer", "")
+    if gpt4o_answer is None:
+        print("------------------------item", item)
     is_correct = parse_single_critic(gpt4o_answer)
     if is_correct is None:
         print("parse_single_critic failed", gpt4o_answer)
