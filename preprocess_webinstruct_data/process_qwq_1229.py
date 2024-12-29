@@ -23,7 +23,7 @@ def format_qwq(ori_data):
     res_data = []
     instruction = "Please analyze and answer the following question step by step:"
     for each in tqdm(ori_data):
-        message = each["message"]
+        message = each["messages"]
         if len(message) != 2:
             print("message more than 2:\n", message)
         question = message[1]["content"]
