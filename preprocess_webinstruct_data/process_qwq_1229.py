@@ -15,13 +15,14 @@ def load_qwq(dir_path):
             for line in fi:
                 curr = json.loads(line)
                 data.append(curr)
+    print("data number:", len(data))
     return data
 
 
 def format_qwq(ori_data):
     res_data = []
     instruction = "Please analyze and answer the following question step by step:"
-    for each in ori_data:
+    for each in tqdm(ori_data):
         message = each["message"]
         if len(message) != 2:
             print("message more than 2:\n", message)

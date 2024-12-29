@@ -1,4 +1,10 @@
 {
+  "CriticCoT_qwq_data_1229": {
+    "file_name": "CriticCoT_qwq_data_1229.json"
+  },
+  "CriticCoT_qwq_critic_data_1229": {
+    "file_name": "CriticCoT_qwq_critic_data_1229.json"
+  },
   "CriticCoT_correct_only_data_1228": {
     "file_name": "CriticCoT_correct_only_data_1228.json"
   },
