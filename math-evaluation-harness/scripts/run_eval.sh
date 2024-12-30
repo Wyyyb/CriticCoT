@@ -3,6 +3,7 @@ set -ex
 PROMPT_TYPE=$1
 MODEL_NAME_OR_PATH=$2
 OUTPUT_DIR=$3
+DATA_NAMES=$4
 # ======= Base Models =======
 # PROMPT_TYPE="cot" # direct / cot / pal / tool-integrated
 # MODEL_NAME_OR_PATH=${HF_MODEL_DIR}/mistral/Mistral-7B-v0.1
@@ -19,7 +20,7 @@ OUTPUT_DIR=$3
 
 #OUTPUT_DIR=${OUTPUT_DIR}/math_eval
 # DATA_NAMES="gsm8k,minerva_math"
-DATA_NAMES="math,gsm8k,minerva_math,mmlu_stem,sat_math"
+# DATA_NAMES="math,gsm8k,minerva_math,mmlu_stem,sat_math"
 SPLIT="test"
 NUM_TEST_SAMPLE=-1
 
