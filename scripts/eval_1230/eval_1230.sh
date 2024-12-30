@@ -1,7 +1,7 @@
 #!/bin/bash
 source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
-
+datasets="math,gsm8k,minerva_math,sat_math,mmlu_stem"
 cd /gpfs/public/research/xy/yubowang/CriticCoT/math-evaluation-harness
 
 mkdir -p ../math_eval_result/eval_res_1230/
