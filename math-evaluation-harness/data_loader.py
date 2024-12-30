@@ -15,7 +15,7 @@ def load_data(data_name, split, data_dir='./data'):
         if data_name == "math":
             dataset = load_dataset("competition_math", split=split, name="main", cache_dir=f"{data_dir}/temp")
         elif data_name == "theorem_qa":
-            dataset = load_dataset("wenhu/TheoremQA", split=split)
+            dataset = load_dataset("TIGER-Lab/TheoremQA", split=split)
         elif data_name == "gsm8k":
             dataset = load_dataset(data_name, split=split)
         elif data_name == "gsm_hard":
