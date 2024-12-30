@@ -1,8 +1,8 @@
 #!/bin/bash
-source /gpfs/public/research/miniconda3/bin/activate
-conda activate lf_yubo
+#source /gpfs/public/research/miniconda3/bin/activate
+#conda activate lf_yubo
 
-cd /gpfs/public/research/xy/yubowang/CriticCoT/math-evaluation-harness
+cd /data/yubowang/CriticCoT/math-evaluation-harness
 
 mkdir -p ../math_eval_result/eval_res_1231_ori/
 
