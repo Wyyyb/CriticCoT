@@ -9,11 +9,11 @@ mkdir -p ../math_eval_result/eval_res_1231_ori/
 
 model_path="/data/yubowang/models/OLMo-2-1124-7B"
 output_dir="../math_eval_result/eval_res_1231_ori/ori_OLMo-2-1124-7B"
-bash scripts/run_eval_math.sh cot $model_path $output_dir
+bash scripts/run_eval.sh cot $model_path $output_dir
 
 model_path="/data/yubowang/models/deepseek-math-7b-base"
 output_dir="../math_eval_result/eval_res_1231_ori/ori_deepseek-math-7b-base"
-bash scripts/run_eval_math.sh cot $model_path $output_dir
+bash scripts/run_eval.sh cot $model_path $output_dir
 
 
 
