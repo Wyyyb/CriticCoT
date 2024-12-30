@@ -9,7 +9,7 @@ def load_jsonl(data_dir):
     data = []
     # critic_id = 0
     for file in os.listdir(data_dir):
-        if not file.endswith(".jsonl"):
+        if not file.endswith(".jsonl") or "process" in file:
             continue
         file_path = os.path.join(data_dir, file)
         with open(file_path, "r") as fi:
