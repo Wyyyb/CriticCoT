@@ -46,6 +46,8 @@ if __name__ == "__main__":
         args.output = f'outputs/{filename}.jsonl'
         print('Writing the output to', args.output)
 
+    result_output = args.output + "-result.txt"
+
     file_handle = open(args.output, 'w')
 
     correct, wrong = 0, 0
@@ -70,3 +72,6 @@ if __name__ == "__main__":
 
     print('Final Accuracy: ', correct / (correct + wrong))
     print('finished one epoch')
+    with open(result_output, "w") as fo:
+        fo.write("Final Accuracy: " + str(correct / (correct + wrong)))
+

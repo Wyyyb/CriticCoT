@@ -1,6 +1,6 @@
 #!/bin/bash
 # source /gpfs/public/research/miniconda3/bin/activate
-conda activate critic
+# conda activate critic
 export CUDA_VISIBLE_DEVICES=2
 cd /data/yubowang/CriticCoT/TheoremQA
 
