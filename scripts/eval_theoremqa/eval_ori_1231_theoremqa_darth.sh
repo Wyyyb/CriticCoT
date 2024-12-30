@@ -1,7 +1,7 @@
 #!/bin/bash
 # source /gpfs/public/research/miniconda3/bin/activate
 # conda activate critic
-export CUDA_VISIBLE_DEVICES=2
+export CUDA_VISIBLE_DEVICES=2,3,6,7
 cd /data/yubowang/CriticCoT/TheoremQA
 
 mkdir -p ../math_eval_result/eval_res_1231_ori/
