@@ -19,7 +19,7 @@ OUTPUT_DIR=$3
 
 #OUTPUT_DIR=${OUTPUT_DIR}/math_eval
 # DATA_NAMES="gsm8k,minerva_math"
-DATA_NAMES="gsm8k,minerva_math,svamp,asdiv,mawps,tabmwp,mathqa,mmlu_stem,sat_math"
+DATA_NAMES="gsm8k,minerva_math,math,math_oai,gsm_hard,theorem_qa,bbh,svamp,asdiv,mawps,tabmwp,mathqa,mmlu_stem,sat_math"
 SPLIT="test"
 NUM_TEST_SAMPLE=-1
 
