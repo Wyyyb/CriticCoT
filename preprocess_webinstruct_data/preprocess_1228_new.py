@@ -1,5 +1,7 @@
 import os
 import json
+import random
+
 from tqdm import tqdm
 
 
@@ -141,26 +143,32 @@ def main():
     input_data = load_jsonl(input_data_dir)
     mode = "correct_only"
     print("creating correct_only data")
-    training_data = []
+    correct_only_training_data = []
     for each in tqdm(input_data):
         curr = transfer_single(each, mode)
         if curr is not None:
-            training_data.append(curr)
+            correct_only_training_data.append(curr)
+    random.shuffle(correct_only_training_data)
     os.makedirs("../local_data", exist_ok=True)
     os.makedirs("../local_data/critic_training_data_1228", exist_ok=True)
-    with open("../local_data/critic_training_data_1228/CriticCoT_correct_only_data_1228.json", "w") as fo:
-        fo.write(json.dumps(training_data, indent=2))
-    print("length of correct_only data", len(training_data))
+    # with open("../local_data/critic_training_data_1228/CriticCoT_correct_only_data_1228.json", "w") as fo:
+    #     fo.write(json.dumps(training_data, indent=2))
+    # print("length of correct_only data", len(training_data))
     mode = "critic"
     print("creating critic data")
-    training_data = []
+    critic_training_data = []
     for each in tqdm(input_data):
         curr = transfer_single(each, mode)
         if curr is not None:
-            training_data.append(curr)
-    with open("../local_data/critic_training_data_1228/CriticCoT_critic_data_1228.json", "w") as fo:
+            critic_training_data.append(curr)
+    training_data = critic_training_data + correct_only_training_data[:50000]
+    random.shuffle(training_data)
+    # with open("../local_data/critic_training_data_1228/CriticCoT_critic_data_1228.json", "w") as fo:
+    #     fo.write(json.dumps(training_data, indent=2))
+    # print("length of critic data", len(training_data))
+    with open("../local_data/critic_training_data_1228/CriticCoT_critic_add_50k_correct_data_1230.json", "w") as fo:
         fo.write(json.dumps(training_data, indent=2))
-    print("length of critic data", len(training_data))
+    print("length of critic_add_50k_correct_data", len(training_data))
 
 
 if __name__ == "__main__":
