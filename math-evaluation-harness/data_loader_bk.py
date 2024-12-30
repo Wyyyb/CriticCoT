@@ -3,31 +3,6 @@ import json
 import random
 from datasets import load_dataset, Dataset, concatenate_datasets
 from utils import load_jsonl, lower_keys
-from PIL import Image
-
-
-def clean_text(text):
-    if isinstance(text, str):
-        return text.encode('utf-8', errors='ignore').decode('utf-8')
-    return text
-
-
-def clean_example(example):
-    cleaned = {}
-    for key, value in example.items():
-        if isinstance(value, dict):
-            cleaned[key] = clean_example(value)
-        elif isinstance(value, list):
-            cleaned[key] = [clean_text(v) if isinstance(v, str)
-                          else clean_example(v) if isinstance(v, dict)
-                          else None if isinstance(v, Image.Image)  # 直接忽略图像
-                          else v
-                          for v in value]
-        elif isinstance(value, Image.Image):
-            cleaned[key] = None  # 直接忽略图像
-        else:
-            cleaned[key] = clean_text(value) if isinstance(value, str) else value
-    return cleaned
 
 
 def load_data(data_name, split, data_dir='./data'):
@@ -47,13 +22,15 @@ def load_data(data_name, split, data_dir='./data'):
         elif data_name == "gsm_hard":
             dataset = load_dataset("reasoning-machines/gsm_hard", split="train")
         elif data_name == "svamp":
+            # evaluate on training set + test set 
             dataset = load_dataset("ChilleD/SVAMP", split="train")
             dataset = concatenate_datasets([dataset, load_dataset("ChilleD/SVAMP", split="test")])
         elif data_name == "asdiv":
             dataset = load_dataset("EleutherAI/asdiv", split="validation")
-            dataset = dataset.filter(lambda x: ";" not in x['answer'])
+            dataset = dataset.filter(lambda x: ";" not in x['answer']) # remove multi-answer examples
         elif data_name == "mawps":
             examples = []
+            # four sub-tasks
             for data_name in ["singleeq", "singleop", "addsub", "multiarith"]:
                 sub_examples = list(load_jsonl(f"{data_dir}/mawps/{data_name}.jsonl"))
                 for example in sub_examples:
@@ -76,18 +53,18 @@ def load_data(data_name, split, data_dir='./data'):
             dataset = dataset.select(random.sample(range(len(dataset)), 1000))
         elif data_name == "mmlu_stem":
             dataset = load_dataset("hails/mmlu_no_train", 'all', split='test')
+            # only keep stem subjects
             stem_subjects = ['abstract_algebra', 'astronomy', 'college_biology', 'college_chemistry',
-                             'college_computer_science', 'college_mathematics', 'college_physics', 'computer_security',
-                             'conceptual_physics', 'electrical_engineering', 'elementary_mathematics',
-                             'high_school_biology',
-                             'high_school_chemistry', 'high_school_computer_science', 'high_school_mathematics',
-                             'high_school_physics', 'high_school_statistics', 'machine_learning']
+                'college_computer_science', 'college_mathematics', 'college_physics', 'computer_security',
+                'conceptual_physics', 'electrical_engineering', 'elementary_mathematics', 'high_school_biology',
+                'high_school_chemistry', 'high_school_computer_science', 'high_school_mathematics',
+                'high_school_physics', 'high_school_statistics', 'machine_learning']
             dataset = dataset.rename_column("subject", "type")
             dataset = dataset.filter(lambda x: x['type'] in stem_subjects)
         elif data_name == "bbh":
             examples = []
-            for data_name in ["reasoning_about_colored_objects", "penguins_in_a_table", \
-                              "date_understanding", "repeat_copy_logic", "object_counting"]:
+            for data_name in ["reasoning_about_colored_objects", "penguins_in_a_table",\
+                            "date_understanding", "repeat_copy_logic", "object_counting"]:
                 with open(f"{data_dir}/bbh/bbh/{data_name}.json", "r") as f:
                     sub_examples = json.load(f)["examples"]
                     for example in sub_examples:
@@ -99,17 +76,11 @@ def load_data(data_name, split, data_dir='./data'):
         else:
             raise NotImplementedError(data_name)
 
-        # 清理数据并保存
         examples = list(dataset)
         examples = [lower_keys(example) for example in examples]
-        examples = [clean_example(example) for example in examples]
-
-        # 手动保存为 jsonl
+        dataset = Dataset.from_list(examples)
         os.makedirs(f"{data_dir}/{data_name}", exist_ok=True)
-        with open(data_file, 'w', encoding='utf-8') as f:
-            for example in examples:
-                json.dump(example, f, ensure_ascii=True)
-                f.write('\n')
+        dataset.to_json(data_file, force_ascii=True)
 
     # add 'idx' in the first column
     if 'idx' not in examples[0]:
@@ -121,5 +92,7 @@ def load_data(data_name, split, data_dir='./data'):
 
 
 if __name__ == "__main__":
+    # examples = load_data("mmlu_stem", "test")
     examples = load_data("theorem_qa", "test")
+    print(examples)
 
