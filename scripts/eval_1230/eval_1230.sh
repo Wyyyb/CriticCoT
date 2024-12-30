@@ -10,7 +10,7 @@ model_path="/gpfs/public/research/xy/yubowang/models/Qwen2.5-7B"
 output_dir="../math_eval_result/eval_res_1230/ori_qwen2.5_7B/"
 bash scripts/run_eval.sh cot $model_path $output_dir
 
-
+model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models"
 model_sub_dir="CriticCoT_critic_data_1228/checkpoint-800"
 model_path="${model_dir}/${model_sub_dir}"
 output_path="../math_eval_result/eval_res_1230/qwen2.5_7B_critic_1228_ckpt_800/"
