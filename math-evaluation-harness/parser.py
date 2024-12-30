@@ -354,7 +354,8 @@ def parse_question(example, data_name):
         if example['choices']:
             question += f' Please select from the following options: {example["choices"]}'
     elif data_name == "theorem_qa":
-        question = f"{example['question'].strip()}\nTheorem: {example['theorem_def'].strip()}"
+        # question = f"{example['question'].strip()}\nTheorem: {example['theorem_def'].strip()}"
+        question = f"{example['question'].strip()}\n"
     elif data_name == "mmlu_stem":
         options = example['choices']
         assert len(options) == 4
