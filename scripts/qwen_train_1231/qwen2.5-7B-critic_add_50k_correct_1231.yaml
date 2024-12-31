@@ -5,6 +5,7 @@ trust_remote_code: true
 ### method
 stage: sft
 do_train: true
+do_eval: false
 finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_config.json  # choices: [ds_z0_config.json, ds_z2_config.json, ds_z3_config.json]
 
@@ -35,7 +36,7 @@ bf16: true
 ddp_timeout: 180000000
 
 ### eval
-val_size: 0.000001
-per_device_eval_batch_size: 1
-eval_strategy: steps
-eval_steps: 400
+#val_size: 0.000001
+#per_device_eval_batch_size: 1
+#eval_strategy: steps
+#eval_steps: 400
