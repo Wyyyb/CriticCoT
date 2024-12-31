@@ -201,8 +201,8 @@ def main(llm, tokenizer, data_name, args):
         prompts = [item[1] for item in current_prompts]
         # prompts = post_process(prompts, data_name)
         if args.use_vllm:
-            print("debug 186:", prompts)
-            s = "" + input("enter")
+            # print("debug 186:", prompts)
+            # s = "" + input("enter")
             outputs = llm.generate(prompts, SamplingParams(
                             temperature=args.temperature,
                             top_p=args.top_p,
@@ -213,8 +213,8 @@ def main(llm, tokenizer, data_name, args):
 
             outputs = sorted(outputs, key=lambda x: int(x.request_id))  # sort outputs by request_id
             outputs = [output.outputs[0].text for output in outputs]
-            print("debug 194:", outputs)
-            s = "" + input("enter")
+            # print("debug 194:", outputs)
+            # s = "" + input("enter")
         else:
             outputs = generate_completions(
                 model=llm,

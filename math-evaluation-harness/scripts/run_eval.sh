@@ -22,7 +22,7 @@ DATA_NAMES=$4
 # DATA_NAMES="gsm8k,minerva_math"
 # DATA_NAMES="math,gsm8k,minerva_math,mmlu_stem,sat_math"
 SPLIT="test"
-NUM_TEST_SAMPLE=10
+NUM_TEST_SAMPLE=-1
 
 mkdir -p ${OUTPUT_DIR}
 
@@ -41,7 +41,7 @@ python3 -u math_eval.py \
     --end -1 \
     --use_vllm \
     --save_outputs \
-    --overwrite \
+    --overwrite
 
 # single-gpu
 # CUDA_VISIBLE_DEVICES=0 TOKENIZERS_PARALLELISM=false \
