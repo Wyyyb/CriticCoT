@@ -9,7 +9,7 @@ datasets="math"
 
 model_sub_dir="CriticCoT_correct_only_data_1228/checkpoint-800"
 model_path="${model_dir}/${model_sub_dir}"
-output_path="../math_eval_result/eval_res_1228/debug_qwen2.5_7B_correct_only_1228_ckpt_400/"
+output_path="../math_eval_result/eval_res_1228/debug_qwen2.5_7B_correct_only_1228_ckpt_800/"
 bash scripts/run_eval.sh cot $model_path $output_path $datasets
 
 
