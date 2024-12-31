@@ -90,7 +90,7 @@ def setup(args):
         llm = LLM(model=args.model_name_or_path, tensor_parallel_size=len(available_gpus), trust_remote_code=True)
         tokenizer = None
     else:
-        llm, tokenizer =  load_hf_lm_and_tokenizer(
+        llm, tokenizer = load_hf_lm_and_tokenizer(
                 model_name_or_path=args.model_name_or_path, 
                 load_in_half=True,
                 use_fast_tokenizer=True,
@@ -189,8 +189,9 @@ def main(llm, tokenizer, data_name, args):
                             stop=stop_words,
             ))
 
-            outputs = sorted(outputs, key=lambda x: int(x.request_id)) # sort outputs by request_id
+            outputs = sorted(outputs, key=lambda x: int(x.request_id))  # sort outputs by request_id
             outputs = [output.outputs[0].text for output in outputs]
+            print("debug 194:", outputs[0], outputs[10])
         else:
             outputs = generate_completions(
                 model=llm,
@@ -216,6 +217,7 @@ def main(llm, tokenizer, data_name, args):
                 remain_codes.append(output)
             elif args.prompt_type == "cot":
                 end_prompts.append((i, query))
+                print("debug 220:", query)
             elif ("boxed" not in output and output.endswith("```")):
                 program = extract_program(query)
                 remain_prompts.append((i, query))
@@ -250,6 +252,7 @@ def main(llm, tokenizer, data_name, args):
     for i in range(len(input_prompts)):
         _, end_prompt = end_prompts[i]
         code = end_prompt.split(input_prompts[i])[-1].strip()
+        print("debug 253:", code)
         codes.append(code)
 
     # extract preds
