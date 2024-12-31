@@ -22,7 +22,7 @@ DATA_NAMES=$4
 # DATA_NAMES="gsm8k,minerva_math"
 # DATA_NAMES="math,gsm8k,minerva_math,mmlu_stem,sat_math"
 SPLIT="test"
-NUM_TEST_SAMPLE=20
+NUM_TEST_SAMPLE=10
 
 mkdir -p ${OUTPUT_DIR}
 
@@ -39,6 +39,7 @@ python3 -u math_eval.py \
     --top_p 1 \
     --start 0 \
     --end -1 \
+    --use_vllm \
     --save_outputs \
     --overwrite \
 
