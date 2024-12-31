@@ -10,7 +10,7 @@ datasets="math"
 model_sub_dir="CriticCoT_correct_only_data_1228_test_1e_5/checkpoint-400"
 model_path="${model_dir}/${model_sub_dir}"
 output_path="../math_eval_result/eval_res_1228/debug_qwen2.5_7B/"
-bash scripts/run_eval.sh cot $model_path $output_path $datasets "math_ins"
+bash scripts/debug_run_eval.sh cot $model_path $output_path $datasets "math_ins"
 
 #model_sub_dir="CriticCoT_correct_only_data_1228/checkpoint-1200"
 #model_path="${model_dir}/${model_sub_dir}"
