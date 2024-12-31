@@ -116,6 +116,21 @@ def setup(args):
     print("\t".join([f"{result['acc']:.1f}".ljust(pad, " ") for result in results]))
 
 
+def post_process(prompts, data_name):
+    res = []
+    if data_name != "math":
+        return prompts
+    ins = "Please solve the following mathematics problems step by step. " \
+          "Analyze the problem first, then derive the answer through clear reasoning."
+    for each in prompts:
+        segs = each.split("$\\boxed{6z^5+15z^4-22z^3-8z^2+17z-6}$.\n\n\n")
+        if len(segs) != 2:
+            print("error segs:", segs)
+        new_prompt = ins + segs[0] + "Now solve the following problem:\n" + segs[1]
+        res.append(new_prompt)
+    return res
+
+
 def main(llm, tokenizer, data_name, args):
     examples, processed_samples, out_file = prepare_data(data_name, args)
     print("=" * 50)
@@ -183,6 +198,7 @@ def main(llm, tokenizer, data_name, args):
 
         # get all outputs
         prompts = [item[1] for item in current_prompts]
+        prompts = post_process(prompts, data_name)
         if args.use_vllm:
             print("debug 186:", prompts)
             s = "" + input("enter")
