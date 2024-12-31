@@ -191,7 +191,7 @@ def main(llm, tokenizer, data_name, args):
 
             outputs = sorted(outputs, key=lambda x: int(x.request_id))  # sort outputs by request_id
             outputs = [output.outputs[0].text for output in outputs]
-            print("debug 194:", outputs[0], outputs[10])
+            print("debug 194:", outputs)
             s = "" + input("enter")
         else:
             outputs = generate_completions(
