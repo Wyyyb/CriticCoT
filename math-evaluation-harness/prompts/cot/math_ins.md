@@ -76,4 +76,4 @@ $$\begin{array}{crrrrrrr}
 So the final answer is $\boxed{6z^5+15z^4-22z^3-8z^2+17z-6}$.
 
 
-Now solve the following mathematics problems step by step, following the above examples. Analyze the problem first, then derive the answer through clear reasoning.
+Now solve the following problem:
