@@ -50,6 +50,7 @@ def prepare_data(data_name, args):
     # sample `num_test_sample` from dataset
     # if args.num_test_sample > 0:
     #     examples = random.sample(examples, args.num_test_sample)
+    examples = examples[:args.num_test_sample]
 
     # shuffle
     if args.shuffle:
