@@ -1,3 +1,5 @@
+Please solve the following mathematics problems step by step. Analyze the problem first, then derive the answer through clear reasoning.
+
 Problem:
 Kevin Kangaroo begins hopping on a number line at 0. He wants to get to 1, but he can hop only $\frac{1}{3}$ of the distance. Each hop tires him out so that he continues to hop $\frac{1}{3}$ of the remaining distance. How far has he hopped after five hops? Express your answer as a common fraction.
 Solution:
