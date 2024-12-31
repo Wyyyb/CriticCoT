@@ -1,7 +1,7 @@
 #!/bin/bash
 source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=1
 
 cd /gpfs/public/research/xy/yubowang/CriticCoT/math-evaluation-harness
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models"
