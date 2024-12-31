@@ -22,12 +22,10 @@ DATA_NAMES=$4
 # DATA_NAMES="gsm8k,minerva_math"
 # DATA_NAMES="math,gsm8k,minerva_math,mmlu_stem,sat_math"
 SPLIT="test"
-NUM_TEST_SAMPLE=-1
+NUM_TEST_SAMPLE=20
 
 mkdir -p ${OUTPUT_DIR}
 
-# single-gpu
-# CUDA_VISIBLE_DEVICES=0 TOKENIZERS_PARALLELISM=false \
 python3 -u math_eval.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \
     --output_dir ${OUTPUT_DIR} \
@@ -41,9 +39,27 @@ python3 -u math_eval.py \
     --top_p 1 \
     --start 0 \
     --end -1 \
-    --use_vllm \
     --save_outputs \
-    # --overwrite \
+    --overwrite \
+
+# single-gpu
+# CUDA_VISIBLE_DEVICES=0 TOKENIZERS_PARALLELISM=false \
+#python3 -u math_eval.py \
+#    --model_name_or_path ${MODEL_NAME_OR_PATH} \
+#    --output_dir ${OUTPUT_DIR} \
+#    --data_names ${DATA_NAMES} \
+#    --split ${SPLIT} \
+#    --prompt_type ${PROMPT_TYPE} \
+#    --num_test_sample ${NUM_TEST_SAMPLE} \
+#    --seed 0 \
+#    --temperature 0 \
+#    --n_sampling 1 \
+#    --top_p 1 \
+#    --start 0 \
+#    --end -1 \
+#    --use_vllm \
+#    --save_outputs \
+#    # --overwrite \
 
 
 # multi-gpu
