@@ -43,7 +43,7 @@ python3 -u math_eval_debug.py \
     --use_vllm \
     --save_outputs \
     --overwrite \
-    --use_ins USE_INS
+    --use_ins ${USE_INS}
 
 # single-gpu
 # CUDA_VISIBLE_DEVICES=0 TOKENIZERS_PARALLELISM=false \
