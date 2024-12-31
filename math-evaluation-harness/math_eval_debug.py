@@ -48,8 +48,9 @@ def prepare_data(data_name, args):
     examples = load_data(data_name, args.split, args.data_dir)
 
     # sample `num_test_sample` from dataset
-    if args.num_test_sample > 0:
-        examples = random.sample(examples, args.num_test_sample)
+    # if args.num_test_sample > 0:
+    #     examples = random.sample(examples, args.num_test_sample)
+    examples = examples[:args.num_test_sample]
 
     # shuffle
     if args.shuffle:
@@ -183,6 +184,8 @@ def main(llm, tokenizer, data_name, args):
         # get all outputs
         prompts = [item[1] for item in current_prompts]
         if args.use_vllm:
+            print("debug 186:", prompts)
+            s = "" + input("enter")
             outputs = llm.generate(prompts, SamplingParams(
                             temperature=args.temperature,
                             top_p=args.top_p,
@@ -220,8 +223,8 @@ def main(llm, tokenizer, data_name, args):
                 remain_codes.append(output)
             elif args.prompt_type == "cot":
                 end_prompts.append((i, query))
-                print("debug 220:", query)
-                s = input("enter")
+                # print("debug 220:", query)
+                # s = input("enter")
             elif ("boxed" not in output and output.endswith("```")):
                 program = extract_program(query)
                 remain_prompts.append((i, query))
@@ -256,8 +259,8 @@ def main(llm, tokenizer, data_name, args):
     for i in range(len(input_prompts)):
         _, end_prompt = end_prompts[i]
         code = end_prompt.split(input_prompts[i])[-1].strip()
-        print("debug 253:", code)
-        s = input("enter")
+        # print("debug 253:", code)
+        # s = input("enter")
         codes.append(code)
 
     # extract preds
