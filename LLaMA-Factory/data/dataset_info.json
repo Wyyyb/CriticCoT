@@ -1,4 +1,13 @@
 {
+  "CriticCoT_correct_only_data_1231": {
+    "file_name": "CriticCoT_correct_only_data_1231.json"
+  },
+  "CriticCoT_critic_data_1231": {
+    "file_name": "CriticCoT_critic_data_1231.json"
+  },
+  "CriticCoT_critic_add_50k_correct_data_1231": {
+    "file_name": "CriticCoT_critic_add_50k_correct_data_1231.json"
+  },
   "CriticCoT_critic_add_50k_correct_data_1230": {
     "file_name": "CriticCoT_critic_add_50k_correct_data_1230.json"
   },
