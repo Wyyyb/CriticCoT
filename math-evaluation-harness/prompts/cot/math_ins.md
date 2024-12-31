@@ -76,5 +76,3 @@ $$\begin{array}{crrrrrrr}
 & 6z^5 & +15z^4 & -22z^3 & - 8z^2 &+17z & -6 &
 \end{array}$$
 So the final answer is $\boxed{6z^5+15z^4-22z^3-8z^2+17z-6}$.
-
-Now solve the following problem:
