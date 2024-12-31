@@ -4,6 +4,7 @@ PROMPT_TYPE=$1
 MODEL_NAME_OR_PATH=$2
 OUTPUT_DIR=$3
 DATA_NAMES=$4
+USE_INS=$5
 # ======= Base Models =======
 # PROMPT_TYPE="cot" # direct / cot / pal / tool-integrated
 # MODEL_NAME_OR_PATH=${HF_MODEL_DIR}/mistral/Mistral-7B-v0.1
@@ -41,7 +42,8 @@ python3 -u math_eval.py \
     --end -1 \
     --use_vllm \
     --save_outputs \
-    --overwrite
+    --overwrite \
+    --use_ins ${USE_INS}
 
 # single-gpu
 # CUDA_VISIBLE_DEVICES=0 TOKENIZERS_PARALLELISM=false \
