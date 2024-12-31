@@ -159,10 +159,12 @@ def main(llm, tokenizer, data_name, args):
     max_func_call = 1 if args.prompt_type in ['cot', 'pal'] else 4
 
     # stop words TODO: make it more general
-    stop_words = ["</s>"]
+    # stop_words = ["</s>"]
+    stop_words = []
 
     if args.prompt_type in ['cot']:
-        stop_words.extend(["\n\nQuestion:", "\n\nProblem:"])
+        pass
+        # stop_words.extend(["\n\nQuestion:", "\n\nProblem:"])
     if args.prompt_type in ['pal', 'tool-integrated', 'tora']:
         stop_words.extend(["\n\n---", "```output"])
     elif args.prompt_type in ['wizard_zs', 'platypus_fs']:
