@@ -199,7 +199,7 @@ def main(llm, tokenizer, data_name, args):
 
         # get all outputs
         prompts = [item[1] for item in current_prompts]
-        prompts = post_process(prompts, data_name)
+        # prompts = post_process(prompts, data_name)
         if args.use_vllm:
             print("debug 186:", prompts)
             s = "" + input("enter")
