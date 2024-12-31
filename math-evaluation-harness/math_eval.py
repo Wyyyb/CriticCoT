@@ -181,7 +181,7 @@ def main(llm, tokenizer, data_name, args):
         # get all outputs
         prompts = [item[1] for item in current_prompts]
         if args.use_vllm:
-            outputs = llm.generate(prompts[:20], SamplingParams(
+            outputs = llm.generate(prompts, SamplingParams(
                             temperature=args.temperature,
                             top_p=args.top_p,
                             max_tokens=args.max_tokens_per_call,

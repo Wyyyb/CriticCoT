@@ -22,7 +22,7 @@ DATA_NAMES=$4
 # DATA_NAMES="gsm8k,minerva_math"
 # DATA_NAMES="math,gsm8k,minerva_math,mmlu_stem,sat_math"
 SPLIT="test"
-NUM_TEST_SAMPLE=-1
+NUM_TEST_SAMPLE=20
 
 mkdir -p ${OUTPUT_DIR}
 
