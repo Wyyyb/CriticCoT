@@ -15,5 +15,5 @@ export WANDB_MODE=disabled
 MODEL_NAME="qwen2.5-7B-critic_1230"
 export WANDB_RUN_NAME=$MODEL_NAME
 
-FORCE_TORCHRUN=1 llamafactory-cli train ../scripts/critic_1228/qwen2.5-7B-critic_1230.yaml
+FORCE_TORCHRUN=1 llamafactory-cli train ../scripts/critic_1230/qwen2.5-7B-critic_1230.yaml
 
