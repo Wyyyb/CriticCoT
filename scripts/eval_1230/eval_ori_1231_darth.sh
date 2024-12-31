@@ -1,7 +1,7 @@
 #!/bin/bash
 #source /gpfs/public/research/miniconda3/bin/activate
 #conda activate lf_yubo
-export CUDA_VISIBLE_DEVICES=2
+export CUDA_VISIBLE_DEVICES=6
 cd /data/yubowang/CriticCoT/math-evaluation-harness
 #datasets="gsm8k,minerva_math"
 datasets="math"
