@@ -27,7 +27,7 @@ NUM_TEST_SAMPLE=-1
 mkdir -p ${OUTPUT_DIR}
 
 # single-gpu
-CUDA_VISIBLE_DEVICES=0 TOKENIZERS_PARALLELISM=false \
+# CUDA_VISIBLE_DEVICES=0 TOKENIZERS_PARALLELISM=false \
 python3 -u math_eval.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \
     --output_dir ${OUTPUT_DIR} \
