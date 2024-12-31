@@ -5,7 +5,7 @@ export CUDA_VISIBLE_DEVICES=1
 
 cd /gpfs/public/research/xy/yubowang/CriticCoT/math-evaluation-harness
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models"
-datasets="math"
+datasets="math_ins"
 
 model_sub_dir="CriticCoT_correct_only_data_1228_test_1e_5/checkpoint-400"
 model_path="${model_dir}/${model_sub_dir}"
