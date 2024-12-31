@@ -126,7 +126,8 @@ def post_process(prompts, data_name):
         segs = each.split("$\\boxed{6z^5+15z^4-22z^3-8z^2+17z-6}$.\n\n\n")
         if len(segs) != 2:
             print("error segs:", segs)
-        new_prompt = ins + segs[0] + "Now solve the following problem:\n" + segs[1]
+        new_prompt = ins + segs[0] + "$\\boxed{6z^5+15z^4-22z^3-8z^2+17z-6}$.\n\n\n" \
+                     + "Now solve the following problem:\n" + segs[1]
         res.append(new_prompt)
     return res
 
