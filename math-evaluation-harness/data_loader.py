@@ -31,6 +31,7 @@ def clean_example(example):
 
 
 def load_data(data_name, split, data_dir='./data'):
+    data_name = data_name.replace("_ins", "")
     if data_name in ['minerva_math']:
         data_name = 'math_oai'
     data_file = f"{data_dir}/{data_name}/{split}.jsonl"

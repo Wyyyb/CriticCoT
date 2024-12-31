@@ -48,6 +48,8 @@ def lower_keys(example):
 
 
 def load_prompt(data_name, prompt_type):
+    ori_data_name = data_name
+    data_name = data_name.replace("_ins", "")
     if data_name in ['gsm_hard', 'svamp', 'tabmwp', 'asdiv', 'mawps']:
         data_name = "gsm8k"
     if data_name in ['math_oai', "hungarian_exam"]:
@@ -60,7 +62,7 @@ def load_prompt(data_name, prompt_type):
         prompt_type = "tora"
 
     if prompt_type in ['cot', 'pal', 'tora']:
-        prompt_path = "./prompts/{}/{}.md".format(prompt_type, data_name)
+        prompt_path = "./prompts/{}/{}.md".format(prompt_type, ori_data_name)
         if not os.path.exists(prompt_path):
             prompt_path = "./prompts/{}.md".format(prompt_type)
         if os.path.exists(prompt_path):
@@ -72,6 +74,7 @@ def load_prompt(data_name, prompt_type):
     else:
         prompt = ""
     return prompt
+
 
 def construct_prompt(example, data_name, args):
     # Base models
@@ -118,12 +121,14 @@ def construct_prompt(example, data_name, args):
         raise NotImplementedError(args.prompt_type)
     return full_prompt
 
+
 key_map = {
     "gt": "Ground Truth",
     "pred": "Prediction",
     "gt_cot": "Reference CoT",
     "score": "Score",
 }
+
 
 def show_sample(sample, print_all_preds=False):
     print("=="*20)
