@@ -23,6 +23,7 @@ def parse_args():
     parser.add_argument("--data_names", default="gsm8k,math", type=str)
     parser.add_argument("--data_dir", default="./data", type=str)
     parser.add_argument("--model_name_or_path", default="gpt-4", type=str)
+    parser.add_argument("--use_ins", default=None, type=str)
     parser.add_argument("--output_dir", default="./output", type=str)
     parser.add_argument("--prompt_type", default="tool-integrated", type=str)
     parser.add_argument("--split", default="test", type=str)

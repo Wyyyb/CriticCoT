@@ -27,7 +27,7 @@ NUM_TEST_SAMPLE=10
 
 mkdir -p ${OUTPUT_DIR}
 
-python3 -u math_eval.py \
+python3 -u math_eval_debug.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \
     --output_dir ${OUTPUT_DIR} \
     --data_names ${DATA_NAMES} \
