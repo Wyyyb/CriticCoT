@@ -48,8 +48,8 @@ def prepare_data(data_name, args):
     examples = load_data(data_name, args.split, args.data_dir)
 
     # sample `num_test_sample` from dataset
-    if args.num_test_sample > 0:
-        examples = random.sample(examples, args.num_test_sample)
+    # if args.num_test_sample > 0:
+    #     examples = random.sample(examples, args.num_test_sample)
 
     # shuffle
     if args.shuffle:
@@ -183,8 +183,8 @@ def main(llm, tokenizer, data_name, args):
         # get all outputs
         prompts = [item[1] for item in current_prompts]
         if args.use_vllm:
-            # print("debug 186:", prompts)
-            # s = "" + input("enter")
+            print("debug 186:", prompts)
+            s = "" + input("enter")
             outputs = llm.generate(prompts, SamplingParams(
                             temperature=args.temperature,
                             top_p=args.top_p,
