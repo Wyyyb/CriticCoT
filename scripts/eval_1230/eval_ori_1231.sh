@@ -5,7 +5,7 @@ conda activate lf_yubo
 cd /gpfs/public/research/xy/yubowang/CriticCoT/math-evaluation-harness
 
 mkdir -p ../math_eval_result/eval_res_1231_ori/
-
+export CUDA_VISIBLE_DEVICES=0
 model_path="/gpfs/public/research/xy/yubowang/models/OLMo-2-1124-7B"
 output_dir="../math_eval_result/eval_res_1231_ori/ori_OLMo-2-1124-7B"
 bash scripts/run_eval_math.sh cot $model_path $output_dir
