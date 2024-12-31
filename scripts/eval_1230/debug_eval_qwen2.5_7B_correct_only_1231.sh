@@ -7,7 +7,7 @@ cd /gpfs/public/research/xy/yubowang/CriticCoT/math-evaluation-harness
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models"
 datasets="math"
 
-model_sub_dir="CriticCoT_correct_only_data_1228_test_1e_5/checkpoint-400"
+model_sub_dir="CriticCoT_correct_only_data_1228_test_1e_5/checkpoint-1200"
 model_path="${model_dir}/${model_sub_dir}"
 output_path="../math_eval_result/eval_res_1228/debug_qwen2.5_7B/"
 bash scripts/run_eval.sh cot $model_path $output_path $datasets
