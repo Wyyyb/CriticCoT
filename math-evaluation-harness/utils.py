@@ -47,9 +47,9 @@ def lower_keys(example):
     return new_example 
 
 
-def load_prompt(data_name, prompt_type):
-    ori_data_name = data_name
-    data_name = data_name.replace("_ins", "")
+def load_prompt(data_name, prompt_type, use_ins):
+    if not use_ins:
+        use_ins = data_name
     if data_name in ['gsm_hard', 'svamp', 'tabmwp', 'asdiv', 'mawps']:
         data_name = "gsm8k"
     if data_name in ['math_oai', "hungarian_exam"]:
@@ -62,7 +62,7 @@ def load_prompt(data_name, prompt_type):
         prompt_type = "tora"
 
     if prompt_type in ['cot', 'pal', 'tora']:
-        prompt_path = "./prompts/{}/{}.md".format(prompt_type, ori_data_name)
+        prompt_path = "./prompts/{}/{}.md".format(prompt_type, use_ins)
         if not os.path.exists(prompt_path):
             prompt_path = "./prompts/{}.md".format(prompt_type)
         if os.path.exists(prompt_path):
@@ -79,7 +79,7 @@ def load_prompt(data_name, prompt_type):
 def construct_prompt(example, data_name, args):
     # Base models
     if args.prompt_type in ["direct", "cot", "pal", "tool-integrated"]:
-        demo_prompt = load_prompt(data_name, args.prompt_type)
+        demo_prompt = load_prompt(data_name, args.prompt_type, args.use_ins)
         if args.prompt_type in ["direct", "cot"]:
             if data_name in ["minerva_math", "math", "math_oai", "mmlu_stem", "sat_math", "mathqa", "hungarian_exam"]:
                 context = f"Problem:\n{example['question']}\nSolution:"
