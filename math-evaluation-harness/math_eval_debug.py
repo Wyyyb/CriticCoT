@@ -193,8 +193,8 @@ def main(llm, tokenizer, data_name, args):
 
             outputs = sorted(outputs, key=lambda x: int(x.request_id))  # sort outputs by request_id
             outputs = [output.outputs[0].text for output in outputs]
-            # print("debug 194:", outputs)
-            # s = "" + input("enter")
+            print("debug 194:", outputs)
+            s = "" + input("enter")
         else:
             outputs = generate_completions(
                 model=llm,
@@ -220,8 +220,8 @@ def main(llm, tokenizer, data_name, args):
                 remain_codes.append(output)
             elif args.prompt_type == "cot":
                 end_prompts.append((i, query))
-                # print("debug 220:", query)
-                # s = input("enter")
+                print("debug 220:", query)
+                s = input("enter")
             elif ("boxed" not in output and output.endswith("```")):
                 program = extract_program(query)
                 remain_prompts.append((i, query))
@@ -256,8 +256,8 @@ def main(llm, tokenizer, data_name, args):
     for i in range(len(input_prompts)):
         _, end_prompt = end_prompts[i]
         code = end_prompt.split(input_prompts[i])[-1].strip()
-        # print("debug 253:", code)
-        # s = input("enter")
+        print("debug 253:", code)
+        s = input("enter")
         codes.append(code)
 
     # extract preds
