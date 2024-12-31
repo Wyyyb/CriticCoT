@@ -1,3 +1,5 @@
+Please solve the following mathematics problems step by step. Analyze the problem first, then derive the answer through clear reasoning.
+
 Problem:
 Find the domain of the expression $\\frac{\\sqrt{x-2}}{\\sqrt{5-x}}$.
 What of the following is the right choice? Explain your answer.
@@ -45,3 +47,5 @@ $$6y-9x=-\\frac{3}{2}a.$$Since we also know that $6y-9x=b$, we have
 
 $$-\\frac{3}{2}a=b\\Rightarrow\\frac{a}{b}=\\boxed{-\\frac{2}{3}}.$$
 Final Answer: The final answer is (A).
+
+Now solve the following problem:

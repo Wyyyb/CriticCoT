@@ -1,3 +1,5 @@
+Please solve the following mathematics problems step by step. Analyze the problem first, then derive the answer through clear reasoning.
+
 Question: There are 15 trees in the grove. Grove workers will plant trees in the grove today. After they are done, there will be 21 trees. How many trees did the grove workers plant today?
 Answer: There are 15 trees originally. Then there were 21 trees after some more were planted. So there must have been 21 - 15 = 6. The answer is 6.
 
@@ -28,3 +30,5 @@ Answer: Michael started with 58 golf balls. After losing 23 on tuesday, he had 5
 
 Question: Olivia has $23. She bought five bagels for $3 each. How much money does she have left?
 Answer: Olivia had 23 dollars. 5 bagels for 3 dollars each will be 5 x 3 = 15 dollars. So she has 23 - 15 dollars left. 23 - 15 is 8. The answer is 8.
+
+Now solve the following problem:
