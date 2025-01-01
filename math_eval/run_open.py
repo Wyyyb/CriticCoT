@@ -8,11 +8,13 @@ from prompt_utils import *
 from data_loader import BatchDatasetLoader
 from vllm import LLM, SamplingParams
 import os
+import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model", default='', type=str)
 parser.add_argument("--output", default='', type=str)
 parser.add_argument("--output_dir", default='', type=str)
+parser.add_argument("--summary_path", default='', type=str)
 parser.add_argument("--stem_flan_type", default='', choices=['', 'pot_prompt'], type=str)
 parser.add_argument("--dtype", default='bfloat16', type=str)
 parser.add_argument("--dataset", required=True, type=str)
@@ -97,7 +99,7 @@ if __name__ == "__main__":
     output_sub_dir = str(args.dataset)
     os.makedirs(os.path.join(args.output_dir, output_sub_dir), exist_ok=True)
     result_file_path = os.path.join(args.output_dir, output_sub_dir, "output.jsonl")
-    accu_file_path = os.path.join(args.output_dir, output_sub_dir, "summary.txt")
+    # accu_file_path = os.path.join(args.output_dir, output_sub_dir, "summary.txt")
 
     file_handle = open(result_file_path, 'w')
     loader = BatchDatasetLoader(args.dataset, -1)
@@ -142,5 +144,9 @@ if __name__ == "__main__":
     print('final accuracy: ', correct / (correct + wrong))
     file_handle.close()
 
-    with open(accu_file_path, "w") as fo:
-        fo.write('final accuracy: ' + str(correct / (correct + wrong)))
+    time_obj = time.localtime(time.time())
+    formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", time_obj)
+
+    summary_prefix = str(result_file_path) + str(formatted_time)
+    with open(args.summary_path, "w") as fo:
+        fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)))
