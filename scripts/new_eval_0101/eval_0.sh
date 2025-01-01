@@ -1,8 +1,8 @@
 #!/bin/bash
 set -ex
 
-#source /gpfs/public/research/miniconda3/bin/activate
-#conda activate lf_yubo
+source /gpfs/public/research/miniconda3/bin/activate
+conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0,1
 cd ../../math_eval
