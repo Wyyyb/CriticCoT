@@ -99,7 +99,7 @@ if __name__ == "__main__":
     output_sub_dir = str(args.dataset)
     os.makedirs(os.path.join(args.output_dir, output_sub_dir), exist_ok=True)
     result_file_path = os.path.join(args.output_dir, output_sub_dir, "output.jsonl")
-    # accu_file_path = os.path.join(args.output_dir, output_sub_dir, "summary.txt")
+    accu_file_path = os.path.join(args.output_dir, output_sub_dir, "summary.txt")
 
     file_handle = open(result_file_path, 'w')
     loader = BatchDatasetLoader(args.dataset, -1)
@@ -148,5 +148,10 @@ if __name__ == "__main__":
     formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", time_obj)
 
     summary_prefix = str(result_file_path) + str(formatted_time)
-    with open(args.summary_path, "w") as fo:
+    with open(args.summary_path, "a") as fo:
         fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)))
+
+    with open(accu_file_path, "w") as fo:
+        fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)))
+
+
