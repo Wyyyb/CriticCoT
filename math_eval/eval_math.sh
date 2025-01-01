@@ -3,9 +3,6 @@ set -ex
 model_sub_dir=$1
 output_dir=$2
 
-source /gpfs/public/research/miniconda3/bin/activate
-conda activate lf_yubo
-
 summary_path="../math_eval_result_new/summary.txt"
 datasets=("math" "gsm8k" "theoremqa" "mmlu_stem" "sat" "svamp")
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory"
