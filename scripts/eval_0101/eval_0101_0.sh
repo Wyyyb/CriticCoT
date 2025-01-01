@@ -12,20 +12,20 @@ mkdir -p ../math_eval_result/eval_res_0101/
 
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models"
 
-model_sub_dir="CriticCoT_correct_only_data_1231/checkpoint-723"
-model_path="${model_dir}/${model_sub_dir}"
-output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_correct_only_1231_ckpt_723/"
-bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
-
-model_sub_dir="CriticCoT_correct_only_data_1231/checkpoint-1446"
-model_path="${model_dir}/${model_sub_dir}"
-output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_correct_only_1231_ckpt_1446/"
-bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
-
-model_sub_dir="CriticCoT_correct_only_data_1231/checkpoint-2169"
-model_path="${model_dir}/${model_sub_dir}"
-output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_correct_only_1231_ckpt_2169/"
-bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
+#model_sub_dir="CriticCoT_correct_only_data_1231/checkpoint-723"
+#model_path="${model_dir}/${model_sub_dir}"
+#output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_correct_only_1231_ckpt_723/"
+#bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
+#
+#model_sub_dir="CriticCoT_correct_only_data_1231/checkpoint-1446"
+#model_path="${model_dir}/${model_sub_dir}"
+#output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_correct_only_1231_ckpt_1446/"
+#bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
+#
+#model_sub_dir="CriticCoT_correct_only_data_1231/checkpoint-2169"
+#model_path="${model_dir}/${model_sub_dir}"
+#output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_correct_only_1231_ckpt_2169/"
+#bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
 
 model_sub_dir="CriticCoT_critic_add_50k_correct_data_1231/checkpoint-1269"
 model_path="${model_dir}/${model_sub_dir}"
