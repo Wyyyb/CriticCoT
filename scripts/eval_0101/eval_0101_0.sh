@@ -37,10 +37,10 @@ model_path="${model_dir}/${model_sub_dir}"
 output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_critic_add_50k_correct_1231_ckpt_2538/"
 bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
 
-#model_sub_dir="CriticCoT_critic_add_50k_correct_data_1231/checkpoint-3807"
-#model_path="${model_dir}/${model_sub_dir}"
-#output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_critic_add_50k_correct_1231_ckpt_3807/"
-#bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
+model_sub_dir="CriticCoT_critic_add_50k_correct_data_1231/checkpoint-3807"
+model_path="${model_dir}/${model_sub_dir}"
+output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_critic_add_50k_correct_1231_ckpt_3807/"
+bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
 
 
 model_sub_dir="CriticCoT_critic_data_1231/checkpoint-1171"
@@ -55,10 +55,10 @@ output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_critic_1231_ckpt_2342/
 bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
 
 
-#model_sub_dir="CriticCoT_critic_data_1231/checkpoint-3513"
-#model_path="${model_dir}/${model_sub_dir}"
-#output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_critic_1231_ckpt_3513/"
-#bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
+model_sub_dir="CriticCoT_critic_data_1231/checkpoint-3513"
+model_path="${model_dir}/${model_sub_dir}"
+output_path="../math_eval_result/eval_res_0101/qwen2.5_7B_critic_1231_ckpt_3513/"
+bash scripts/run_eval.sh cot $model_path $output_path $datasets $use_ins
 
 
 
