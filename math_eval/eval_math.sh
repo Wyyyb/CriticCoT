@@ -18,3 +18,4 @@ for dataset in "${datasets[@]}"; do
         --form short \
         --output_dir $output_dir \
         --summary_path $summary_path
+done
