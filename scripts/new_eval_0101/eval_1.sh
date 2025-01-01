@@ -5,7 +5,7 @@ source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
-cd ../../math_eval
+cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval
 
 model_path="/gpfs/public/research/xy/yubowang/models/Qwen2.5-7B"
 output_dir="../math_eval_result_new/eval_res_0101_job/ori_qwen2.5_7B/"
