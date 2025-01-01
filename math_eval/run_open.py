@@ -99,7 +99,7 @@ if __name__ == "__main__":
     result_file_path = os.path.join(args.output_dir, output_sub_dir, "output.jsonl")
     accu_file_path = os.path.join(args.output_dir, output_sub_dir, "summary.txt")
 
-    file_handle = open(args.result_file_path, 'w')
+    file_handle = open(result_file_path, 'w')
     loader = BatchDatasetLoader(args.dataset, -1)
 
     questions, groundtruths, tasks = loader[0]
