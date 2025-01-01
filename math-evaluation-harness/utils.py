@@ -64,7 +64,7 @@ def load_prompt(data_name, prompt_type, use_ins):
         prompt_ins_path = "./prompts/{}/{}.md".format(prompt_type, data_name + "_ins")
         if use_ins == "ins" and os.path.exists(prompt_ins_path):
             prompt_path = prompt_ins_path
-        print("*****************using prompt file: ", prompt_path)
+        # print("*****************using prompt file: ", prompt_path)
         if not os.path.exists(prompt_path):
             prompt_path = "./prompts/{}.md".format(prompt_type)
         if os.path.exists(prompt_path):
