@@ -48,8 +48,6 @@ def lower_keys(example):
 
 
 def load_prompt(data_name, prompt_type, use_ins):
-    if use_ins == "":
-        use_ins = None
     if data_name in ['gsm_hard', 'svamp', 'tabmwp', 'asdiv', 'mawps']:
         data_name = "gsm8k"
     if data_name in ['math_oai', "hungarian_exam"]:
@@ -64,7 +62,7 @@ def load_prompt(data_name, prompt_type, use_ins):
     if prompt_type in ['cot', 'pal', 'tora']:
         prompt_path = "./prompts/{}/{}.md".format(prompt_type, data_name)
         prompt_ins_path = "./prompts/{}/{}.md".format(prompt_type, data_name + "_ins")
-        if use_ins is not None and os.path.exists(prompt_ins_path):
+        if use_ins == "ins" and os.path.exists(prompt_ins_path):
             prompt_path = prompt_ins_path
         print("*****************using prompt file: ", prompt_path)
         if not os.path.exists(prompt_path):

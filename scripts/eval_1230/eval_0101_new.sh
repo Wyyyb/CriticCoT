@@ -6,7 +6,7 @@ export CUDA_VISIBLE_DEVICES=1
 datasets="math,gsm8k,minerva_math,sat_math,mmlu_stem"
 
 cd /gpfs/public/research/xy/yubowang/CriticCoT/math-evaluation-harness
-use_ins=""
+use_ins="original"
 
 mkdir -p ../math_eval_result/eval_res_0101/
 
