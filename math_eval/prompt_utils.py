@@ -1,5 +1,6 @@
 import json
 
+
 def get_prompt(qas: list, form: str):
     if form == 'alpaca':
         prompt_no_input, prefix = get_alpaca_prompt(qas)
@@ -30,7 +31,7 @@ def get_prompt(qas: list, form: str):
     else:
         raise NotImplementedError(form)
 
-    return  prompt_no_input, prefix
+    return prompt_no_input, prefix
 
 
 def get_tulu_prompt(qas: list):
@@ -231,6 +232,28 @@ def get_examples(tasks: list[str], num_shots: int, pot_flag: str):
             "Bella has two times as many marbles as frisbees. She also has 20 more frisbees than deck cards. If she buys 2/5 times more of each item, what would be the total number of the items she will have if she currently has 60 marbles?",
             "When Bella buys 2/5 times more marbles, she'll have increased the number of marbles by 2/5*60 = 24\nThe total number of marbles she'll have is 60+24 = 84\nIf Bella currently has 60 marbles, and she has two times as many marbles as frisbees, she has 60/2 = 30 frisbees.\nIf Bella buys 2/5 times more frisbees, she'll have 2/5*30 = 12 more frisbees.\nThe total number of frisbees she'll have will increase to 30+12 = 42\nBella also has 20 more frisbees than deck cards, meaning she has 30-20 = 10 deck cards\nIf she buys 2/5 times more deck cards, she'll have 2/5*10 = 4 more deck cards.\nThe total number of deck cards she'll have is 10+4 = 14\nTogether, Bella will have a total of 14+42+84 = 140 items.\nThe answer is 140",
         ),
+    ]
+    examples['minerva_math'] = [
+        (
+            "Find the domain of the expression $\\frac{\\sqrt{x-2}}{\\sqrt{5-x}}$.}",
+            "The expressions inside each square root must be non-negative.\nTherefore, $x-2 \\ge 0$, so $x\\ge2$, and $5 - x \\ge 0$, so $x \\le 5$.\nAlso, the denominator cannot be equal to zero, so $5-x>0$, which gives $x<5$.\nTherefore, the domain of the expression is $\\boxed{[2,5)}$.\nFinal Answer: The final answer is $[2,5)$.",
+        ),
+        (
+            "If $\\det \\mathbf{A} = 2$ and $\\det \\mathbf{B} = 12,$ then find $\\det (\\mathbf{A} \\mathbf{B}).$",
+            "We have that $\\det (\\mathbf{A} \\mathbf{B}) = (\\det \\mathbf{A})(\\det \\mathbf{B}) = (2)(12) = \\boxed{24}.$\nFinal Answer: The final answer is $24$. "
+        ),
+        (
+            "Terrell usually lifts two 20-pound weights 12 times. If he uses two 15-pound weights instead, how many times must Terrell lift them in order to lift the same total weight?",
+            "If Terrell lifts two 20-pound weights 12 times, he lifts a total of $2\\cdot 12\\cdot20=480$ pounds of weight.  If he lifts two 15-pound weights instead for $n$ times, he will lift a total of $2\\cdot15\\cdot n=30n$ pounds of weight.  Equating this to 480 pounds, we can solve for $n$: \\begin{align*}\n30n&=480\\\\\n\\Rightarrow\\qquad n&=480/30=\\boxed{16}\n\\end{align*}\nFinal Answer: The final answer is $16$. "
+        ),
+        (
+            "If the system of equations\n\n\\begin{align*}\n6x-4y&=a,\\\\\n6y-9x &=b.\n\\end{align*}has a solution $(x, y)$ where $x$ and $y$ are both nonzero, find $\\frac{a}{b},$ assuming $b$ is nonzero.\n",
+            "If we multiply the first equation by $-\\frac{3}{2}$, we obtain\n\n$$6y-9x=-\\frac{3}{2}a.$$Since we also know that $6y-9x=b$, we have\n\n$$-\\frac{3}{2}a=b\\Rightarrow\\frac{a}{b}=\\boxed{-\\frac{2}{3}}.$$\nFinal Answer: The final answer is $-\\frac{2}{3}$. "
+        ),
+        (
+            "If $h(x) = 5-f(x)$ and $f(x) = x^2$, then what is $h(f(3))$?",
+            "Let's solve this step by step:\n\n1) First, let's find $f(3)$:\n * Since $f(x) = x^2$\n * $f(3) = 3^2 = 9$\n\n2) Now we need to find $h(f(3))$, which means $h(9)$:\n * We know $h(x) = 5-f(x)$\n * So $h(9) = 5-f(9)$\n * $f(9) = 9^2 = 81$\n * Therefore, $h(9) = 5-81 = -76$\n\nFinal Answer: The answer is $\boxed{-76}$."
+        )
     ]
     examples['theoremqa'] = [
         (

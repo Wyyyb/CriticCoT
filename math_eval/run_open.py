@@ -149,9 +149,9 @@ if __name__ == "__main__":
 
     summary_prefix = str(result_file_path) + str(formatted_time)
     with open(args.summary_path, "a") as fo:
-        fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)))
+        fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)) + "\n")
 
     with open(accu_file_path, "w") as fo:
-        fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)))
+        fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)) + "\n")
 
 
