@@ -193,15 +193,13 @@ def extract_math_answer(pred_str: str, answer_flag: bool):
             pred_str = pred_str.split(' ')[0]
         pred = pred_str
     else:
-        # desparate search over the last number
+        # desperate search over the last number
         preds = re.findall(r'-?\d*\.?\d+', pred_str)
         if(len(preds) >= 1):
             pred = preds[-1]
         else:
             pred = ''
-
-    pred=_strip_string(pred)
-
+    pred = _strip_string(pred)
     return pred
 
 
@@ -285,6 +283,8 @@ def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: s
         pred = pred.replace(",", "")
         pred = [delete_extra_zero(s.replace(",", "")) for s in re.findall(r'-?\d+/?\.?\d*', pred)]
     elif dataset in ("math",):
+        pred = [extract_math_answer(pred, answer_flag)]
+    elif dataset in ("minerva_math",):
         pred = [extract_math_answer(pred, answer_flag)]
     elif "gpqa" in dataset:
         tmp = re.findall(r'\b(A|B|C|D)\b', pred.upper())

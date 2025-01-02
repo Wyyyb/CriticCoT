@@ -123,10 +123,13 @@ if __name__ == "__main__":
     for (question, output, answer, groundtruth), task in zip(returned_values, tasks):
         if isinstance(groundtruth, str):
             groundtruth = [groundtruth]
+        is_correct = None
         if utils.compare_answer_with_groundtruth(answer, *groundtruth):
             correct += 1
+            is_correct = "correct"
         else:
             wrong += 1
+            is_correct = "incorrect"
 
         if args.print:
             print(answer, '#', groundtruth, '#', correct / (correct + wrong))
@@ -136,7 +139,8 @@ if __name__ == "__main__":
             'correct': groundtruth,
             'solution': output,
             'pred': answer,
-            'task': task
+            'task': task,
+            'is_correct': is_correct
         }
 
         file_handle.write(json.dumps(example) + '\n')
@@ -147,11 +151,11 @@ if __name__ == "__main__":
     time_obj = time.localtime(time.time())
     formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", time_obj)
 
-    summary_prefix = str(result_file_path) + str(formatted_time)
+    summary_prefix = str(result_file_path) + " " + str(formatted_time)
     with open(args.summary_path, "a") as fo:
-        fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)) + "\n")
+        fo.write(summary_prefix + ' Final Accuracy: ' + str(correct / (correct + wrong)) + "\n")
 
     with open(accu_file_path, "w") as fo:
-        fo.write(summary_prefix + '    Final Accuracy: ' + str(correct / (correct + wrong)) + "\n")
+        fo.write(summary_prefix + ' Final Accuracy: ' + str(correct / (correct + wrong)) + "\n")
 
 
