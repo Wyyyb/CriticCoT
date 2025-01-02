@@ -387,7 +387,7 @@ def compare_answer_with_groundtruth(answer: str, groundtruth_str: str, groundtru
         return groundtruth_str.lower() in answer.lower()
     # elif answer.lower() == groundtruth_str.lower():
     #     return True
-    elif answer.lower().replace(" ", "") == groundtruth_str.lower().replace(" ", ""):
+    elif answer.lower().replace(" ", "").replace("^\\circ", "") == groundtruth_str.lower().replace(" ", "").replace("^\\circ", ""):
         return True
     elif groundtruth_num is not None:
         if isinstance(groundtruth_num, (int, float)):

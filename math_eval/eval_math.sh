@@ -4,7 +4,7 @@ model_path=$1
 output_dir=$2
 
 summary_path="../math_eval_result_new/summary_0102.txt"
-#datasets=("minerva_math" "math" "gsm8k" "theoremqa" "mmlu_stem" "sat" "svamp")
+#datasets=("minerva_math" "math" "gsm8k" "theoremqa" "mmlu_stem" "sat")
 datasets=("minerva_math" "math")
 
 for dataset in "${datasets[@]}"; do
