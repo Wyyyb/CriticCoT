@@ -12,6 +12,8 @@ def get_prompt(qas: list, form: str):
         prompt_no_input, prefix = get_vicuna_prompt(qas)
     elif form == 'short':
         prompt_no_input, prefix = get_short_prompt(qas)
+    elif form == 'few-shot':
+        prompt_no_input, prefix = get_few_shot_prompt(qas)
     elif form == 'short:step':
         prompt_no_input, prefix = get_short_step_prompt(qas)
     elif form == 'tulu':
@@ -163,6 +165,17 @@ def get_llama3_prompt(qas: list):
     return tmp, prefix
 
 
+def get_few_shot_prompt(qas: list):
+    tmp = "You are supposed to provide a solution to a given problem.\n"
+    example_id = 1
+    for q, a in qas:
+        tmp += f'\nExample {str(example_id)}:\n' + 'Problem:\n{query}\nSolution:\n{response}\n'.format(query=q, response=a)
+        example_id += 1
+    prefix = '\nNow solve this problem:\n' + 'Problem:\n{query}\nSolution:\n'
+
+    return tmp, prefix
+
+
 def get_short_prompt(qas: list):
     tmp = "You are supposed to provide a solution to a given problem.\n\n"
     for q, a in qas:
@@ -252,7 +265,7 @@ def get_examples(tasks: list[str], num_shots: int, pot_flag: str):
         ),
         (
             "If $h(x) = 5-f(x)$ and $f(x) = x^2$, then what is $h(f(3))$?",
-            "Let's solve this step by step:\n\n1) First, let's find $f(3)$:\n * Since $f(x) = x^2$\n * $f(3) = 3^2 = 9$\n\n2) Now we need to find $h(f(3))$, which means $h(9)$:\n * We know $h(x) = 5-f(x)$\n * So $h(9) = 5-f(9)$\n * $f(9) = 9^2 = 81$\n * Therefore, $h(9) = 5-81 = -76$\n\nFinal Answer: The answer is $\boxed{-76}$."
+            "Let's solve this step by step:\n\n1) First, let's find $f(3)$:\n * Since $f(x) = x^2$\n * $f(3) = 3^2 = 9$\n\n2) Now we need to find $h(f(3))$, which means $h(9)$:\n * We know $h(x) = 5-f(x)$\n * So $h(9) = 5-f(9)$\n * $f(9) = 9^2 = 81$\n * Therefore, $h(9) = 5-81 = -76$\n\nFinal Answer: The answer is $\\boxed{-76}$."
         )
     ]
     examples['theoremqa'] = [

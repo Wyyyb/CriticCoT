@@ -184,7 +184,7 @@ def find_box(pred_str: str):
     return a
 
 
-def extract_math_answer(pred_str: str, answer_flag: bool):
+def extract_math_answer_bk(pred_str: str, answer_flag: bool):
     if 'boxed' in pred_str:
         pred = find_box(pred_str)
     elif answer_flag:
@@ -200,6 +200,62 @@ def extract_math_answer(pred_str: str, answer_flag: bool):
         else:
             pred = ''
     pred = _strip_string(pred)
+    return pred
+
+
+def extract_math_answer(pred_str: str, answer_flag: bool):
+    def clean_math_string(s: str) -> str:
+        patterns_to_remove = [
+            r'\.$',  # 结尾的点号
+            r'\$',  # LaTeX数学模式符号
+            r'\s*\[END\].*$',  # [END]及其后的内容
+            r'Conclusion:.*$',  # Conclusion及其后的内容
+            r'The answer is\s*',  # "The answer is"文本
+            r'\s+',  # 多余空白
+        ]
+
+        result = s
+        for pattern in patterns_to_remove:
+            result = re.sub(pattern, '', result, flags=re.IGNORECASE | re.DOTALL)
+        return result.strip()
+
+    def extract_last_math_expression(text: str) -> str:
+        # 查找最后一个数学表达式
+        patterns = [
+            r'\\frac{[^}]+}{[^}]+}',  # 分数表达式
+            r'\\sqrt{[^}]+}',  # 根号表达式
+            r'-?\d*\.?\d+',  # 小数或整数
+        ]
+
+        # 如果有"The answer is"，只看其后的内容
+        answer_match = re.search(r'The answer is\s*([^\[\.]*)', text, re.IGNORECASE)
+        if answer_match:
+            text = answer_match.group(1)
+
+        # 在等号后查找
+        if '=' in text:
+            text = text.split('=')[-1]
+
+        # 找到最后一个匹配的表达式
+        last_expr = None
+        for pattern in patterns:
+            matches = list(re.finditer(pattern, text))
+            if matches:
+                # 更新last_expr，但只有当找到的表达式在当前last_expr之后时
+                current_match = matches[-1]
+                if last_expr is None or current_match.start() > last_expr[1]:
+                    last_expr = (current_match.group(0), current_match.start())
+
+        return last_expr[0] if last_expr else ''
+
+    # 主要逻辑
+    if 'boxed' in pred_str:
+        pred = find_box(pred_str)
+    else:
+        pred = extract_last_math_expression(pred_str)
+
+    # 清理并返回结果
+    pred = clean_math_string(pred)
     return pred
 
 
@@ -282,9 +338,7 @@ def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: s
     elif dataset in ("gsm8k", "svamp", "deepmind", "simuleq"):
         pred = pred.replace(",", "")
         pred = [delete_extra_zero(s.replace(",", "")) for s in re.findall(r'-?\d+/?\.?\d*', pred)]
-    elif dataset in ("math",):
-        pred = [extract_math_answer(pred, answer_flag)]
-    elif dataset in ("minerva_math",):
+    elif dataset in ("math", "minerva_math"):
         pred = [extract_math_answer(pred, answer_flag)]
     elif "gpqa" in dataset:
         tmp = re.findall(r'\b(A|B|C|D)\b', pred.upper())
@@ -331,7 +385,9 @@ def compare_answer_with_groundtruth(answer: str, groundtruth_str: str, groundtru
 
     if groundtruth_str.lower() in ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']:
         return groundtruth_str.lower() in answer.lower()
-    elif answer.lower() == groundtruth_str.lower():
+    # elif answer.lower() == groundtruth_str.lower():
+    #     return True
+    elif answer.lower().replace(" ", "") == groundtruth_str.lower().replace(" ", ""):
         return True
     elif groundtruth_num is not None:
         if isinstance(groundtruth_num, (int, float)):

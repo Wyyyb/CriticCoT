@@ -136,7 +136,7 @@ if __name__ == "__main__":
 
         example = {
             'question': question,
-            'correct': groundtruth,
+            'groundtruth': groundtruth,
             'solution': output,
             'pred': answer,
             'task': task,

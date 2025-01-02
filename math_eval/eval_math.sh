@@ -13,7 +13,7 @@ for dataset in "${datasets[@]}"; do
         --model $model_path \
         --shots 5 \
         --dataset $dataset \
-        --form short \
+        --form few-shot \
         --output_dir $output_dir \
         --summary_path $summary_path
 done
