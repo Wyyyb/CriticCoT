@@ -26,6 +26,8 @@ unit_texts.extend([t + "s" for t in unit_texts])
 
 
 def extract_answer_0103(data_name, pred_str):
+    input("debug enter:")
+    print("pred_str", pred_str[: 100])
     if data_name in ["mmlu_stem", "sat_math", "mathqa", "mmlu-pro"]:
         return extract_multi_choice_answer(pred_str)
 
@@ -78,6 +80,7 @@ def extract_answer_0103(data_name, pred_str):
     if pred != "" and pred[-1] == "/":
         pred = pred[:-1]
     pred = strip_string(pred)
+    print("pred result", pred)
     return pred
 
 
