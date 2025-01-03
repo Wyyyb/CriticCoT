@@ -44,7 +44,7 @@ def run_question_answer(questions: list, groundtruths: list, tasks: list, collec
 
     outputs = llm.generate(input_strs[:5], sampling_params)
     outputs = [output.outputs[0].text for output in outputs]
-
+    print("line 47 debug", outputs[0])
     # We need to collect the values and possibly the rerun questions;
     returned_value = []
     rerun_questions = []
@@ -54,6 +54,7 @@ def run_question_answer(questions: list, groundtruths: list, tasks: list, collec
             output = output.split("### Instruction")[0]
             tmp = utils.execute_with_timeout(output)
             tmp = 'The answer is' + ' ' + tmp
+            print("line 57 output", output)
             answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), tmp)
         else:
             print("line 59 output", output)
