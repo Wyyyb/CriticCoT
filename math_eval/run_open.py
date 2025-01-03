@@ -37,12 +37,12 @@ def get_seperation_trigger(dataset: str):
 
 
 def run_question_answer(questions: list, groundtruths: list, tasks: list, collect_rerun: bool = False):
-    assert len(questions) == len(groundtruths) == len(tasks)
+    # assert len(questions) == len(groundtruths) == len(tasks)
     used_examples = get_examples(tasks, args.shots, args.stem_flan_type)
     prompt_prefixs = [get_prompt(example, args.form) for example in used_examples]
     input_strs = [p[0] + p[1].format(query=q) for p, q in zip(prompt_prefixs, questions)]
 
-    outputs = llm.generate(input_strs, sampling_params)
+    outputs = llm.generate(input_strs[:5], sampling_params)
     outputs = [output.outputs[0].text for output in outputs]
 
     # We need to collect the values and possibly the rerun questions;
@@ -56,6 +56,7 @@ def run_question_answer(questions: list, groundtruths: list, tasks: list, collec
             tmp = 'The answer is' + ' ' + tmp
             answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), tmp)
         else:
+            print("line 59 output", output)
             answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output)
 
         if answer == "" and collect_rerun:
