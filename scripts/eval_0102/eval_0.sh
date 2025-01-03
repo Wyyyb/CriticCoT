@@ -29,8 +29,6 @@ model_path="${model_dir}/${model_sub_dir}"
 bash eval_math.sh $model_path $output_dir
 
 
-
-
 model_sub_dir="output_models/CriticCoT_critic_add_50k_correct_data_1231/checkpoint-1269"
 output_dir="../math_eval_result_new/eval_res_0102/qwen2.5_7B_critic_add_50k_correct_1231_ckpt_1269/"
 model_path="${model_dir}/${model_sub_dir}"
