@@ -50,15 +50,16 @@ def run_question_answer(questions: list, groundtruths: list, tasks: list, collec
     rerun_questions = []
     rerun_groundtruths = []
     for output, question, groundtruth in zip(outputs, questions, groundtruths):
-        if 'print(' in output:
-            output = output.split("### Instruction")[0]
-            tmp = utils.execute_with_timeout(output)
-            tmp = 'The answer is' + ' ' + tmp
-            print("line 57 output", output)
-            answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), tmp)
-        else:
-            print("line 59 output", output)
-            answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output)
+        answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output)
+        # if 'print(' in output:
+        #     output = output.split("### Instruction")[0]
+        #     tmp = utils.execute_with_timeout(output)
+        #     tmp = 'The answer is' + ' ' + tmp
+        #     print("line 57 output", tmp)
+        #     answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), tmp)
+        # else:
+        #     print("line 59 output", output)
+        #     answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output)
 
         if answer == "" and collect_rerun:
             rerun_questions.append(utils.remove_flan_tag(question, args.stem_flan_type))
