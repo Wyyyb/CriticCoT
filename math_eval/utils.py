@@ -3,6 +3,7 @@ from latex2sympy2 import latex2sympy
 from code_utils import CodeExecutor
 from number_utils import *
 import warnings
+from extract_answer_0103 import extract_answer_0103
 warnings.filterwarnings('ignore')
 
 
@@ -339,7 +340,8 @@ def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: s
         pred = pred.replace(",", "")
         pred = [delete_extra_zero(s.replace(",", "")) for s in re.findall(r'-?\d+/?\.?\d*', pred)]
     elif dataset in ("math", "minerva_math"):
-        pred = [extract_math_answer(pred, answer_flag)]
+        # pred = [extract_math_answer(pred, answer_flag)]
+        pred = [extract_answer_0103(dataset, pred)]
     elif "gpqa" in dataset:
         tmp = re.findall(r'\b(A|B|C|D)\b', pred.upper())
         if tmp:

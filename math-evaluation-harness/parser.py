@@ -221,14 +221,14 @@ def extract_multi_choice_answer(pred_str):
     if 'Problem:' in pred_str:
         pred_str = pred_str.split("Problem:", 1)[0]
     pred_str = pred_str.replace("choice is", "answer is")
-    patt = regex.search(r"answer is \(?(?P<ans>[abcde])\)?", pred_str.lower())
+    patt = regex.search(r"answer is \(?(?P<ans>[abcdefghij])\)?", pred_str.lower())
     if patt is not None:
         return patt.group('ans').upper()
     return 'placeholder'
 
 
 def extract_answer(pred_str, data_name):
-    if data_name in ["mmlu_stem", "sat_math", "mathqa"]:
+    if data_name in ["mmlu_stem", "sat_math", "mathqa", "mmlu-pro"]:
         return extract_multi_choice_answer(pred_str)
 
     if 'final answer is $' in pred_str and '$. I hope' in pred_str:
@@ -267,7 +267,8 @@ def extract_answer(pred_str, data_name):
         pred = re.findall(pattern, pred_str.replace(",", ""))
         if(len(pred) >= 1):
             pred = pred[-1]
-        else: pred = ''
+        else:
+            pred = ''
 
     # multiple line
     # pred = pred.split("\n")[0]
