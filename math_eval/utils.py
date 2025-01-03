@@ -341,7 +341,7 @@ def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: s
         pred = [delete_extra_zero(s.replace(",", "")) for s in re.findall(r'-?\d+/?\.?\d*', pred)]
     elif dataset in ("math", "minerva_math"):
         # pred = [extract_math_answer(pred, answer_flag)]
-        print("using extract_answer_0103")
+        # print("using extract_answer_0103")
         pred = [extract_answer_0103(dataset, pred)]
     elif "gpqa" in dataset:
         tmp = re.findall(r'\b(A|B|C|D)\b', pred.upper())
