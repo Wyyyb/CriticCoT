@@ -5,7 +5,7 @@ source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3
-cd ../../math_eval
+cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval
 
 
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory"
