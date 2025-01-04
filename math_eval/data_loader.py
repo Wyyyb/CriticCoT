@@ -242,7 +242,7 @@ def data_reader(dataset: str):
                 questions.append(line['question'])
                 answers.append(line['answer'])
                 tasks.append(line['task'])
-    elif 'mmlu' in dataset:
+    elif 'mmlu' in dataset and "mmlu-pro" not in dataset:
         with open(f'dataset/mmlu/{dataset.split("_")[1]}.json') as f:
             json_data = json.load(f)
             for line in json_data:
