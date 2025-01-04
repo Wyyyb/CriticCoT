@@ -250,7 +250,7 @@ def main():
     #     writer.writerow(record)
     time_obj = time.localtime(time.time())
     formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", time_obj)
-    result_dir = os.path.join(args.save_dir, "mmlu_pro")
+    result_dir = os.path.join(args.save_dir, "mmlu-pro")
     os.makedirs(result_dir, exist_ok=True)
     summary_prefix = str(result_dir) + " " + str(formatted_time)
     with open(global_record_file, 'a', newline='') as file:
@@ -275,13 +275,13 @@ if __name__ == "__main__":
     os.makedirs(args.save_dir, exist_ok=True)
     global_record_file = args.global_record_file
     save_result_dir = os.path.join(
-        args.save_dir, "/".join(args_generate_path(args))
+        args.save_dir, "mmlu-pro"
     )
     file_prefix = "-".join(args_generate_path(args))
     timestamp = time.time()
     time_str = time.strftime('%m-%d_%H-%M', time.localtime(timestamp))
     file_name = f"{file_prefix}_{time_str}_summary.txt"
-    summary_path = os.path.join(args.save_dir, "summary", file_name)
+    summary_path = os.path.join(args.save_dir, "mmlu-pro-summary", file_name)
     os.makedirs(os.path.join(args.save_dir, "summary"), exist_ok=True)
     os.makedirs(save_result_dir, exist_ok=True)
     # save_log_dir = os.path.join(args.save_dir, "log")
