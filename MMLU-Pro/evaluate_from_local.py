@@ -281,7 +281,7 @@ if __name__ == "__main__":
     timestamp = time.time()
     time_str = time.strftime('%m-%d_%H-%M', time.localtime(timestamp))
     file_name = f"{file_prefix}_{time_str}_summary.txt"
-    summary_path = os.path.join(args.save_dir, "mmlu-pro-summary", file_name)
+    summary_path = os.path.join(args.save_dir, "mmlu-pro-summary.txt")
     os.makedirs(os.path.join(args.save_dir, "summary"), exist_ok=True)
     os.makedirs(save_result_dir, exist_ok=True)
     # save_log_dir = os.path.join(args.save_dir, "log")
