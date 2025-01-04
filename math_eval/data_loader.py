@@ -173,6 +173,30 @@ def data_reader(dataset: str):
                 questions.append(json_res["problem"].strip())
                 answers.append(json_res["answer"])
                 tasks.append(dataset)
+    elif dataset == 'aime':
+        with open('dataset/aime/aime.jsonl', 'r') as f:
+            lines = f.readlines()
+            for line in lines:
+                json_res = decoder.raw_decode(line)[0]
+                questions.append(json_res["problem"].strip())
+                answers.append(json_res["answer"])
+                tasks.append(dataset)
+    elif dataset == 'aime_24':
+        with open('dataset/aime_24/aime_24.jsonl', 'r') as f:
+            lines = f.readlines()
+            for line in lines:
+                json_res = decoder.raw_decode(line)[0]
+                questions.append(json_res["problem"].strip())
+                answers.append(json_res["answer"])
+                tasks.append(dataset)
+    elif dataset == 'OlympiadBench':
+        with open('dataset/OlympiadBench/OlympiadBench.jsonl', 'r') as f:
+            lines = f.readlines()
+            for line in lines:
+                json_res = decoder.raw_decode(line)[0]
+                questions.append(json_res["question"].strip())
+                answers.append(json_res["final_answer"][0])
+                tasks.append(dataset)
     elif dataset == "gsm8k":
         with open('dataset/gsm8k/gsm8k.jsonl') as f:
             lines = f.readlines()

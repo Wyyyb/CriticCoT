@@ -282,6 +282,7 @@ def get_examples(tasks: list[str], num_shots: int, pot_flag: str):
         )
     ]
     examples['aime'] = examples['math_500']
+    examples['aime_24'] = examples['math_500']
     examples['OlympiadBench'] = examples['math_500']
     examples['theoremqa'] = [
         (
