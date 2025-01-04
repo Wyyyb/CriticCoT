@@ -14,8 +14,8 @@ def get_prompt(qas: list, form: str):
         prompt_no_input, prefix = get_short_prompt(qas)
     elif form == 'few-shot':
         prompt_no_input, prefix = get_few_shot_prompt(qas)
-    elif form == 'few-shot-ins':
-        prompt_no_input, prefix = get_few_shot_ins_prompt(qas)
+    elif form == 'few-shot-wo-ins':
+        prompt_no_input, prefix = get_few_shot_wo_ins_prompt(qas)
     elif form == 'short:step':
         prompt_no_input, prefix = get_short_step_prompt(qas)
     elif form == 'tulu':
@@ -167,7 +167,7 @@ def get_llama3_prompt(qas: list):
     return tmp, prefix
 
 
-def get_few_shot_ins_prompt(qas: list):
+def get_few_shot_prompt(qas: list):
     tmp = "You are supposed to provide a solution to a given problem.\n"
     example_id = 1
     for q, a in qas:
@@ -178,7 +178,7 @@ def get_few_shot_ins_prompt(qas: list):
     return tmp, prefix
 
 
-def get_few_shot_prompt(qas: list):
+def get_few_shot_wo_ins_prompt(qas: list):
     tmp = ""
     example_id = 1
     for q, a in qas:
