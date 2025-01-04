@@ -2,8 +2,12 @@ set -ex
 
 model_path=$1
 output_dir=$2
+summary_path=$3
 
-summary_path="../math_eval_result_new/summary_0105_full.txt"
+cd /gpfs/public/research/xy/yubowang/CriticCoT/MMLU-Pro
+bash mmlu-pro-eval.sh $model_path $output_dir $summary_path
+cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval
+
 datasets=("math_500" "math" "gsm8k" "theoremqa" "mmlu_stem" "sat" "aime" "aime_24" "OlympiadBench")
 # datasets=("math_500" "math")
 
@@ -17,3 +21,4 @@ for dataset in "${datasets[@]}"; do
         --output_dir $output_dir \
         --summary_path $summary_path
 done
+
