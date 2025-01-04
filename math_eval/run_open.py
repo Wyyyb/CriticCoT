@@ -37,6 +37,7 @@ def get_seperation_trigger(dataset: str):
 
 
 def run_question_answer(questions: list, groundtruths: list, tasks: list, collect_rerun: bool = False):
+    print("args.dataset", args.dataset)
     assert len(questions) == len(groundtruths) == len(tasks)
     used_examples = get_examples(tasks, args.shots, args.stem_flan_type)
     prompt_prefixs = [get_prompt(example, args.form) for example in used_examples]

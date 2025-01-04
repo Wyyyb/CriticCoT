@@ -340,7 +340,7 @@ def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: s
     elif dataset in ("gsm8k", "svamp", "deepmind", "simuleq"):
         pred = pred.replace(",", "")
         pred = [delete_extra_zero(s.replace(",", "")) for s in re.findall(r'-?\d+/?\.?\d*', pred)]
-    elif dataset in ("math", "minerva_math" "math_500"):
+    elif dataset in ("math", "minerva_math", "math_500"):
         # pred = [extract_math_answer(pred, answer_flag)]
         # print("using extract_answer_0103")
         # pred = [extract_answer_0103(dataset, pred)]
@@ -356,7 +356,7 @@ def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: s
     elif "bbh" in dataset:
         pred = [pred]
     else:
-        raise ValueError("dataset is not properly defined ...")
+        raise ValueError("dataset is not properly defined ...", dataset)
 
     # If there is no candidate in list, null is set.
     if len(pred) == 0:
