@@ -4,6 +4,7 @@ from code_utils import CodeExecutor
 from number_utils import *
 import warnings
 from extract_answer_0103 import extract_answer_0103
+from extract_answer_0104 import extract_answer as extract_answer_0104
 warnings.filterwarnings('ignore')
 
 
@@ -339,10 +340,11 @@ def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: s
     elif dataset in ("gsm8k", "svamp", "deepmind", "simuleq"):
         pred = pred.replace(",", "")
         pred = [delete_extra_zero(s.replace(",", "")) for s in re.findall(r'-?\d+/?\.?\d*', pred)]
-    elif dataset in ("math", "minerva_math"):
+    elif dataset in ("math", "minerva_math" "math_500"):
         # pred = [extract_math_answer(pred, answer_flag)]
         # print("using extract_answer_0103")
-        pred = [extract_answer_0103(dataset, pred)]
+        # pred = [extract_answer_0103(dataset, pred)]
+        pred = [extract_answer_0104(pred)]
     elif "gpqa" in dataset:
         tmp = re.findall(r'\b(A|B|C|D)\b', pred.upper())
         if tmp:

@@ -165,8 +165,8 @@ def data_reader(dataset: str):
             questions.append(d['question'])
             answers.append(d['answer'])
             tasks.append(dataset)
-    elif dataset == 'minerva_math':
-        with open('dataset/minerva_math/minerva_math.jsonl', 'r') as f:
+    elif dataset == 'math_500':
+        with open('dataset/math_500/math_500.jsonl', 'r') as f:
             lines = f.readlines()
             for line in lines:
                 json_res = decoder.raw_decode(line)[0]
