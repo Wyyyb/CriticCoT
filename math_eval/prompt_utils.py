@@ -281,6 +281,8 @@ def get_examples(tasks: list[str], num_shots: int, pot_flag: str):
             "Let's solve this step by step:\n\n1) First, let's find $f(3)$:\n * Since $f(x) = x^2$\n * $f(3) = 3^2 = 9$\n\n2) Now we need to find $h(f(3))$, which means $h(9)$:\n * We know $h(x) = 5-f(x)$\n * So $h(9) = 5-f(9)$\n * $f(9) = 9^2 = 81$\n * Therefore, $h(9) = 5-81 = -76$\n\nFinal Answer: The answer is $\\boxed{-76}$."
         )
     ]
+    examples['aime'] = examples['math_500']
+    examples['OlympiadBench'] = examples['math_500']
     examples['theoremqa'] = [
         (
             'In a 10 Gigabit Ethernet network, the average size of a frame is 1500 bytes. If a burst of noise lasting 1ms interrupts the network, how many frames are lost?',
