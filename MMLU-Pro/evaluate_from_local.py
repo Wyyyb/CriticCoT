@@ -263,7 +263,7 @@ def main():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--ntrain", "-k", type=int, default=5)
-    parser.add_argument("--selected_subjects", "-sub", type=str, default="math")
+    parser.add_argument("--selected_subjects", "-sub", type=str, default="all")
     parser.add_argument("--save_dir", "-s", type=str, default="results")
     parser.add_argument("--global_record_file", "-grf", type=str,
                         default="eval_record_collection.csv")
