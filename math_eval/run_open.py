@@ -52,8 +52,14 @@ def run_question_answer(questions: list, groundtruths: list, tasks: list, collec
     returned_value = []
     rerun_questions = []
     rerun_groundtruths = []
+
     for output, question, groundtruth in zip(outputs, questions, groundtruths):
-        answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output)
+        answer_type = None
+        if args.dataset == "theoremqa":
+            if groundtruth[0] in ("True", "False"):
+                answer_type = "bool"
+                print("bool gt:", groundtruth)
+        answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output, answer_type)
         # if 'print(' in output:
         #     output = output.split("### Instruction")[0]
         #     tmp = utils.execute_with_timeout(output)

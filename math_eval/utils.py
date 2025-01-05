@@ -302,7 +302,7 @@ def test_extraction(pred):
     print(orig, ' -> ', pred)
 
 
-def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: str):
+def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: str, answer_type=None):
     pred = pred.strip('\n')
 
     # Determine if this is ICL, if so, use \n\n to split the first chunk.
