@@ -267,7 +267,7 @@ def extract_theoremqa_answer(pred: str, answer_flag: bool = True, answer_type=No
     elif answer_type == "bool" and any([option in pred.lower() for option in ['no', 'false']]):
         pred = 'False'
     else:
-        return extract_answer_0104(pred, answer_flag)
+        return extract_answer_0104(pred)
     # elif any([option in pred.lower() for option in ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']]):
     #     pass
     # else:
