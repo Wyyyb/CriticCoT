@@ -7,3 +7,6 @@ huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-base --l
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /gpfs/public/research/xy/yubowang/models/Qwen2.5-Math-7B
 
+huggingface-cli download --repo-type model mistralai/Mathstral-7B-v0.1 --local-dir /gpfs/public/research/xy/yubowang/models/Mathstral-7B-v0.1
+
+
