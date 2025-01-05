@@ -58,7 +58,7 @@ def run_question_answer(questions: list, groundtruths: list, tasks: list, collec
         if args.dataset == "theoremqa":
             if groundtruth[0] in ("True", "False"):
                 answer_type = "bool"
-                print("bool gt:", groundtruth)
+                # print("bool gt:", groundtruth)
         answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output, answer_type)
         # if 'print(' in output:
         #     output = output.split("### Instruction")[0]
