@@ -261,12 +261,14 @@ def extract_math_answer(pred_str: str, answer_flag: bool):
     return pred
 
 
-def extract_theoremqa_answer(pred: str, answer_flag: bool = True):
-    if any([option in pred.lower() for option in ['yes', 'true']]):
+def extract_theoremqa_answer(pred: str, answer_flag: bool = True, answer_type=None):
+    if answer_type == "bool" and any([option in pred.lower() for option in ['yes', 'true']]):
         pred = 'True'
-    elif any([option in pred.lower() for option in ['no', 'false']]):
+    elif answer_type == "bool" and any([option in pred.lower() for option in ['no', 'false']]):
         pred = 'False'
-    elif any([option in pred.lower() for option in ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']]):
+    else:
+        return extract_answer_0104(pred, answer_flag)
+    if any([option in pred.lower() for option in ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']]):
         pass
     else:
         # Some of the models somehow get used to boxed output from pre-training
@@ -352,7 +354,7 @@ def answer_clean(dataset: str, direct_answer_trigger_for_fewshot: tuple, pred: s
         else:
             pred = [pred.strip().strip('.')]
     elif dataset in ("theoremqa",):
-        pred = [extract_theoremqa_answer(pred, answer_flag)]
+        pred = [extract_theoremqa_answer(pred, answer_flag, answer_type)]
     elif "bbh" in dataset:
         pred = [pred]
     else:
