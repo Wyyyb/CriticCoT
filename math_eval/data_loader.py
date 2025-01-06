@@ -182,7 +182,7 @@ def data_reader(dataset: str):
                 answers.append(json_res["answer"])
                 tasks.append(dataset)
     elif dataset == 'aime_24':
-        with open('dataset/aime_24/aime_24.jsonl', 'r') as f:
+        with open('dataset/aime_24/aime_24.jsonl', 'r', encoding='utf-8') as f:
             lines = f.readlines()
             for line in lines:
                 json_res = decoder.raw_decode(line)[0]
