@@ -11,6 +11,8 @@ from data_loader import BatchDatasetLoader
 from vllm import LLM, SamplingParams
 import os
 import time
+# import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model", default='', type=str)
@@ -21,7 +23,7 @@ parser.add_argument("--stem_flan_type", default='', choices=['', 'pot_prompt'], 
 parser.add_argument("--dtype", default='bfloat16', type=str)
 parser.add_argument("--dataset", required=True, type=str)
 parser.add_argument("--form", default='alpaca', type=str)
-parser.add_argument("--shots", default=0, type=int)
+parser.add_argument("--shots", default=5, type=int)
 parser.add_argument("--print", action='store_true', default=False)
 parser.add_argument("--model_max_length", default=2048, type=int)
 parser.add_argument("--cot_backup", action='store_true', default=False)

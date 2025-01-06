@@ -11,6 +11,7 @@ from data_loader import BatchDatasetLoader
 from vllm import LLM, SamplingParams
 import os
 import time
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model", default='', type=str)
