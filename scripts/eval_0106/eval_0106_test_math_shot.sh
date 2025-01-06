@@ -4,11 +4,11 @@ set -ex
 source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
 
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval
 
 
-summary_path="../math_eval_result_0106/summary_0106_theoremqa.txt"
+summary_path="../math_eval_result_0106/summary_0106_math_n_shot.txt"
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory"
 
 
