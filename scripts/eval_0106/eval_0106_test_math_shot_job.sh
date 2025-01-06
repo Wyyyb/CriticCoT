@@ -56,24 +56,24 @@ model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory"
 #output_dir="../math_eval_result_0106/eval_res_0106_math_n_shot_job/qwen2.5_math_7B_critic_add_50k_correct_1231_ckpt_3807/"
 #model_path="${model_dir}/${model_sub_dir}"
 #bash eval_math_shot.sh $model_path $output_dir $summary_path
-#
-#
-#model_sub_dir="qwen_math_output_models/CriticCoT_correct_only_data_1231/checkpoint-723"
-#output_dir="../math_eval_result_0106/eval_res_0106_math_n_shot_job/qwen2.5_math_7B_correct_only_1231_ckpt_723"
-#model_path="${model_dir}/${model_sub_dir}"
-#bash eval_math_shot.sh $model_path $output_dir $summary_path
-#
-#
-#model_sub_dir="qwen_math_output_models/CriticCoT_correct_only_data_1231/checkpoint-1446"
-#output_dir="../math_eval_result_0106/eval_res_0106_math_n_shot_job/qwen2.5_math_7B_correct_only_1231_ckpt_1446"
-#model_path="${model_dir}/${model_sub_dir}"
-#bash eval_math_shot.sh $model_path $output_dir $summary_path
-#
-#
-#model_sub_dir="qwen_math_output_models/CriticCoT_correct_only_data_1231/checkpoint-2169"
-#output_dir="../math_eval_result_0106/eval_res_0106_math_n_shot_job/qwen2.5_math_7B_correct_only_1231_ckpt_2169"
-#model_path="${model_dir}/${model_sub_dir}"
-#bash eval_math_shot.sh $model_path $output_dir $summary_path
+
+
+model_sub_dir="qwen_math_output_models/CriticCoT_correct_only_data_1231/checkpoint-723"
+output_dir="../math_eval_result_0106/eval_res_0106_math_n_shot_job/qwen2.5_math_7B_correct_only_1231_ckpt_723"
+model_path="${model_dir}/${model_sub_dir}"
+bash eval_math_shot.sh $model_path $output_dir $summary_path
+
+
+model_sub_dir="qwen_math_output_models/CriticCoT_correct_only_data_1231/checkpoint-1446"
+output_dir="../math_eval_result_0106/eval_res_0106_math_n_shot_job/qwen2.5_math_7B_correct_only_1231_ckpt_1446"
+model_path="${model_dir}/${model_sub_dir}"
+bash eval_math_shot.sh $model_path $output_dir $summary_path
+
+
+model_sub_dir="qwen_math_output_models/CriticCoT_correct_only_data_1231/checkpoint-2169"
+output_dir="../math_eval_result_0106/eval_res_0106_math_n_shot_job/qwen2.5_math_7B_correct_only_1231_ckpt_2169"
+model_path="${model_dir}/${model_sub_dir}"
+bash eval_math_shot.sh $model_path $output_dir $summary_path
 
 
 model_sub_dir="output_models/CriticCoT_critic_data_1231/checkpoint-1171"
