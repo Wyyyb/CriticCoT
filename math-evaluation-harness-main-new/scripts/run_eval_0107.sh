@@ -18,7 +18,7 @@ SUMMARY_PATH=$3
 
 PROMPT_TYPE=cot
 # OUTPUT_DIR=${MODEL_NAME_OR_PATH}/math_eval
-DATA_NAMES="mathh"
+DATA_NAMES="math"
 # DATA_NAMES="gsm8k,minerva_math,svamp,asdiv,mawps,tabmwp,mathqa,mmlu_stem,sat_math"
 SPLIT="test"
 NUM_TEST_SAMPLE=-1
