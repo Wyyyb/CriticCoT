@@ -22,7 +22,7 @@ DATA_NAMES="minerva_math,math,gsm8k,mmlu_stem,sat_math"
 # DATA_NAMES="gsm8k,minerva_math,svamp,asdiv,mawps,tabmwp,mathqa,mmlu_stem,sat_math"
 SPLIT="test"
 NUM_TEST_SAMPLE=-1
-
+cd ..
 
 # single-gpu
 export TOKENIZERS_PARALLELISM=false
