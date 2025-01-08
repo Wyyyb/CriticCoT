@@ -44,8 +44,8 @@ python3 -u math_eval.py \
     --start 0 \
     --end -1 \
     --use_vllm \
-    --save_outputs \
-    --overwrite
+    --save_outputs
+#    --overwrite
 
 
 # multi-gpu
