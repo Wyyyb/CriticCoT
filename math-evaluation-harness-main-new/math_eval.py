@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument("--temperature", default=0, type=float)
     parser.add_argument("--n_sampling", default=1, type=int)
     parser.add_argument("--top_p", default=1, type=float)
-    parser.add_argument("--max_tokens_per_call", default=1024, type=int)
+    parser.add_argument("--max_tokens_per_call", default=2048, type=int)
     parser.add_argument("--shuffle", action="store_true")
     parser.add_argument("--use_vllm", action="store_true")
     parser.add_argument("--save_outputs", action="store_true")
@@ -194,6 +194,7 @@ def main(llm, tokenizer, data_name, args):
 
             outputs = sorted(outputs, key=lambda x: int(x.request_id))  # sort outputs by request_id
             outputs = [output.outputs[0].text for output in outputs]
+            print("debug 197, outputs[:3]", outputs[:3])
         else:
             outputs = generate_completions(
                 model=llm,
@@ -212,7 +213,7 @@ def main(llm, tokenizer, data_name, args):
         for (i, query), output in zip(current_prompts, outputs):
             output = output.rstrip()
             input("debug, enter")
-            print("debug 214", output)
+            print("debug 214, output", output)
             query += output
             if args.prompt_type == "pal":
                 remain_prompts.append((i, query))
@@ -220,7 +221,7 @@ def main(llm, tokenizer, data_name, args):
                     output = extract_program(query)
                 remain_codes.append(output)
             elif args.prompt_type == "cot":
-                print("debug 221", query)
+                print("debug 221, query", query)
                 end_prompts.append((i, query))
             elif ("boxed" not in output and output.endswith("```")):
                 program = extract_program(query)
