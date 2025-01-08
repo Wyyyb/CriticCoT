@@ -91,7 +91,7 @@ def setup(args):
         llm = LLM(model=args.model_name_or_path, tensor_parallel_size=len(available_gpus), trust_remote_code=True)
         tokenizer = None
     else:
-        llm, tokenizer =  load_hf_lm_and_tokenizer(
+        llm, tokenizer = load_hf_lm_and_tokenizer(
                 model_name_or_path=args.model_name_or_path, 
                 load_in_half=True,
                 use_fast_tokenizer=True,
@@ -163,7 +163,7 @@ def main(llm, tokenizer, data_name, args):
     stop_words = ["</s>"]
 
     if args.prompt_type in ['cot']:
-        stop_words.extend(["\n\nQuestion:", "\n\nProblem:"])
+        stop_words.extend(["\n\nQuestion:", "\n\nProblem:", "I hope it is correct."])
     if args.prompt_type in ['pal', 'tool-integrated', 'tora']:
         stop_words.extend(["\n\n---", "```output"])
     elif args.prompt_type in ['wizard_zs', 'platypus_fs']:
@@ -181,6 +181,8 @@ def main(llm, tokenizer, data_name, args):
 
         # get all outputs
         prompts = [item[1] for item in current_prompts]
+        print("#" * 20 + " Final prompt 1:\n" + prompts[0])
+        print("#" * 20 + " Final prompt 2:\n" + prompts[1])
         if args.use_vllm:
             outputs = llm.generate(prompts, SamplingParams(
                             temperature=args.temperature,
@@ -190,7 +192,7 @@ def main(llm, tokenizer, data_name, args):
                             stop=stop_words,
             ))
 
-            outputs = sorted(outputs, key=lambda x: int(x.request_id)) # sort outputs by request_id
+            outputs = sorted(outputs, key=lambda x: int(x.request_id))  # sort outputs by request_id
             outputs = [output.outputs[0].text for output in outputs]
         else:
             outputs = generate_completions(
