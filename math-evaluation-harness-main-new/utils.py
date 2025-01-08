@@ -82,7 +82,7 @@ def construct_prompt(example, data_name, args):
                 context = f"Problem:\n{example['question']}\nSolution:"
             else:
                 context = f"Question: {example['question']}\nAnswer:"
-            full_prompt = demo_prompt + context
+            full_prompt = demo_prompt + context + "\nLet's think step by step."
         elif args.prompt_type == "pal":
             context = f"Question: {example['question']}"
             full_prompt = demo_prompt + context
