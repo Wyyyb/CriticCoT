@@ -184,7 +184,7 @@ def main(llm, tokenizer, data_name, args):
         print("#" * 20 + " Final prompt 1:\n" + prompts[0])
         print("#" * 20 + " Final prompt 2:\n" + prompts[1])
         if args.use_vllm:
-            outputs = llm.generate(prompts, SamplingParams(
+            outputs = llm.generate(prompts[:10], SamplingParams(
                             temperature=args.temperature,
                             top_p=args.top_p,
                             max_tokens=args.max_tokens_per_call,
@@ -204,13 +204,15 @@ def main(llm, tokenizer, data_name, args):
                 stop_id_sequences=stop_words,
             )
 
-        assert len(outputs) == len(current_prompts)
+        # assert len(outputs) == len(current_prompts)
 
         # process all outputs
         remain_prompts = []
         remain_codes = []
         for (i, query), output in zip(current_prompts, outputs):
             output = output.rstrip()
+            input("debug, enter")
+            print("debug 214", output)
             query += output
             if args.prompt_type == "pal":
                 remain_prompts.append((i, query))
@@ -218,6 +220,7 @@ def main(llm, tokenizer, data_name, args):
                     output = extract_program(query)
                 remain_codes.append(output)
             elif args.prompt_type == "cot":
+                print("debug 221", query)
                 end_prompts.append((i, query))
             elif ("boxed" not in output and output.endswith("```")):
                 program = extract_program(query)
@@ -249,10 +252,11 @@ def main(llm, tokenizer, data_name, args):
 
     # remove input_prompt from end_prompt
     codes = []
-    assert len(input_prompts) == len(end_prompts)
+    # assert len(input_prompts) == len(end_prompts)
     for i in range(len(input_prompts)):
         _, end_prompt = end_prompts[i]
         code = end_prompt.split(input_prompts[i])[-1].strip()
+        print("debug 256, code", code)
         codes.append(code)
 
     # extract preds

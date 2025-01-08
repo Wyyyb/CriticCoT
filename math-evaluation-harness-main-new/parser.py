@@ -228,11 +228,11 @@ def extract_multi_choice_answer(pred_str):
     return 'placeholder'
 
 
+# def extract_answer(pred_str, data_name):
+#     return extract_answer_0104(pred_str)
+
+
 def extract_answer(pred_str, data_name):
-    return extract_answer_0104(pred_str)
-
-
-def extract_answer_bk(pred_str, data_name):
     if data_name in ["mmlu_stem", "sat_math", "mathqa"]:
         return extract_multi_choice_answer(pred_str)
 
