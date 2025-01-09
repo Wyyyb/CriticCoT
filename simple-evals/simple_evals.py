@@ -4,7 +4,7 @@ import pandas as pd
 from . import common
 from .drop_eval import DropEval
 from .gpqa_eval import GPQAEval
-from .humaneval_eval import HumanEval
+# from .humaneval_eval import HumanEval
 from .math_eval import MathEval
 from .mgsm_eval import MGSMEval
 from .mmlu_eval import MMLUEval
@@ -125,8 +125,8 @@ def main():
                     num_examples=10 if debug_mode else num_examples,
                     train_samples_per_prompt=3,
                 )
-            case "humaneval":
-                return HumanEval(num_examples=10 if debug_mode else num_examples)
+            # case "humaneval":
+            #     return HumanEval(num_examples=10 if debug_mode else num_examples)
             case "simpleqa":
                 return SimpleQAEval(
                     grader_model=grading_sampler,
