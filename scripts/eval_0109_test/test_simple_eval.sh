@@ -6,4 +6,4 @@ conda activate lf_yubo
 
 cd ../../simple-evals-main
 
-python -m simple-evals.simple_evals --list-models
+python -m simple-evals.py --list-models
