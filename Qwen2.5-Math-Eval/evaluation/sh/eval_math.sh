@@ -7,6 +7,7 @@ SUMMARY_PATH=$3
 SPLIT="test"
 NUM_TEST_SAMPLE=-1
 
+mkdir -p $OUTPUT_DIR
 cd ..
 # English open datasets
 # DATA_NAME="gsm8k,math,svamp,asdiv,mawps,carp_en,tabmwp,minerva_math,gaokao2023en,olympiadbench,college_math"

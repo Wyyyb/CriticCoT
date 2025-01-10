@@ -397,6 +397,7 @@ def main(llm, tokenizer, data_name, args):
     time_obj = time.localtime(time.time())
     formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", time_obj)
     result_dir = os.path.join(args.output_dir, data_name)
+    os.makedirs(result_dir, exist_ok=True)
     result_dir = str(result_dir).replace("/gpfs/public/research/xy/yubowang/", "") \
         .replace("CriticCoT/LLaMA-Factory", "")
     summary_prefix = str(result_dir) + " " + str(formatted_time)
