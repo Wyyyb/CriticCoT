@@ -2,6 +2,7 @@ import json
 from datasets import load_dataset
 import random
 import os
+from tqdm import tqdm
 
 
 def load_numina():
@@ -15,12 +16,13 @@ def load_numina():
                 json_str = json.dumps(item, ensure_ascii=False)
                 f.write(json_str + '\n')
     with open(output_file, "r") as fi:
-        for line in fi:
+        for line in tqdm(fi):
             curr = json.loads(line)
             numina_data.append(curr)
             if "\\boxed{" not in curr["solution"]:
-                print("boxed not in data", curr["source"])
+                # print("boxed not in data", curr["source"])
                 no_box_count += 1
+    print("no_box_count", no_box_count)
     print("len(numina_data)", len(numina_data))
 
 
