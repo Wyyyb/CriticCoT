@@ -29,7 +29,7 @@ python3 -u math_eval.py \
     --end -1 \
     --use_vllm \
     --save_outputs \
-    --overwrite \
+    # --overwrite \
 #
 ## English multiple-choice datasets
 #DATA_NAME="aqua,sat_math,mmlu_stem"
