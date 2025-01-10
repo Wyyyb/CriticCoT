@@ -16,7 +16,7 @@ python3 -u math_eval.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \
     --data_name ${DATA_NAME} \
     --output_dir ${OUTPUT_DIR} \
-    --summary_path ${SUMMARY_PATH}
+    --summary_path ${SUMMARY_PATH} \
     --split ${SPLIT} \
     --prompt_type ${PROMPT_TYPE} \
     --num_test_sample ${NUM_TEST_SAMPLE} \
