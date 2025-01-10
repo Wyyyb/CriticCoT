@@ -1,9 +1,9 @@
 set -ex
 
-PROMPT_TYPE=$1
-MODEL_NAME_OR_PATH=$2
-OUTPUT_DIR=${MODEL_NAME_OR_PATH}/math_eval
-
+PROMPT_TYPE="qwen25-math-cot"
+MODEL_NAME_OR_PATH=$1
+OUTPUT_DIR=$2
+SUMMARY_PATH=$3
 SPLIT="test"
 NUM_TEST_SAMPLE=-1
 
@@ -16,6 +16,7 @@ python3 -u math_eval.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \
     --data_name ${DATA_NAME} \
     --output_dir ${OUTPUT_DIR} \
+    --summary_path ${SUMMARY_PATH}
     --split ${SPLIT} \
     --prompt_type ${PROMPT_TYPE} \
     --num_test_sample ${NUM_TEST_SAMPLE} \
