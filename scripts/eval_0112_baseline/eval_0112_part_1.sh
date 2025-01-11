@@ -8,7 +8,7 @@ export CUDA_VISIBLE_DEVICES=1
 cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
 
 
-summary_path="../math_eval_result_0110/summary_0112_baseline.txt"
+summary_path="../math_eval_result_0110/summary_0112_baseline_p1.txt"
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models_bk"
 
 
