@@ -20,7 +20,7 @@ preprocessing_num_workers: 16
 ### output
 output_dir: output_models/qwen2.5-math-7B_correct-only_1231-0111
 logging_steps: 1
-save_steps: 200
+save_steps: 20
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: true
