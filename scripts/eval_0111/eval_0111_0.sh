@@ -5,7 +5,7 @@ source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0
-cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
+# cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
 
 
 summary_path="../math_eval_result_0111/ckpts_summary_0111_math.txt"
