@@ -11,4 +11,5 @@ huggingface-cli download --repo-type model mistralai/Mathstral-7B-v0.1 --local-d
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B-Instruct --local-dir /gpfs/public/research/xy/yubowang/models/Qwen2.5-Math-7B-Instruct
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-7B-Instruct --local-dir /gpfs/public/research/xy/yubowang/models/Qwen2.5-7B-Instruct
 
