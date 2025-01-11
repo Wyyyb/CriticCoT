@@ -9,3 +9,7 @@ huggingface-cli download TIGER-Lab/WebInstruct-QwQ-462K --local-dir . --repo-typ
 huggingface-cli upload ubowang/CriticCoT_data_1231 . --repo-type dataset
 
 huggingface-cli download ubowang/CriticCoT_data_1231 --local-dir . --repo-type dataset
+
+
+huggingface-cli upload ubowang/critic_training_data_0111 . --repo-type dataset
+
