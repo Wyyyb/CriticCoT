@@ -27,7 +27,7 @@ output_dir="../math_eval_result_0110/qwen_eval_res_0110_new_math/ori_qwen2.5_mat
 bash eval_full.sh $model_path $output_dir $summary_path
 
 
-model_path="/gpfs/public/research/xy/yubowang/models/deepseek-math-7b-base"
-output_dir="../math_eval_result_0110/qwen_eval_res_0110_new_math/ori_deepseek-math-7b-base/"
-bash eval_deepseek_math.sh $model_path $output_dir $summary_path
+#model_path="/gpfs/public/research/xy/yubowang/models/deepseek-math-7b-base"
+#output_dir="../math_eval_result_0110/qwen_eval_res_0110_new_math/ori_deepseek-math-7b-base/"
+#bash eval_deepseek_math.sh $model_path $output_dir $summary_path
 
