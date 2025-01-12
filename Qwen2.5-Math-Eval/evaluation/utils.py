@@ -146,12 +146,14 @@ PROMPT_TEMPLATES = {
         "\n\n",
     ),
     "qwen25-math-cot-critic": (
-            "<|im_start|>system\nPlease reason step by step, and put your final answer within \\boxed{{}}.<|im_end|>\n"
-            "<|im_start|>user\n{input}<|im_end|>\n"
-            "<|im_start|>assistant\n",
-            "{output}",
-            "\n\n",
-        ),
+        "<|im_start|>system\nPlease reason step by step, put your final answer within \\boxed{{}}, "
+        "and then critically review your solution to determine if it is correct. End your response with "
+        "either **Critique Conclusion: Correct** or **Critique Conclusion: Incorrect**.<|im_end|>\n"
+        "<|im_start|>user\n{input}<|im_end|>\n"
+        "<|im_start|>assistant\n",
+        "{output}",
+        "\n\n",
+    ),
     "mathstral": (
         "{input}\nPlease reason step by step, and put your final answer within \\boxed{{}}.",
         "{output}",
