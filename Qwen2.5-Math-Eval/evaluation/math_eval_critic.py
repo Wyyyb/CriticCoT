@@ -16,6 +16,7 @@ from trajectory import *
 from data_loader import load_data
 from python_executor import PythonExecutor
 from model_utils import load_hf_lm_and_tokenizer, generate_completions
+from copy import deepcopy
 
 
 def parse_args():
@@ -215,7 +216,7 @@ def main(llm, tokenizer, data_name, args):
             if key in example:
                 sample[key] = example[key]
         for m in range(args.candidate_num):
-            curr_sample = sample
+            curr_sample = deepcopy(sample)
             curr_sample["idx"] = sample["idx"] + 10000 * m
             samples.append(curr_sample)
     print("args.candidate_num", args.candidate_num)
