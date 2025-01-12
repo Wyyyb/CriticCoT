@@ -28,7 +28,7 @@ def parse_args():
     parser.add_argument("--candidate_num", default=8, type=int)
     parser.add_argument("--prompt_type", default="tool-integrated", type=str)
     parser.add_argument("--split", default="test", type=str)
-    parser.add_argument("--num_test_sample", default=-1, type=int)  # -1 for full data
+    parser.add_argument("--num_test_sample", default=10, type=int)  # -1 for full data
     parser.add_argument("--seed", default=0, type=int)
     parser.add_argument("--start", default=0, type=int)
     parser.add_argument("--end", default=-1, type=int)
@@ -213,14 +213,18 @@ def main(llm, tokenizer, data_name, args):
         ]:
             if key in example:
                 sample[key] = example[key]
-        for _ in range(args.candidate_num):
+        for m in range(args.candidate_num):
+            curr_sample = sample
+            curr_sample["idx"] = sample["idx"] + 10000 * m
             samples.append(sample)
     print("args.candidate_num", args.candidate_num)
     print("samples", len(samples))
+    print("samples[0]", samples[0])
     # repeat n times
     input_prompts = [
         sample["prompt"] for sample in samples for _ in range(args.n_sampling)
     ]
+    print("input_prompts[0]", input_prompts[0])
     if args.apply_chat_template:
         input_prompts = [
             tokenizer.apply_chat_template(
