@@ -64,12 +64,12 @@ def main():
     critic_numina_860k_data = critic_data + res_numina
     random.shuffle(critic_numina_860k_data)
     # random.shuffle(res_numina)
-    with open(critic_numina_260k_path, "w") as fo:
-        fo.write(json.dumps(critic_numina_260k_data, indent=4))
-    print("len(critic_numina_260k_data)", len(critic_numina_260k_data))
-    with open(critic_numina_860k_path, "w") as fo:
-        fo.write(json.dumps(critic_numina_860k_data, indent=4))
-    print("len(critic_numina_860k_data)", len(critic_numina_860k_data))
+    # with open(critic_numina_260k_path, "w") as fo:
+    #     fo.write(json.dumps(critic_numina_260k_data, indent=4))
+    # print("len(critic_numina_260k_data)", len(critic_numina_260k_data))
+    # with open(critic_numina_860k_path, "w") as fo:
+    #     fo.write(json.dumps(critic_numina_860k_data, indent=4))
+    # print("len(critic_numina_860k_data)", len(critic_numina_860k_data))
     with open(numina_path, "w") as fo:
         fo.write(json.dumps(res_numina, indent=4))
     print("len(numina_data)", len(res_numina))
