@@ -63,7 +63,7 @@ def main():
     random.shuffle(critic_numina_260k_data)
     critic_numina_860k_data = critic_data + res_numina
     random.shuffle(critic_numina_860k_data)
-    random.shuffle(numina_data)
+    # random.shuffle(res_numina)
     with open(critic_numina_260k_path, "w") as fo:
         fo.write(json.dumps(critic_numina_260k_data, indent=4))
     print("len(critic_numina_260k_data)", len(critic_numina_260k_data))
@@ -71,8 +71,8 @@ def main():
         fo.write(json.dumps(critic_numina_860k_data, indent=4))
     print("len(critic_numina_860k_data)", len(critic_numina_860k_data))
     with open(numina_path, "w") as fo:
-        fo.write(json.dumps(numina_data, indent=4))
-    print("len(numina_data)", len(numina_data))
+        fo.write(json.dumps(res_numina, indent=4))
+    print("len(numina_data)", len(res_numina))
 
 
 if __name__ == "__main__":
