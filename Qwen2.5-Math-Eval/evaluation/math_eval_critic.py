@@ -213,8 +213,10 @@ def main(llm, tokenizer, data_name, args):
         ]:
             if key in example:
                 sample[key] = example[key]
-        samples.append(sample)
-
+        for _ in range(args.candidate_num):
+            samples.append(sample)
+    print("args.candidate_num", args.candidate_num)
+    print("samples", len(samples))
     # repeat n times
     input_prompts = [
         sample["prompt"] for sample in samples for _ in range(args.n_sampling)
@@ -260,8 +262,10 @@ def main(llm, tokenizer, data_name, args):
 
         # get all outputs
         prompts = [item[1] for item in current_prompts]
+        print("len(prompts)", len(prompts))
         print("#" * 20 + "\nprompts example 1:\n", prompts[0])
-        print("#" * 20 + "\nprompts example 2:\n", prompts[5])
+
+        # print("#" * 20 + "\nprompts example 2:\n", prompts[5])
         if args.use_vllm:
             outputs = llm.generate(
                 prompts,
