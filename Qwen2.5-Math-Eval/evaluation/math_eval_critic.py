@@ -386,6 +386,8 @@ def main(llm, tokenizer, data_name, args):
         print("sample", sample)
         if "prompt" in sample:
             sample.pop("prompt")
+        else:
+            print("sample", sample)
         sample.update({"code": code, "pred": preds, "report": reports})
         all_samples.append(sample)
 
