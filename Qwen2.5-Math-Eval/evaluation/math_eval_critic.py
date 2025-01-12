@@ -217,7 +217,7 @@ def main(llm, tokenizer, data_name, args):
         for m in range(args.candidate_num):
             curr_sample = sample
             curr_sample["idx"] = sample["idx"] + 10000 * m
-            samples.append(sample)
+            samples.append(curr_sample)
     print("args.candidate_num", args.candidate_num)
     print("samples", len(samples))
     print("samples[0]", samples[0])
@@ -384,7 +384,8 @@ def main(llm, tokenizer, data_name, args):
                     [c for c in preds[j] if c in ["A", "B", "C", "D", "E"]]
                 )
         print("sample", sample)
-        sample.pop("prompt")
+        if "prompt" in sample:
+            sample.pop("prompt")
         sample.update({"code": code, "pred": preds, "report": reports})
         all_samples.append(sample)
 
