@@ -383,7 +383,7 @@ def main(llm, tokenizer, data_name, args):
                 preds[j] = "".join(
                     [c for c in preds[j] if c in ["A", "B", "C", "D", "E"]]
                 )
-
+        print("sample", sample)
         sample.pop("prompt")
         sample.update({"code": code, "pred": preds, "report": reports})
         all_samples.append(sample)
