@@ -28,7 +28,7 @@ def parse_args():
     parser.add_argument("--candidate_num", default=8, type=int)
     parser.add_argument("--prompt_type", default="tool-integrated", type=str)
     parser.add_argument("--split", default="test", type=str)
-    parser.add_argument("--num_test_sample", default=10, type=int)  # -1 for full data
+    parser.add_argument("--num_test_sample", default=-1, type=int)  # -1 for full data
     parser.add_argument("--seed", default=0, type=int)
     parser.add_argument("--start", default=0, type=int)
     parser.add_argument("--end", default=-1, type=int)
@@ -160,6 +160,7 @@ def is_multi_choice(answer):
 
 def main(llm, tokenizer, data_name, args):
     examples, processed_samples, out_file = prepare_data(data_name, args)
+    examples = examples[:10]
     print("=" * 50)
     print("data:", data_name, " ,remain samples:", len(examples))
     if len(examples) > 0:
