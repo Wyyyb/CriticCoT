@@ -161,7 +161,7 @@ def is_multi_choice(answer):
 
 def main(llm, tokenizer, data_name, args):
     examples, processed_samples, out_file = prepare_data(data_name, args)
-    examples = examples[:10]
+    # examples = examples[:10]
     print("=" * 50)
     print("data:", data_name, " ,remain samples:", len(examples))
     if len(examples) > 0:
@@ -219,14 +219,14 @@ def main(llm, tokenizer, data_name, args):
             curr_sample = deepcopy(sample)
             curr_sample["idx"] = sample["idx"] + 10000 * m
             samples.append(curr_sample)
-    print("args.candidate_num", args.candidate_num)
-    print("samples", len(samples))
-    print("samples[0]", samples[0])
+    # print("args.candidate_num", args.candidate_num)
+    # print("samples", len(samples))
+    # print("samples[0]", samples[0])
     # repeat n times
     input_prompts = [
         sample["prompt"] for sample in samples for _ in range(args.n_sampling)
     ]
-    print("input_prompts[0]", input_prompts[0])
+    # print("input_prompts[0]", input_prompts[0])
     if args.apply_chat_template:
         input_prompts = [
             tokenizer.apply_chat_template(
@@ -384,7 +384,7 @@ def main(llm, tokenizer, data_name, args):
                 preds[j] = "".join(
                     [c for c in preds[j] if c in ["A", "B", "C", "D", "E"]]
                 )
-        print("sample", sample)
+        # print("sample", sample)
         if "prompt" in sample:
             sample.pop("prompt")
         else:
