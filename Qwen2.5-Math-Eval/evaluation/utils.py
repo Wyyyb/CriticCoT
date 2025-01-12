@@ -145,6 +145,13 @@ PROMPT_TEMPLATES = {
         "{output}",
         "\n\n",
     ),
+    "qwen25-math-cot-critic": (
+            "<|im_start|>system\nPlease reason step by step, and put your final answer within \\boxed{{}}.<|im_end|>\n"
+            "<|im_start|>user\n{input}<|im_end|>\n"
+            "<|im_start|>assistant\n",
+            "{output}",
+            "\n\n",
+        ),
     "mathstral": (
         "{input}\nPlease reason step by step, and put your final answer within \\boxed{{}}.",
         "{output}",
