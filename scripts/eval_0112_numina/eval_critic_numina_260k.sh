@@ -4,12 +4,12 @@ set -ex
 source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
 
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=0
 cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
 
 
-models_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models/qwen2.5-math-7B_critic_numina_860k_0110"
-summary_path="../math_eval_result_0111/ckpts_summary_0112_numina_860k_full.txt"
+models_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models/qwen2.5-math-7B_critic_numina_260k_0110"
+summary_path="../math_eval_result_0111/ckpts_summary_0112_numina_260k_full.txt"
 
 # 获取models_dir的文件夹名称（不是完整路径）
 models_dir_name=$(basename "$models_dir")
