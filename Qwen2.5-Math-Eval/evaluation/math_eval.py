@@ -260,7 +260,7 @@ def main(llm, tokenizer, data_name, args):
         # get all outputs
         prompts = [item[1] for item in current_prompts]
         print("#" * 20 + "\nprompts example 1:\n", prompts[0])
-        print("#" * 20 + "\nprompts example 2:\n", prompts[5])
+        # print("#" * 20 + "\nprompts example 2:\n", prompts[5])
         if args.use_vllm:
             outputs = llm.generate(
                 prompts,
