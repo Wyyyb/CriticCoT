@@ -57,12 +57,12 @@ def single_dataset_sta(pred_dir):
         vote_res = 0
         responses = []
         question = pred_list[0]["question"]
-        answer = pred_list[0]["answer"]
+        answer = pred_list[0]["gt"]
         for pred_info in pred_list:
             if question != pred_info["question"]:
                 print("inconsistent question", question, pred_info["question"])
-            if answer != pred_info["answer"]:
-                print("inconsistent answer", answer, pred_info["answer"])
+            if answer != pred_info["gt"]:
+                print("inconsistent answer", answer, pred_info["gt"])
             response = pred_info["code"][0]
             pred = pred_info["pred"][0]
             score = pred_info["score"][0]
@@ -85,7 +85,7 @@ def single_dataset_sta(pred_dir):
         else:
             print("same number of correct and incorrect!")
             final_score = False
-        critic_res_map[real_idx] = {"idx": real_idx, "question": question, "answer": answer,
+        critic_res_map[real_idx] = {"idx": real_idx, "question": question, "gt": answer,
                                     "preds": preds, "scores": scores, "critic_results": critic_results,
                                     "final_score": final_score}
         if real_idx < 200:
