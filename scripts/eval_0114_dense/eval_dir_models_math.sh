@@ -37,7 +37,7 @@ for checkpoint_dir in ${models_dir}/checkpoint-*; do
             echo "Output dir: ${output_dir}"
 
             # 执行评估脚本
-            bash eval_math.sh "$checkpoint_dir" "$output_dir" "$summary_path"
+            bash eval_full.sh "$checkpoint_dir" "$output_dir" "$summary_path"
         else
             echo "Skipping checkpoint-${checkpoint_num} as it's >= 200"
         fi

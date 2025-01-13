@@ -14,5 +14,4 @@ root_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_model
 find "$root_dir" -type d -name "qwen2.5-math-7B_correct-only_1231-0111" | while read -r model_dir; do
   echo $model_dir
   bash eval_dir_models_math.sh $model_dir $summary_path
-  bash eval_dir_models_others.sh $model_dir $summary_path
 done
