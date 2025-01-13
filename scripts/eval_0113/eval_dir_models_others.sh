@@ -22,20 +22,24 @@ models_dir_name=$(basename "$models_dir")
 # 获取summary_path的上一层目录
 summary_parent_dir=$(dirname "$summary_path")
 
-# 遍历所有以checkpoint开头的文件夹
 for checkpoint_dir in ${models_dir}/checkpoint-*; do
     if [ -d "$checkpoint_dir" ]; then  # 确保是目录
         # 获取checkpoint号码
         checkpoint_num=$(basename "$checkpoint_dir" | cut -d'-' -f2)
 
-        # 设置输出目录
-        output_dir="${summary_parent_dir}/${models_dir_name}-checkpoint-${checkpoint_num}/"
+        # 检查checkpoint_num是否小于200
+        if [ "$checkpoint_num" -lt 200 ]; then
+            # 设置输出目录
+            output_dir="${summary_parent_dir}/${models_dir_name}-checkpoint-${checkpoint_num}/"
 
-        echo "Processing checkpoint-${checkpoint_num}"
-        echo "Model path: ${checkpoint_dir}"
-        echo "Output dir: ${output_dir}"
+            echo "Processing checkpoint-${checkpoint_num}"
+            echo "Model path: ${checkpoint_dir}"
+            echo "Output dir: ${output_dir}"
 
-        # 执行评估脚本
-        bash eval_others.sh "$checkpoint_dir" "$output_dir" "$summary_path"
+            # 执行评估脚本
+            bash eval_others.sh "$checkpoint_dir" "$output_dir" "$summary_path"
+        else
+            echo "Skipping checkpoint-${checkpoint_num} as it's >= 200"
+        fi
     fi
 done
