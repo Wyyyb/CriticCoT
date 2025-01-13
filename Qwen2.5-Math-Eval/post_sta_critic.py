@@ -151,7 +151,7 @@ def main():
         result_path = os.path.join(curr_dir, f"{dataset_name}-critique_result_file.json")
         with open(result_path, "w") as fo:
             fo.write(json.dumps(critic_res_map, indent=4))
-        with open(args.summary_file, "a") as fo:
+        with open(args.summary_path, "a") as fo:
             fo.write(summary_content)
 
 
