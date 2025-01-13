@@ -74,9 +74,9 @@ def single_dataset_sta(pred_dir):
             if critic_result:
                 if score:
                     vote_res += 1
-                else:
-                    vote_res -= 1
-        if vote_res < 0:
+                # else:
+                #     vote_res -= 1
+        if vote_res <= 0:
             final_score = False
             total_wrong += 1
         elif vote_res > 0:
@@ -148,7 +148,7 @@ def main():
         curr_dir = os.path.join(args.input_dir, sub_dir)
         dataset_name, accuracy, critic_res_map = single_dataset_sta(curr_dir)
         summary_content = args.input_dir + "\t" + dataset_name + "\tAccuracy:" + str(accuracy) + "\n"
-        result_path = os.path.join(curr_dir, f"{dataset_name}-critique_result_file.json")
+        result_path = os.path.join(curr_dir, f"{dataset_name}-critique_result_file_test.json")
         with open(result_path, "w") as fo:
             fo.write(json.dumps(critic_res_map, indent=4))
         with open(args.summary_path, "a") as fo:
