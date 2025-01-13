@@ -16,5 +16,5 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 MODEL_NAME="deepseek-math-7B-correct_only_0106"
 export WANDB_RUN_NAME=$MODEL_NAME
 
-FORCE_TORCHRUN=1 llamafactory-cli train ../scripts/deepseek_math_train_0106/deepseek-math-7B-critic_0114.yaml
+FORCE_TORCHRUN=1 llamafactory-cli train ../scripts/deepseek_math_train_0114/deepseek-math-7B-critic_0114.yaml
 
