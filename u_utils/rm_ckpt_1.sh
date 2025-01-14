@@ -6,7 +6,7 @@
 #    exit 1
 #fi
 
-dir_path="../LLaMA-Factory/output_models_dense_0112/"
+dir_path="../LLaMA-Factory/output_models_dense_0112_qwen_math/"
 
 if [ ! -d "$dir_path" ]; then
     echo "Error: Directory $dir_path does not exist"
