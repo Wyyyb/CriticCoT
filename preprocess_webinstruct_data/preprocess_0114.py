@@ -15,14 +15,13 @@ def main():
               "then carefully critique whether your solution is correct.\n\n"
     t1_res = []
     t2_res = []
-    merged_res = []
     for each in ori_data:
-        question = each["instruction"].replace(ins, "")
+        question = each["instruction"].replace(ins, "") + "\n"
         solution = each["input"].replace("\nStudent's Solution:\n", "")
         critic = each["output"]
         t1_curr = {"instruction": new_ins, "input": question, "output": f"Solution:\n{solution}\n{critic}"}
-        t2_curr = {"instruction": "Please critique whether the following solution to the question is correct.\n",
-                   "input": question + f"\nSolution:\n{solution}", "output": critic}
+        t2_curr = {"instruction": "Please critique whether the following solution to the question is correct.\n\n",
+                   "input": question + f"\nSolution:\n{solution}\n", "output": critic}
         t1_res.append(t1_curr)
         t2_res.append(t2_curr)
     merged_res = t1_res + t2_res

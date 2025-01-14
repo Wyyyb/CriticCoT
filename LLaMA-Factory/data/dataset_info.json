@@ -1,4 +1,13 @@
 {
+  "CriticCoT_t1_critic_data_0115": {
+    "file_name": "CriticCoT_t1_critic_data_0115.json"
+  },
+  "CriticCoT_t2_critic_data_0115": {
+    "file_name": "CriticCoT_t2_critic_data_0115.json"
+  },
+  "CriticCoT_merged_critic_data_0115": {
+    "file_name": "CriticCoT_merged_critic_data_0115.json"
+  },
   "critic_numina_260k_data_0110": {
     "file_name": "critic_numina_260k_data_0110.json"
   },
