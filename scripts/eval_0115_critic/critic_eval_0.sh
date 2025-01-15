@@ -27,6 +27,6 @@ for temp in 0.3 0.6 0.9 0.1; do
     output_dir="${BASE_DIR}/qwen_eval_res_0115_critic_test/qwen2.5-math-7B_t2_critic_test_0114-checkpoint-80-t_${temp_str}/"
 
     echo "Running evaluation with temperature ${temp}"
-    bash eval_math_critic.sh "$model_path" "$output_dir" "$summary_path" "$temp"
+    bash eval_critic_math-test.sh "$model_path" "$output_dir" "$summary_path" "$temp"
 done
 
