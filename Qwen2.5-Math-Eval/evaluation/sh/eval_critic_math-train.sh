@@ -30,6 +30,7 @@ python3 -u math_eval_critic.py \
     --end -1 \
     --use_vllm \
     --save_outputs \
+    --num_shots 2
     # --overwrite \
 #
 ## English multiple-choice datasets
