@@ -215,9 +215,11 @@ def main(llm, tokenizer, data_name, args):
         ]:
             if key in example:
                 sample[key] = example[key]
+        real_idx = sample["idx"]
         for m in range(args.candidate_num):
             curr_sample = deepcopy(sample)
-            curr_sample["idx"] = sample["idx"] + 10000 * m
+            curr_sample["idx"] = sample["idx"] + 100000 * m
+            curr_sample["real_idx"] = real_idx
             samples.append(curr_sample)
     # print("args.candidate_num", args.candidate_num)
     # print("samples", len(samples))

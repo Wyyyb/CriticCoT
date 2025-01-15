@@ -18,11 +18,11 @@ BASE_DIR="../math_multi_eval_result_0116"
 mkdir -p "${BASE_DIR}"
 
 
-ckpt="checkpoint-80"
+ckpt="checkpoint-380"
 model_sub_dir="qwen2.5-math-7B_t2_critic_0114/${ckpt}"
 model_path="${model_dir}/${model_sub_dir}"
 # 使用循环来处理不同的temperature值
-for temp in 0.3 0.6; do
+for temp in 0.9 0.1; do
     # 替换小数点，使其适合作为目录名
     temp_str=$(echo $temp | tr '.' '-')
     output_dir="${BASE_DIR}/qwen_eval_res_0116_multi_result/qwen2.5-math-7B_t2_critic_test_0114-${ckpt}-t_${temp_str}/"

@@ -18,7 +18,7 @@ BASE_DIR="../math_multi_eval_result_0116"
 mkdir -p "${BASE_DIR}"
 
 
-ckpt="checkpoint-80"
+ckpt="checkpoint-380"
 model_sub_dir="qwen2.5-math-7B_t2_critic_0114/${ckpt}"
 model_path="${model_dir}/${model_sub_dir}"
 # 使用循环来处理不同的temperature值
