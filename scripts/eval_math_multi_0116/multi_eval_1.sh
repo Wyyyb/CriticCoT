@@ -6,7 +6,7 @@ source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
 
 # 设置CUDA设备
-export CUDA_VISIBLE_DEVICES=0,1
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 # 切换到正确的目录
 cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
