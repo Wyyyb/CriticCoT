@@ -12,7 +12,7 @@ mkdir -p $OUTPUT_DIR
 cd ..
 # English open datasets
 # DATA_NAME="gsm8k,math,svamp,asdiv,mawps,carp_en,tabmwp,minerva_math,gaokao2023en,olympiadbench,college_math"
-DATA_NAME="math,minerva_math"
+DATA_NAME="math"
 TOKENIZERS_PARALLELISM=false \
 python3 -u math_eval_critic.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \
