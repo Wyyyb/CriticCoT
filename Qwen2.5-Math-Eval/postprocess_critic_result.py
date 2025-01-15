@@ -27,6 +27,8 @@ def single_dataset_sta(pred_dir):
     elements = pred_dir.strip("/").split("/")
     dataset_name = elements[-1]
     pred_res = load_pred_res(pred_dir)
+    if len(pred_res) == 0:
+        return None, None, None
     idx_map = {}
     max_idx = -1
     for each in pred_res:
@@ -45,6 +47,7 @@ def single_dataset_sta(pred_dir):
     critic_res_map = {}
     total_right = 0.0
     total_wrong = 0.0
+    critique_wrong_count = 0
     for real_idx, pred_list in real_idx_map.items():
         if len(pred_list) != 8:
             print("length of pred_list", len(pred_list))
@@ -74,6 +77,8 @@ def single_dataset_sta(pred_dir):
             if critic_result:
                 if score:
                     vote_res += 1
+            else:
+                critique_wrong_count += 1
                 # else:
                 #     vote_res -= 1
         if vote_res <= 0:
@@ -92,12 +97,13 @@ def single_dataset_sta(pred_dir):
         #     critic_res_map[real_idx]["responses"] = responses
         critic_res_map[real_idx]["responses"] = responses
     accuracy = total_right / (total_wrong + total_right)
+    print("critique_wrong_count", critique_wrong_count)
     return dataset_name, accuracy, critic_res_map
 
 
 def extract_critic_res(response):
     # 忽略大小写
-    response = response.lower()
+    response = response.lower().replace("**", "").replace("##", "")
 
     # 定义正确和错误的关键词
     correct_patterns = [
@@ -107,6 +113,12 @@ def extract_critic_res(response):
         "conclusion:right",
         "conclusion: true",
         "conclusion:true",
+        "critique: correct",
+        "critique:correct",
+        "critique: right",
+        "critique:right",
+        "critique: true",
+        "critique:true"
     ]
 
     incorrect_patterns = [
@@ -116,6 +128,12 @@ def extract_critic_res(response):
         "conclusion:wrong",
         "conclusion: false",
         "conclusion:false",
+        "critique: incorrect",
+        "critique:incorrect",
+        "critique: wrong",
+        "critique:wrong",
+        "critique: false",
+        "critique:false"
     ]
 
     # 检查正确模式
@@ -148,6 +166,8 @@ def main():
         print("Processing dataset", sub_dir)
         curr_dir = os.path.join(args.input_dir, sub_dir)
         dataset_name, accuracy, critic_res_map = single_dataset_sta(curr_dir)
+        if dataset_name is None and accuracy is None:
+            continue
         summary_content = args.input_dir + "\t" + dataset_name + "\tAccuracy:" + str(accuracy) + "\n"
         result_path = os.path.join(curr_dir, f"{dataset_name}-critique_result_file_full.json")
         with open(result_path, "w") as fo:
