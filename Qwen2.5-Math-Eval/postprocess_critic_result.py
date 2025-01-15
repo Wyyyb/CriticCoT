@@ -142,7 +142,7 @@ def parse_args():
 
 def main():
     for sub_dir in os.listdir(args.input_dir):
-        if sub_dir not in ["math", "minerva_math"]:
+        if sub_dir not in ["math", "minerva_math", "math_train", "math_test"]:
             print("unsupported dataset", sub_dir)
             continue
         print("Processing dataset", sub_dir)
