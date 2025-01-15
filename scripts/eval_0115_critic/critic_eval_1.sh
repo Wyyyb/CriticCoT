@@ -12,21 +12,21 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models_0114"
 # 定义基础变量
-BASE_DIR="../math_eval_result_0115_critic_test"
-summary_path="${BASE_DIR}/summary_0115_critic_MATH_test.txt"
+BASE_DIR="../math_eval_result_0115_critic_train"
+summary_path="${BASE_DIR}/summary_0115_critic_MATH_train.txt"
 
 # 确保输出目录存在
 mkdir -p "${BASE_DIR}"
 
-model_sub_dir="qwen2.5-math-7B_t2_critic_test_0114/checkpoint-80"
+model_sub_dir="qwen2.5-math-7B_t2_critic_train_0114/checkpoint-80"
 model_path="${model_dir}/${model_sub_dir}"
 # 使用循环来处理不同的temperature值
 for temp in 0.3 0.6 0.9 0.1; do
     # 替换小数点，使其适合作为目录名
     temp_str=$(echo $temp | tr '.' '_')
-    output_dir="${BASE_DIR}/qwen_eval_res_0115_critic_test/qwen2.5-math-7B_t2_critic_test_0114-checkpoint-80-t_${temp_str}/"
+    output_dir="${BASE_DIR}/qwen_eval_res_0115_critic_train/qwen2.5-math-7B_t2_critic_train_0114-checkpoint-80-t_${temp_str}/"
 
     echo "Running evaluation with temperature ${temp}"
-    bash eval_math_critic.sh "$model_path" "$output_dir" "$summary_path" "$temp"
+    bash eval_critic_math-train.sh "$model_path" "$output_dir" "$summary_path" "$temp"
 done
 
