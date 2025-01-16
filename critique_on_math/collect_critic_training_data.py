@@ -68,6 +68,9 @@ def format_training_data(collect_res, output_path):
             curr = {"instruction": "Please critique whether the following solution to the question is correct.\n\n",
                     "input": question + f"\nSolution:\n{solution}\n", "output": critique}
             training_data.append(curr)
+
+    with open(output_path.replace(".json", "_positive_samples.json"), "w") as fo:
+        fo.write(json.dumps(training_data, indent=4))
     print("critique_right data num: ", len(training_data))
     negative_data = []
     for k, v in critique_wrong_map.items():
