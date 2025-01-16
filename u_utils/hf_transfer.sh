@@ -13,4 +13,5 @@ huggingface-cli download ubowang/CriticCoT_data_1231 --local-dir . --repo-type d
 
 huggingface-cli upload ubowang/critic_training_data_0111 . --repo-type dataset
 
+huggingface-cli upload ubowang/MAmmoTH-Critique-1 . --repo-type model
 

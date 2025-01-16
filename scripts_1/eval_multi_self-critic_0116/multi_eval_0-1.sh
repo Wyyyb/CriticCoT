@@ -11,7 +11,7 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 # 切换到正确的目录
 cd /gpfs/public/research/xy/yubowang/CriticCoT/critique_on_math/
 model_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models_0116"
-BASE_DIR="../math_eval_result_self-critic_multi_0116"
+BASE_DIR="/gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/math_eval_result_self-critic_multi_0116"
 
 ckpt="checkpoint-80"
 model_sub_dir="qwen2.5-math-7B_self_critique_ckpt-80_MATH-TRAIN-8_data_0116/${ckpt}"
