@@ -29,6 +29,7 @@ python3 -u math_eval.py \
     --end -1 \
     --use_vllm \
     --save_outputs \
+    --num_shots 5
     # --overwrite \
 #
 ## English multiple-choice datasets
