@@ -6,7 +6,7 @@ conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
-cd /gpfs/public/research/xy/yubowang/CriticCoT/scripts/eval_0114_dense/
+cd /gpfs/public/research/xy/yubowang/CriticCoT/scripts_1/eval_self-critic_0116/
 
 summary_path="../math_eval_result_self-critic_0116/ckpts_summary_0116_dense.txt"
 root_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/output_models_0116"
