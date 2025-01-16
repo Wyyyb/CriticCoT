@@ -78,6 +78,7 @@ def format_training_data(collect_res, output_path):
             curr = {"instruction": "Please critique whether the following solution to the question is correct.\n\n",
                     "input": question + f"\nSolution:\n{solution}\n", "output": critique}
             training_data.append(curr)
+    random.shuffle(training_data)
     print("critique total data num: ", len(training_data))
     with open(output_path, "w") as fo:
         fo.write(json.dumps(training_data, indent=4))
