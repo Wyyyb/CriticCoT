@@ -49,6 +49,8 @@ def main(input_dir, summary_path):
                         total_right += 1
                     else:
                         total_wrong += 1
+            if flag:
+                continue
             if not flag:
                 final_res[real_idx] = ori_res
                 if ori_res["score"][0]:
