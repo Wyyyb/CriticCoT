@@ -64,7 +64,7 @@ def single_file_critique(file_path, model_path):
     output_path = file_path.replace(".jsonl", "_add_critique.jsonl")
     llm, sampling_params = load_vllm_model(model_path)
     input_data = []
-    with open(file_path, 'r') as fi:
+    with open(file_path, 'r', encoding='utf-8') as fi:
         for line in fi.readlines():
             curr = json.loads(line)
             input_data.append(curr)
