@@ -27,12 +27,15 @@ def main(input_dir, summary_path):
             candidate_res = load_res(os.path.join(input_dir, file))
         else:
             print("unsupported input file", file)
-    final_res = []
+    final_res = {}
     total_right = 0.0
     total_wrong = 0.0
     for real_idx, res_list in original_res.items():
         ori_res = res_list[0]
         if ori_res["critique_pred"]:
+            final_res[real_idx] = ori_res
+
+
 
 
 
