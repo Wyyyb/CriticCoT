@@ -37,7 +37,7 @@ def format_training_data(collect_res, output_path):
             if not critique_score:
                 continue
             pred = each["pred"][0]
-            gt = each["gt"][0]
+            gt = each["gt"]
             if len(gt) < 20 < len(pred):
                 continue
             if score:
