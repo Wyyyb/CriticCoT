@@ -49,13 +49,13 @@ def format_training_data(collect_res, output_path):
         critique_right_map[real_idx] = critique_right[:4]
         critique_wrong_map[real_idx] = critique_wrong[:4]
         if len(critique_right_map[real_idx]) not in sta_right_map:
-            sta_right_map[critique_right_map[real_idx]] = 1
+            sta_right_map[len(critique_right_map[real_idx])] = 1
         else:
-            sta_right_map[critique_right_map[real_idx]] += 1
+            sta_right_map[len(critique_right_map[real_idx])] += 1
         if len(critique_wrong_map[real_idx]) not in sta_wrong_map:
-            sta_wrong_map[critique_wrong_map[real_idx]] = 1
+            sta_wrong_map[len(critique_wrong_map[real_idx])] = 1
         else:
-            sta_wrong_map[critique_wrong_map[real_idx]] += 1
+            sta_wrong_map[len(critique_wrong_map[real_idx])] += 1
     print("sta_right_map", sta_right_map)
     print("sta_wrong_map", sta_wrong_map)
 
