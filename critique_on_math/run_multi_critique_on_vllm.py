@@ -144,7 +144,7 @@ def extract_critic_res(response):
 
 def main(model_path, input_dir):
     for each in os.listdir(os.path.join(input_dir, "math")):
-        if not each.endswith(".jsonl"):
+        if not each.endswith(".jsonl") or "add_critique" in each:
             continue
         single_file_critique(os.path.join(input_dir, "math", each), model_path)
     return
