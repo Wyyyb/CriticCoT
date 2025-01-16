@@ -13,5 +13,5 @@ root_dir="/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/Mathstral_ma
 
 find "$root_dir" -type d -name "CriticCoT_critic_data_0114" | while read -r model_dir; do
   echo $model_dir
-  bash eval_dir_models_math.sh $model_dir $summary_path
+  bash eval_dir_deepseek_models_math.sh $model_dir $summary_path
 done
