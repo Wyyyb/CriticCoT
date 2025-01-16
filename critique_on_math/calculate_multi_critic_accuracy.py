@@ -49,6 +49,7 @@ def main(input_dir, summary_path):
                         total_right += 1
                     else:
                         total_wrong += 1
+                    break
             if flag:
                 continue
             if not flag:
