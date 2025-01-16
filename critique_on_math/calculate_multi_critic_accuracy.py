@@ -34,11 +34,34 @@ def main(input_dir, summary_path):
         ori_res = res_list[0]
         if ori_res["critique_pred"]:
             final_res[real_idx] = ori_res
+            if ori_res["score"][0]:
+                total_right += 1
+            else:
+                total_wrong += 1
+        else:
+            candidates = candidate_res[real_idx]
+            flag = False
+            for i, cand in enumerate(candidates):
+                if cand["critique_pred"]:
+                    flag = True
+                    final_res[real_idx] = cand
+                    if cand["score"][0]:
+                        total_right += 1
+                    else:
+                        total_wrong += 1
+            if not flag:
+                final_res[real_idx] = ori_res
+                if ori_res["score"][0]:
+                    total_right += 1
+                else:
+                    total_wrong += 1
 
-
-
-
-
+    final_res_file_path = os.path.join(input_dir, "final_res_0117.json")
+    with open(final_res_file_path, "w") as fo:
+        fo.write(json.dumps(final_res, indent=2))
+    accuracy = total_right / (total_right + total_wrong)
+    with open(summary_path, "a") as fo:
+        fo.write(f"total_right: {total_right}\ntotal_wrong: {total_wrong}\naccuracy: {accuracy}\n\n")
 
 
 if __name__ == '__main__':
