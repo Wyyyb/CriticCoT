@@ -1,4 +1,7 @@
 {
+  "CriticCoT_self_critique_MATH-TRAIN-8_data_0116_positive_samples": {
+    "file_name": "CriticCoT_self_critique_MATH-TRAIN-8_data_0116_positive_samples.json"
+  },
   "CriticCoT_self_critique_MATH-TRAIN-8_data_0116": {
     "file_name": "CriticCoT_self_critique_MATH-TRAIN-8_data_0116.json"
   },
