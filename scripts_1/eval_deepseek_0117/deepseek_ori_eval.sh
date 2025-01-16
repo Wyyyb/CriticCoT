@@ -4,7 +4,7 @@ set -ex
 source /gpfs/public/research/miniconda3/bin/activate
 conda activate lf_yubo
 
-export CUDA_VISIBLE_DEVICES=0,1
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
 
 checkpoint_dir="/gpfs/public/research/xy/yubowang/models/deepseek-math-7b-base"
