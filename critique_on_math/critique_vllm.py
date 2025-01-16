@@ -39,6 +39,7 @@ def batch_predict(llm, sampling_params, prompts: List[str]) -> List[str]:
         print("llm, sampling_params are None")
         return []
     try:
+        print("Processing", len(prompts))
         outputs = llm.generate(prompts, sampling_params)
         # 提取生成的文本
         results = []
