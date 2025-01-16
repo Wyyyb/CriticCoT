@@ -15,3 +15,7 @@ huggingface-cli upload ubowang/critic_training_data_0111 . --repo-type dataset
 
 huggingface-cli upload ubowang/MAmmoTH-Critique-1 . --repo-type model
 
+pip install modelscope
+
+modelscope upload ubowang/MAmmoTH-Critique-1 . --repo-type model
+
