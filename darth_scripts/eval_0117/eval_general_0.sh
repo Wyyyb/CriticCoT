@@ -13,6 +13,10 @@ output_dir="/data/yubowang/CriticCoT/eval_results_darth/general_results"
 summary_dir="/data/yubowang/CriticCoT/eval_results_darth/general_summary"
 
 for model in "${model_names[@]}";do
+  echo "${model}"
+done
+
+for model in "${model_names[@]}";do
   model_path="${model_dir}/${model}"
   bash eval_general_reasoning.sh $model_path $output_dir $summary_dir
 
