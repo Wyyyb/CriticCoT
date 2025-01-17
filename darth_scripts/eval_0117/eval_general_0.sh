@@ -12,9 +12,9 @@ model_names=("gemma-2-9b" "Llama-3.1-8B" "Llama-3.1-8B-Instruct" "Qwen2.5-7B" "Q
 output_dir="/data/yubowang/CriticCoT/eval_results_darth/general_results"
 summary_dir="/data/yubowang/CriticCoT/eval_results_darth/general_summary"
 
-for model in "${model_names[@]}";do
-  echo "${model}"
-done
+#for model in "${model_names[@]}";do
+#  echo "${model}"
+#done
 
 for model in "${model_names[@]}";do
   model_path="${model_dir}/${model}"
