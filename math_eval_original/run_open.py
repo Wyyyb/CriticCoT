@@ -149,10 +149,13 @@ if __name__ == "__main__":
     print('final accuracy: ', correct / (correct + wrong))
     file_handle.close()
 
+    model_name = args.model.split("/")[-1]
+
     time_obj = time.localtime(time.time())
     formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", time_obj)
     shot_info = f" n_shot={str(args.shots)} "
-    summary_prefix = str(result_file_path) + " " + shot_info + str(formatted_time)
+    # summary_prefix = str(result_file_path) + " " + shot_info + str(formatted_time)
+    summary_prefix = str(model_name) + " " + str(args.dataset) + " " + shot_info + str(formatted_time)
 
     with open(args.summary_path, "a") as fo:
         fo.write(summary_prefix + ' Final Accuracy: ' + str(correct / (correct + wrong)) + "\n")

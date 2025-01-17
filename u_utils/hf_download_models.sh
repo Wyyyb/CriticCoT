@@ -13,3 +13,11 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B-Instruct --local
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-7B-Instruct --local-dir /gpfs/public/research/xy/yubowang/models/Qwen2.5-7B-Instruct
 
+huggingface-cli download --repo-type model google/gemma-2-9b --local-dir /data/yubowang/critic_models/gemma-2-9b
+
+huggingface-cli download --repo-type model meta-llama/Llama-3.1-8B --local-dir /data/yubowang/critic_models/Llama-3.1-8B
+
+
+
+
+
