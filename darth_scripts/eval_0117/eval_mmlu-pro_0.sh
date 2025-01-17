@@ -1,6 +1,6 @@
 set -ex
 
-conda activate critic
+#conda activate critic
 
 export CUDA_VISIBLE_DEVICES=4,5
 cd ../eval_scripts
