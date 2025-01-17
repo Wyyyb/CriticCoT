@@ -19,7 +19,7 @@ model_names=("gemma-2-9b" "Llama-3.1-8B" "Llama-3.1-8B-Instruct" "Qwen2.5-7B" "Q
 for model in "${model_names[@]}";do
   model_path="${model_dir}/${model}"
   output_dir="/data/yubowang/CriticCoT/eval_results_darth/general_results/${model}"
-  summary_dir="/data/yubowang/CriticCoT/eval_results_darth/${model}_general_summary.txt"
+  summary_dir="/data/yubowang/CriticCoT/eval_results_darth/general_results/${model}_general_summary.txt"
   mkdir -p $output_dir
   bash eval_general_reasoning.sh $model_path $output_dir $summary_dir
 
