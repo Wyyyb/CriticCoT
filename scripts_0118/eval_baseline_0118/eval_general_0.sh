@@ -8,7 +8,7 @@ cd /gpfs/public/research/xy/yubowang/CriticCoT/scripts_0118/eval_baseline_0118
 
 model_dir="/gpfs/public/research/xy/yubowang/models"
 
-model_names=("MAmmoTH-Critique-1" "Llama-3.1-8B-Instruct" "Llama-3.1-70B-Instruct" "NuminaMath-72B-CoT" "Qwen2.5-Math-72B-Instruct" "AceMath-7B-Instruct" "Eurus-2-7B-SFT")
+model_names=("MAmmoTH-Critique-1" "Llama-3.1-8B-Instruct" "AceMath-7B-Instruct" "Eurus-2-7B-SFT" "Llama-3.1-70B-Instruct" "NuminaMath-72B-CoT" "Qwen2.5-Math-72B-Instruct")
 
 
 for model in "${model_names[@]}";do
