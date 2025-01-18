@@ -14,8 +14,8 @@ model_names=("MAmmoTH-Critique-1")
 
 for model in "${model_names[@]}";do
   model_path="${model_dir}/${model}"
-  output_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_gpqa_0118/gpqa_results/${model}"
-  summary_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_gpqa_0118/gpqa_results/${model}_gpqa_summary.txt"
+  output_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_gpqa_0118_short_step/gpqa_results/${model}"
+  summary_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_gpqa_0118_short_step/gpqa_results/${model}_gpqa_summary.txt"
   mkdir -p $output_dir
   bash eval_gpqa.sh $model_path $output_dir $summary_dir 5
 done
