@@ -1,7 +1,9 @@
 import json
 
 def get_prompt(qas: list, form: str):
-    if form == "cft":
+    if form == "gpqa":
+        prompt_no_input, prefix = get_gpqa_prompt(qas)
+    elif form == "cft":
         prompt_no_input, prefix = get_cft_prompt(qas)
     elif form == 'short':
         prompt_no_input, prefix = get_short_prompt(qas)
@@ -48,6 +50,20 @@ def get_short_step_prompt(qas: list):
     return tmp, prefix
 
 ### These are the model-specific prompt format, only suitable for zero-shot evaluation.
+
+
+def get_gpqa_prompt(qas: list):
+    tmp = "<|im_start|>system\nAnswer the following multiple choice question. The last line of your response should be of the following format: 'Answer: $LETTER' (without quotes) where LETTER is one of ABCD. Think step by step before answering.<|im_end|>\n"
+    # tmp = "<|im_start|>system\nPlease reason step by step to find a solution to the following question.<|im_end|>\n"
+
+    for q, a in qas:
+        tmp += """<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n{response}\n\n""".format(query=q,
+                                                                                                       response=a)
+
+    prefix = '<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n'
+
+    return tmp, prefix
+
 
 def get_cft_prompt(qas: list):
     tmp = "<|im_start|>system\nPlease reason step by step, and put your final answer within \\boxed{{}}.<|im_end|>\n"

@@ -43,7 +43,7 @@ def run_question_answer(questions: list, groundtruths: list, tasks: list, collec
     used_examples = get_examples(tasks, args.shots, args.stem_flan_type)
     prompt_prefixs = [get_prompt(example, args.form) for example in used_examples]
     input_strs = [p[0] + p[1].format(query=q) for p, q in zip(prompt_prefixs, questions)]
-
+    print("input_strs[0]", input_strs[0])
     outputs = llm.generate(input_strs, sampling_params)
     outputs = [output.outputs[0].text for output in outputs]
 
@@ -53,14 +53,14 @@ def run_question_answer(questions: list, groundtruths: list, tasks: list, collec
     rerun_groundtruths = []
     rerun_tasks = []
     for output, question, groundtruth, task in zip(outputs, questions, groundtruths, tasks):
-        if 'print(' in output:
-            output = output.split("### Instruction")[0]
-            tmp = utils.execute_with_timeout(output)
-            tmp = 'The answer is' + ' ' + tmp
-            answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), tmp)
-        else:
-            answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output)
-
+        # if 'print(' in output:
+        #     output = output.split("### Instruction")[0]
+        #     tmp = utils.execute_with_timeout(output)
+        #     tmp = 'The answer is' + ' ' + tmp
+        #     answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), tmp)
+        # else:
+        #     answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output)
+        answer = utils.answer_clean(args.dataset, get_seperation_trigger(args.dataset), output)
         if answer == "" and collect_rerun:
             rerun_questions.append(utils.remove_flan_tag(question, args.stem_flan_type))
             rerun_groundtruths.append(groundtruth)
