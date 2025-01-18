@@ -19,8 +19,8 @@ def load_ace_data():
                 no_box_count += 1
                 continue
             question = curr["messages"][0]["content"]
-            if len(curr["message"]) > 1:
-                print(curr["message"])
+            if len(curr["messages"]) > 1:
+                print(curr["messages"])
                 continue
             ace_math_solution = curr["answer"]
             ace_data.append({"idx": idx, "question": question, "ace_math_solution": ace_math_solution})
