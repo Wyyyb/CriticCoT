@@ -12,7 +12,7 @@ cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_original
 # datasets=("math" "gsm8k" "theoremqa" "mmlu_stem")
 #datasets=("gpqa_main" "gpqa_diamond" "theoremqa" "mmlu_stem")
 #datasets=("gpqa_main" "gpqa_diamond")
-datasets=("gpqa_extended")
+datasets=("gpqa_diamond" "gpqa_main")
 
 for dataset in "${datasets[@]}"; do
     echo "Processing dataset: $dataset"
@@ -20,7 +20,7 @@ for dataset in "${datasets[@]}"; do
         --model $model_path \
         --shots $n_shot \
         --dataset $dataset \
-        --form "gpqa" \
+        --form "short_gpqa" \
         --output_dir $output_dir \
         --summary_path $summary_path
 done

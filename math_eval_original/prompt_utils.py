@@ -1,7 +1,9 @@
 import json
 
 def get_prompt(qas: list, form: str):
-    if form == "gpqa":
+    if form == "short_gpqa":
+        prompt_no_input, prefix = get_short_gpqa_prompt(qas)
+    elif form == "gpqa":
         prompt_no_input, prefix = get_gpqa_prompt(qas)
     elif form == "cft":
         prompt_no_input, prefix = get_cft_prompt(qas)
@@ -26,9 +28,19 @@ def get_prompt(qas: list, form: str):
     else:
         raise NotImplementedError(form)
 
-    return  prompt_no_input, prefix
+    return prompt_no_input, prefix
 
 ### These are the general prompt format, normally getting the highest performance.
+
+def get_short_gpqa_prompt(qas: list):
+    tmp = "Answer the following multiple choice question. The last line of your response should be of the following format: 'Answer: $LETTER' (without quotes) where LETTER is one of ABCD. Think step by step before answering.\n"
+    for q, a in qas:
+        tmp += '\n' + 'Problem:\n{query}\nSolution:\n{response}\n'.format(query=q, response=a)
+
+    prefix = '\n' + 'Problem:\n{query}\nSolution:\n'
+
+    return tmp, prefix
+
 
 def get_short_prompt(qas: list):
     tmp = "You are supposed to provide a solution to a given problem.\n\n"
