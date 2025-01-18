@@ -62,9 +62,9 @@ def get_prompt(question):
 
 
 def main():
-    input_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/ace_data_0119.jsonl"
+    input_file = "/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/data/numina_sample_80k_data_0118.json"
     output_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/on_policy_data_0119/" \
-                  "qwen_math_acemath_80k_0119.json"
+                  "qwen_math_numina_80k_0119.json"
     model_path = "/gpfs/public/research/xy/yubowang/models/Qwen2.5-Math-7B"
     llm, sampling_params = load_vllm_model(model_path)
     with open(input_file, "r") as fi:
