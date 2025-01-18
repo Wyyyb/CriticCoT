@@ -5,33 +5,35 @@ import os
 from tqdm import tqdm
 
 
-def load_numina():
+def load_ace_data():
     no_box_count = 0
-    numina_data = []
-    data_files = {
-        "general_sft_stage1": "data/general_sft_stage1.parquet",
-        "general_sft_stage2": "data/general_sft_stage2.parquet",
-        "math_sft": "data/math_sft.parquet",
-    }
-    ds = load_dataset("nvidia/AceMath-Instruct-Training-Data", data_files=data_files)
-    print("loaded!")
-    output_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/AceMath-Instruct-Training-Data/math_sft.jsonl"
-    if not os.path.exists(output_file):
-        with open(output_file, 'w', encoding='utf-8') as f:
-            for item in ds["math_sft"]:
-                json_str = json.dumps(item, ensure_ascii=False)
-                f.write(json_str + '\n')
-    with open(output_file, "r") as fi:
+    ace_data = []
+    input_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/AceMath-Instruct-Training-Data/math_sft.jsonl"
+    output_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/ace_data_0119.jsonl"
+    with open(input_file, "r") as fi:
         for line in tqdm(fi):
+            idx = 0
             curr = json.loads(line)
-            numina_data.append(curr)
             if "\\boxed{" not in curr["answer"]:
                 # print("boxed not in data", curr["source"])
                 no_box_count += 1
+                continue
+            question = curr["messages"][0]["content"]
+            if len(curr["message"]) > 1:
+                print(curr["message"])
+                continue
+            ace_math_solution = curr["answer"]
+            ace_data.append({"idx": idx, "question": question, "ace_math_solution": ace_math_solution})
+            idx += 1
+
     print("no_box_count", no_box_count)
-    print("len(numina_data)", len(numina_data))
-    return numina_data
+    print("len(ace_data)", len(ace_data))
+    with open(output_file, "w") as fo:
+        for each in ace_data:
+            fo.write(json.dumps(each) + "\n")
+    # return ace_data
 
 
-load_numina()
+load_ace_data()
+
 
