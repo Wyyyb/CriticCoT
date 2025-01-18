@@ -67,19 +67,18 @@ def main():
                   "qwen_math_ace_80k_0119.json"
     model_path = "/gpfs/public/research/xy/yubowang/models/Qwen2.5-Math-7B"
     llm, sampling_params = load_vllm_model(model_path)
+    ace_data = []
     with open(input_file, "r") as fi:
-        numina_data = json.load(fi)
+        for line in fi.readlines():
+            ace_data.append(json.loads(line))
     input_data = []
     prompts = []
-    idx = 0
-    # for test
-    # numina_data = numina_data[:100]
-    for each in numina_data:
-        idx += 1
+
+    for each in ace_data:
+        idx = each["idx"]
         question = each["question"]
-        numina_answer = each["output"]
-        input_data.append({"idx": idx, "question": question, "numina_answer": numina_answer})
-        idx += 1
+        ace_math_solution = each["ace_math_solution"]
+        input_data.append({"idx": idx, "question": question, "ace_math_solution": ace_math_solution})
         prompts.append(get_prompt(question))
 
     outputs = batch_predict(llm, sampling_params, prompts)

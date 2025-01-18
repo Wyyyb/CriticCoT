@@ -78,7 +78,7 @@ def main():
         idx += 1
         question = each["input"]
         numina_answer = each["output"]
-        input_data.append({"idx": idx, "question": question, "numina_answer": numina_answer})
+        input_data.append({"idx": idx, "question": question, "numina_solution": numina_answer})
         idx += 1
         prompts.append(get_prompt(question))
 
