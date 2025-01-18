@@ -10,7 +10,7 @@ n_shot=$4
 cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_original
 
 # datasets=("math" "gsm8k" "theoremqa" "mmlu_stem")
-datasets=("gpqa" "theoremqa" "mmlu_stem")
+datasets=("gpqa_main" "gpqa_diamond" "theoremqa" "mmlu_stem")
 
 for dataset in "${datasets[@]}"; do
     echo "Processing dataset: $dataset"
