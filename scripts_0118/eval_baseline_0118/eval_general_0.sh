@@ -22,7 +22,7 @@ for model in "${model_names[@]}";do
   output_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0118/general_results/${model}"
   summary_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0118/general_results/${model}_general_summary.txt"
   mkdir -p $output_dir
-  bash eval_general_reasoning.sh $model_path $output_dir $summary_dir
+  bash run_general_reasoning.sh $model_path $output_dir $summary_dir
 
 done
 

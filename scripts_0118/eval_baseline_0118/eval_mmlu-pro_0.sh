@@ -20,7 +20,7 @@ for model in "${model_names[@]}"; do
   model_path="${model_dir}/${model}"
   output_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0118/mmlu-pro_results/${model}"
   summary_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0118/${model}_mmlu-pro_summary.txt"
-  bash eval_mmlu_pro.sh $model_path $output_dir $summary_dir
+  bash run_mmlu_pro.sh $model_path $output_dir $summary_dir
 
 done
 
