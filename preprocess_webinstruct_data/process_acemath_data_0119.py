@@ -8,7 +8,12 @@ from tqdm import tqdm
 def load_numina():
     no_box_count = 0
     numina_data = []
-    ds = load_dataset("nvidia/AceMath-Instruct-Training-Data")
+    data_files = {
+        "general_sft_stage1": "data/general_sft_stage1.parquet",
+        "general_sft_stage2": "data/general_sft_stage2.parquet",
+        "math_sft": "data/math_sft.parquet",
+    }
+    ds = load_dataset("nvidia/AceMath-Instruct-Training-Data", data_files=data_files,)
     output_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/AceMath-Instruct-Training-Data/math_sft.jsonl"
     if not os.path.exists(output_file):
         with open(output_file, 'w', encoding='utf-8') as f:
