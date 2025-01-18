@@ -19,7 +19,7 @@ model_names=("MAmmoTH-Critique-1" "AceMath-7B-Instruct" "Eurus-2-7B-SFT" "Numina
 for model in "${model_names[@]}"; do
   model_path="${model_dir}/${model}"
   output_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0118/mmlu-pro_results/${model}"
-  mkdir -p "${output}"
+  mkdir -p ${output_dir}
   summary_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0118/${model}_mmlu-pro_summary.txt"
   bash run_mmlu_pro.sh $model_path $output_dir $summary_dir
 
