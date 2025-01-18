@@ -12,7 +12,7 @@ cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_original
 # datasets=("math" "gsm8k" "theoremqa" "mmlu_stem")
 #datasets=("gpqa_main" "gpqa_diamond" "theoremqa" "mmlu_stem")
 #datasets=("gpqa_main" "gpqa_diamond")
-datasets=("gpqa_experts" "gpqa_extended")
+datasets=("gpqa_extended")
 
 for dataset in "${datasets[@]}"; do
     echo "Processing dataset: $dataset"
