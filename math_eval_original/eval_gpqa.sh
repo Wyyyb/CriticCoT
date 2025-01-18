@@ -19,7 +19,7 @@ for dataset in "${datasets[@]}"; do
         --model $model_path \
         --shots $n_shot \
         --dataset $dataset \
-        --form "cft" \
+        --form "gpqa" \
         --output_dir $output_dir \
         --summary_path $summary_path
 done
