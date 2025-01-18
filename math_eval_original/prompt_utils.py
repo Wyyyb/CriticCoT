@@ -50,7 +50,8 @@ def get_short_step_prompt(qas: list):
 ### These are the model-specific prompt format, only suitable for zero-shot evaluation.
 
 def get_cft_prompt(qas: list):
-    tmp = "<|im_start|>system\nPlease reason step by step to find a solution to the following question.<|im_end|>\n"
+    tmp = "<|im_start|>system\nPlease reason step by step, and put your final answer within \\boxed{{}}.<|im_end|>\n"
+    # tmp = "<|im_start|>system\nPlease reason step by step to find a solution to the following question.<|im_end|>\n"
 
     for q, a in qas:
         tmp += """<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n{response}\n\n""".format(query=q, response=a)
