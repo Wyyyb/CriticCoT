@@ -17,7 +17,5 @@ huggingface-cli download --repo-type model google/gemma-2-9b --local-dir /data/y
 
 huggingface-cli download --repo-type model meta-llama/Llama-3.1-8B --local-dir /data/yubowang/critic_models/Llama-3.1-8B
 
-
-
-
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /data/yubo/models/Qwen2.5-Math-7B
 
