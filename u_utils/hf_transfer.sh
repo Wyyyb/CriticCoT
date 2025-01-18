@@ -10,6 +10,9 @@ huggingface-cli upload ubowang/CriticCoT_data_1231 . --repo-type dataset
 
 huggingface-cli download ubowang/CriticCoT_data_1231 --local-dir . --repo-type dataset
 
+huggingface-cli download ubowang/critic_training_data_0111 --local-dir . --repo-type dataset
+
+huggingface-cli download meta-math/MetaMathQA --local-dir . --repo-type dataset
 
 huggingface-cli upload ubowang/critic_training_data_0111 . --repo-type dataset
 
