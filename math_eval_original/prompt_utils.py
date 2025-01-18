@@ -1,7 +1,9 @@
 import json
 
 def get_prompt(qas: list, form: str):
-    if form == 'short':
+    if form == "cft":
+        prompt_no_input, prefix = get_cft_prompt(qas)
+    elif form == 'short':
         prompt_no_input, prefix = get_short_prompt(qas)
     elif form == 'short:step':
         prompt_no_input, prefix = get_short_step_prompt(qas)
@@ -46,6 +48,16 @@ def get_short_step_prompt(qas: list):
     return tmp, prefix
 
 ### These are the model-specific prompt format, only suitable for zero-shot evaluation.
+
+def get_cft_prompt(qas: list):
+    tmp = "<|im_start|>system\nPlease reason step by step to find a solution to the following question.<|im_end|>\n"
+
+    for q, a in qas:
+        tmp += """<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n{response}\n\n""".format(query=q, response=a)
+
+    prefix = '<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n'
+
+    return tmp, prefix
 
 
 def get_qwen_prompt(qas: list):
