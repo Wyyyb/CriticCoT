@@ -13,7 +13,7 @@ def load_numina():
         "general_sft_stage2": "data/general_sft_stage2.parquet",
         "math_sft": "data/math_sft.parquet",
     }
-    ds = load_dataset("nvidia/AceMath-Instruct-Training-Data", data_files=data_files, ignore_verifications=True)
+    ds = load_dataset("nvidia/AceMath-Instruct-Training-Data", data_files=data_files)
     print("loaded!")
     output_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/AceMath-Instruct-Training-Data/math_sft.jsonl"
     if not os.path.exists(output_file):
