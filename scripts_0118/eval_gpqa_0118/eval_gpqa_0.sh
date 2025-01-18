@@ -17,7 +17,11 @@ for model in "${model_names[@]}";do
   output_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_gpqa_0118_cft/gpqa_results/${model}"
   summary_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_gpqa_0118_cft/gpqa_results/${model}_gpqa_summary.txt"
   mkdir -p $output_dir
-  bash eval_gpqa.sh $model_path $output_dir $summary_dir 5
+  bash eval_gpqa.sh $model_path $output_dir $summary_dir 1
+  bash eval_gpqa.sh $model_path $output_dir $summary_dir 2
+  bash eval_gpqa.sh $model_path $output_dir $summary_dir 3
+  bash eval_gpqa.sh $model_path $output_dir $summary_dir 4
+  bash eval_gpqa.sh $model_path $output_dir $summary_dir 6
 done
 
 
