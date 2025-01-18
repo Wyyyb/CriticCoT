@@ -77,13 +77,13 @@ def main():
     print("len(unsure_data)", len(unsure_data))
 
     os.makedirs("../local_data/WebInstructData_0119/", exist_ok=True)
-    with open("../local_data/WebInstructData_0119/correct_only_40k.jsonl", "w") as fo:
+    with open("../local_data/WebInstructData_0119/correct_only_40k.json", "w") as fo:
         fo.write(json.dumps(correct_only_data[:40000], indent=4))
-    with open("../local_data/WebInstructData_0119/incorrect_only_40k.jsonl", "w") as fo:
+    with open("../local_data/WebInstructData_0119/incorrect_only_40k.json", "w") as fo:
         fo.write(json.dumps(incorrect_only_data[:40000], indent=4))
     merged_data = correct_only_data[:40000] + incorrect_only_data[:40000]
     random.shuffle(merged_data)
-    with open("../local_data/WebInstructData_0119/cft_merged_80k.jsonl", "w") as fo:
+    with open("../local_data/WebInstructData_0119/cft_merged_80k.json", "w") as fo:
         fo.write(json.dumps(merged_data, indent=4))
 
 
