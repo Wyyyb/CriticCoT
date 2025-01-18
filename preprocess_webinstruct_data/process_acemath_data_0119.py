@@ -10,9 +10,9 @@ def load_ace_data():
     ace_data = []
     input_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/AceMath-Instruct-Training-Data/math_sft.jsonl"
     output_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/ace_data_0119.jsonl"
+    idx = 0
     with open(input_file, "r") as fi:
         for line in tqdm(fi):
-            idx = 0
             curr = json.loads(line)
             if "\\boxed{" not in curr["answer"]:
                 # print("boxed not in data", curr["source"])
