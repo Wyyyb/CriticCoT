@@ -19,3 +19,6 @@ huggingface-cli download --repo-type model meta-llama/Llama-3.1-8B --local-dir /
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /data/yubo/models/Qwen2.5-Math-7B
 
+huggingface-cli download --repo-type model nvidia/AceMath-7B-Instruct --local-dir /gpfs/public/research/xy/yubowang/models/AceMath-7B-Instruct
+
+huggingface-cli download --repo-type model PRIME-RL/Eurus-2-7B-SFT --local-dir /gpfs/public/research/xy/yubowang/models/Eurus-2-7B-SFT
