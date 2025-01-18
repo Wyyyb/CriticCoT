@@ -62,17 +62,37 @@ def get_prompt(question):
 
 
 def main():
-    input_file = ""
-    output_file = ""
+    input_file = "/gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/data/numina_sample_80k_data_0118.json"
+    output_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/on_policy_data_0119/" \
+                  "qwen_math_numina_80k_0119.json"
+    model_path = "/gpfs/public/research/xy/yubowang/models/Qwen2.5-Math-7B"
+    llm, sampling_params = load_vllm_model(model_path)
     with open(input_file, "r") as fi:
         numina_data = json.load(fi)
     input_data = []
+    prompts = []
     idx = 0
+    # for test
+    numina_data = numina_data[:100]
     for each in numina_data:
         idx += 1
         question = each["input"]
         numina_answer = each["output"]
         input_data.append({"idx": idx, "question": question, "numina_answer": numina_answer})
+        idx += 1
+        prompts.append(get_prompt(question))
+
+    outputs = batch_predict(llm, sampling_params, prompts)
+    if len(outputs) != len(input_data):
+        print("inconsistent length", len(outputs), len(input_data))
+    output_data = []
+    for i, each in enumerate(outputs):
+        curr = input_data[i]
+        curr["qwen_2.5_math_answer"] = each
+        output_data.append(curr)
+
+    with open(output_file, "w") as fo:
+        fo.write(json.dumps(output_data, indent=4))
 
 
-
+main()
