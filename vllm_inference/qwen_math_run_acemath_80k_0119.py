@@ -1,3 +1,5 @@
+import random
+
 from vllm import LLM, SamplingParams
 from typing import List
 import os
@@ -71,6 +73,8 @@ def main():
     with open(input_file, "r") as fi:
         for line in fi.readlines():
             ace_data.append(json.loads(line))
+    random.shuffle(ace_data)
+    ace_data = ace_data[:80000]
     input_data = []
     prompts = []
 
@@ -80,7 +84,7 @@ def main():
         ace_math_solution = each["ace_math_solution"]
         input_data.append({"idx": idx, "question": question, "ace_math_solution": ace_math_solution})
         prompts.append(get_prompt(question))
-
+    print("len(prompts) = ", len(prompts))
     outputs = batch_predict(llm, sampling_params, prompts)
     if len(outputs) != len(input_data):
         print("inconsistent length", len(outputs), len(input_data))
