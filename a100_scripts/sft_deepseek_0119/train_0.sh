@@ -16,7 +16,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 MODEL_NAME="critic-proj"
 export WANDB_RUN_NAME=$MODEL_NAME
 
-FORCE_TORCHRUN=1 llamafactory-cli train ../a100_scripts/sft_deepseek_0119/deepseek-math-7B_numina_80k_0118.yaml
+FORCE_TORCHRUN=1 llamafactory-cli train ../a100_scripts/sft_deepseek_0119/deepseek-math-7B_metamathqa_80k_0118.yaml
 
 # FORCE_TORCHRUN=1 llamafactory-cli train ../a100_scripts/train_sft_0118/qwen2.5-math-7B_numina_80k_0118.yaml
 
