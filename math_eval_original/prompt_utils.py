@@ -47,6 +47,7 @@ def get_short_step_prompt(qas: list):
 
 ### These are the model-specific prompt format, only suitable for zero-shot evaluation.
 
+
 def get_qwen_prompt(qas: list):
     tmp = "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n"
     
