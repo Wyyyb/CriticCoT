@@ -1,4 +1,10 @@
 {
+  "webinstruct_critique_right_80k_0119": {
+    "file_name": "webinstruct_critique_right_80k_0119.json"
+  },
+  "webinstruct_critique_wrong_80k_0119": {
+    "file_name": "webinstruct_critique_wrong_80k_0119.json"
+  },
   "webinstruct_sft_gpt4o_80k_0119": {
     "file_name": "webinstruct_sft_gpt4o_80k_0119.json"
   },
