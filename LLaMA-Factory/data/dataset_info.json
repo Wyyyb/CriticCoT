@@ -1,4 +1,10 @@
 {
+  "webinstruct_sft_gpt4o_80k_0119": {
+    "file_name": "webinstruct_sft_gpt4o_80k_0119.json"
+  },
+  "webinstruct_cft_80k_0119": {
+    "file_name": "webinstruct_cft_80k_0119.json"
+  },
   "MetaMathQA_sample_80k_data_0118": {
     "file_name": "MetaMathQA_sample_80k_data_0118.json"
   },
