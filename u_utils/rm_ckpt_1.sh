@@ -21,7 +21,7 @@ for subdir in "$dir_path"/*; do
         for ckpt_dir in "$subdir"/checkpoint-*; do
             if [ -d "$ckpt_dir" ]; then
                 num=$(basename "$ckpt_dir" | grep -o '[0-9]\+')
-                if [ ! -z "$num" ] && [ "$num" -gt 600 ]; then
+                if [ ! -z "$num" ] && [ "$num" -gt 300 ]; then
                     echo "$ckpt_dir"
                     found_dirs=1
                 fi
@@ -50,7 +50,7 @@ for subdir in "$dir_path"/*; do
         for ckpt_dir in "$subdir"/checkpoint-*; do
             if [ -d "$ckpt_dir" ]; then
                 num=$(basename "$ckpt_dir" | grep -o '[0-9]\+')
-                if [ ! -z "$num" ] && [ "$num" -gt 1200 ]; then
+                if [ ! -z "$num" ] && [ "$num" -gt 300 ]; then
                     echo "Removing $ckpt_dir"
                     rm -rf "$ckpt_dir"
                 fi
