@@ -33,3 +33,8 @@ modelscope download ubowang/CFT_data_0118 . --repo-type dataset
 modelscope download --dataset 'ubowang/CFT_data_0118' --local_dir '.'
 
 huggingface-cli download ubowang/on_policy_data_0119 . --repo-type dataset
+
+huggingface-cli upload ubowang/webinstruct_sft_gpt4o_80k_0119_data . --repo-type dataset
+
+huggingface-cli download ubowang/webinstruct_sft_gpt4o_80k_0119_data . --repo-type dataset
+
