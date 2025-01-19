@@ -102,7 +102,7 @@ def process_large_dataset(input_path: str,
     # 获取数据总量
     with open(input_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-        total_items = len(json.load(f))
+        total_items = len(data)
     # add idx
     for i, each in enumerate(data):
         if "idx" not in each:
