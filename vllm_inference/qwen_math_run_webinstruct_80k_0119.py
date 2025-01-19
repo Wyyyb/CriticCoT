@@ -80,7 +80,7 @@ def main():
     webinstruct_data = webinstruct_data[:100]
     for each in webinstruct_data:
         idx += 1
-        question = each["input"]
+        question = each["question"]
         input_data.append({"idx": idx, "question": question})
         idx += 1
         prompts.append(get_prompt(question))
