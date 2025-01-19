@@ -163,7 +163,7 @@ if __name__ == "__main__":
     input_path = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/on_policy_data_0119/" \
                  "qwen_math_numina_80k_0119.json"
     output_dir = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/on_policy_data_0119/" \
-                 "qwen_math_numina_80k_add_critique_0119.json"
+                 "qwen_math_numina_80k_add_critique_0119"
 
     process_large_dataset(
         input_path=input_path,
