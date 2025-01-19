@@ -54,6 +54,7 @@ def batch_predict(llm, sampling_params, prompts: List[str]) -> List[str]:
 
 
 def get_prompt(question):
+    question = "Question:\n" + question
     prompt = f"<|im_start|>Please reason step by step to find a solution to the following question, " \
              f"and put your final answer within \\boxed{{}}.<|im_end|>\n\n" \
              f"<|im_start|>user\n{question}<|im_end|>\n" \
@@ -77,17 +78,17 @@ def main():
     idx = 0
     # for test
     # numina_data = numina_data[:100]
-    webinstruct_data = webinstruct_data[:100]
+    # webinstruct_data = webinstruct_data[:100]
     for each in webinstruct_data:
         idx += 1
-        question = each["question"]
+        question = each["question"].replace("Question:\n", "")
         input_data.append({"idx": idx, "question": question})
         idx += 1
         prompts.append(get_prompt(question))
     print("len(prompts", len(prompts))
     print("prompts[0]", prompts[0])
-    # batch_size = 4000
-    batch_size = 40
+    batch_size = 4000
+    # batch_size = 40
     batch_num = len(prompts) // batch_size
     outputs = []
     for index in range(batch_num):
