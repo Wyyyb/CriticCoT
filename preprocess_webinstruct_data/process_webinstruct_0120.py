@@ -76,7 +76,7 @@ def main():
     print("len(incorrect_only_data)", len(incorrect_only_data))
     print("len(unsure_data)", len(unsure_data))
 
-    # os.makedirs("../local_data/WebInstructData_0119/", exist_ok=True)
+    os.makedirs("../local_data/webinstruct_sft_gpt4o_80k_0119_data/", exist_ok=True)
     # with open("../local_data/WebInstructData_0119/correct_only_40k.json", "w") as fo:
     #     fo.write(json.dumps(correct_only_data[:40000], indent=4))
     # with open("../local_data/WebInstructData_0119/incorrect_only_40k.json", "w") as fo:
@@ -85,9 +85,9 @@ def main():
     # random.shuffle(merged_data)
     # with open("../local_data/WebInstructData_0119/cft_merged_80k.json", "w") as fo:
     #     fo.write(json.dumps(merged_data, indent=4))
-    with open("../LLaMA-Factory/data/webinstruct_critique_right_80k_0119.json", "w") as fo:
+    with open("../local_data/webinstruct_sft_gpt4o_80k_0119_data/webinstruct_critique_right_80k_0119.json", "w") as fo:
         fo.write(json.dumps(correct_only_data[:80000], indent=4))
-    with open("../LLaMA-Factory/data/webinstruct_critique_wrong_80k_0119.json", "w") as fo:
+    with open("../local_data/webinstruct_sft_gpt4o_80k_0119_data/webinstruct_critique_wrong_80k_0119.json", "w") as fo:
         fo.write(json.dumps(incorrect_only_data[:80000], indent=4))
 
 
