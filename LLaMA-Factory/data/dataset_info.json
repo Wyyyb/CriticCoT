@@ -1,4 +1,10 @@
 {
+  "numina_cft_80k_0119": {
+    "file_name": "numina_cft_80k_0119.json"
+  },
+  "numina_sft_80k_0119": {
+    "file_name": "numina_sft_80k_0119.json"
+  },
   "webinstruct_critique_right_80k_0119": {
     "file_name": "webinstruct_critique_right_80k_0119.json"
   },
