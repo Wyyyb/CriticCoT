@@ -25,6 +25,8 @@ def main():
             critique = item["model_output"]
             cft_data.append(single_format_cft(question, answer, critique))
             sft_data.append(single_format_sft(question, numina_solution))
+    print("len(cft_data)", len(cft_data))
+    print("len(sft_data)", len(sft_data))
     with open(cft_output_file_path, "w") as fo:
         fo.write(json.dumps(cft_data, indent=4))
 
