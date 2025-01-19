@@ -38,3 +38,4 @@ huggingface-cli upload ubowang/webinstruct_sft_gpt4o_80k_0119_data . --repo-type
 
 huggingface-cli download ubowang/webinstruct_sft_gpt4o_80k_0119_data . --repo-type dataset
 
+huggingface-cli upload ubowang/qwen_math_numina_80k_add_critique_0119 . --repo-type dataset

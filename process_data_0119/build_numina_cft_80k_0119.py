@@ -3,7 +3,8 @@ import os
 
 
 def main():
-    input_dir = ""
+    input_dir = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/on_policy_data_0119/" \
+                "qwen_math_numina_80k_add_critique_0119"
     cft_output_file_path = "../LLaMA-Factory/data/numina_cft_80k_0119.json"
     sft_output_file_path = "../LLaMA-Factory/data/numina_sft_80k_0119.json"
     cft_data = []
