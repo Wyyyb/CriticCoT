@@ -24,3 +24,4 @@ huggingface-cli download --repo-type model nvidia/AceMath-7B-Instruct --local-di
 huggingface-cli download --repo-type model PRIME-RL/Eurus-2-7B-SFT --local-dir /gpfs/public/research/xy/yubowang/models/Eurus-2-7B-SFT
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /cpfs/data/user/yubowang/models/Qwen2.5-Math-7B
+
