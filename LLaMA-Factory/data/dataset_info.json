@@ -1,4 +1,19 @@
 {
+  "webinstruct_cft_80k_0121_p1": {
+    "file_name": "webinstruct_cft_80k_0121_p1.json"
+  },
+  "webinstruct_cft_80k_0121_p2": {
+    "file_name": "webinstruct_cft_80k_0121_p2.json"
+  },
+  "webinstruct_cft_80k_0121_p3": {
+    "file_name": "webinstruct_cft_80k_0121_p3.json"
+  },
+  "webinstruct_cft_80k_0121_p4": {
+    "file_name": "webinstruct_cft_80k_0121_p4.json"
+  },
+  "webinstruct_cft_80k_0121_p5": {
+    "file_name": "webinstruct_cft_80k_0121_p5.json"
+  },
   "numina_cft_gpt4o-1120_on-policy_50k_0120": {
     "file_name": "numina_cft_gpt4o-1120_on-policy_50k_0120.json"
   },
