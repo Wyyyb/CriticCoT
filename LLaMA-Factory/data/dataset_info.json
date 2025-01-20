@@ -1,4 +1,10 @@
 {
+  "ace_10k_gpt4o_cft_0121": {
+    "file_name": "ace_10k_gpt4o_cft_0121.json"
+  },
+  "webinstruct_ace_80k_gpt4o_cft_0121": {
+    "file_name": "webinstruct_ace_80k_gpt4o_cft_0121.json"
+  },
   "webinstruct_cft_80k_0121_p1": {
     "file_name": "webinstruct_cft_80k_0121_p1.json"
   },
