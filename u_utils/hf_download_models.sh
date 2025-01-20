@@ -29,5 +29,5 @@ huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-base --l
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-7B --local-dir /cpfs/data/user/yubowang/models/Qwen2.5-7B
 
-
+huggingface-cli download --repo-type model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --local-dir /cpfs/data/user/yubowang/models/DeepSeek-R1-Distill-Qwen-32B
 
