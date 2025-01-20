@@ -89,7 +89,7 @@ def process_chunk(start_idx: int,
 def process_large_dataset(input_path: str,
                           output_dir: str,
                           prompt_func: Callable,
-                          num_processes: int = 20):
+                          num_processes: int = 200):
     """
     主函数：处理大型数据集
 
@@ -102,9 +102,9 @@ def process_large_dataset(input_path: str,
     # 获取数据总量
     with open(input_path, 'r', encoding='utf-8') as f:
         total_items = len(json.load(f))
-
+    total_items = 50000
     # 计算每个进程处理的数据量
-    chunk_size = total_items // num_processes
+    chunk_size = total_items // num_processes + 1
 
     # 创建进程
     processes = []
@@ -163,7 +163,7 @@ if __name__ == "__main__":
     input_path = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/on_policy_data_0119/" \
                  "qwen_math_numina_80k_0119.json"
     output_dir = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/on_policy_data_0119/" \
-                 "qwen_math_numina_80k_add_critique_0119"
+                 "qwen_math_numina_50k_add_critique_gpt4o-1120_0119"
 
     process_large_dataset(
         input_path=input_path,
