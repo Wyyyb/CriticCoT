@@ -50,3 +50,7 @@ modelscope download --repo-type model deepseek-ai/deepseek-math-7b-base --local_
 
 modelscope download --repo-type model Qwen/Qwen2.5-7B --local_dir /cpfs/data/user/yubowang/models/Qwen2.5-7B
 
+huggingface-cli upload ubowang/cft_data_0120 . --repo-type dataset
+
+
+

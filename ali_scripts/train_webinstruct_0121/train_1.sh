@@ -16,5 +16,5 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 MODEL_NAME="critic-proj"
 export WANDB_RUN_NAME=$MODEL_NAME
 
-FORCE_TORCHRUN=1 llamafactory-cli train ../ali_scripts/train_numina_0120/qwen2.5-math-7B_numina_on-policy_cft_gpt4o-1120_50k_0120_constant-lr.yaml
+FORCE_TORCHRUN=1 llamafactory-cli train ../ali_scripts/train_webinstruct_0121/qwen2.5-math-7B_webinstruct_cft_80k_0120_t1.yaml
 

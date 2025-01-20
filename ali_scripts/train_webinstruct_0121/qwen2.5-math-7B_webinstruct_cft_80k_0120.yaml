@@ -18,7 +18,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: output_models_0120/qwen2.5-math-7B_numina_cft_gpt4o-1120_on-policy_50k_0120
+output_dir: output_models_0121/qwen2.5-math-7B_webinstruct_cft_80k_0121
 logging_steps: 1
 save_steps: 10
 plot_loss: true
