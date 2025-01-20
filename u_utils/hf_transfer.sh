@@ -44,3 +44,4 @@ huggingface-cli upload ubowang/ace_80k_add_critique_0120 . --repo-type dataset
 
 huggingface-cli download ubowang/ace_80k_add_critique_0120 . --repo-type dataset
 
+huggingface-cli download Qwen/Qwen2.5-Math-7B . --repo-type mdoel
