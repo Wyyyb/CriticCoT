@@ -6,7 +6,7 @@ conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
-cd /cpfs/data/user/yubowang/CriticCoT/ali_scripts/eval_numina_cft_0120/
+cd /cpfs/data/user/yubowang/CriticCoT/ali_scripts/eval_webinstruct_sample_5_cft_0121/
 
 summary_path="/cpfs/data/user/yubowang/CriticCoT/math_eval_result_qwen2.5-math-7B_webinstruct_cft_80k_0121_p2/summary.txt"
 root_dir="/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/output_models_0121"
