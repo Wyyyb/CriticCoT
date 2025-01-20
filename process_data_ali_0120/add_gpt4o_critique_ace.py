@@ -24,10 +24,10 @@ def process_chunk(start_idx: int,
     output_file = os.path.join(output_dir, f'{start_idx + 1}-{end_idx}.json')
 
     # 读取已有的输出结果（如果存在）
-    existing_results = {}
-    if os.path.exists(output_file):
-        with open(output_file, 'r', encoding='utf-8') as f:
-            existing_results = {item['idx']: item for item in json.load(f)}
+    # existing_results = {}
+    # if os.path.exists(output_file):
+    #     with open(output_file, 'r', encoding='utf-8') as f:
+    #         existing_results = {item['idx']: item for item in json.load(f)}
 
     # 读取输入数据
     with open(input_path, 'r', encoding='utf-8') as f:
@@ -45,9 +45,9 @@ def process_chunk(start_idx: int,
     # 处理每条数据
     for item in tqdm(chunk_data, desc=f'Process {process_id}'):
         # 检查是否已经处理过
-        if item['idx'] in existing_results:
-            results.append(existing_results[item['idx']])
-            continue
+        # if item['idx'] in existing_results:
+        #     results.append(existing_results[item['idx']])
+        #     continue
 
         # 构造prompt并调用API
         try:
@@ -161,7 +161,8 @@ def example_prompt_func(item):
 if __name__ == "__main__":
     # 使用示例
     input_path = "/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/data/ace_80k_sft_0120.json"
-    output_dir = "/cpfs/data/user/yubowang/CriticCoT/local_data/ace_10k_cft_0121.json"
+    output_dir = "/cpfs/data/user/yubowang/CriticCoT/local_data/ace_10k_cft_0121"
+
     os.makedirs(output_dir, exist_ok=True)
     process_large_dataset(
         input_path=input_path,
