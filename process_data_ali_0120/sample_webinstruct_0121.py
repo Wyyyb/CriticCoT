@@ -12,7 +12,7 @@ def main():
     output_length_data = sorted(ori_data, key=lambda x: len(x["output"]))
     total_length_data = sorted(ori_data, key=lambda x: len(x["input"]) + len(x["output"]))
     data_number = 80000
-    edge_window = 1000
+    edge_window = 10000
     output_data = []
     # output_data[0]: input length最长的80k
     # output_data[1]: input length最短的80k
