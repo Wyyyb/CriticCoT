@@ -1,5 +1,6 @@
 import json
 import os
+import random
 
 
 def main():
@@ -31,8 +32,13 @@ def main():
     for i in range(len(output_data)):
         output_path = output_file_base_path + str(i + 1) + ".json"
         print("len(output_data[i])", len(output_data[i]))
+        curr = output_data[i]
+        print("i", i)
+        print("min length", len(curr[0]["input"] + curr[0]["output"]))
+        print("max length", len(curr[-1]["input"] + curr[-1]["output"]))
+        random.shuffle(curr)
         with open(output_path, "w") as fo:
-            fo.write(json.dumps(output_data[i], indent=4))
+            fo.write(json.dumps(curr, indent=4))
 
 
 main()
