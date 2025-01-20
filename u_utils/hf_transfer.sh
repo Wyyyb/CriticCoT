@@ -45,3 +45,8 @@ huggingface-cli upload ubowang/ace_80k_add_critique_0120 . --repo-type dataset
 huggingface-cli download ubowang/ace_80k_add_critique_0120 . --repo-type dataset
 
 modelscope download Qwen/Qwen2.5-Math-7B --repo-type model --local_dir /cpfs/data/user/yubowang/models/Qwen2.5-Math-7B
+
+modelscope download --repo-type model deepseek-ai/deepseek-math-7b-base --local_dir /cpfs/data/user/yubowang/models/deepseek-math-7b-base
+
+modelscope download --repo-type model Qwen/Qwen2.5-7B --local_dir /cpfs/data/user/yubowang/models/Qwen2.5-7B
+

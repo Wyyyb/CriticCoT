@@ -25,3 +25,9 @@ huggingface-cli download --repo-type model PRIME-RL/Eurus-2-7B-SFT --local-dir /
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /cpfs/data/user/yubowang/models/Qwen2.5-Math-7B
 
+huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-base --local-dir /cpfs/data/user/yubowang/models/deepseek-math-7b-base
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-7B --local-dir /cpfs/data/user/yubowang/models/Qwen2.5-7B
+
+
+
