@@ -27,7 +27,7 @@ def main():
         if not has_number(question) and not has_number(answer):
             continue
         if random.randint(0, 10) > 5:
-            instruction = instruction.replac("solution", "answer")
+            instruction = instruction.replace("solution", "answer")
             answer = answer.replace("Solution:\n", "Answer:\n")
         if random.randint(0, 10) > 5:
             instruction = instruction.replace("correct", "right")
