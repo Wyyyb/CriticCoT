@@ -20,4 +20,5 @@ def main():
         fo.write(json.dumps(data, indent=4))
 
 
+main()
 
