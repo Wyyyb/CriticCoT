@@ -20,7 +20,7 @@ preprocessing_num_workers: 16
 ### output
 output_dir: output_models_0121/qwen2.5-math-7B_webinstruct_cft_80k_0122_p4
 logging_steps: 1
-save_steps: 10
+save_steps: 5
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: true
