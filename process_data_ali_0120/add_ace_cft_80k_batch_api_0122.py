@@ -24,5 +24,7 @@ batch_input_file_id file-4Qf5iq6tgTEjS4TjWdz2bo
 
 FileObject(id='file-YBxjVob2c4juUpdGJeM4y7', bytes=95529176, created_at=1737484060, filename='batchinput-2.jsonl', object='file', purpose='batch', status='processed', status_details=None)
 batch_input_file_id file-YBxjVob2c4juUpdGJeM4y7
+
+FileObject(id='file-4qr7yZLDgAZ1yz3Czm2t9f', bytes=217996954, created_at=1737482842, filename='batchinput.jsonl', object='file', purpose='batch', status='processed', status_details=None)
 '''
 
