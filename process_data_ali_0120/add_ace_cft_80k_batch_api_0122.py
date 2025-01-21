@@ -19,6 +19,8 @@ client.batches.create(
 )
 
 '''
-FileObject(id='file-4qr7yZLDgAZ1yz3Czm2t9f', bytes=217996954, created_at=1737482842, filename='batchinput.jsonl', object='file', purpose='batch', status='processed', status_details=None)
+FileObject(id='file-4Qf5iq6tgTEjS4TjWdz2bo', bytes=95089356, created_at=1737483899, filename='batchinput-1.jsonl', object='file', purpose='batch', status='processed', status_details=None)
+batch_input_file_id file-4Qf5iq6tgTEjS4TjWdz2bo
+
 '''
 
