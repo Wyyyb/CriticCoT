@@ -9,6 +9,7 @@ batch_input_file = client.files.create(
 print(batch_input_file)
 
 batch_input_file_id = batch_input_file.id
+print("batch_input_file_id", batch_input_file_id)
 client.batches.create(
     input_file_id=batch_input_file_id,
     endpoint="/v1/chat/completions",

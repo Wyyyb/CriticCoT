@@ -35,9 +35,11 @@ def example_prompt_func(item):
 
 def main():
     input_path = "/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/data/ace_80k_sft_0120.json"
-    output_path = "/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchinput.jsonl"
+    output_path_1 = "/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchinput-1.jsonl"
+    output_path_2 = "/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchinput-2.jsonl"
     with open(input_path, "r") as fi:
         sft_data = json.load(fi)
+    sft_data = sft_data[10000:]
     batch_data = []
     for i, each in enumerate(sft_data):
         custom_id = f"request-{str(i)}"
@@ -56,31 +58,15 @@ def main():
                 }
             }
         batch_data.append(curr)
-    with open(output_path, "w") as fo:
-        for each in batch_data:
+    with open(output_path_1, "w") as fo:
+        for each in batch_data[:35000]:
+            fo.write(json.dumps(each) + "\n")
+
+    with open(output_path_2, "w") as fo:
+        for each in batch_data[35000:]:
             fo.write(json.dumps(each) + "\n")
 
 
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
