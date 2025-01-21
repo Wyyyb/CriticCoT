@@ -2,7 +2,7 @@ from openai import OpenAI
 client = OpenAI()
 
 batch_input_file = client.files.create(
-    file=open("/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchinput-1.jsonl", "rb"),
+    file=open("/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchinput-2.jsonl", "rb"),
     purpose="batch"
 )
 
