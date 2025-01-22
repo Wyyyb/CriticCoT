@@ -4,7 +4,7 @@ set -ex
 source /cpfs/data/shared/public/miniconda3/bin/activate
 conda activate lf_yubo
 
-export CUDA_VISIBLE_DEVICES=0,1
+export CUDA_VISIBLE_DEVICES=3
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
 cd /cpfs/data/user/yubowang/CriticCoT/ali_scripts/eval_webinstruct_0119_0122_v2/
 
