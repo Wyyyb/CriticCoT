@@ -146,7 +146,7 @@ PROMPT_TEMPLATES = {
         "\n\n",
     ),
     "aime_p1": (
-        "<|im_start|>system\nPlease reason step by step to solve the following Mathematical Competition Problem,"
+        "<|im_start|>system\nReason step by step to solve the following aime24 problem,"
         " and put your final answer within \\boxed{{}}.<|im_end|>\n"
         "<|im_start|>user\n{input}<|im_end|>\n"
         "<|im_start|>assistant\n",
