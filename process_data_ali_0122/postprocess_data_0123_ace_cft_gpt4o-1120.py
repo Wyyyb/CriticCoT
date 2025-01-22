@@ -9,6 +9,13 @@ def single_format_cft(question, solution, critique):
     return t2_curr
 
 
+def load_ori_10k_data():
+    input_path = "../LLaMA-Factory/data/ace_10k_gpt4o_cft_0121.json"
+    with open(input_path, "r") as fi:
+        data = json.load(fi)
+    return data
+
+
 def main():
     input_file_1 = "/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchinput-1.jsonl"
     input_file_2 = "/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchinput-2.jsonl"
@@ -66,7 +73,10 @@ def main():
     output_data = []
     for k, v in input_data.items():
         output_data.append(single_format_cft(v["question"], v["answer"], v["critique"]))
+    ori_10k_data = load_ori_10k_data()
+    output_data = output_data + ori_10k_data
     random.shuffle(output_data)
+    print("output data number", len(output_data))
     with open(output_file, "w") as fo:
         fo.write(json.dumps(output_data, indent=4))
 
