@@ -8,7 +8,7 @@ export CUDA_VISIBLE_DEVICES=4,5
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
 cd /cpfs/data/user/yubowang/CriticCoT/exp_scripts_0123/train_qwen_math_webinstruct_cft_80k_0123/
 
-summary_path="/cpfs/data/user/yubowang/CriticCoT/math_eval_result_qwen2.5-math-7B_webinstruct_cft_80k_0121_p3/summary.txt"
+summary_path="/cpfs/data/user/yubowang/CriticCoT/math_eval_result_qwen2.5-math-7B_webinstruct_cft_80k_0121_p3/aime_summary.txt"
 root_dir="/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/output_models_0121"
 
 find "$root_dir" -type d -name "qwen2.5-math-7B_webinstruct_cft_80k_0121_p3" | while read -r model_dir; do
