@@ -26,7 +26,7 @@ def parse_args():
     parser.add_argument("--output_dir", default="./output", type=str)
     parser.add_argument("--summary_path", default="./output/summary.txt", type=str)
     parser.add_argument("--prompt_type", default="tool-integrated", type=str)
-    parser.add_argument("--aime_prompt", default="tool-integrated", type=str)
+    parser.add_argument("--aime_prompt", default="qwen25-math-cot", type=str)
     parser.add_argument("--split", default="test", type=str)
     parser.add_argument("--num_test_sample", default=-1, type=int)  # -1 for full data
     parser.add_argument("--seed", default=0, type=int)
