@@ -6,7 +6,7 @@ conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
-cd /cpfs/data/user/yubowang/CriticCoT/ali_scripts/train_deepseek_webinstruct_sft_0123/
+cd /cpfs/data/user/yubowang/CriticCoT/exp_scripts_0123/train_deepseek_webinstruct_sft_0123/
 
 summary_path="/cpfs/data/user/yubowang/CriticCoT/math_eval_result_deepseek-math-7b-base_webinstruct_sft_gpt4o_80k_0119/summary.txt"
 root_dir="/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/output_models_0123"
