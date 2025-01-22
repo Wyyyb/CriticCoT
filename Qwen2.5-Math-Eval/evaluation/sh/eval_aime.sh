@@ -1,7 +1,7 @@
 set -ex
 
 PROMPT_TYPE="qwen25-math-cot"
-aime_prompt="1"
+aime_prompt="aime_p1"
 MODEL_NAME_OR_PATH=$1
 OUTPUT_DIR=$2
 SUMMARY_PATH=$3

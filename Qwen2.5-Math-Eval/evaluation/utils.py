@@ -145,6 +145,14 @@ PROMPT_TEMPLATES = {
         "{output}",
         "\n\n",
     ),
+    "aime_p1": (
+        "<|im_start|>system\nPlease reason step by step to solve the following Mathematical Competition Problem,"
+        " and put your final answer within \\boxed{{}}.<|im_end|>\n"
+        "<|im_start|>user\n{input}<|im_end|>\n"
+        "<|im_start|>assistant\n",
+        "{output}",
+        "\n\n",
+    ),
     "qwen25-math-cot-critic": (
         "<|im_start|>system\nPlease reason through the following question step by step to find a solution and "
         "put your final answer within \\boxed{{}}, then carefully critique whether your solution is correct. "
@@ -191,7 +199,8 @@ def construct_prompt(example, data_name, args):
         prompt_type = "cot"
     if prompt_type == "tool-integrated":
         prompt_type = "tora"
-
+    if data_name == "aime24":
+        args.prompt_type = args.aime_prompt
     prompt_temp = PROMPT_TEMPLATES[args.prompt_type]
 
     splitter = prompt_temp[2]
