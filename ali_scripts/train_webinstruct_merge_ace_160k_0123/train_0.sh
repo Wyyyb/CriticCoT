@@ -18,3 +18,4 @@ export WANDB_RUN_NAME=$MODEL_NAME
 
 FORCE_TORCHRUN=1 llamafactory-cli train ../ali_scripts/train_webinstruct_merge_ace_160k_0123/qwen2.5-math-7B_webinstruct_ace_80k_0123.yaml
 
+bash ../ali_scripts/eval_webinstruct_merge_ace_160k_0123/eval_0123_start.sh
