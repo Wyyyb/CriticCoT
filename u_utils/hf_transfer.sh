@@ -52,5 +52,7 @@ modelscope download --repo-type model Qwen/Qwen2.5-7B --local_dir /cpfs/data/use
 
 huggingface-cli upload ubowang/cft_data_0120 . --repo-type dataset
 
+huggingface-cli upload ubowang/ace_gpt-4o-1120_cft_data_1123 . --repo-type dataset
 
+huggingface-cli download ubowang/ace_gpt-4o-1120_cft_data_1123 . --repo-type dataset
 

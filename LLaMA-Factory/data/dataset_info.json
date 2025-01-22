@@ -1,4 +1,7 @@
 {
+  "webinstruct_ori_sft_80k_0123": {
+    "file_name": "webinstruct_ori_sft_80k_0123.json"
+  },
   "webinstruct_merge_ace_cft_160k_0123": {
     "file_name": "webinstruct_merge_ace_cft_160k_0123.json"
   },
