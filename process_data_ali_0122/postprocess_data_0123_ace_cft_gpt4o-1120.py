@@ -21,7 +21,7 @@ def main():
     input_file_2 = "/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchinput-2.jsonl"
     output_file_1 = "/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchoutput-1.jsonl"
     output_file_2 = "/cpfs/data/user/yubowang/CriticCoT/local_data/batch_data_0122/batchoutput-2.jsonl"
-    output_file = "../LLaMA-Factory/data/ace_cft_gpt4o-1120_data_1123.json"
+    output_file = "../LLaMA-Factory/data/ace_80k_critique_gpt-4o-1120_ace_0123.json"
     input_data = {}
     with open(input_file_1, "r") as fi:
         for line in fi.readlines():
