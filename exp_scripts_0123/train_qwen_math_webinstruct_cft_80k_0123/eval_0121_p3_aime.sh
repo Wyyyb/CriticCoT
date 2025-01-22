@@ -13,5 +13,5 @@ root_dir="/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/output_models_0121"
 
 find "$root_dir" -type d -name "qwen2.5-math-7B_webinstruct_cft_80k_0121_p3" | while read -r model_dir; do
   echo $model_dir
-  bash eval_dir_models_math.sh $model_dir $summary_path
+  bash eval_dir_models_aime.sh $model_dir $summary_path
 done
