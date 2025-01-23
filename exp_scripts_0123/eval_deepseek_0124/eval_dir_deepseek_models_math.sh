@@ -6,7 +6,7 @@ set -ex
 #
 #export CUDA_VISIBLE_DEVICES=0
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
-cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_original/
+cd /cpfs/data/user/yubowang/CriticCoT/math_eval_original/
 # 接收两个参数：models_dir 和 summary_path
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <models_dir> <summary_path>"
