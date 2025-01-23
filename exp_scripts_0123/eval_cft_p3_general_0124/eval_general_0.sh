@@ -3,7 +3,7 @@ set -ex
 source /cpfs/data/shared/public/miniconda3/bin/activate
 conda activate lf_yubo
 
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=4,5,6,7
 cd /cpfs/data/user/yubowang/CriticCoT/exp_scripts_0123/eval_cft_p3_general_0124
 
 model_dir="/cpfs/data/user/yubowang/models"
