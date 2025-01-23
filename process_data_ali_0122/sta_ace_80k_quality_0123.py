@@ -15,7 +15,7 @@ def parse_single_critic(text):
 
 
 def main():
-    input_file = ""
+    input_file = "/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/data/webinstruct_ace_80k_gpt4o_cft_0121.json"
     with open(input_file, 'r') as fi:
         data = json.load(fi)
     unsure = 0.0
