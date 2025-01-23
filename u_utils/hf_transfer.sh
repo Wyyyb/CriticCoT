@@ -56,3 +56,5 @@ huggingface-cli upload ubowang/ace_gpt-4o-1120_cft_data_1123 . --repo-type datas
 
 huggingface-cli download ubowang/ace_gpt-4o-1120_cft_data_1123 . --repo-type dataset
 
+huggingface-cli upload ubowang/MetaMathQA_sft_80k_data_0118 . --repo-type dataset
+
