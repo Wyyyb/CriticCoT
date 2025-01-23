@@ -9,7 +9,8 @@ n_shot=$4
 #bash mmlu-pro-eval.sh $model_path $output_dir $summary_path
 cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_original
 
-datasets=("math" "gsm8k" "theoremqa" "mmlu_stem")
+#datasets=("math" "gsm8k" "theoremqa" "mmlu_stem")
+datasets=("math" "gsm8k")
 
 
 for dataset in "${datasets[@]}"; do
