@@ -22,9 +22,9 @@ model_names=("CFT-Webinstruct-0121-ckpt")
 
 for model in "${model_names[@]}"; do
   model_path="${model_dir}/${model}"
-  output_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0124/mmlu-pro_results_t2/${model}"
+  output_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0125/mmlu-pro_results_t2/${model}"
   mkdir -p ${output_dir}
-  summary_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0124/${model}_mmlu-pro_summary_t2.txt"
+  summary_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0125/${model}_mmlu-pro_summary_t2.txt"
   bash run_mmlu_pro.sh $model_path $output_dir $summary_dir 0
 
 done
