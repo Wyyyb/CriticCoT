@@ -14,5 +14,5 @@ cd /cpfs/data/user/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/multi_eval_ma
 #summary_path="/cpfs/data/user/yubowang/CriticCoT/math_eval_result_qwen2.5-math-7B_webinstruct_cft_80k_0121_p3_t1/summary.txt"
 #root_dir="/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/output_models_0121"
 
-bash eval_dir_models_math_1.sh $model_dir $summary_path
+bash eval_dir_models_math_8.sh $model_dir $summary_path
 
