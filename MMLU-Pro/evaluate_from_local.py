@@ -27,12 +27,15 @@ def load_mmlu_pro():
 
 
 def load_model():
-    llm = LLM(model=args.model, gpu_memory_utilization=float(args.gpu_util),
-                tensor_parallel_size=torch.cuda.device_count(),
-                max_model_len=max_model_length,
-                trust_remote_code=True)
-    sampling_params = SamplingParams(temperature=0, max_tokens=max_new_tokens,
-                                        stop=["Question:"])
+    llm = LLM(model=args.model,
+              gpu_memory_utilization=float(args.gpu_util),
+              tensor_parallel_size=torch.cuda.device_count(),
+              trust_remote_code=True)
+    sampling_params = SamplingParams(temperature=0,
+                                     max_tokens=max_new_tokens,
+                                     stop=["</s>", "<|im_end|>", "<|endoftext|>", "Question:"],
+                                     stop_token_ids=([151645, 151643])
+                                     )
     tokenizer = transformers.AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
     return (llm, sampling_params), tokenizer
 
