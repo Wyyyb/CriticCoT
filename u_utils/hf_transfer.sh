@@ -59,3 +59,10 @@ huggingface-cli download ubowang/ace_gpt-4o-1120_cft_data_1123 . --repo-type dat
 huggingface-cli upload ubowang/MetaMathQA_sft_80k_data_0118 . --repo-type dataset
 
 huggingface-cli upload ubowang/MetaMath_batch_critique_data_0124 . --repo-type dataset
+
+# /gpfs/public/research/xy/yubowang/CriticCoT/LLaMA-Factory/deepseek_math_output_models/CriticCoT_critic_data_0114/checkpoint-70
+huggingface-cli upload ubowang/CFT-webinstruct-dpsk-ckpt-0114 . --repo-type model
+
+# /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_result_0117_dense_qwen/qwen2.5-7B_t2_critic_0117-checkpoint-100
+huggingface-cli upload ubowang/CFT-webinstruct-qwen_2_5-ckpt-0117 . --repo-type model
+
