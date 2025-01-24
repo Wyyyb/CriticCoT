@@ -10,7 +10,7 @@ finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_config.json  # choices: [ds_z0_config.json, ds_z2_config.json, ds_z3_config.json]
 
 ### dataset
-dataset: MetaMath_80k_critique_gpt-4o-1120_0124.json
+dataset: MetaMath_80k_critique_gpt-4o-1120_0124
 template: qwen
 cutoff_len: 2048
 max_samples: 1000000
@@ -18,7 +18,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: output_models_0123/qwen-math-7b_MetaMath_80k_critique_gpt-4o-1120_0124.json
+output_dir: output_models_0123/qwen-math-7b_MetaMath_80k_critique_gpt-4o-1120_0124
 logging_steps: 1
 save_steps: 10
 plot_loss: true
