@@ -5,8 +5,8 @@ set -ex
 #conda activate lf_yubo
 #
 #export CUDA_VISIBLE_DEVICES=0
-# cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
-cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_original/
+cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
+# cd /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_original/
 # 接收两个参数：models_dir 和 summary_path
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <models_dir> <summary_path>"
@@ -28,7 +28,7 @@ for checkpoint_dir in ${models_dir}/checkpoint-*; do
         checkpoint_num=$(basename "$checkpoint_dir" | cut -d'-' -f2)
 
         # 检查checkpoint_num是否小于200
-        if [ "$checkpoint_num" -lt 200 ]; then
+        if [ "$checkpoint_num" -lt 120 ]; then
             # 设置输出目录
             output_dir="${summary_parent_dir}/${models_dir_name}-checkpoint-${checkpoint_num}/"
 
@@ -37,7 +37,7 @@ for checkpoint_dir in ${models_dir}/checkpoint-*; do
             echo "Output dir: ${output_dir}"
 
             # 执行评估脚本
-            bash eval_full.sh "$checkpoint_dir" "$output_dir" "$summary_path" 5
+            bash eval_deepseek_math.sh "$checkpoint_dir" "$output_dir" "$summary_path"
         else
             echo "Skipping checkpoint-${checkpoint_num} as it's >= 200"
         fi
