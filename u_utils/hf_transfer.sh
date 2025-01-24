@@ -66,3 +66,4 @@ huggingface-cli upload ubowang/CFT-webinstruct-dpsk-ckpt-0114 . --repo-type mode
 # /gpfs/public/research/xy/yubowang/CriticCoT/math_eval_result_0117_dense_qwen/qwen2.5-7B_t2_critic_0117-checkpoint-100
 huggingface-cli upload ubowang/CFT-webinstruct-qwen_2_5-ckpt-0117 . --repo-type model
 
+huggingface-cli upload ubowang/numina_batch_critique_data_0124 . --repo-type dataset
