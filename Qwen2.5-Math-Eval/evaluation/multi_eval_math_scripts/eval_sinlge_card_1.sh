@@ -4,8 +4,8 @@ set -ex
 summary_path=$1
 model_dir=$2
 
-source /cpfs/data/shared/public/miniconda3/bin/activate
-conda activate lf_yubo
+#source /cpfs/data/shared/public/miniconda3/bin/activate
+#conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
