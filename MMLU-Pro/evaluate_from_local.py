@@ -84,13 +84,15 @@ def format_cot_example(example, including_answer=True):
 
 def generate_cot_prompt(val_df, curr, k):
     prompt = ""
-    with open(f"cot_prompt_lib/initial_prompt.txt", "r") as fi:
+    with open(f"cot_prompt_lib/initial_prompt_1.txt", "r") as fi:
         for line in fi.readlines():
             prompt += line
+    prompt += "<|im_start|>user\n{input}<|im_end|>\n<|im_start|>assistant\n"
     subject = curr["category"]
     val_df = select_by_category(val_df, subject)
     val_df = val_df[: k]
     prompt = prompt.replace("{$}", subject) + "\n"
+    print("prompt:\n", prompt)
     for example in val_df:
         prompt += format_cot_example(example, including_answer=True)
     prompt += format_cot_example(curr, including_answer=False)

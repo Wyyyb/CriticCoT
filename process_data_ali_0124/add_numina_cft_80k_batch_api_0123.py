@@ -53,3 +53,11 @@ FileObject(id='file-AJJR4EcxVVqXVspQ9LrtcY', bytes=51066612, created_at=17376483
 batch_input_file_id file-AJJR4EcxVVqXVspQ9LrtcY
 '''
 
+'''
+0125
+FileObject(id='file-4XM2XzJdDK6AK6AZpUdXvC', bytes=81958015, created_at=1737727790, filename='batchinput-1.jsonl', object='file', purpose='batch', status='processed', status_details=None)
+batch_input_file_id file-4XM2XzJdDK6AK6AZpUdXvC
+FileObject(id='file-8PvJnGKSfoxFhV2eFgeEUJ', bytes=82556341, created_at=1737727826, filename='batchinput-2.jsonl', object='file', purpose='batch', status='processed', status_details=None)
+batch_input_file_id file-8PvJnGKSfoxFhV2eFgeEUJ
+'''
+
