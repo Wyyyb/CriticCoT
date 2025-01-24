@@ -67,3 +67,5 @@ huggingface-cli upload ubowang/CFT-webinstruct-dpsk-ckpt-0114 . --repo-type mode
 huggingface-cli upload ubowang/CFT-webinstruct-qwen_2_5-ckpt-0117 . --repo-type model
 
 huggingface-cli upload ubowang/numina_batch_critique_data_0124 . --repo-type dataset
+
+huggingface-cli upload ubowang/eval_result_01_bk . --repo-type dataset
