@@ -5,7 +5,7 @@ set -ex
 source /cpfs/data/shared/public/miniconda3/bin/activate
 conda activate lf_yubo
 
-export CUDA_VISIBLE_DEVICES=4,5,6,7
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 cd /cpfs/data/user/yubowang/CriticCoT/exp_scripts_0123/eval_baseline_0124/
 
@@ -22,9 +22,9 @@ model_names=("CFT-Webinstruct-0121-ckpt")
 
 for model in "${model_names[@]}"; do
   model_path="${model_dir}/${model}"
-  output_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0124/mmlu-pro_results/${model}"
+  output_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0124/mmlu-pro_results_t1/${model}"
   mkdir -p ${output_dir}
-  summary_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0124/${model}_mmlu-pro_summary.txt"
+  summary_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0124/${model}_mmlu-pro_summary_t1.txt"
   bash run_mmlu_pro.sh $model_path $output_dir $summary_dir 0
 
 done
