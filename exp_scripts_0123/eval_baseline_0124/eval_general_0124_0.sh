@@ -20,7 +20,7 @@ for model in "${model_names[@]}";do
   output_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0124/general_results/${model}"
   summary_dir="/cpfs/data/user/yubowang/CriticCoT/eval_results_baseline_0124/general_results/${model}_general_summary.txt"
   mkdir -p $output_dir
-  bash run_general_reasoning.sh $model_path $output_dir $summary_dir 0
+  bash run_general_reasoning.sh $model_path $output_dir $summary_dir 0 "qwen"
 
 done
 
