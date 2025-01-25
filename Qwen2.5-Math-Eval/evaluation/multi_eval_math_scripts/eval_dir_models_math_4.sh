@@ -28,7 +28,7 @@ for checkpoint_dir in ${models_dir}/checkpoint-*; do
         checkpoint_num=$(basename "$checkpoint_dir" | cut -d'-' -f2)
 
         # 检查checkpoint_num是否[100, 130)
-        if [ "$checkpoint_num" -ge 100 ] && [ "$checkpoint_num" -lt 130 ]; then
+        if [ "$checkpoint_num" -ge 100 ] && [ "$checkpoint_num" -lt 160 ]; then
             # 设置输出目录
             output_dir="${summary_parent_dir}/${models_dir_name}-checkpoint-${checkpoint_num}/"
 
