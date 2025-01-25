@@ -9,6 +9,6 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 cd /cpfs/data/user/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/multi_eval_math_scripts/
 
 summary_path="/cpfs/data/user/yubowang/CriticCoT/math_eval_result_qwen2.5-math-7B_webinstruct_cft_80k_0121_p3/summary.txt"
-root_dir="/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/output_models_0124"
+model_dir="/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/output_models_0124/qwen-math-7b_Numina_80k_critique_gpt-4o-1120_0125"
 
-
+bash eval_4_card_start.sh $summary_path $model_dir
