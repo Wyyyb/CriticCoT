@@ -17,11 +17,11 @@ def load_ori_10k_data():
 
 
 def main():
-    input_file_1 = "/cpfs/data/user/yubowang/CriticCoT/local_data/MetaMath_batch_data_0123/batchinput-1.jsonl"
-    input_file_2 = "/cpfs/data/user/yubowang/CriticCoT/local_data/MetaMath_batch_data_0123/batchinput-2.jsonl"
-    output_file_1 = "/cpfs/data/user/yubowang/CriticCoT/local_data/MetaMath_batch_data_0123/batchoutput-1.jsonl"
-    output_file_2 = "/cpfs/data/user/yubowang/CriticCoT/local_data/MetaMath_batch_data_0123/batchoutput-2.jsonl"
-    output_file = "../LLaMA-Factory/data/MetaMath_80k_critique_gpt-4o-1120_0124.json"
+    input_file_1 = "/cpfs/data/user/yubowang/CriticCoT/local_data/numina_batch_data_0123/batchinput-1.jsonl"
+    input_file_2 = "/cpfs/data/user/yubowang/CriticCoT/local_data/numina_batch_data_0123/batchinput-2.jsonl"
+    output_file_1 = "/cpfs/data/user/yubowang/CriticCoT/local_data/numina_batch_data_0123/batchoutput-1.jsonl"
+    output_file_2 = "/cpfs/data/user/yubowang/CriticCoT/local_data/numina_batch_data_0123/batchoutput-2.jsonl"
+    output_file = "../LLaMA-Factory/data/Numina_80k_critique_gpt-4o-1120_0125.json"
     input_data = {}
     with open(input_file_1, "r") as fi:
         for line in fi.readlines():
