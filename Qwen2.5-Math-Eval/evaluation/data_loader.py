@@ -18,6 +18,8 @@ def load_data(data_name, split, data_dir="./data"):
                 name="main",
                 cache_dir=f"{data_dir}/temp",
             )
+        if data_name == "theoremqa":
+            dataset = load_jsonl(f"{data_dir}/theoremqa/test.jsonl")
         elif data_name == "gsm8k":
             dataset = load_dataset(data_name, split=split)
         elif data_name == "svamp":
@@ -67,6 +69,7 @@ def load_data(data_name, split, data_dir="./data"):
             dataset = dataset.filter(lambda x: x["type"] in stem_subjects)
         elif data_name == "carp_en":
             dataset = load_jsonl(f"{data_dir}/carp_en/test.jsonl")
+
         else:
             raise NotImplementedError(data_name)
 
