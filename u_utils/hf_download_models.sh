@@ -38,3 +38,6 @@ huggingface-cli download --repo-type model AI-MO/NuminaMath-7B-CoT --local-dir /
 huggingface-cli download --repo-type model Qwen/Qwen2.5-32B-Instruct --local-dir /cpfs/data/user/yubowang/models/Qwen2.5-32B-Instruct
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-32B --local-dir /gpfs/public/research/xy/yubowang/models/Qwen2.5-32B
+
+huggingface-cli download --repo-type model NovaSky-AI/Sky-T1-32B-Preview --local-dir /gpfs/public/research/xy/yubowang/models/Sky-T1-32B-Preview
+
