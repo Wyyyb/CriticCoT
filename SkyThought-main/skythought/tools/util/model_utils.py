@@ -55,6 +55,7 @@ Now, begin with the [ASSESS] action for the following task:
 }
 
 MODEL_TO_NAME = {
+    "/gpfs/public/research/xy/yubowang/models/MAmmoTH-Critique-1": "Qwen2.5-7B-Instruct",
     "Qwen/Qwen2-7B-Instruct": "Qwen2-7B-Instruct",
     "Qwen/QwQ-32B-Preview": "QwQ-32B-Preview",
     "Qwen/Qwen2.5-72B-Instruct": "Qwen2.5-72B-Instruct",
