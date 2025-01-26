@@ -1,7 +1,7 @@
 #!/bin/bash
 source /gpfs/public/research/miniconda3/bin/activate
 
-conda activate lf_yubo
+conda activate py310
 
 cd /gpfs/public/research/xy/yubowang/CriticCoT/SkyThought-main/skythought/tools
 export CUDA_VISIBLE_DEVICES=0,1
