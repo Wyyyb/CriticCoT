@@ -337,29 +337,30 @@ def main():
     if args.result_dir and not os.path.exists(args.result_dir):
         os.makedirs(args.result_dir)
     if args.math_difficulty_lower_bound is not None or args.math_difficulty_upper_bound is not None:
-        result_file = os.path.join(args.result_dir, f"{MODEL_TO_NAME[args.model]}_{args.dataset}_{args.split}_{args.source}_{args.start}_{args.end}_{args.math_difficulty_lower_bound}_{args.math_difficulty_upper_bound}.json")
+        result_file = os.path.join(args.result_dir, f"{args.dataset}_{args.split}_{args.source}_{args.start}_{args.end}_{args.math_difficulty_lower_bound}_{args.math_difficulty_upper_bound}.json")
     else:
-        result_file = os.path.join(args.result_dir, f"{MODEL_TO_NAME[args.model]}_{args.dataset}_{args.split}_{args.source}_{args.start}_{args.end}.json")
+        result_file = os.path.join(args.result_dir, f"{args.dataset}_{args.split}_{args.source}_{args.start}_{args.end}.json")
 
     if args.check:
         # check if converted file exists
         if args.math_difficulty_lower_bound is not None or args.math_difficulty_upper_bound is not None:
-            converted_file = f"{args.result_dir}/converted_{MODEL_TO_NAME[args.model]}_{args.dataset}_{args.split}_{args.source}_{args.start}_{args.end}_{args.math_difficulty_lower_bound}_{args.math_difficulty_upper_bound}.json"
+            converted_file = f"{args.result_dir}/converted_{args.dataset}_{args.split}_{args.source}_{args.start}_{args.end}_{args.math_difficulty_lower_bound}_{args.math_difficulty_upper_bound}.json"
         else:
-            converted_file = f"{args.result_dir}/converted_{MODEL_TO_NAME[args.model]}_{args.dataset}_{args.split}_{args.source}_{args.start}_{args.end}.json"
+            converted_file = f"{args.result_dir}/converted_{args.dataset}_{args.split}_{args.source}_{args.start}_{args.end}.json"
         if os.path.exists(converted_file):
             result_file = converted_file
         perform_check(handler, temperatures, result_file, args)
         return
     elif args.inference:
         llm = OpenAI() if args.model.startswith("openai") else LLM(model=args.model, tensor_parallel_size=args.tp)
-        system_prompt = SYSTEM_PROMPT[args.model]
+        system_prompt = SYSTEM_PROMPT["Qwen/Qwen2.5-7B-Instruct"]
         perform_inference_and_save(handler, temperatures, max_tokens, result_file, llm, system_prompt, args)
         return
 
     llm = OpenAI() if args.model.startswith("openai") else LLM(model=args.model, tensor_parallel_size=args.tp)
-    system_prompt = SYSTEM_PROMPT[args.model]
+    system_prompt = SYSTEM_PROMPT["Qwen/Qwen2.5-7B-Instruct"]
     perform_inference_and_check(handler, temperatures, max_tokens, result_file, llm, system_prompt, args)
+
 
 if __name__ == "__main__":
     main()
