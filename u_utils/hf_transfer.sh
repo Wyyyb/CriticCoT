@@ -81,3 +81,5 @@ huggingface-cli upload ubowang/critique-32b . --repo-type model
 huggingface-cli upload ubowang/webinstruct-batch-data-gpt4o-mini . --repo-type dataset
 
 huggingface-cli upload ubowang/CFT-Webinstruct-0121-ckpt . --repo-type model
+
+huggingface-cli upload ubowang/self_critic_data_0114 . --repo-type dataset
