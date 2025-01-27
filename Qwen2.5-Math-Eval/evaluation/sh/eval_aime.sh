@@ -1,7 +1,6 @@
 set -ex
 
-PROMPT_TYPE="qwen25-math-cot"
-aime_prompt="aime_p1"
+PROMPT_TYPE="aime24_sky"
 MODEL_NAME_OR_PATH=$1
 OUTPUT_DIR=$2
 SUMMARY_PATH=$3
@@ -21,7 +20,6 @@ python3 -u math_eval.py \
     --summary_path ${SUMMARY_PATH} \
     --split ${SPLIT} \
     --prompt_type ${PROMPT_TYPE} \
-    --aime_prompt ${aime_prompt} \
     --num_test_sample ${NUM_TEST_SAMPLE} \
     --seed 0 \
     --temperature 0 \
@@ -31,7 +29,6 @@ python3 -u math_eval.py \
     --end -1 \
     --use_vllm \
     --save_outputs \
-    --overwrite
     # --overwrite \
 #
 ## English multiple-choice datasets
