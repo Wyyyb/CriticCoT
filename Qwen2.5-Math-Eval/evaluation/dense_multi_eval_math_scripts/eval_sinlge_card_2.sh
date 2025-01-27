@@ -9,7 +9,7 @@ model_dir=$2
 
 export CUDA_VISIBLE_DEVICES=1
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
-cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/multi_eval_math_scripts
+cd /gpfs/public/research/xy/yubowang/CriticCoT/Qwen2.5-Math-Eval/evaluation/dense_multi_eval_math_scripts
 
 #summary_path="/cpfs/data/user/yubowang/CriticCoT/math_eval_result_qwen2.5-math-7B_webinstruct_cft_80k_0121_p3_t1/summary.txt"
 #root_dir="/cpfs/data/user/yubowang/CriticCoT/LLaMA-Factory/output_models_0121"
