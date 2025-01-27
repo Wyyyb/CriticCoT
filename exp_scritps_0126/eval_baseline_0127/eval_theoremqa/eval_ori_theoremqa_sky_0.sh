@@ -10,7 +10,7 @@ cd /gpfs/public/research/xy/yubowang/CriticCoT/exp_scritps_0126/eval_baseline_01
 model_dir="/gpfs/public/research/xy/yubowang/models"
 model="Sky-T1-32B-Preview"
 model_path="${model_dir}/${model}"
-n_shots=(5)
+n_shots=(0)
 
 for n_shot in "${n_shots[@]}";do
   output_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0128/ori_theoremqa_results_${n_shot}_shot_qwen/${model}"
