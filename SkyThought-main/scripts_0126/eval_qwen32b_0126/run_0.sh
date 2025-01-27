@@ -5,5 +5,5 @@ conda activate py310
 
 cd /gpfs/public/research/xy/yubowang/CriticCoT/SkyThought-main/skythought/tools
 export CUDA_VISIBLE_DEVICES=0,1
-model_path="/gpfs/public/research/xy/yubowang/models/MAmmoTH-Critique-1"
-python eval.py --model ${model_path} --evals=AIME,MATH500,GPQADiamond --tp=2 --output_file=results.txt
+model_path="/gpfs/public/research/xy/yubowang/models/Sky-T1-32B-Preview"
+python eval.py --model ${model_path} --evals=AIME,MATH500,GPQADiamond --tp=2 --output_file="Sky-T1-32B-Preview_results.txt"
