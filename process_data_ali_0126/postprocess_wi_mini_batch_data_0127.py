@@ -30,6 +30,9 @@ def main():
             request_id = curr["custom_id"]
             content = curr["body"]["messages"][1]["content"][0]["text"]
             segs = content.split("\n\n    Answer: ")
+            if len(segs) < 2:
+                print("skip it")
+                continue
             question = segs[0]
             if question.startswith("\n    Question: "):
                 question = question.replace("\n    Question: ", "")
