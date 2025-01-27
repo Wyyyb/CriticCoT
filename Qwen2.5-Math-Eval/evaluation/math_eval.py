@@ -234,7 +234,7 @@ def main(llm, tokenizer, data_name, args):
 
     max_func_call = 1 if args.prompt_type in ["cot", "pal"] else 4
 
-    stop_words = ["</s>", "<|im_end|>", "<|endoftext|>"]
+    stop_words = ["</s>", "<|im_end|>", "<|endoftext|>" "(END)"]
 
     if args.prompt_type in ["cot"]:
         stop_words.append("\n\nQuestion:")

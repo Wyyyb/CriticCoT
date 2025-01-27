@@ -10,7 +10,7 @@ def main():
         question = each["Question"]
         answer = str(each["Answer"])
         if answer == "True" or answer == "False":
-            question += " Answer with True or False."
+            question += " Answer with \\boxed{True} or \\boxed{False}."
         output_data.append({"problem": question, "answer": answer})
     with open("test.jsonl", "w") as fo:
         for each in output_data:
