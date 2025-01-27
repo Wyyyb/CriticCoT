@@ -87,7 +87,7 @@ def format_cot_example(example, including_answer=True):
 
 def generate_cot_prompt(val_df, curr, k):
     prompt = ""
-    with open(f"cot_prompt_lib/initial_prompt_2.txt", "r") as fi:
+    with open(f"cot_prompt_lib/initial_prompt_1.txt", "r") as fi:
         for line in fi.readlines():
             prompt += line
     prompt += "<|im_start|>user"
