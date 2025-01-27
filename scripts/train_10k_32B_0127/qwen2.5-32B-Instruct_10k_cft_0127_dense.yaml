@@ -20,7 +20,7 @@ preprocessing_num_workers: 16
 ### output
 output_dir: output_models_0127/qwen2.5-32B-Instruct_webinstruct_cft_10k_0127_dense
 logging_steps: 1
-save_steps: 2
+save_steps: 1
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: true
