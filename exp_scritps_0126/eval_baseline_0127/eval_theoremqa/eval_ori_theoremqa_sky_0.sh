@@ -16,5 +16,5 @@ for n_shot in "${n_shots[@]}";do
   output_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0128/ori_theoremqa_results_${n_shot}_shot_qwen/${model}"
   summary_dir="/gpfs/public/research/xy/yubowang/CriticCoT/eval_results_baseline_0128/ori_theoremqa_results_${n_shot}_shot_qwen/${model}_general_summary.txt"
   mkdir -p $output_dir
-  bash run_theoremqa.sh $model_path $output_dir $summary_dir $n_shot "qwen"
+  bash run_ori_theoremqa.sh $model_path $output_dir $summary_dir $n_shot "qwen"
 done
