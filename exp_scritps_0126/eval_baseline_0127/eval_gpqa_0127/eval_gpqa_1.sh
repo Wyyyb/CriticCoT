@@ -5,7 +5,7 @@ conda activate lf_yubo
 
 export CUDA_VISIBLE_DEVICES=0,1
 
-cd /gpfs/public/research/xy/yubowang/CriticCoT/exp_scripts_0123/eval_baseline_0124/
+cd /gpfs/public/research/xy/yubowang/CriticCoT/exp_scritps_0126/eval_baseline_0127/eval_gpqa_0127
 
 model_dir="/gpfs/public/research/xy/yubowang/models"
 model="CFT-32B-Instruct-Webinstruct-0127-ckpt-3"
