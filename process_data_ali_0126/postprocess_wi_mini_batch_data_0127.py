@@ -29,7 +29,7 @@ def main():
             curr = json.loads(line)
             request_id = curr["custom_id"]
             content = curr["body"]["messages"][1]["content"][0]["text"]
-            segs = content.split("\n\n    Answer: ")
+            segs = content.split("\nSolution:\n")
             if len(segs) < 2:
                 print("skip it")
                 continue
