@@ -74,7 +74,7 @@ huggingface-cli upload ubowang/ali_local_batch_data . --repo-type dataset
 
 huggingface-cli upload ubowang/ali_data_0127_bk . --repo-type dataset
 
-huggingface-cli upload ubowang/critique-32b-instruct_new_60_3-ckpt . --repo-type model
+huggingface-cli upload ubowang/critique-32b-instruct_new_61_6-ckpt-3 . --repo-type model
 
 huggingface-cli upload ubowang/critique-32b . --repo-type model
 
