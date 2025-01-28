@@ -47,3 +47,5 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-32B-Instruct --local-dir
 huggingface-cli download --repo-type model NovaSky-AI/Sky-T1-32B-Preview --local-dir /map-vepfs/yubo/models/Sky-T1-32B-Preview
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /map-vepfs/yubo/models/Qwen2.5-Math-7B
+
+huggingface-cli download --repo-type model ubowang/critique-32b-instruct_new_61_6-ckpt-3 --local-dir /data/yubo/models/Qwen2.5-32B-Instruct-Critique-0128
