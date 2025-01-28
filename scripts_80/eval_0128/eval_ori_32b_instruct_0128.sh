@@ -12,4 +12,4 @@ output_dir="/data/yubo/CriticCoT/0128_eval_results_Qwen2.5-32B-Instruct"
 checkpoint_dir="/data/yubo/models/Qwen2.5-32B-Instruct"
 
 #bash eval_compe.sh "$checkpoint_dir" "$output_dir" "$summary_path"
-bash eval_full.sh "$checkpoint_dir" "$output_dir" "$summary_path"
+bash eval_math.sh "$checkpoint_dir" "$output_dir" "$summary_path"
