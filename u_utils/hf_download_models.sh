@@ -51,3 +51,9 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /map
 huggingface-cli download --repo-type model ubowang/critique-32b-instruct_new_61_6-ckpt-3 --local-dir /data/yubo/models/Qwen2.5-32B-Instruct-Critique-0128
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-32B-Instruct  --local-dir /data/yubo/models/Qwen2.5-32B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-32B-Instruct  --local-dir /map-vepfs/yubo/models/Qwen2.5-32B-Instruct
+
+huggingface-cli download --repo-type model ubowang/critique-32b-instruct_new_61_6-ckpt-3  --local-dir /map-vepfs/yubo/models/critique-32b-instruct_new_61_6-ckpt-3
+
+huggingface-cli download --repo-type model ubowang/critique-32b-instruct_new_61_6-ckpt-3  --local-dir /data/yubo/models/critique-32b-instruct_new_61_6-ckpt-3
