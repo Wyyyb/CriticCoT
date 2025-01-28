@@ -7,8 +7,8 @@ set -ex
 export CUDA_VISIBLE_DEVICES=4,5,6,7
 # cd /gpfs/public/research/xy/yubowang/CriticCoT/exp_scritps_0126/eval_32B_models
 cd /data/yubo/CriticCoT/Qwen2.5-Math-Eval/evaluation/sh
-summary_path="/data/yubo/CriticCoT/0128_eval_results_Qwen2.5-32B-Instruct/summary.txt"
-output_dir="/data/yubo/CriticCoT/0128_eval_results_Qwen2.5-32B-Instruct"
+summary_path="/data/yubo/CriticCoT/0129_eval_results_Qwen2.5-32B-Instruct/summary.txt"
+output_dir="/data/yubo/CriticCoT/0129_eval_results_Qwen2.5-32B-Instruct"
 checkpoint_dir="/data/yubo/models/Qwen2.5-32B-Instruct"
 
 #bash eval_compe.sh "$checkpoint_dir" "$output_dir" "$summary_path"
