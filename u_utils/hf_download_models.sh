@@ -61,3 +61,5 @@ huggingface-cli download --repo-type model ubowang/critique-32b-instruct_new_61_
 huggingface-cli download --repo-type model ubowang/qwen2.5-7b-math-cft-gpt-4o-0128  --local-dir /data/yubo/models/qwen2.5-7b-math-cft-gpt-4o-0128
 
 huggingface-cli download --repo-type model ubowang/CFT-Webinstruct-0121-ckpt  --local-dir /data/yubo/models/CFT-Webinstruct-0121-ckpt
+
+huggingface-cli download --repo-type model ubowang/CFT-Webinstruct-0121-ckpt  --local-dir /data/yubowang/models/CFT-Webinstruct-0121-ckpt
