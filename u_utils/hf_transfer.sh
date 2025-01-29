@@ -85,3 +85,5 @@ huggingface-cli upload ubowang/CFT-Webinstruct-0121-ckpt . --repo-type model
 huggingface-cli upload ubowang/self_critic_data_0114 . --repo-type dataset
 
 huggingface-cli upload ubowang/qwen2.5-7b-math-cft-gpt-4o-0128 . --repo-type model
+
+huggingface-cli upload TigerLab/WebInstruct-CFT-50k . --repo-type dataset --private
