@@ -12,4 +12,4 @@ output_dir="/data/yubo/CriticCoT/0129_eval_results_CFT-Webinstruct-0121-ckpt-t_1
 checkpoint_dir="/data/yubo/models/CFT-Webinstruct-0121-ckpt"
 
 #bash eval_compe.sh "$checkpoint_dir" "$output_dir" "$summary_path"
-bash eval_math_temp.sh "$checkpoint_dir" "$output_dir" "$summary_path" 0.1
+bash eval_minerva_temp.sh "$checkpoint_dir" "$output_dir" "$summary_path" 0.1
