@@ -42,7 +42,7 @@ def create_and_upload_dataset():
     # 上传到Hub
     for config_name, dataset in dataset_dict.items():
         dataset.push_to_hub(
-            "TigerLab/WebInstruct-CFT",
+            "TIGER-Lab/WebInstruct-CFT",
             config_name=config_name,
             private=True
         )
