@@ -95,7 +95,7 @@ def process_chunk(start_idx: int,
 def process_large_dataset(input_path: str,
                           output_dir: str,
                           prompt_func: Callable,
-                          num_processes: int = 2):
+                          num_processes: int = 1):
     with open(input_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
         total_items = len(data)
