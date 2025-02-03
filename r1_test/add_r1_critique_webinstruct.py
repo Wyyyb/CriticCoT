@@ -35,7 +35,7 @@ def process_chunk(start_idx: int,
 
     for item in tqdm(chunk_data, desc=f'Process {process_id}'):
         if item['idx'] in existing_results:
-            results.append(existing_results[item['id']])
+            results.append(existing_results[item['idx']])
             continue
 
         try:
@@ -81,7 +81,7 @@ def process_chunk(start_idx: int,
                     json.dump(results, f, ensure_ascii=False, indent=2)
 
         except Exception as e:
-            print(f"Error processing item {item['id']}: {str(e)}")
+            print(f"Error processing item {item['idx']}: {str(e)}")
             continue
             # item['error'] = str(e)
             # results.append(item)
