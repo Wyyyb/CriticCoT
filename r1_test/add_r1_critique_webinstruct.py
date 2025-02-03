@@ -100,7 +100,7 @@ def process_large_dataset(input_path: str,
         data = json.load(f)
         total_items = len(data)
     print("len(data)", len(data))
-    data = data[:100]
+    # data = data[:100]
     # add idx
     for i, each in enumerate(data):
         if "idx" not in each:
@@ -108,6 +108,7 @@ def process_large_dataset(input_path: str,
     with open(input_path, "w") as fo:
         fo.write(json.dumps(data, indent=4))
 
+    total_items = 200
     chunk_size = total_items // num_processes
 
     processes = []
