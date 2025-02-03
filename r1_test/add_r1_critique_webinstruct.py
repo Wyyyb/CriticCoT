@@ -59,22 +59,12 @@ def process_chunk(start_idx: int,
                 "Authorization": f"Bearer {k}kongektpfxqolvifmbozbvfsjpjdosfhzwuseeuxiibvpc",
                 "Content-Type": "application/json"
             }
-
-            response = json.loads(requests.request("POST", url, json=payload, headers=headers).text)
+            res_text = requests.request("POST", url, json=payload, headers=headers).text
+            if len(res_text) < 5:
+                print("Error res_text: ", res_text)
+            response = json.loads(res_text)
             item['model_output'] = response["choices"][0]["message"]["content"]
             results.append(item)
-
-            # 调用GPT-4
-            # completion = client.chat.completions.create(
-            #     model="gpt-4o-2024-11-20",
-            #     messages=messages,
-            #     temperature=0.3,
-            #     max_tokens=3200,
-            #     top_p=0.95
-            # )
-            # item['model_output'] = completion.choices[0].message.content
-            # item['cost'] = completion.usage.completion_tokens * 10 / 1e6 + completion.usage.prompt_tokens * 2.5 / 1e6
-            # results.append(item)
 
             if len(results) % 1 == 0:
                 with open(output_file, 'w', encoding='utf-8') as f:
