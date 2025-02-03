@@ -29,7 +29,7 @@ def process_chunk(start_idx: int,
 
     chunk_data = data[start_idx:end_idx]
 
-    client = OpenAI()
+    # client = OpenAI()
 
     results = []
 
@@ -40,20 +40,43 @@ def process_chunk(start_idx: int,
 
         try:
             messages = prompt_func(item)
+            url = "https://api.siliconflow.cn/v1/chat/completions"
+            payload = {
+                "model": "deepseek-ai/DeepSeek-R1",
+                "messages": messages,
+                "stream": False,
+                "max_tokens": 1024,
+                "stop": ["[END]"],
+                "temperature": 0.7,
+                "top_p": 0.7,
+                "top_k": 50,
+                "frequency_penalty": 0.5,
+                "n": 1,
+                "response_format": {"type": "text"},
+            }
+            k = "sk-ht"
+            headers = {
+                "Authorization": f"Bearer {k}kongektpfxqolvifmbozbvfsjpjdosfhzwuseeuxiibvpc",
+                "Content-Type": "application/json"
+            }
 
-            # 调用GPT-4
-            completion = client.chat.completions.create(
-                model="gpt-4o-2024-11-20",
-                messages=messages,
-                temperature=0.3,
-                max_tokens=3200,
-                top_p=0.95
-            )
-            item['model_output'] = completion.choices[0].message.content
-            item['cost'] = completion.usage.completion_tokens * 10 / 1e6 + completion.usage.prompt_tokens * 2.5 / 1e6
+            response = json.loads(requests.request("POST", url, json=payload, headers=headers).text)
+            item['model_output'] = response["choices"][0]["message"]["content"]
             results.append(item)
 
-            if len(results) % 10 == 0:
+            # 调用GPT-4
+            # completion = client.chat.completions.create(
+            #     model="gpt-4o-2024-11-20",
+            #     messages=messages,
+            #     temperature=0.3,
+            #     max_tokens=3200,
+            #     top_p=0.95
+            # )
+            # item['model_output'] = completion.choices[0].message.content
+            # item['cost'] = completion.usage.completion_tokens * 10 / 1e6 + completion.usage.prompt_tokens * 2.5 / 1e6
+            # results.append(item)
+
+            if len(results) % 1 == 0:
                 with open(output_file, 'w', encoding='utf-8') as f:
                     json.dump(results, f, ensure_ascii=False, indent=2)
 
@@ -72,11 +95,12 @@ def process_chunk(start_idx: int,
 def process_large_dataset(input_path: str,
                           output_dir: str,
                           prompt_func: Callable,
-                          num_processes: int = 200):
+                          num_processes: int = 2):
     with open(input_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
         total_items = len(data)
     print("len(data)", len(data))
+    data = data[:100]
     # add idx
     for i, each in enumerate(data):
         if "idx" not in each:
@@ -105,20 +129,32 @@ def process_large_dataset(input_path: str,
 
 
 def example_prompt_func(item):
-    question = item["question"]
-    qwen_math_answer = item["answer"]
+    # question = item["question"]
+    # answer = item["answer"]
+    segs = item["input"].split("\n\nSolution:\n")
+    question = segs[0].replace("Question:\n", "")
+    answer = segs[1]
     question = f"""
     Question: {question}
 
-    Answer: {qwen_math_answer}
+    Answer: {answer}
     """
     chat_prompt = [
+        {
+            "role": "system",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "You are a science expert. A student is trying to solve the a question, please explain briefly whether his answer is correct or not. Finally, conclude your judgement with 'Conclusion: right/wrong [END]'."
+                }
+            ]
+        },
         {
             "role": "user",
             "content": [
                 {
                     "type": "text",
-                    "text": "You are a science expert. A student is trying to solve the a question, please explain briefly whether his answer is correct or not. Finally, conclude your judgement with 'Conclusion: right/wrong [END]'.\n\n" + question
+                    "text": question
                 }
             ]
         },
@@ -127,8 +163,8 @@ def example_prompt_func(item):
 
 
 if __name__ == "__main__":
-    input_path = "path/to/original_dataset.json"
-    output_dir = "output_dir/"
+    input_path = "/map-vepfs/yubo/CriticCoT/LLaMA-Factory/data/webinstruct_cft_80k_0121_p3.json"
+    output_dir = "../local_data/r1_critique_80k_0203"
     os.makedirs(output_dir, exist_ok=True)
     process_large_dataset(
         input_path=input_path,
