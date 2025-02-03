@@ -60,10 +60,10 @@ def process_chunk(start_idx: int,
                 "Content-Type": "application/json"
             }
             res_text = requests.request("POST", url, json=payload, headers=headers).text
-            if len(res_text) < 5:
-                print("Error res_text: ", res_text)
+            print("res_text", res_text)
             response = json.loads(res_text)
             item['model_output'] = response["choices"][0]["message"]["content"]
+            print("\n\nmodel_output", item['model_output'])
             results.append(item)
 
             if len(results) % 1 == 0:
