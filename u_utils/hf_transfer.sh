@@ -91,4 +91,7 @@ huggingface-cli upload TigerLab/WebInstruct-CFT-50k . --repo-type dataset --priv
 huggingface-cli upload ubowang/WebInstruct-CFT-50k . --repo-type dataset
 
 huggingface-cli upload TIGER-Lab/Qwen2.5-Math-7B-CFT . --repo-type model
+
 huggingface-cli upload TIGER-Lab/Qwen2.5-32B-Instruct-CFT . --repo-type model
+
+huggingface-cli upload ubowang/webinstruct_cft_40k_o1_mini_brief . --repo-type dataset

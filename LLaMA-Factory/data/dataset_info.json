@@ -1,4 +1,7 @@
 {
+  "webinstruct_cft_40k_o1_mini_brief": {
+    "file_name": "webinstruct_cft_40k_o1_mini_brief.json"
+  },
   "WebInstruct_40k_critique_gpt-4o-mini_0127": {
     "file_name": "WebInstruct_40k_critique_gpt-4o-mini_0127.json"
   },
