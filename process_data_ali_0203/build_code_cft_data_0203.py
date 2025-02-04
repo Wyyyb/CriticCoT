@@ -30,7 +30,7 @@ def main():
 
 def format_data(data, data_source):
     res = []
-    data = data.tolist()
+    data = data["train"].to_list()
     with open(f"../local_data/ori_opc-sft-stage2_data/{data_source}.json", "w") as fo:
         fo.write(json.dumps(data, indent=4))
     for i, each in enumerate(data):
