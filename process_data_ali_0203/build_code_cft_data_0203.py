@@ -20,11 +20,11 @@ def main():
     full_data = data
     sample_200k = data[:200000]
     sample_80k = data[:80000]
-    with open(f"../local_data/opc-sft-stage2/opc-sft-stage2_{full_data}.json", "w") as fo:
+    with open(f"../local_data/opc-sft-stage2/opc-sft-stage2_full_data.json", "w") as fo:
         fo.write(json.dumps(full_data, indent=4))
-    with open(f"../local_data/opc-sft-stage2/opc-sft-stage2_{sample_200k}.json", "w") as fo:
+    with open(f"../local_data/opc-sft-stage2/opc-sft-stage2_sample_200k.json", "w") as fo:
         fo.write(json.dumps(sample_200k, indent=4))
-    with open(f"../local_data/opc-sft-stage2/opc-sft-stage2_{sample_80k}.json", "w") as fo:
+    with open(f"../local_data/opc-sft-stage2/opc-sft-stage2_sample_80k.json", "w") as fo:
         fo.write(json.dumps(sample_80k, indent=4))
 
 
