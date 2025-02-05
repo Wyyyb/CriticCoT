@@ -11,7 +11,7 @@ bash eval_7b_4.sh $summary_path $model_dir &
 bash eval_7b_5.sh $summary_path $model_dir &
 bash eval_7b_6.sh $summary_path $model_dir &
 bash eval_7b_7.sh $summary_path $model_dir &
-bash eval_7b_8.sh
+bash eval_7b_8.sh $summary_path $model_dir
 
 
 
