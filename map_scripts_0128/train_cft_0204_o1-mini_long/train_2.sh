@@ -17,3 +17,6 @@ export WANDB_RUN_NAME=$MODEL_NAME
 
 FORCE_TORCHRUN=1 llamafactory-cli train ../map_scripts_0128/train_cft_0204_o1-mini_long/qwen2.5-7B_80k_long_0204_2.yaml
 
+cd ../eval_cft_0204_o1_mini_long
+
+bash eval_2.sh
