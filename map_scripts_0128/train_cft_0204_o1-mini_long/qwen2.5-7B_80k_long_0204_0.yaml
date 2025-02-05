@@ -10,7 +10,7 @@ finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_config.json  # choices: [ds_z0_config.json, ds_z2_config.json, ds_z3_config.json]
 
 ### dataset
-dataset: webinstruct_cft_40k_o1_mini_long
+dataset: webinstruct_cft_80k_o1_mini_long_0204
 template: qwen
 cutoff_len: 2048
 max_samples: 100000
@@ -18,7 +18,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: output_models_0204/qwen2.5-math-7B-webinstruct_cft_40k_o1_mini_long
+output_dir: output_models_0204/qwen2.5-math-7B-webinstruct_cft_80k_o1_mini_long_0204
 logging_steps: 1
 save_steps: 2
 plot_loss: true
