@@ -31,13 +31,13 @@ def single_request(query):
     try:
         response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
         if response.status_code != 200:
-            return None, None, None
+            return None, None, None, None
         content = json.loads(response.text)["choices"][0]["message"]["content"]
         usage = json.loads(response.text)["usage"]
         cost = usage["prompt_tokens"] * 3.0 / 1000000 + usage["completion_tokens"] * 8.0 / 1000000
-        return content, cost, usage["completion_tokens"]
+        return content, cost, usage["prompt_tokens"], usage["completion_tokens"]
     except Exception as e:
         print("exception", e)
-        return None, None, None
+        return None, None, None, None
 
 

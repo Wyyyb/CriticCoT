@@ -6,8 +6,8 @@ def main():
     with open("../local_data/bespoke_data/ori_bespoke_data.json", "r") as fi:
         ori_data = json.load(fi)
     format_data = []
-    for each in ori_data:
-        format_data.append(single_format(each))
+    for i, each in enumerate(ori_data):
+        format_data.append(single_format(each, i))
     random.shuffle(format_data)
     print("full data average length", sta_average_length(format_data))
     with open("../local_data/bespoke_data/bespoke_17k_format_data_0206.json", "w") as fo:
@@ -27,10 +27,10 @@ def sta_average_length(input_list):
     return total_length / len(input_list)
 
 
-def single_format(ori_single):
+def single_format(ori_single, idx):
     question = ori_single["conversations"][0]["value"]
     answer = ori_single["conversations"][1]["value"]
-    return {"question": question, "answer": answer}
+    return {"idx": idx, "question": question, "answer": answer}
 
 
 main()

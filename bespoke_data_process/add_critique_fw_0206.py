@@ -1,16 +1,61 @@
 from firework_r1_call_0206 import *
 import json
+import os
+import time
 
 
 def format_single_query(question, answer):
-    ins = "You are a science expert. A student is trying to solve a question, please explain briefly whether his solution is correct or not. Finally, conclude your judgement with 'Conclusion: right/wrong [END]'."
+    ins = "You are a science expert. A student is trying to solve a question, please critique " \
+          "whether his solution is correct or not. Finally, conclude your judgement " \
+          "with 'Conclusion: right/wrong [END]'."
     query = f"{ins}\n\nQuestion:\n{question}\nSolution:\n{answer}"
     return query
 
 
-def main():
-    
+def load_data(input_path, res_path):
+    with open(input_path, "r") as fi:
+        input_data = json.load(fi)
+    exist_idx = []
+    if os.path.exists(res_path):
+        with open(res_path, "r") as fi:
+            res_data = json.load(fi)
+    else:
+        res_data = []
+    for each in res_data:
+        if each["idx"] not in exist_idx:
+            exist_idx.append(each["idx"])
+    return input_data, res_data, exist_idx
 
+
+def single_call(item):
+    start = time.time()
+    query = format_single_query(item["question"], item["answer"])
+    content, cost, prompt_tokens, completion_tokens = single_request(query)
+    if content is not None:
+        item["critique"] = content
+        item["cost"] = cost
+        item["prompt_tokens"] = prompt_tokens
+        item["completion_tokens"] = completion_tokens
+    print("cost time:", time.time() - start)
+    return item
+
+
+def main():
+    input_data_path = "../local_data/bespoke_data/bespoke_2k_data_0206.json"
+    res_data_path = "../local_data/bespoke_data/bespoke_2k_data_add_critique_0206.json"
+    input_data, res_data, exist_idx = load_data(input_data_path, res_data_path)
+    for item in input_data:
+        if item["idx"] in exist_idx:
+            continue
+        single_res = single_call(item)
+        if single_res is None:
+            continue
+        res_data.append(single_res)
+        with open(res_data_path, "w") as fo:
+            fo.write(json.dumps(res_data, indent=4))
+
+
+main()
 
 
 
