@@ -10,10 +10,6 @@ export WANDB_PROJECT=$PROJECT_NAME
 export WANDB_MODE=disabled
 export MASTER_PORT=$(shuf -i 20000-30000 -n 1)
 export MASTER_ADDR="127.0.0.1"
-# 添加以下环境变量
-export LOCAL_RANK=0
-export WORLD_SIZE=8  # 对应于使用的 GPU 数量
-export RANK=0
 
 # 使用 torchrun 启动训练
 torchrun --nproc_per_node=8 --master_port=$MASTER_PORT $(which llamafactory-cli) train \
