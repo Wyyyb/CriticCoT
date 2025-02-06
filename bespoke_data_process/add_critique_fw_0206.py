@@ -36,8 +36,9 @@ def single_call(item):
         item["cost"] = cost
         item["prompt_tokens"] = prompt_tokens
         item["completion_tokens"] = completion_tokens
-    print("cost time:", time.time() - start)
-    return item
+        print("cost time:", time.time() - start)
+        return item
+    return None
 
 
 def main():
