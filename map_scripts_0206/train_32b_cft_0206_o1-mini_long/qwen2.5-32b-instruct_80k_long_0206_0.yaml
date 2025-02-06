@@ -12,7 +12,7 @@ deepspeed: examples/deepspeed/ds_z3_offload_config.json  # choices: [ds_z0_confi
 ### dataset
 dataset: webinstruct_cft_80k_o1_mini_long_0204
 template: qwen
-cutoff_len: 2048
+cutoff_len: 8192
 max_samples: 100000
 overwrite_cache: true
 preprocessing_num_workers: 16
