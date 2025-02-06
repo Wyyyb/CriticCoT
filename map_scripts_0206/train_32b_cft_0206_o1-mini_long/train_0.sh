@@ -1,6 +1,6 @@
 #!/bin/bash
-source /map-vepfs/miniconda3/bin/activate
-conda activate yubo_lf
+#source /map-vepfs/miniconda3/bin/activate
+#conda activate yubo_lf
 
 cd /map-vepfs/yubo/CriticCoT/LLaMA-Factory/
 PROJECT_NAME="critic_cot"
