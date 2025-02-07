@@ -15,6 +15,7 @@ def main():
     random.shuffle(output_data)
     with open(output_path, "w") as fo:
         fo.write(json.dumps(output_data, indent=4))
+    print("len(output_data)", len(output_data))
     print("average answer length", sta_average_length(output_data))
 
 

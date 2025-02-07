@@ -70,3 +70,10 @@ huggingface-cli download --repo-type model TIGER-Lab/Qwen2.5-Math-7B-CFT  --loca
 
 huggingface-cli download --repo-type model TIGER-Lab/Qwen2.5-32B-Instruct-CFT  --local-dir /data/yubo/models/Qwen2.5-32B-Instruct-CFT
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Coder-7B  --local-dir /map-vepfs/yubo/models/Qwen2.5-Coder-7B
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Coder-7B-Instruct  --local-dir /map-vepfs/yubo/models/Qwen2.5-Coder-7B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Coder-32B  --local-dir /map-vepfs/yubo/models/Qwen2.5-Coder-32B
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Coder-32B-Instruct  --local-dir /map-vepfs/yubo/models/Qwen2.5-Coder-32B-Instruct
