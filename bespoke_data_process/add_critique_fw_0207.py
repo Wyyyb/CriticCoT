@@ -9,7 +9,7 @@ def format_single_query(question, answer):
           "thoroughly analyze and provide detailed critique of their solution, including " \
           "their conceptual understanding, methodology, and any errors or merits, then " \
           "conclude your judgement with 'Conclusion: right/wrong [END]'."
-    query = f"{ins}\n\nQuestion:\n{question}\nSolution:\n{answer}"
+    query = f"{ins}\n\nQuestion:\n{question}\n\nSolution:\n{answer}"
     return query
 
 
