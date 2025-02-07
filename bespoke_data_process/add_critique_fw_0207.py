@@ -31,7 +31,7 @@ def load_data(input_path, res_path):
 def single_call(item):
     start = time.time()
     query = format_single_query(item["question"], item["answer"])
-    print("query", query)
+    # print("query", query)
     content, cost, prompt_tokens, completion_tokens = single_request(query)
     if content is not None:
         item["critique"] = content
