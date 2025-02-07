@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+#set -ex
 
 source /map-vepfs/miniconda3/bin/activate
 conda activate yubo_lf
