@@ -7,6 +7,7 @@ def main():
     output_path = "../local_data/webinstruct_0207/webinstruct_selected_2k_data_0207.json"
     with open(input_path, "r") as fi:
         data = json.load(fi)
+    print(len(data))
     data = sorted(data, key=lambda x: -len(x["output"]))
     selected_2k = data[:2000]
     output_data = []
