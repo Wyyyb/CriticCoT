@@ -11,8 +11,8 @@ def main():
     data = sorted(data, key=lambda x: -len(x["output"]))
     selected_2k = data[:2000]
     output_data = []
-    for each in selected_2k:
-        output_data.append(single_format(each))
+    for i, each in enumerate(selected_2k):
+        output_data.append(single_format(each, i))
     random.shuffle(output_data)
     with open(output_path, "w") as fo:
         fo.write(json.dumps(output_data, indent=4))
@@ -27,11 +27,12 @@ def sta_average_length(input_list):
     return total_length / len(input_list)
 
 
-def single_format(item):
+def single_format(item, curr_idx):
     segs = item["input"].split("\n\nSolution:\n")
     question = segs[0].replace("Question:\n", "")
     answer = segs[1].strip("\n")
-    return {"idx": item["idx"], "question": question, "answer": answer}
+    idx = item.get("idx", curr_idx)
+    return {"idx": idx, "question": question, "answer": answer}
 
 
 main()
