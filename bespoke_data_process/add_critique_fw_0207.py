@@ -1,4 +1,4 @@
-from firework_r1_call_0206 import *
+from firework_r1_call_0207 import *
 import json
 import os
 import time
@@ -43,8 +43,8 @@ def single_call(item):
 
 
 def main():
-    input_data_path = "../local_data/bespoke_data/bespoke_2k_data_0206.json"
-    res_data_path = "../local_data/bespoke_data/bespoke_2k_data_add_critique_0206.json"
+    input_data_path = "../local_data/webinstruct_0207/webinstruct_selected_2k_data_0207.json"
+    res_data_path = "../local_data/webinstruct_0207/add_critique_webinstruct_2k_data_0207.json"
     input_data, res_data, exist_idx = load_data(input_data_path, res_data_path)
     for item in input_data:
         if item["idx"] in exist_idx:
