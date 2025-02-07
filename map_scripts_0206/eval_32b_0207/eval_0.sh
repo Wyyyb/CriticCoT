@@ -1,11 +1,11 @@
 #!/bin/bash
-#set -ex
+set -ex
 
 source /map-vepfs/miniconda3/bin/activate
 conda activate yubo_lf
 
 summary_path="/map-vepfs/yubo/CriticCoT/0207_eval_results_qwen2.5-32B-Instruct-webinstruct_cft_80k_o1_mini_long_0204_0/summary.txt"
-model_dir="/map-vepfs/yubo/CriticCoT/LLaMA-Factory/output_models_0207/qwen2.5-32B-Instruct-webinstruct_cft_80k_o1_mini_long_0204_0"
+models_dir="/map-vepfs/yubo/CriticCoT/LLaMA-Factory/output_models_0207/qwen2.5-32B-Instruct-webinstruct_cft_80k_o1_mini_long_0204_0"
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 cd /map-vepfs/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
@@ -19,8 +19,7 @@ for checkpoint_dir in ${models_dir}/checkpoint-*; do
     if [ -d "$checkpoint_dir" ]; then  # 确保是目录
         # 获取checkpoint号码
         checkpoint_num=$(basename "$checkpoint_dir" | cut -d'-' -f2)
-        echo "Processing checkpoint-${checkpoint_num}"
-        echo "Model path: ${checkpoint_dir}"
+
         # 检查checkpoint_num是否[0, 30)
         if [ "$checkpoint_num" -ge 0 ] && [ "$checkpoint_num" -lt 10000 ]; then
             # 设置输出目录
