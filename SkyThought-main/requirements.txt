@@ -1,7 +1,0 @@
-pyext
-datasets
-word2number
-latex2sympy2
-scipy
-pebble
-timeout_decorator

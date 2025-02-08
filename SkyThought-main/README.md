@@ -34,15 +34,48 @@
 # Getting Started
 
 We open source the code and scripts we used for data curation, training, and evaluation for Sky-T1-32B-Preview, you can find more details in each directory.
-- ``/data``: The 17k training data used to train Sky-T1-32B-Preview. We also add the science and riddle portion from the [STILL-2 model](https://arxiv.org/pdf/2412.09413).
-- ``skythought/tools``: Training data curation and evaluation for Sky-T1. To generate our training data, we use the QwQ-32B-Preview model. We curate the data mixture to cover diverse domains that require reasoning, and a reject sampling procedure to improve the data quality.
+- ``recipes``: Recipes - data curation steps and training strategies - for building our models `Sky-T1-32B-Flash` and `Sky-T1-32B-Preview`. 
+- ``skythought/skythought_evals``: Our data generation and evaluation library. 
 - ``skythought/train``: Training scripts for Sky-T1. We use [Llama-Factory](https://github.com/hiyouga/LLaMA-Factory) to perform training. The model was trained for 3 epochs with a learning rate of 1e-5 and a batch size of 96. Our model training was completed in 19 hours on 8 H100 GPUs using DeepSpeed Zero-3 offloading, costing approximately $450 as per Lambda Cloud pricing. 
 
 
 # Evaluation
-Following, we show our evaluation results for the Sky-T1-32B-Preview model across math, coding, and science benchmarks.
+
+## Usage
+
+First, clone the repository and install the package
+
+```shell
+git clone https://github.com/NovaSky-AI/SkyThought.git
+cd SkyThought
+# installs shown for conda
+conda create -n eval python==3.10
+conda activate eval 
+pip install -e .
+```
+
+We support a wide variety of datasets in mathematics, science and coding:
+
+- AIME'24
+- MATH500
+- GPQADiamond
+- MMLU
+- ARC-Challenge
+- OlympiadBench
+- AMC'23 
+- TACO 
+- APPS
+- LiveCodeBench
+- MMLU Pro
+- MinervaMath
+- GSM8K
+
+For running evaluation, please refer to [skythought_evals/README.md](skythought/skythought_evals/README.md).
+
 
 ### Evaluation results
+Following, we show our evaluation results for the Sky-T1-32B-Preview model across math, coding, and science benchmarks.
+
 | Metric                | Sky-T1-32B-Preview | Qwen-2.5-32B-Instruct | QwQ   | o1-preview |
 |-----------------------|---------------------|--------|-------|------------|
 | Math500              | 86.4                    | 81.4    | 92.2 | 81.4       |
@@ -51,7 +84,7 @@ Following, we show our evaluation results for the Sky-T1-32B-Preview model acros
 | LiveCodeBench-Medium | 56.8                    | 40.8   | 56.3  | 54.9       |
 | LiveCodeBench-Hard   | 17.9                    | 9.8   | 17.1  | 16.3       |
 | GPQA-Diamond         | 56.8                    | 45.5   | 52.5  | 75.2       |
-| OlympiadBench (Math, EN)    | 59.79	           | 46.74	| 62.17	 | -        | 
+| OlympiadBench (Math, EN)    | 59.79	           | 46.74	| 62.17	 | 59.2      | 
 
 #### Results on non-reasoning benchmarks
 
@@ -70,7 +103,7 @@ We also evaluate on non-reasoning benchmarks (these are benchmarks for instructi
 | BFCL-v3 | 53.18 | **58.92** | 17.41 | [BFCL](https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard) |
 | Arena-Hard | **74.79** | 66.51 | 52.6 | [Arena-Hard-Auto](https://github.com/lmarena/arena-hard-auto) |
 
-For more details, refer [here](./skythought/tools/base_instruct_evals.md). 
+For more details, refer [here](./skythought/skythought_evals/base_instruct_evals.md).
 
 ## Fully Open-source: Driving Progress Together
 We believe that open-source collaboration drives progress, and with Sky-T1-32B-Preview, we are fully committed to empowering the community. We open-source all details (i.e., data, codes, model weights) to enable the community to replicate and improve on our results *easily*:
@@ -152,6 +185,6 @@ The code in this repository is mostly described in the post below. Please consid
 ```
 
 # Acknowledgement
-This work is done at [Berkeley Sky Computing Lab](https://sky.cs.berkeley.edu/), with the amazing compute support from [Lambda Labs](https://lambdalabs.com/service/gpu-cloud?srsltid=AfmBOop5FnmEFTkavVtdZDsLWvHWNg6peXtat-OXJ9MW5GMNsk756PE5) and [Anyscale](https://www.anyscale.com/). We would like to express our gratitude for the valuable academic feedback and support from the [Still-2 Team](https://arxiv.org/pdf/2412.09413), and Junyang Lin from the [Qwen Team](https://qwenlm.github.io/).
+This work is done at [Berkeley Sky Computing Lab](https://sky.cs.berkeley.edu/), with the amazing compute support from [Lambda Labs](https://lambdalabs.com/service/gpu-cloud?srsltid=AfmBOop5FnmEFTkavVtdZDsLWvHWNg6peXtat-OXJ9MW5GMNsk756PE5), [Anyscale](https://www.anyscale.com/), and [Databricks](https://www.databricks.com/). We would like to express our gratitude for the valuable academic feedback and support from the [Still-2 Team](https://arxiv.org/pdf/2412.09413), and Junyang Lin from the [Qwen Team](https://qwenlm.github.io/).
 
 
