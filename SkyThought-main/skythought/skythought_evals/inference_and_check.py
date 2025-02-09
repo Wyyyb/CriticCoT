@@ -180,6 +180,9 @@ def perform_inference_and_check(
                         results[problem_key]["messages"] = ""
                     results[problem_key]["responses"] = {}
                     results[problem_key]["token_usages"] = {}
+                    print("conversations", conversations)
+                    print("idx", idx)
+                    print("conversations[idx]", conversations[idx])
                     prompt = conversations[idx][1]["content"]
                     results[problem_key]["prompt"] = prompt
                     results[problem_key]["input_conversation"] = conversations[idx]

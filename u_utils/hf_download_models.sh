@@ -77,3 +77,7 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-Coder-7B-Instruct  --loc
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Coder-32B  --local-dir /map-vepfs/yubo/models/Qwen2.5-Coder-32B
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Coder-32B-Instruct  --local-dir /map-vepfs/yubo/models/Qwen2.5-Coder-32B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-32B  --local-dir /map-vepfs/yubo/models/Qwen2.5-32B
+
+
