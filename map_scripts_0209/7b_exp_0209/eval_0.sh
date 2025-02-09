@@ -2,8 +2,8 @@
 source /map-vepfs/miniconda3/bin/activate
 conda activate yubo_lf
 
-summary_path="/map-vepfs/yubo/CriticCoT/0206_eval_results_qwen2.5-32B-Instruct-webinstruct_cft_80k_o1_mini_long_0204_0/summary.txt"
-model_dir="/map-vepfs/yubo/CriticCoT/LLaMA-Factory/output_models_0206/qwen2.5-32B-Instruct-webinstruct_cft_80k_o1_mini_long_0204"
+summary_path="/map-vepfs/yubo/CriticCoT/0209_eval_results_qwen2.5-math-7b_webinstruct_cft_80k_0121_p3_exp0/summary.txt"
+model_dir="/map-vepfs/yubo/CriticCoT/LLaMA-Factory/output_models_0208/qwen2.5-math-7b_webinstruct_cft_80k_0121_p3_exp0"
 ckpt_start=0
 ckpt_end=50
 
