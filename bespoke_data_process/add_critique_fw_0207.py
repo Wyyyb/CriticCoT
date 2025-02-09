@@ -47,12 +47,16 @@ def main():
     input_data_path = "../local_data/webinstruct_0207/webinstruct_selected_2k_data_0207.json"
     res_data_path = "../local_data/webinstruct_0207/add_critique_webinstruct_2k_data_0207.json"
     input_data, res_data, exist_idx = load_data(input_data_path, res_data_path)
+    count = 0
     for item in input_data:
         if item["idx"] in exist_idx:
+            count += 1
             continue
         single_res = single_call(item)
         if single_res is None:
             continue
+        count += 1
+        print("curr count:", count)
         res_data.append(single_res)
         with open(res_data_path, "w") as fo:
             fo.write(json.dumps(res_data, indent=4))
