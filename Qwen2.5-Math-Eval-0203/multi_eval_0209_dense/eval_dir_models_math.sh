@@ -2,8 +2,8 @@
 set -ex
 
 # 接收两个参数：models_dir 和 summary_path
-if [ $# -ne 2 ]; then
-    echo "Usage: $0 <models_dir> <summary_path>"
+if [ $# -ne 4 ]; then
+    echo "Usage: $0 <models_dir> <summary_path> <start> <end>"
     exit 1
 fi
 
