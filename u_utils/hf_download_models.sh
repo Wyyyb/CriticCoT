@@ -80,4 +80,5 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-Coder-32B-Instruct  --lo
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-32B  --local-dir /map-vepfs/yubo/models/Qwen2.5-32B
 
+huggingface-cli download --repo-type model ubowang/CFT-Webinstruct-0121-ckpt  --local-dir /map-vepfs/yubo/models/CFT-Webinstruct-0121-ckpt
 
