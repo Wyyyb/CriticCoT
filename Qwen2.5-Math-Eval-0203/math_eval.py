@@ -113,6 +113,8 @@ def setup(args):
     if args.use_vllm:
         llm = LLM(
             model=args.model_name_or_path,
+            max_model_len=32768,
+            gpu_memory_utilization=0.9,
             tensor_parallel_size=len(available_gpus) // args.pipeline_parallel_size,
             pipeline_parallel_size=args.pipeline_parallel_size,
             trust_remote_code=True,
