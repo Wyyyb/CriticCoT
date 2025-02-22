@@ -7,7 +7,7 @@ conda activate yubo_lf
 summary_path="/map-vepfs/yubo/CriticCoT/0209_eval_results_qwen2.5-32B-webinstruct_cft_80k_o1_mini_long_0204_0/summary.txt"
 models_dir="/map-vepfs/yubo/CriticCoT/LLaMA-Factory/output_models_0209/qwen2.5-32B-Instruct-webinstruct_cft_80k_o1_mini_long_0204_0"
 
-export CUDA_VISIBLE_DEVICES=4
+export CUDA_VISIBLE_DEVICES=2,3
 cd /map-vepfs/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 # 获取models_dir的文件夹名称（不是完整路径）
 models_dir_name=$(basename "$models_dir")
