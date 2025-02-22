@@ -1,4 +1,13 @@
 {
+  "bespoke_merge_r1_data_0223": {
+    "file_name": "bespoke_merge_r1_data_0223.json"
+  },
+  "bespoke_2k_data_0223": {
+    "file_name": "bespoke_2k_data_0223.json"
+  },
+  "webinstruct_2-4k_r1_cft_data_0223": {
+    "file_name": "webinstruct_2-4k_r1_cft_data_0223.json"
+  },
   "opc-sft-stage2_o1_mini_cft_data_0207": {
     "file_name": "opc-sft-stage2_o1_mini_cft_data_0207.json"
   },
