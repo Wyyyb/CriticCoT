@@ -10,7 +10,7 @@ finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_offload_config.json  # choices: [ds_z0_config.json, ds_z2_config.json, ds_z3_config.json]
 
 ### dataset
-dataset: webinstruct_cft_80k_0121_p3
+dataset: webinstruct_2-4k_r1_cft_data_0223
 template: qwen
 cutoff_len: 8192
 max_samples: 100000
