@@ -98,3 +98,11 @@ huggingface-cli upload ubowang/webinstruct_cft_40k_o1_mini_brief . --repo-type d
 huggingface-cli upload ubowang/opc-sft-stage2_data_0203 . --repo-type dataset
 
 huggingface-cli upload ubowang/webinstruct_cft_80k_o1_mini_long_0204 . --repo-type dataset
+
+huggingface-cli upload ubowang/arxiv-llm_qwen_extract_titles_0223 . --repo-type dataset
+
+huggingface-cli upload ubowang/scholarcopilot_re_eval_data_0226 . --repo-type dataset
+
+huggingface-cli upload ubowang/sc_generated_data . --repo-type dataset
+
+
