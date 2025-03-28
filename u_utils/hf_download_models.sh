@@ -92,3 +92,12 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-7B-Instruct --local-dir 
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-72B-Instruct --local-dir /data/yubowang/models/Qwen2.5-72B-Instruct
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-7B-Instruct --local-dir /data/yubo/CriticCoT/models/Qwen2.5-7B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B-Instruct --local-dir /data/yubo/CriticCoT/models/Qwen2.5-Math-7B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /data/yubo/CriticCoT/models/Qwen2.5-Math-7B
+
+huggingface-cli download --repo-type model TIGER-Lab/Qwen2.5-Math-7B-CFT --local-dir /data/yubo/CriticCoT/models/Qwen2.5-Math-7B-CFT
+
+

@@ -1,0 +1,91 @@
+conda activate cft
+export CUDA_VISIBLE_DEVICES=4
+python gen_model_answer.py --model-path TIGER-Lab/Qwen2.5-Math-7B-CFT  --model-id CFT-1
+
+python gen_judgment.py --model-list CFT-1 --parallel 1
+
+python show_result.py --model-list CFT-1
+
+Mode: single
+Input file: data/mt_bench/model_judgment/gpt-4_single.jsonl
+
+########## First turn ##########
+             score
+model turn
+CFT-1 1     6.9125
+
+########## Second turn ##########
+             score
+model turn
+CFT-1 2     6.0625
+
+########## Average ##########
+        score
+model
+CFT-1  6.4875
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+conda activate cft
+export CUDA_VISIBLE_DEVICES=5
+python gen_model_answer.py --model-path Qwen/Qwen2.5-Math-7B  --model-id Qwen25-Math-7B
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+conda activate cft
+export CUDA_VISIBLE_DEVICES=6
+python gen_model_answer.py --model-path Qwen/Qwen2.5-Math-7B-Instruct  --model-id Qwen25-Math-7B-Instruct
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+conda activate cft
+export CUDA_VISIBLE_DEVICES=7
+python gen_model_answer.py --model-path Qwen/Qwen2.5-7B-Instruct  --model-id Qwen25-7B-Instruct
+
+python gen_judgment.py --model-list Qwen25-7B-Instruct --parallel 1
+
+python show_result.py --model-list Qwen25-7B-Instruct
+
+Mode: single
+Input file: data/mt_bench/model_judgment/gpt-4_single.jsonl
+
+########## First turn ##########
+                          score
+model              turn
+Qwen25-7B-Instruct 1     8.8625
+
+########## Second turn ##########
+                          score
+model              turn
+Qwen25-7B-Instruct 2     8.3125
+
+########## Average ##########
+                     score
+model
+Qwen25-7B-Instruct  8.5875
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+python gen_judgment.py --model-list Qwen25-Math-7B-Instruct Qwen25-Math-7B --parallel 1
+
+python show_result.py --model-list Qwen25-Math-7B-Instruct Qwen25-Math-7B
+
+########## First turn ##########
+                                score
+model                   turn
+Qwen25-Math-7B-Instruct 1     5.91875
+Qwen25-Math-7B          1     5.15000
+
+########## Second turn ##########
+                                score
+model                   turn
+Qwen25-Math-7B-Instruct 2     5.06250
+Qwen25-Math-7B          2     4.43125
+
+########## Average ##########
+                            score
+model
+Qwen25-Math-7B-Instruct  5.490625
+Qwen25-Math-7B           4.790625
