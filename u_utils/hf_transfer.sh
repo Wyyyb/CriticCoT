@@ -105,4 +105,12 @@ huggingface-cli upload ubowang/scholarcopilot_re_eval_data_0226 . --repo-type da
 
 huggingface-cli upload ubowang/sc_generated_data . --repo-type dataset
 
+huggingface-cli upload ubowang/arxiv_plain_latex_data_1028 . --repo-type dataset
+
+huggingface-cli upload ubowang/arxiv-src-latex . --repo-type dataset
+
+huggingface-cli upload TIGER-Lab/ScholarCopilot-Data-v1 . --repo-type dataset
+
+huggingface-cli download ubowang/webinstruct_cft_80k_o1_mini_long_0204 . --repo-type dataset
+
 

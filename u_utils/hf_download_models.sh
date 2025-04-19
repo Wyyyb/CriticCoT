@@ -100,4 +100,18 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /dat
 
 huggingface-cli download --repo-type model TIGER-Lab/Qwen2.5-Math-7B-CFT --local-dir /data/yubo/CriticCoT/models/Qwen2.5-Math-7B-CFT
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-VL-32B-Instruct --local-dir /data/yubo/models/Qwen2.5-VL-32B-Instruct
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-VL-7B-Instruct --local-dir /data/yubo/models/Qwen2.5-VL-7B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-VL-7B-Instruct --local-dir /map-vepfs/yubo/models/Qwen2.5-VL-7B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-32B-Instruct --local-dir /mnt/hwfile/opendatalab/yubo/models/Qwen2.5-32B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-32B --local-dir /mnt/hwfile/opendatalab/yubo/models/Qwen2.5-32B
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /mnt/hwfile/opendatalab/yubo/models/Qwen2.5-Math-7B
+
+huggingface-cli download --repo-type model TIGER-Lab/Qwen2.5-Math-7B-CFT --local-dir /mnt/hwfile/opendatalab/yubo/models/Qwen2.5-Math-7B-CFT
+
+huggingface-cli download --repo-type model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --local-dir /mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B
