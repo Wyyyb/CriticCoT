@@ -83,7 +83,8 @@ def main():
     print("prompts[0]", prompts[0])
     batch_size = 1000
     # batch_size = 40
-    batch_num = len(prompts) // batch_size
+    # batch_num = len(prompts) // batch_size
+    batch_num = 1
     outputs = []
     for index in range(batch_num):
         start_time = time.time()
