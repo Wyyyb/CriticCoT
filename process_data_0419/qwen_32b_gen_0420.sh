@@ -1,0 +1,3 @@
+
+export CUDA_VISIBLE_DEVICES=6,7
+python qwen_32b_gen_deepmath_solution_0420.py

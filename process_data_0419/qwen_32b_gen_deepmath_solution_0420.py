@@ -63,22 +63,17 @@ def get_prompt(question):
 
 
 def main():
-    input_file = "../local_data/deepmath_cft_data/"
-    output_file = "/gpfs/public/research/xy/yubowang/CriticCoT/local_data/on_policy_data_0119/" \
-                  "qwen_math_webinstruct_80k_0120.json"
-    model_path = "/gpfs/public/research/xy/yubowang/models/Qwen2.5-Math-7B"
+    input_file = "../local_data/deepmath_cft_data/deepmath_cft_step_1.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_qwen_32b_gen_solution_step_2.json"
+    # model_path = "/mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
+    model_path = "/mnt/hwfile/opendatalab/yubo/models/Qwen2.5-32B"
     llm, sampling_params = load_vllm_model(model_path)
-    webinstruct_data = []
     with open(input_file, "r") as fi:
-        for line in fi.readlines():
-            webinstruct_data.append(json.loads(line))
+        deepmath_data = json.load(fi)
     input_data = []
     prompts = []
     idx = 0
-    # for test
-    # numina_data = numina_data[:100]
-    # webinstruct_data = webinstruct_data[:100]
-    for each in webinstruct_data:
+    for each in deepmath_data:
         idx += 1
         question = each["question"].replace("Question:\n", "")
         input_data.append({"idx": idx, "question": question})
@@ -86,7 +81,7 @@ def main():
         prompts.append(get_prompt(question))
     print("len(prompts", len(prompts))
     print("prompts[0]", prompts[0])
-    batch_size = 4000
+    batch_size = 1000
     # batch_size = 40
     batch_num = len(prompts) // batch_size
     outputs = []
@@ -104,7 +99,7 @@ def main():
     output_data = []
     for i, each in enumerate(outputs):
         curr = input_data[i]
-        curr["qwen_2.5_math_answer"] = each
+        curr["solution"] = each
         output_data.append(curr)
 
     with open(output_file, "w") as fo:
