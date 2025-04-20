@@ -43,12 +43,12 @@ def prepare_cft_data(data):
 def main():
     ori_deepmath_train_data = load_data()
     sft_data = format_sft(ori_deepmath_train_data)
-    with open("../LLaMA-Factory/data/ori_deepmath_sft_data.json") as fo:
+    with open("../LLaMA-Factory/data/ori_deepmath_sft_data.json", "w") as fo:
         fo.write(json.dumps(sft_data, indent=2))
 
     os.makedirs("../local_data/deepmath_cft_data", exist_ok=True)
     deepmath_cft_step_1 = prepare_cft_data(ori_deepmath_train_data)
-    with open("../local_data/deepmath_cft_data/deepmath_cft_step_1.json") as fo:
+    with open("../local_data/deepmath_cft_data/deepmath_cft_step_1.json", "w") as fo:
         fo.write(json.dumps(deepmath_cft_step_1, indent=2))
 
 
