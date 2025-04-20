@@ -64,7 +64,7 @@ def get_prompt(question):
 
 def main():
     input_file = "../local_data/deepmath_cft_data/deepmath_cft_step_1.json"
-    output_file = "../local_data/deepmath_cft_data/deepmath_qwen_32b_gen_solution_step_2.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_qwen_32b_distill_gen_solution_step_2.json"
     model_path = "/mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     # model_path = "/mnt/hwfile/opendatalab/yubo/models/Qwen2.5-32B"
     llm, sampling_params = load_vllm_model(model_path)
