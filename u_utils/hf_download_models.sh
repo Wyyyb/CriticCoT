@@ -115,3 +115,5 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /mnt
 huggingface-cli download --repo-type model TIGER-Lab/Qwen2.5-Math-7B-CFT --local-dir /mnt/hwfile/opendatalab/yubo/models/Qwen2.5-Math-7B-CFT
 
 huggingface-cli download --repo-type model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --local-dir /mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B
+
+huggingface-cli download --repo-type model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --local-dir /map-vepfs/yubo/models/DeepSeek-R1-Distill-Qwen-32B
