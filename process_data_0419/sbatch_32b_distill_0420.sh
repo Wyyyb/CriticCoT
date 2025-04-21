@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=belt_road       # 分区名称
 #SBATCH --nodes=1                   # 请求1个节点
-#SBATCH --ntasks-per-node=4         # 每节点4个任务
+#SBATCH --ntasks-per-node=1         # 每节点1个任务
 #SBATCH --gres=gpu:2                # 请求2个GPU
 #SBATCH --mem=32G                   # 请求32GB内存
 #SBATCH --time=16:00:00             # 最长运行16小时
