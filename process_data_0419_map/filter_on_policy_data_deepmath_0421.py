@@ -24,15 +24,18 @@ def extract_boxed_answer(text):
 
 def integrate_deepmath_data():
     ori_data_path = "../local_data/deepmath_cft_data/deepmath_cft_step_1.json"
-    output_file = "../local/deepmath_cft_data/deepmath_integrate_data_0421.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421.json"
     add_qwen_32b_response_data_path = "../local_data/deepmath_cft_data/deepmath_qwen_32b_gen_solution_step_2.json.temp"
     with open(ori_data_path, "r") as fi:
         ori_data = json.load(fi)
     map_data = {}
+    duplicate_count = 0
     for i, each in tqdm(enumerate(ori_data)):
         if each["question"] in map_data:
-            print("duplicate question", each["question"])
+            # print("duplicate question", each["question"])
+            duplicate_count += 1
         map_data[each["question"]] = each
+    print("duplicate_count", duplicate_count)
     with open(add_qwen_32b_response_data_path, "r") as fi:
         add_qwen_32b_response_data = json.load(fi)
     sta_count = {"qwen-2.5-32b_answer_valid": 0, "qwen-2.5-32b_answer_correct": 0,
