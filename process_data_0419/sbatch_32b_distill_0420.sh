@@ -18,9 +18,7 @@ conda activate cft
 # 不要手动设置CUDA_VISIBLE_DEVICES，让Slurm自动设置
 
 # 打印当前分配到的GPU设备
-echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
-echo "Allocated GPUs:"
-nvidia-smi
+export CUDA_VISIBLE_DEVICES=6,7
 
 # 运行Python脚本并实时输出到文件（禁用输出缓冲）
 python -u qwen_32b_distill_gen_deepmath_solution_0420.py > qwen_32b_distill_gen_deepmath_solution_0420_output.txt 2>&1
