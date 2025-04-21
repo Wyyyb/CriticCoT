@@ -35,7 +35,7 @@ def prepare_cft_data(data):
         curr = {"instruction_1": instruction_1, "instruction_2": instruction_2,
                 "instruction_3": instruction_3, "question": question,
                 "r1_solution_1": r1_solution_1, "r1_solution_2": r1_solution_2,
-                "r1_solution_3": r1_solution_3}
+                "r1_solution_3": r1_solution_3, "gt_answer": each["final_answer"]}
         output_data.append(curr)
     return output_data
 
