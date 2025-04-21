@@ -19,7 +19,7 @@ def load_vllm_model(model_path: str):
         # 设置采样参数
         sampling_params = SamplingParams(
             temperature=0.0,
-            max_tokens=8192,
+            max_tokens=16384,
             n=1,
             stop=stop_words,
             stop_token_ids=(
@@ -67,9 +67,24 @@ def main():
     output_file = "../local_data/deepmath_cft_data/deepmath_qwen_32b_distill_gen_solution_step_2.json"
     model_path = "/mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     # model_path = "/mnt/hwfile/opendatalab/yubo/models/Qwen2.5-32B"
+
+    # 检查是否有中间结果文件存在
+    import os
+    temp_output_file = output_file + ".temp"
+    output_data = []
+    processed_count = 0
+
+    if os.path.exists(temp_output_file):
+        # 如果存在临时文件，加载已处理的数据
+        with open(temp_output_file, "r") as ft:
+            output_data = json.load(ft)
+        processed_count = len(output_data)
+        print(f"Resuming from previous run. Already processed {processed_count} items.")
+
     llm, sampling_params = load_vllm_model(model_path)
     with open(input_file, "r") as fi:
         deepmath_data = json.load(fi)
+
     input_data = []
     prompts = []
     idx = 0
@@ -79,32 +94,50 @@ def main():
         input_data.append({"idx": idx, "question": question})
         idx += 1
         prompts.append(get_prompt(question))
-    print("len(prompts", len(prompts))
+
+    print("len(prompts)", len(prompts))
     print("prompts[0]", prompts[0])
+
+    # 设置批处理大小
     # batch_size = 1000
     batch_size = 40
-    # batch_num = len(prompts) // batch_size
-    batch_num = 1
-    outputs = []
-    for index in range(batch_num):
-        start_time = time.time()
-        start = index * batch_size
-        batch_prompt = prompts[start: start + batch_size]
-        batch_output = batch_predict(llm, sampling_params, batch_prompt)
-        outputs += batch_output
-        print("batch_size", batch_size)
-        print("single batch costing time:", time.time() - start_time)
-    # outputs = batch_predict(llm, sampling_params, prompts)
-    if len(outputs) != len(input_data):
-        print("inconsistent length", len(outputs), len(input_data))
-    output_data = []
-    for i, each in enumerate(outputs):
-        curr = input_data[i]
-        curr["solution"] = each
-        output_data.append(curr)
 
-    with open(output_file, "w") as fo:
-        fo.write(json.dumps(output_data, indent=4))
+    # 计算剩余需要处理的批次数
+    remaining_prompts = prompts[processed_count:]
+    remaining_input_data = input_data[processed_count:]
+    total_batches = (len(remaining_prompts) + batch_size - 1) // batch_size  # 向上取整
+
+    for batch_idx in range(total_batches):
+        start_time = time.time()
+        batch_start = batch_idx * batch_size
+        batch_end = min(batch_start + batch_size, len(remaining_prompts))
+        batch_prompt = remaining_prompts[batch_start:batch_end]
+
+        print(
+            f"Processing batch {batch_idx + 1}/{total_batches}, items {processed_count + batch_start + 1} to {processed_count + batch_end}")
+        batch_output = batch_predict(llm, sampling_params, batch_prompt)
+
+        # 添加这批次的结果到输出数据
+        for i, output in enumerate(batch_output):
+            data_idx = batch_start + i
+            curr = remaining_input_data[data_idx].copy()
+            curr["solution"] = output
+            output_data.append(curr)
+
+        # 每完成一批次就保存临时文件
+        with open(temp_output_file, "w") as fo:
+            fo.write(json.dumps(output_data, indent=4))
+
+        print(f"Batch {batch_idx + 1} complete. Progress saved. Batch processing time:", time.time() - start_time)
+
+    # 所有批次处理完成后，将临时文件重命名为最终输出文件
+    # import shutil
+    # shutil.move(temp_output_file, output_file)
+    print(f"All processing complete. Total processed items: {len(output_data)}")
+
+    # 检查数据一致性
+    if len(output_data) != len(input_data):
+        print(f"Warning: Output length ({len(output_data)}) doesn't match input length ({len(input_data)})")
 
 
 main()
