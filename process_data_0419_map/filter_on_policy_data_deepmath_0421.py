@@ -28,6 +28,7 @@ def integrate_deepmath_data():
     add_qwen_32b_response_data_path = "../local_data/deepmath_cft_data/deepmath_qwen_32b_gen_solution_step_2.json.temp"
     with open(ori_data_path, "r") as fi:
         ori_data = json.load(fi)
+    print("len(ori_data)", len(ori_data))
     map_data = {}
     duplicate_count = 0
     for i, each in tqdm(enumerate(ori_data)):
@@ -36,6 +37,7 @@ def integrate_deepmath_data():
             duplicate_count += 1
         map_data[each["question"]] = each
     print("duplicate_count", duplicate_count)
+    print("len(map_data)", len(map_data))
     with open(add_qwen_32b_response_data_path, "r") as fi:
         add_qwen_32b_response_data = json.load(fi)
     sta_count = {"qwen-2.5-32b_answer_valid": 0, "qwen-2.5-32b_answer_correct": 0,
