@@ -86,7 +86,7 @@ def main():
         deepmath_data = json.load(fi)
 
     # p1 part
-    deepmath_data = deepmath_data[-600000:-400000]
+    deepmath_data = deepmath_data[-60000:-40000]
     input_data = []
     prompts = []
     idx = 0
