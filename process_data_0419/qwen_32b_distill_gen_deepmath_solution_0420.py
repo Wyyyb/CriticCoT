@@ -100,7 +100,7 @@ def main():
 
     # 设置批处理大小
     # batch_size = 1000
-    batch_size = 40
+    batch_size = 1000
 
     # 计算剩余需要处理的批次数
     remaining_prompts = prompts[processed_count:]
