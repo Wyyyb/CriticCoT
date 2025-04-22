@@ -115,5 +115,5 @@ huggingface-cli download ubowang/webinstruct_cft_80k_o1_mini_long_0204 . --repo-
 
 huggingface-cli upload ubowang/deepmath_integrate_data_0421 deepmath_integrate_data_0421.json --repo-type dataset
 
-huggingface-cli download ubowang/deepmath_integrate_data_0421 deepmath_integrate_data_0421.json --repo-type dataset
+huggingface-cli download ubowang/deepmath_integrate_data_0421 --local-dir . --repo-type dataset
 
