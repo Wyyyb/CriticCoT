@@ -83,6 +83,7 @@ def get_process_data(output_data):
                 continue
             process_data.append(v)
     print("new round to process data number:", len(process_data))
+    print("sta_count", sta_count)
     return process_data
 
 
