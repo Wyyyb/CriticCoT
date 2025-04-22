@@ -68,13 +68,24 @@ def get_prompt(question):
     return prompt
 
 
+def preprocess_long_text(output_data):
+    long_text_count = 0
+    for k, v in output_data.items():
+        if "qwen-2.5-32b_answer" in v and len(v["qwen-2.5-32b_answer"]) > 50000:
+            print("too long text", len(v["qwen-2.5-32b_answer"]))
+            output_data[k]["qwen-2.5-32b_answer_valid"] = False
+            long_text_count += 1
+    print("long_text_count", long_text_count)
+    return output_data
+
+
 def get_process_data(output_data):
     process_data = []
     sta_count = {"qwen-2.5-32b_answer_valid": 0, "qwen-2.5-32b_answer_correct": 0,
                  "qwen-2.5-32b_answer_invalid": 0, "qwen-2.5-32b_answer_incorrect": 0,
                  "too long": 0}
     for k, v in output_data.items():
-        if "qwen-2.5-32b_answer" in v and len(v["qwen-2.5-32b_answer"]) > 40000:
+        if "qwen-2.5-32b_answer" in v and len(v["qwen-2.5-32b_answer"]) > 50000:
             process_data.append(v)
             sta_count["too long"] += 1
             continue
@@ -151,6 +162,9 @@ def main():
         # 如果存在临时文件，加载已处理的数据
         with open(output_file, "r") as fi:
             output_data = json.load(fi)
+        output_data = preprocess_long_text(output_data)
+        with open(output_file, "w") as fo:
+            fo.write(json.dumps(output_data, indent=4))
         # print("sta_output_data(output_data)", sta_output_data(output_data))
     else:
         with open(input_file, "r") as fi:
