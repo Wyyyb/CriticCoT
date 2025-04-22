@@ -114,22 +114,17 @@ def main():
 
     # 检查是否有中间结果文件存在
     import os
-    # temp_output_file = output_file + ".temp"
-    output_data = []
     processed_count = 0
 
-    # if os.path.exists(output_file):
-    #     # 如果存在临时文件，加载已处理的数据
-    #     with open(output_file, "r") as fi:
-    #         output_data = json.load(fi)
-    #     # print("sta_output_data(output_data)", sta_output_data(output_data))
-    # else:
-    #     with open(input_file, "r") as fi:
-    #         output_data = json.load(fi)
-    #     output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
-    with open(input_file, "r") as fi:
-        output_data = json.load(fi)
-    output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
+    if os.path.exists(output_file):
+        # 如果存在临时文件，加载已处理的数据
+        with open(output_file, "r") as fi:
+            output_data = json.load(fi)
+        # print("sta_output_data(output_data)", sta_output_data(output_data))
+    else:
+        with open(input_file, "r") as fi:
+            output_data = json.load(fi)
+        output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
 
     llm, sampling_params = load_vllm_model(model_path)
 
