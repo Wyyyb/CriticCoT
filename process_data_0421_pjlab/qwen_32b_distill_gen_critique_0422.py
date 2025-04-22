@@ -142,7 +142,7 @@ def main():
             prompts.append(get_prompt(question))
 
         print("len(prompts)", len(prompts))
-        print("prompts[0]", prompts[0])
+        # print("prompts[0]", prompts[0])
 
         # 设置批处理大小
         # batch_size = 1000
@@ -159,9 +159,11 @@ def main():
             print(
                 f"Processing batch {batch_idx + 1}/{total_batches}, items {processed_count + batch_start + 1} to {processed_count + batch_end}")
             batch_output = batch_predict(llm, sampling_params, batch_prompt)
-
+            # batch_sta = {"critique_num": 0, "valid_critique_num": 0}
             # 添加这批次的结果到输出数据
             for i, output in enumerate(batch_output):
+                if i == 0:
+                    print("output[0]", output)
                 question = process_data[i]["question"]
                 output_data[question]["DeepSeek-R1-Distill-Qwen-32B_critique"] = output
                 output_result, output_valid = parse_output(output)
