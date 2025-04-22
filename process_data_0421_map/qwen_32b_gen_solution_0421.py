@@ -77,7 +77,7 @@ def get_process_data(output_data):
         #     continue
         if "qwen-2.5-32b_answer_valid" in v and v["qwen-2.5-32b_answer_valid"] is True:
             sta_count["qwen-2.5-32b_answer_valid"] += 1
-            if v.get("qwen-2.5-32b_answer_correct") is True:
+            if v.get("qwen-2.5-32b_answer_correctness") is True:
                 sta_count["qwen-2.5-32b_answer_correct"] += 1
             else:
                 sta_count["qwen-2.5-32b_answer_incorrect"] += 1
@@ -92,7 +92,7 @@ def get_process_data(output_data):
     return process_data
 
 
-def filter_output_data(output_data, start=0, end=10000):
+def filter_output_data(output_data, start, end):
     res = {}
     for k, v in output_data.items():
         if start <= int(v["idx"]) < end:
@@ -130,7 +130,8 @@ def extract_boxed_answer(text):
 def main():
     input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421.json"
     output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421_add_solution_p1.json"
-    start_idx, end_idx = 0, 50000
+    # start_idx, end_idx = 0, 50000
+    start_idx, end_idx = 0, 110000
     # model_path = "/map-vepfs/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     model_path = "/map-vepfs/yubo/models/Qwen2.5-32B"
 

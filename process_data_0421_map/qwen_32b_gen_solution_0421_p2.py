@@ -77,7 +77,7 @@ def get_process_data(output_data):
         #     continue
         if "qwen-2.5-32b_answer_valid" in v and v["qwen-2.5-32b_answer_valid"] is True:
             sta_count["qwen-2.5-32b_answer_valid"] += 1
-            if v.get("qwen-2.5-32b_answer_correct") is True:
+            if v.get("qwen-2.5-32b_answer_correctness") is True:
                 sta_count["qwen-2.5-32b_answer_correct"] += 1
             else:
                 sta_count["qwen-2.5-32b_answer_incorrect"] += 1
@@ -92,7 +92,7 @@ def get_process_data(output_data):
     return process_data
 
 
-def filter_output_data(output_data, start=0, end=10000):
+def filter_output_data(output_data, start, end):
     res = {}
     for k, v in output_data.items():
         if start <= int(v["idx"]) < end:
