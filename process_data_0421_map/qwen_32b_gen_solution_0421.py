@@ -130,8 +130,8 @@ def extract_boxed_answer(text):
 def main():
     input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421.json"
     output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421_add_solution_p1.json"
-    # start_idx, end_idx = 0, 50000
-    start_idx, end_idx = 0, 110000
+    start_idx, end_idx = 0, 50000
+    # start_idx, end_idx = 0, 110000
     # model_path = "/map-vepfs/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     model_path = "/map-vepfs/yubo/models/Qwen2.5-32B"
 
@@ -149,8 +149,9 @@ def main():
     else:
         with open(input_file, "r") as fi:
             output_data = json.load(fi)
+        print("input data length", len(output_data))
         output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
-
+        print("filtered output data length", len(output_data))
     llm, sampling_params = load_vllm_model(model_path)
 
     process_data = get_process_data(output_data)
@@ -181,6 +182,8 @@ def main():
 
             # 添加这批次的结果到输出数据
             for i, output in enumerate(batch_output):
+                if i == 0:
+                    print("output sample:\n", output)
                 question = process_data[i]["question"]
                 output_data[question]["qwen-2.5-32b_answer"] = output
                 extracted_answer = extract_boxed_answer(output)
