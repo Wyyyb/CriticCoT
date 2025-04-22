@@ -69,14 +69,19 @@ def get_prompt(question):
 
 def get_process_data(output_data):
     process_data = []
+    sta_count = {"DeepSeek-R1-Distill-Qwen-32B_critique": 0,
+                 "DeepSeek-R1-Distill-Qwen-32B_critique_valid": 0,
+                 "qwen-2.5-32b_answer_valid": 0}
     for k, v in output_data.items():
-        if "qwen-2.5-32b_answer" not in v:
-            continue
-        if "qwen-2.5-32b_answer_valid" in v and v["qwen-2.5-32b_answer_valid"] is True:
-            continue
-        if "DeepSeek-R1-Distill-Qwen-32B_critique" in v and v.get("DeepSeek-R1-Distill-Qwen-32B_critique_valid", False) is True:
-            continue
-        process_data.append(v)
+        if "qwen-2.5-32b_answer" in v and v.get("qwen-2.5-32b_answer_valid") is True:
+            sta_count["qwen-2.5-32b_answer_valid"] += 1
+            if "DeepSeek-R1-Distill-Qwen-32B_critique" in v:
+                sta_count["DeepSeek-R1-Distill-Qwen-32B_critique"] += 1
+            if "DeepSeek-R1-Distill-Qwen-32B_critique" in v and \
+                    v.get("DeepSeek-R1-Distill-Qwen-32B_critique_valid", False) is True:
+                sta_count["DeepSeek-R1-Distill-Qwen-32B_critique_valid"] += 1
+                continue
+            process_data.append(v)
     print("new round to process data number:", len(process_data))
     return process_data
 
