@@ -71,10 +71,13 @@ def get_prompt(question):
 def get_process_data(output_data):
     process_data = []
     sta_count = {"qwen-2.5-32b_answer_valid": 0, "qwen-2.5-32b_answer_correct": 0,
-                 "qwen-2.5-32b_answer_invalid": 0, "qwen-2.5-32b_answer_incorrect": 0}
+                 "qwen-2.5-32b_answer_invalid": 0, "qwen-2.5-32b_answer_incorrect": 0,
+                 "too long": 0}
     for k, v in output_data.items():
-        # if "qwen-2.5-32b_answer" not in v:
-        #     continue
+        if "qwen-2.5-32b_answer" in v and len(v["qwen-2.5-32b_answer"]) > 40000:
+            process_data.append(v)
+            sta_count["too long"] += 1
+            continue
         if "qwen-2.5-32b_answer_valid" in v and v["qwen-2.5-32b_answer_valid"] is True:
             sta_count["qwen-2.5-32b_answer_valid"] += 1
             if v.get("qwen-2.5-32b_answer_correctness") is True:
@@ -118,6 +121,9 @@ def extract_boxed_answer(text):
     返回:
         str 或 None: 提取到的答案字符串，如果没有找到则返回None
     """
+    if len(text) > 50000:
+        print("too long text", len(text))
+        return None
     pattern = r'\\boxed\{(.*?)\}'
     match = re.search(pattern, text)
 
