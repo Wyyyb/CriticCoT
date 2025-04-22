@@ -201,7 +201,7 @@ def main():
                     else:
                         output_data[question]["qwen-2.5-32b_answer_correctness"] = False
                         batch_sta["wrong_num"] += 1
-            print("batch_sta", batch_sta)
+            print("curr batch_sta:\n", batch_sta)
             # 每完成一批次就保存临时文件
             with open(output_file, "w") as fo:
                 fo.write(json.dumps(output_data, indent=4))
