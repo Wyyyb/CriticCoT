@@ -31,10 +31,13 @@ def integrate_deepmath_data():
     print("len(ori_data)", len(ori_data))
     map_data = {}
     duplicate_count = 0
+    idx = 0
     for i, each in tqdm(enumerate(ori_data)):
         if each["question"] in map_data:
             # print("duplicate question", each["question"])
             duplicate_count += 1
+        each["idx"] = str(idx)
+        idx += 1
         map_data[each["question"]] = each
     print("duplicate_count", duplicate_count)
     print("len(map_data)", len(map_data))
