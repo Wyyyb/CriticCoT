@@ -179,9 +179,11 @@ def main():
             print(
                 f"Processing batch {batch_idx + 1}/{total_batches}, items {processed_count + batch_start + 1} to {processed_count + batch_end}")
             batch_output = batch_predict(llm, sampling_params, batch_prompt)
-
+            batch_sta = {"total_num": 0, "valid_num": 0, "invalid_num": 0,
+                         "right_num": 0, "wrong_num": 0}
             # 添加这批次的结果到输出数据
             for i, output in enumerate(batch_output):
+                batch_sta["total_num"] += 1
                 if i == 0:
                     print("output sample:\n", output)
                 question = process_data[i]["question"]
@@ -189,13 +191,17 @@ def main():
                 extracted_answer = extract_boxed_answer(output)
                 if extracted_answer is None:
                     output_data[question]["qwen-2.5-32b_answer_valid"] = False
+                    batch_sta["invalid_num"] += 1
                 else:
                     output_data[question]["qwen-2.5-32b_answer_valid"] = True
+                    batch_sta["valid_num"] += 1
                     if extracted_answer == output_data[question]["gt_answer"]:
                         output_data[question]["qwen-2.5-32b_answer_correctness"] = True
+                        batch_sta["right_num"] += 1
                     else:
                         output_data[question]["qwen-2.5-32b_answer_correctness"] = False
-
+                        batch_sta["wrong_num"] += 1
+            print("batch_sta", batch_sta)
             # 每完成一批次就保存临时文件
             with open(output_file, "w") as fo:
                 fo.write(json.dumps(output_data, indent=4))
