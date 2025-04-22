@@ -36,6 +36,7 @@ def integrate_deepmath_data():
         if each["question"] in map_data:
             # print("duplicate question", each["question"])
             duplicate_count += 1
+            continue
         each["idx"] = str(idx)
         idx += 1
         map_data[each["question"]] = each
