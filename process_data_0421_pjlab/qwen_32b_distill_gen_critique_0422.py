@@ -109,7 +109,7 @@ def main():
     input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421_add_solution_p1.json"
     output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0422_add_critique_p1.json"
     start_idx, end_idx = 0, 110000
-    model_path = "/map-vepfs/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
+    model_path = "/mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     # model_path = "/map-vepfs/yubo/models/Qwen2.5-32B"
 
     # 检查是否有中间结果文件存在
