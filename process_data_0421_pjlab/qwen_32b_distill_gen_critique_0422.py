@@ -106,9 +106,9 @@ def get_cft_format_question(each):
 
 
 def main():
-    input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421.json"
-    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421_add_critique_p1.json"
-    start_idx, end_idx = 0, 10000
+    input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421_add_solution_p1.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0422_add_critique_p1.json"
+    start_idx, end_idx = 0, 110000
     model_path = "/map-vepfs/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     # model_path = "/map-vepfs/yubo/models/Qwen2.5-32B"
 
@@ -118,15 +118,18 @@ def main():
     output_data = []
     processed_count = 0
 
-    if os.path.exists(output_file):
-        # 如果存在临时文件，加载已处理的数据
-        with open(output_file, "r") as fi:
-            output_data = json.load(fi)
-        # print("sta_output_data(output_data)", sta_output_data(output_data))
-    else:
-        with open(input_file, "r") as fi:
-            output_data = json.load(fi)
-        output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
+    # if os.path.exists(output_file):
+    #     # 如果存在临时文件，加载已处理的数据
+    #     with open(output_file, "r") as fi:
+    #         output_data = json.load(fi)
+    #     # print("sta_output_data(output_data)", sta_output_data(output_data))
+    # else:
+    #     with open(input_file, "r") as fi:
+    #         output_data = json.load(fi)
+    #     output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
+    with open(input_file, "r") as fi:
+        output_data = json.load(fi)
+    output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
 
     llm, sampling_params = load_vllm_model(model_path)
 
