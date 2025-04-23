@@ -170,6 +170,9 @@ def main():
         with open(input_file, "r") as fi:
             output_data = json.load(fi)
         print("input data length", len(output_data))
+        output_data = preprocess_long_text(output_data)
+        with open(output_file, "w") as fo:
+            fo.write(json.dumps(output_data, indent=4))
         output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
         print("filtered output data length", len(output_data))
     llm, sampling_params = load_vllm_model(model_path)
@@ -206,7 +209,7 @@ def main():
                 batch_sta["total_num"] += 1
                 if i == 0:
                     print("output sample:\n", output)
-                question = process_data[i]["question"]
+                question = process_data[batch_start + i]["question"]
                 output_data[question]["qwen-2.5-32b_answer"] = output
                 extracted_answer = extract_boxed_answer(output)
                 if extracted_answer is None:
@@ -229,6 +232,5 @@ def main():
                   f"Progress saved. Batch processing time:", time.time() - start_time)
 
         process_data = get_process_data(output_data)
-
 
 main()

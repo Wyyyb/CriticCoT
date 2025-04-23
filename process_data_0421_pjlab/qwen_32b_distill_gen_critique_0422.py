@@ -164,7 +164,7 @@ def main():
             for i, output in enumerate(batch_output):
                 if i == 0:
                     print("output[0]", output)
-                question = process_data[i]["question"]
+                question = process_data[batch_start + i]["question"]
                 output_data[question]["DeepSeek-R1-Distill-Qwen-32B_critique"] = output
                 output_result, output_valid = parse_output(output)
                 output_data[question]["DeepSeek-R1-Distill-Qwen-32B_critique_res"] = output_result
