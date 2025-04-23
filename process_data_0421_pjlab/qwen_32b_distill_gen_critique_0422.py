@@ -73,8 +73,6 @@ def get_process_data(output_data):
                  "DeepSeek-R1-Distill-Qwen-32B_critique_valid": 0,
                  "qwen-2.5-32b_answer_valid": 0}
     for k, v in output_data.items():
-        if len(v["qwen-2.5-32b_answer"]) > 50000:
-            continue
         if "qwen-2.5-32b_answer" in v and v.get("qwen-2.5-32b_answer_valid") is True:
             sta_count["qwen-2.5-32b_answer_valid"] += 1
             if "DeepSeek-R1-Distill-Qwen-32B_critique" in v:
@@ -82,6 +80,9 @@ def get_process_data(output_data):
             if "DeepSeek-R1-Distill-Qwen-32B_critique" in v and \
                     v.get("DeepSeek-R1-Distill-Qwen-32B_critique_valid", False) is True:
                 sta_count["DeepSeek-R1-Distill-Qwen-32B_critique_valid"] += 1
+                continue
+            if len(v["qwen-2.5-32b_answer"]) > 50000:
+                print("len(v[qwen-2.5-32b_answer]) > 50000", len(v["qwen-2.5-32b_answer"]))
                 continue
             process_data.append(v)
     print("new round to process data number:", len(process_data))
