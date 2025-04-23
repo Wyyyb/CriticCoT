@@ -7,7 +7,7 @@ with open(input_file_path, "r") as fi:
 
 valid_count = 0
 for k, v in data.items():
-    if v["qwen-2.5-32b_answer_valid"] is True:
+    if v.get("qwen-2.5-32b_answer_valid", False) is True:
         valid_count += 1
 
 print("valid_count", valid_count)
