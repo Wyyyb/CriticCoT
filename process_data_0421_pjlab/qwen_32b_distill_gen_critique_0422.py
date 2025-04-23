@@ -59,9 +59,19 @@ def get_prompt(question):
     #          f"and put your final answer within \\boxed{{}}.<|im_end|>\n\n" \
     #          f"<|im_start|>user\n{question}<|im_end|>\n" \
     #          f"<|im_start|>assistant\n"
-    prompt = f"<|im_start|>You are a science expert. A student is trying to solve a question, please explain " \
-             f"briefly whether his answer is correct or not. Finally, conclude your judgement with " \
-             f"'Conclusion: right/wrong [END]\n\n<|im_end|>\n\n" \
+    prompt = f"<|im_start|>You are a science expert. A student is trying to solve a question, " \
+             f"please analyze whether their answer is correct or not in detail. " \
+             f"Please follow these steps in your analysis:\n" \
+             f"1. First, identify the key points of the problem and the correct approach to " \
+             f"solving it.\n" \
+             f"2. Examine each step of the student's solution, indicating whether " \
+             f"each step is correct.\n" \
+             f"3. If there are errors, clearly point out where the mistakes are and provide " \
+             f"the correct method.\n" \
+             f"4. If the answer is correct but there are more optimal solutions, " \
+             f"please mention them.\n" \
+             f"Finally, conclude your judgment with " \
+             f"\"Conclusion: right/wrong [END]\"\n\n<|im_end|>\n\n" \
              f"<|im_start|>user\n{question}\n<|im_end|>\n" \
              f"<|im_start|>assistant\nCritique:\n"
     return prompt
