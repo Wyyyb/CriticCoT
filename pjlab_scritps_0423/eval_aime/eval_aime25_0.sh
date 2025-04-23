@@ -2,11 +2,11 @@
 source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
 conda activate cft
 
-summary_path="eval_results_0423/qwen_32b_aime25/summary.txt"
+summary_path="../../eval_results_0423/qwen_32b_aime25/summary.txt"
 model_path="/mnt/hwfile/opendatalab/yubo/models/Qwen-2.5-32B"
-output_path="eval_results_0423/qwen_32b_aime25/"
+output_path="../../eval_results_0423/qwen_32b_aime25/"
 
-mkdir -p output_path
+mkdir -p $output_path
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
