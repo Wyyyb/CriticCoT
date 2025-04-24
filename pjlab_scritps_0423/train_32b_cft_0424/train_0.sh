@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
-conda activate lf_train
+#source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
+#conda activate lf_train
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/LLaMA-Factory/
 PROJECT_NAME="critic_cot"
