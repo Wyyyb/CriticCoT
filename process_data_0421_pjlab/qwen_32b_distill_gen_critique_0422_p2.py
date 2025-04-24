@@ -127,7 +127,7 @@ def get_cft_format_question(each):
 def main():
     input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0423_add_critique_p1.json"
     output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0424_add_critique_p2.json"
-    start_idx, end_idx = 80000, 110000
+    start_idx, end_idx = 0, 110000
     model_path = "/mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     # model_path = "/map-vepfs/yubo/models/Qwen2.5-32B"
 
@@ -148,6 +148,7 @@ def main():
     llm, sampling_params = load_vllm_model(model_path)
 
     process_data = get_process_data(output_data)
+    process_data = list(reversed(process_data))
     while len(process_data) > 500:
         prompts = []
         for each in process_data:
