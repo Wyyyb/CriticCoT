@@ -1,4 +1,7 @@
 {
+  "deepmath_qwen_32b_distill_cft_0424": {
+    "file_name": "deepmath_qwen_32b_distill_cft_0424.json"
+  },
   "ori_deepmath_sft_data": {
     "file_name": "ori_deepmath_sft_data.json"
   },
