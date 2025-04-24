@@ -20,7 +20,8 @@ for k, v in answer_file.items():
         print("answer_file key not in critique_file")
         continue
     if "qwen-2.5-32b_answer" in v and v.get("qwen-2.5-32b_answer_valid") is True:
-        if critique_file[k]["qwen-2.5-32b_answer"] == v["qwen-2.5-32b_answer"]:
+        if "qwen-2.5-32b_answer" in critique_file[k] and \
+                critique_file[k]["qwen-2.5-32b_answer"] == v["qwen-2.5-32b_answer"]:
             continue
         update_answer_count += 1
         critique_file[k]["qwen-2.5-32b_answer"] = v["qwen-2.5-32b_answer"]
