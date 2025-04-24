@@ -10,7 +10,7 @@ def main():
     format_data = []
     invalid_count = 0
     for k, each in data.items():
-        if not each.get("qwen-2.5-32b_answer_valid") or each.get("DeepSeek-R1-Distill-Qwen-32B_critique_valid"):
+        if not each.get("qwen-2.5-32b_answer_valid") or not each.get("DeepSeek-R1-Distill-Qwen-32B_critique_valid"):
             invalid_count += 1
             continue
         question = each["question"]
