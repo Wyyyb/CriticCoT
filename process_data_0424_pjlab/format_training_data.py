@@ -3,7 +3,8 @@ import json
 
 def main():
     output_path = "../LLaMA-Factory/data/deepmath_qwen_32b_distill_cft_0424.json"
-    with open("/mnt/hwfile/opendatalab/yubo/CriticCoT/local_data/deepmath_integrate_data_0423_add_critique_p1.json",
+    with open("/mnt/hwfile/opendatalab/yubo/CriticCoT/local_data/deepmath_cft_data/"
+              "deepmath_integrate_data_0423_add_critique_p1.json",
               "r") as fi:
         data = json.load(fi)
     format_data = []
