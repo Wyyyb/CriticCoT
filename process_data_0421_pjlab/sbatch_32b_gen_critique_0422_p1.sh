@@ -21,5 +21,5 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/process_data_0421_pjlab
 # 运行您的Python脚本，并将标准输出和标准错误重定向到指定文件
-python -u qwen_32b_distill_gen_critique_0422.py > qwen_32b_distill_gen_critique_0422_output.txt 2>&1
+python -u qwen_32b_distill_gen_critique_0422.py > qwen_32b_distill_gen_critique_0424_output.txt 2>&1
 
