@@ -18,13 +18,11 @@
   "zero_optimization": {
     "stage": 3,
     "offload_optimizer": {
-      "device": "nvme",
-      "nvme_path": "/nvme/yubo_lf/deepspeed_offload",
+      "device": "cpu",
       "pin_memory": true
     },
     "offload_param": {
-      "device": "nvme",
-      "nvme_path": "/nvme/yubo_lf/deepspeed_offload",
+      "device": "cpu",
       "pin_memory": true
     },
     "overlap_comm": true,
