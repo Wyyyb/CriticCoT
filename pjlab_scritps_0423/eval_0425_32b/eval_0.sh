@@ -7,6 +7,8 @@ model_dir="/mnt/hwfile/opendatalab/yubo/CriticCoT/360-LLaMA-Factory-sp/output_mo
 ckpt_start=0
 ckpt_end=160
 
+export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/multi_eval_0425
 
 bash start_8_cards.sh $summary_path $model_dir $ckpt_start $ckpt_end
