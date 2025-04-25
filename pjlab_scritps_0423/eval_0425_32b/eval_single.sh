@@ -1,3 +1,5 @@
+#!/bin/bash
+set -ex
 
 source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
 conda activate cft
@@ -21,6 +23,7 @@ for checkpoint_dir in ${models_dir}/checkpoint-*; do
     if [ -d "$checkpoint_dir" ]; then  # 确保是目录
         # 获取checkpoint号码
         checkpoint_num=$(basename "$checkpoint_dir" | cut -d'-' -f2)
+        echo ${checkpoint_num}
 
         # 检查checkpoint_num是否[0, 30)
         if [ "$checkpoint_num" -ge ${start} ] && [ "$checkpoint_num" -lt ${end} ]; then
