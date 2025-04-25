@@ -19,7 +19,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: output_models_0424/deepmath_qwen_32b_distill_cft_0424
+output_dir: output_models_0425/deepmath_qwen_32b_distill_cft_0424
 logging_steps: 1
 save_steps: 10
 plot_loss: true

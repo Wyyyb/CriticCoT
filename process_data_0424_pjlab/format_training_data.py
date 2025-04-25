@@ -2,7 +2,7 @@ import json
 
 
 def main():
-    output_path = "../LLaMA-Factory/data/deepmath_qwen_32b_distill_cft_0424.json"
+    output_path = "../360-LLaMA-Factory-sp/data/deepmath_qwen_32b_distill_cft_0424.json"
     with open("/mnt/hwfile/opendatalab/yubo/CriticCoT/local_data/deepmath_cft_data/"
               "deepmath_integrate_data_0423_add_critique_p1.json",
               "r") as fi:
