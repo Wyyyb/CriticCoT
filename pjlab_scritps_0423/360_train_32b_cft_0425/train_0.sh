@@ -13,4 +13,4 @@ export WANDB_DISABLED="true"
 export MASTER_PORT=$(shuf -i 30000-40000 -n 1)
 export MASTER_ADDR="127.0.0.1"
 
-FORCE_TORCHRUN=1 llamafactory-cli train ../pjlab_scritps_0423/train_32b_cft_0425/qwen2.5-32b_0424_0.yaml
+FORCE_TORCHRUN=1 llamafactory-cli train ../pjlab_scritps_0423/360_train_32b_cft_0425/qwen2.5-32b_0424_0.yaml
