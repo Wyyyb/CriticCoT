@@ -7,7 +7,7 @@ conda activate cft
 summary_path="/mnt/hwfile/opendatalab/yubo/CriticCoT/0425_eval_results_32b_cft_deepmath/summary.txt"
 models_dir="/mnt/hwfile/opendatalab/yubo/CriticCoT/360-LLaMA-Factory-sp/output_models_0425/deepmath_qwen_32b_distill_cft_0424"
 start=0
-end=160
+end=99
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
