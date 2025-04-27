@@ -17,7 +17,7 @@ cutoff_len: 12000
 drop_exceed_length_data: true
 max_samples: 1000000
 overwrite_cache: true
-preprocessing_num_workers: 64
+preprocessing_num_workers: 32
 
 ### output
 output_dir: output_models_0427/deepmath_qwen_32b_instruct_distill_cft_0427_filter
