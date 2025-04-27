@@ -12,7 +12,7 @@ cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
 export CUDA_VISIBLE_DEVICES=6,7
 
-bash evaluate_qwen_test.sh $model_path $output_path $summary_path
+bash evaluate_single.sh $model_path $output_path $summary_path
 
 
 summary_path="../../baseline_eval_results_0426/qwen_32b/summary.txt"
@@ -25,7 +25,7 @@ cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
 export CUDA_VISIBLE_DEVICES=6,7
 
-bash evaluate_qwen_test.sh $model_path $output_path $summary_path
+bash evaluate_single.sh $model_path $output_path $summary_path
 
 
 
@@ -39,7 +39,7 @@ cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
 export CUDA_VISIBLE_DEVICES=6,7
 
-bash evaluate_qwen_test.sh $model_path $output_path $summary_path
+bash evaluate_single.sh $model_path $output_path $summary_path
 
 
 
