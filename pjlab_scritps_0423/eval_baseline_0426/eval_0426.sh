@@ -10,7 +10,7 @@ mkdir -p $output_path
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
-export CUDA_VISIBLE_DEVICES=6,7
+export CUDA_VISIBLE_DEVICES=0,1,6,7
 
 bash evaluate_single.sh $model_path $output_path $summary_path
 
@@ -23,7 +23,7 @@ mkdir -p $output_path
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
-export CUDA_VISIBLE_DEVICES=6,7
+export CUDA_VISIBLE_DEVICES=0,1,6,7
 
 bash evaluate_single.sh $model_path $output_path $summary_path
 
@@ -37,7 +37,7 @@ mkdir -p $output_path
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
-export CUDA_VISIBLE_DEVICES=6,7
+export CUDA_VISIBLE_DEVICES=0,1,6,7
 
 bash evaluate_single.sh $model_path $output_path $summary_path
 
