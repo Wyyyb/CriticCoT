@@ -4,7 +4,7 @@
 #SBATCH --ntasks-per-node=1         # 每节点1个任务
 #SBATCH --gres=gpu:8                # 请求8个GPU
 #SBATCH --mem=512G                   # 请求32GB内存
-#SBATCH --time=24:00:00             # 最长运行8小时
+#SBATCH --time=8:00:00             # 最长运行8小时
 #SBATCH --job-name=eval            # 作业名称
 #SBATCH --output=eval_%j.log    # Slurm的标准输出和错误日志，%j表示作业ID
 
@@ -15,8 +15,8 @@ conda activate cft
 
 summary_path="/mnt/hwfile/opendatalab/yubo/CriticCoT/0426_eval_results_32b_cft_deepmath/summary.txt"
 models_dir="/mnt/hwfile/opendatalab/yubo/CriticCoT/360-LLaMA-Factory-sp/output_models_0425/deepmath_qwen_32b_distill_cft_0425"
-start=0
-end=410
+start=330
+end=650
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
