@@ -11,17 +11,17 @@
 source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
 conda activate cft
 
-summary_path="../baseline_eval_results_0428_1/qwen_32b_distill/summary.txt"
+summary_path="../../baseline_eval_results_0428_1/qwen_32b_distill/summary.txt"
 model_path="/mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
-output_path="../baseline_eval_results_0428_1/qwen_32b_distill/"
-
-mkdir -p $output_path
+output_path="../../baseline_eval_results_0428_1/qwen_32b_distill/"
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
+mkdir -p $output_path
+
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
-bash evaluate_distilled_qwen.sh $model_path $output_path $summary_path  > ../baseline_eval_results_0428_1/qwen_32b_distill/output.txt 2>&1
+bash evaluate_distilled_qwen.sh $model_path $output_path $summary_path  > ../../baseline_eval_results_0428_1/qwen_32b_distill/output.txt 2>&1
 
 
 
