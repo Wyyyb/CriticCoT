@@ -4,9 +4,9 @@
 #SBATCH --ntasks-per-node=1         # 每节点1个任务
 #SBATCH --gres=gpu:8                # 请求8个GPU
 #SBATCH --mem=512G                   # 请求32GB内存
-#SBATCH --time=96:00:00             # 最长运行8小时
-#SBATCH --job-name=lf_train            # 作业名称
-#SBATCH --output=lf_train_%j.log    # Slurm的标准输出和错误日志，%j表示作业ID
+#SBATCH --time=16:00:00             # 最长运行8小时
+#SBATCH --job-name=lf_eval            # 作业名称
+#SBATCH --output=lf_eval_%j.log    # Slurm的标准输出和错误日志，%j表示作业ID
 
 source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
 conda activate cft
