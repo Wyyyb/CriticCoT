@@ -114,7 +114,7 @@ def get_cft_format_question(each):
     return format_question
 
 
-def extract_boxed_answer(text):
+def extract_boxed_answer_bk(text):
     """
     从输入的字符串中提取\boxed{ANSWER}中的ANSWER部分。
     如果找不到\boxed{}的模式，返回None。
@@ -133,6 +133,29 @@ def extract_boxed_answer(text):
         return match.group(1)
     else:
         return None
+
+
+def extract_boxed_answer(pred_str: str):
+    ans = pred_str.split("boxed")[-1]
+    if not ans:
+        return None
+    if ans[0] == "{":
+        stack = 1
+        a = ""
+        for c in ans[1:]:
+            if c == "{":
+                stack += 1
+                a += c
+            elif c == "}":
+                stack -= 1
+                if stack == 0:
+                    break
+                a += c
+            else:
+                a += c
+    else:
+        a = ans.split("$")[0].strip()
+    return a
 
 
 def extract_con(critique):
