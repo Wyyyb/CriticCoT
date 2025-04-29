@@ -1,0 +1,33 @@
+set -ex
+
+PROMPT_TYPE="deepseek-r1-distilled-qwen-think"
+MODEL_NAME_OR_PATH=$1
+OUTPUT_DIR=$2
+SUMMARY_PATH=$3
+SPLIT="test"
+NUM_TEST_SAMPLE=-1
+
+mkdir -p $OUTPUT_DIR
+cd ..
+
+DATA_NAME="aime25,aime24,amc23,minerva_math,olympiadbench,math,gsm8k,math-500"
+# DATA_NAME="minerva_math"
+TOKENIZERS_PARALLELISM=false \
+python3 -u math_eval.py \
+    --model_name_or_path ${MODEL_NAME_OR_PATH} \
+    --data_name ${DATA_NAME} \
+    --output_dir ${OUTPUT_DIR} \
+    --summary_path ${SUMMARY_PATH} \
+    --split ${SPLIT} \
+    --prompt_type ${PROMPT_TYPE} \
+    --num_test_sample ${NUM_TEST_SAMPLE} \
+    --seed 0 \
+    --temperature 0.6 \
+    --n_sampling 1 \
+    --top_p 0.95 \
+    --start 0 \
+    --end -1 \
+    --use_vllm \
+    --save_outputs \
+    # --overwrite \
+
