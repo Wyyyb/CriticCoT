@@ -256,7 +256,7 @@ def main():
             print(
                 f"Processing batch {batch_idx + 1}/{total_batches}, items {processed_count + batch_start + 1} to {processed_count + batch_end}")
             batch_output = batch_predict(llm, sampling_params, batch_prompt)
-            # batch_sta = {"critique_num": 0, "valid_critique_num": 0}
+            batch_sta = {"valid_critique_num": 0, "qwen_answer_valid_num": 0}
             # 添加这批次的结果到输出数据
             for i, output in enumerate(batch_output):
                 if i == 0:
@@ -269,7 +269,11 @@ def main():
                 output_data[question]["DeepSeek-R1-Distill-Qwen-32B_critique_answer"] = critique_answer
                 output_data[question]["DeepSeek-R1-Distill-Qwen-32B_critique_conclusion"] = critique_conclusion
                 output_data[question]["DeepSeek-R1-Distill-Qwen-32B_critique_valid"] = critique_valid
-
+                if critique_valid:
+                    batch_sta["valid_critique_num"] += 1
+                if output_data[question]["qwen-2.5-32b_answer_valid"]:
+                    batch_sta["qwen_answer_valid_num"] += 1
+            print("batch_sta", batch_sta)
             # 每完成一批次就保存临时文件
             with open(output_file, "w") as fo:
                 fo.write(json.dumps(output_data, indent=4))
