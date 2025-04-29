@@ -107,6 +107,16 @@ def parse_output(output):
         return "format not recognized", True
 
 
+def is_same_answer(str_1, str_2):
+    if not str_1 or not str_2:
+        return False
+    if str_1.replace("dfrac", "frac") == str_2.replace("dfrac", "frac"):
+        # if str_1 != str_2:
+        #     print("str_1, str_2", str_1, str_2)
+        return True
+    return str_1 == str_2
+
+
 def get_cft_format_question(each):
     question = each["question"]
     solution = each["qwen-2.5-32b_answer"]
@@ -175,7 +185,7 @@ def extract_con(critique):
 
 def parse_critique(item, critique):
     critique_answer = extract_boxed_answer(critique)
-    if critique_answer == item.get("gt_answer", None) and critique is not None:
+    if is_same_answer(critique_answer, item.get("gt_answer", None)) and critique is not None:
         critique_valid = True
     else:
         critique_valid = False
@@ -192,8 +202,8 @@ def parse_critique(item, critique):
 
 
 def main():
-    input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0421_add_solution_p1.json"
-    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0428_add_critique_p1.json"
+    input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0428_add_solution.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0428_add_critique.json"
     start_idx, end_idx = 0, 110000
     model_path = "/mnt/hwfile/opendatalab/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     # model_path = "/map-vepfs/yubo/models/Qwen2.5-32B"
