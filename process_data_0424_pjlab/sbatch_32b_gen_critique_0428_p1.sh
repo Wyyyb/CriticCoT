@@ -7,7 +7,6 @@
 #SBATCH --time=96:00:00             # 最长运行8小时
 #SBATCH --job-name=qwen_gen         # 作业名称
 #SBATCH --output=qwen_gen_%j.log    # Slurm的标准输出和错误日志，%j表示作业ID
-#SBATCH --exclusive
 
 # 加载必要的模块（如果需要）
 # module load anaconda/2023.03
