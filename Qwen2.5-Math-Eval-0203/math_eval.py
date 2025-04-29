@@ -269,6 +269,7 @@ def main(llm, tokenizer, data_name, args):
                 SamplingParams(
                     temperature=args.temperature,
                     top_p=args.top_p,
+                    top_k=20,
                     max_tokens=args.max_tokens_per_call,
                     n=1,
                     stop=stop_words,
