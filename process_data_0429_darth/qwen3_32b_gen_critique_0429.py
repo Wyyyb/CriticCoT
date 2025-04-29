@@ -19,7 +19,7 @@ def load_vllm_model(model_path: str):
         # 设置采样参数
         sampling_params = SamplingParams(
             temperature=0.6,
-            max_tokens=16384*2,
+            max_tokens=32768,
             n=1,
             stop=stop_words,
             stop_token_ids=(
@@ -203,7 +203,7 @@ def parse_critique(item, critique):
 
 def main():
     input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0428_add_solution.json"
-    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0429_qwen3_add_critique.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0429_qwen3_darth_add_critique.json"
     start_idx, end_idx = 0, 110000
     model_path = "/data/yubowang/models/Qwen3-32B"
 
