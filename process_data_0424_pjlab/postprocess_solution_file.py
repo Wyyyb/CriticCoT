@@ -47,7 +47,7 @@ def main():
         for each in discard_keys:
             if each in v:
                 data[k].pop(each)
-        ori_correctness = v["qwen-2.5-32b_answer_correctness"]
+        ori_correctness = v.get("qwen-2.5-32b_answer_correctness", None)
         gt_answer = v["gt_answer"]
         qwen_answer = v["qwen-2.5-32b_answer"]
         qwen_short_answer = extract_boxed_answer(qwen_answer)
@@ -55,7 +55,7 @@ def main():
         if qwen_short_answer:
             data[k]["qwen-2.5-32b_answer_valid"] = True
         if is_same_answer(gt_answer, qwen_short_answer):
-            if not ori_correctness:
+            if not ori_correctness and ori_correctness is not None:
                 new_correct_count += 1
             data[k]["qwen-2.5-32b_answer_correctness"] = True
         else:
