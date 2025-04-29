@@ -29,8 +29,8 @@ def is_same_answer(str_1, str_2):
     if not str_1 or not str_2:
         return False
     if str_1.replace("dfrac", "frac") == str_2.replace("dfrac", "frac"):
-        if str_1 != str_2:
-            print("str_1, str_2", str_1, str_2)
+        # if str_1 != str_2:
+        #     print("str_1, str_2", str_1, str_2)
         return True
     return str_1 == str_2
 
@@ -47,6 +47,7 @@ def main():
         for each in discard_keys:
             if each in v:
                 data[k].pop(each)
+        ori_correctness = v["qwen-2.5-32b_answer_correctness"]
         gt_answer = v["gt_answer"]
         qwen_answer = v["qwen-2.5-32b_answer"]
         qwen_short_answer = extract_boxed_answer(qwen_answer)
@@ -54,9 +55,9 @@ def main():
         if qwen_short_answer:
             data[k]["qwen-2.5-32b_answer_valid"] = True
         if is_same_answer(gt_answer, qwen_short_answer):
-            data[k]["qwen-2.5-32b_answer_correctness"] = True
-            if not v["qwen-2.5-32b_answer_correctness"]:
+            if not ori_correctness:
                 new_correct_count += 1
+            data[k]["qwen-2.5-32b_answer_correctness"] = True
         else:
             data[k]["qwen-2.5-32b_answer_correctness"] = False
     print("new_correct_count", new_correct_count)
