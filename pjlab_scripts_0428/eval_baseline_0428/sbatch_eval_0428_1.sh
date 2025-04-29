@@ -21,7 +21,7 @@ cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
-bash evaluate_distilled_qwen.sh $model_path $output_path $summary_path
+bash evaluate_distilled_qwen.sh $model_path $output_path $summary_path  > ../baseline_eval_results_0428_1/qwen_32b_distill/output.txt 2>&1
 
 
 
