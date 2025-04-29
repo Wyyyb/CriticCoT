@@ -10,5 +10,5 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 cd /data/yubowang/CriticCoT/process_data_0429_darth
 # 运行您的Python脚本，并将标准输出和标准错误重定向到指定文件
-python -u qwen3_32b_gen_critique_0429.py > qwen3_32b_gen_critique_0429_output.txt 2>&1
+python -u qwen3_32b_gen_critique_0429.py
 
