@@ -19,7 +19,7 @@ def load_vllm_model(model_path: str):
         # 设置采样参数
         sampling_params = SamplingParams(
             temperature=0.6,
-            max_tokens=16384,
+            max_tokens=16384*2,
             n=1,
             stop=stop_words,
             stop_token_ids=(
