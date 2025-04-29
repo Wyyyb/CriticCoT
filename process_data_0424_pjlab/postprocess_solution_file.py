@@ -26,6 +26,8 @@ def extract_boxed_answer(pred_str: str):
 
 
 def is_same_answer(str_1, str_2):
+    if not str_1 or not str_2:
+        return False
     if str_1.replace("dfrac", "frac") == str_2.replace("dfrac", "frac"):
         return True
     return str_1 == str_2
