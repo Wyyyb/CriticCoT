@@ -123,3 +123,11 @@ huggingface-cli download --repo-type model Qwen/Qwen3-32B --local-dir /data/yubo
 huggingface-cli download --repo-type model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --local-dir /data/yubowang/models/DeepSeek-R1-Distill-Qwen-32B
 
 huggingface-cli download --repo-type model Qwen/Qwen3-32B --local-dir /mnt/hwfile/opendatalab/yubo/models/Qwen3-32B
+
+huggingface-cli download --repo-type model XiaomiMiMo/MiMo-7B-Base --local-dir /mnt/hwfile/opendatalab/yubo/models/MiMo-7B-Base
+
+huggingface-cli download --repo-type model XiaomiMiMo/MiMo-7B-SFT --local-dir /mnt/hwfile/opendatalab/yubo/models/MiMo-7B-SFT
+
+
+
+
