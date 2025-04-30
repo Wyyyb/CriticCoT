@@ -2,9 +2,9 @@
 #source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
 #conda activate cft
 
-summary_path="../baseline_eval_results_0428/qwen3_32b/summary.txt"
+summary_path="../baseline_eval_results_0428/qwen_32b_distill/summary.txt"
 model_path="/data/yubowang/models/DeepSeek-R1-Distill-Qwen-32B"
-output_path="../baseline_eval_results_0428/qwen3_32b/"
+output_path="../baseline_eval_results_0428/qwen_32b_distill/"
 
 mkdir -p $output_path
 
