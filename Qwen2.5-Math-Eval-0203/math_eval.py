@@ -2,6 +2,7 @@ import random
 import os
 import argparse
 import time
+import register_mimo_in_vllm
 from vllm import LLM, SamplingParams
 from datetime import datetime
 from tqdm import tqdm
