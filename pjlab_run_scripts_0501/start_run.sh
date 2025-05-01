@@ -8,6 +8,8 @@
 #SBATCH --job-name=train_32b         # 作业名称
 #SBATCH --output=train_32b_%j.log    # Slurm的标准输出和错误日志，%j表示作业ID
 
+
+cd /mnt/hwfile/opendatalab/yubo/CriticCoT/pjlab_run_scripts_0501
 # 设置环境
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7  # 确保使用8张GPU卡
 
