@@ -28,7 +28,7 @@ while true; do
 
     # 运行run_1.sh并检查其退出状态
     if [ -f "run_1.sh" ] && [ -s "run_1.sh" ] && [ -x "run_1.sh" ]; then
-        ./run_1.sh | tee -a "$LOG_FILE"
+        bash run_1.sh | tee -a "$LOG_FILE"
         run_status=$?
         echo "run_1.sh completed with status: $run_status" | tee -a "$LOG_FILE"
     else
