@@ -17,7 +17,7 @@ conda activate cft
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 # export CUDA_VISIBLE_DEVICES=0,1,2,3
 
-cd /data/yubowang/CriticCoT/process_data_0429_pjlab
+cd /mnt/hwfile/opendatalab/yubo/CriticCoT/process_data_0429_pjlab
 # 运行您的Python脚本，并将标准输出和标准错误重定向到指定文件
 python -u qwen3_32b_gen_critique_0430.py
 
