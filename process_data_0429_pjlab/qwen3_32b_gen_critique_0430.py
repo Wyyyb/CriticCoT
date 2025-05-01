@@ -203,7 +203,7 @@ def parse_critique(item, critique):
 
 def main():
     input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0428_add_solution.json"
-    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0429_qwen3_darth_add_critique.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0501_qwen3_add_critique.json"
     start_idx, end_idx = 0, 110000
     model_path = "/mnt/hwfile/opendatalab/yubo/models/Qwen3-32B"
 
@@ -242,7 +242,7 @@ def main():
 
         # 设置批处理大小
         # batch_size = 1000
-        batch_size = 1000
+        batch_size = 500
 
         total_batches = (len(prompts) + batch_size - 1) // batch_size  # 向上取整
 
