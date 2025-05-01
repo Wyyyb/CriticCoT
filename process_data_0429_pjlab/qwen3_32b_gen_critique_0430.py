@@ -202,8 +202,8 @@ def parse_critique(item, critique):
 
 
 def main():
-    input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0428_add_solution.json"
-    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0501_qwen3_add_critique.json"
+    input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0501_qwen3_add_critique.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0501_qwen3_add_critique_new.json"
     start_idx, end_idx = 0, 110000
     model_path = "/mnt/hwfile/opendatalab/yubo/models/Qwen3-32B"
 
