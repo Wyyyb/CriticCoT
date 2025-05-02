@@ -8,7 +8,7 @@ output_path="../baseline_eval_results_0430/Phi-4-reasoning/"
 
 mkdir -p $output_path
 
-cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
+cd /data/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
@@ -21,8 +21,6 @@ output_path="../baseline_eval_results_0430/Phi-4/"
 
 mkdir -p $output_path
 
-cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
-
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 bash evaluate_phi4.sh $model_path $output_path $summary_path
@@ -32,8 +30,6 @@ model_path="/data/yubo/models/Phi-4-reasoning-plus"
 output_path="../baseline_eval_results_0430/Phi-4-reasoning-plus/"
 
 mkdir -p $output_path
-
-cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
