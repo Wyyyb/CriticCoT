@@ -52,7 +52,7 @@ mkdir -p $output_path
 
 cd /data/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
 
-export CUDA_VISIBLE_DEVICES=6,7
+export CUDA_VISIBLE_DEVICES=0,1
 
 bash evaluate_distilled_qwen.sh $model_path $output_path $summary_path
 
