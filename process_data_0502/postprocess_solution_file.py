@@ -62,6 +62,9 @@ def main():
     #     else:
     #         data[k]["qwen-2.5-32b_answer_correctness"] = False
     # print("new_correct_count", new_correct_count)
+    print("data[0]", data[0])
+    print("data[1]", data[1])
+    print("data[-1]", data[-1])
     with open(output_file, "w") as fo:
         fo.write(json.dumps(data, indent=4))
 
