@@ -43,7 +43,8 @@ def main():
         data = json.load(fi)
     for k, v in data.items():
         discard_keys = ["instruction_1", "instruction_2", "instruction_3",
-                        "r1_solution_1", "r1_solution_2", "r1_solution_3"]
+                        "r1_solution_1", "r1_solution_2", "r1_solution_3",
+                        "qwen-2.5-32b_answer", "qwen-2.5-32b_answer_valid", "qwen-2.5-32b_answer_correctness"]
         for each in discard_keys:
             if each in v:
                 data[k].pop(each)
