@@ -140,3 +140,4 @@ huggingface-cli download --repo-type model microsoft/Phi-4-reasoning --local-dir
 
 huggingface-cli download --repo-type model microsoft/Phi-4 --local-dir /mnt/hwfile/opendatalab/yubo/models/Phi-4
 
+huggingface-cli download --repo-type model microsoft/Phi-4-reasoning-plus --local-dir /mnt/hwfile/opendatalab/yubo/models/Phi-4-reasoning-plus

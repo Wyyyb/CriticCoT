@@ -28,7 +28,6 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 bash evaluate_distilled_qwen.sh $model_path $output_path $summary_path
 
 
-
 source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
 conda activate cft
 
