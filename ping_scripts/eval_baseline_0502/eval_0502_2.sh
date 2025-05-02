@@ -2,6 +2,8 @@
 source /data/yubo/miniconda3/etc/profile.d/conda.sh
 conda activate cft
 
+cd /data/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
+
 #summary_path="../baseline_eval_results_0430/Phi-4-reasoning/summary.txt"
 #model_path="/data/yubo/models/Phi-4-reasoning"
 #output_path="../baseline_eval_results_0430/Phi-4-reasoning/"
