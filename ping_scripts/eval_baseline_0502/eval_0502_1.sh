@@ -24,7 +24,7 @@ mkdir -p $output_path
 
 export CUDA_VISIBLE_DEVICES=2,3
 
-bash evaluate_phi4.sh $model_path $output_path $summary_path
+bash evaluate_phi4_base.sh $model_path $output_path $summary_path
 #
 #summary_path="../baseline_eval_results_0430/Phi-4-reasoning-plus/summary.txt"
 #model_path="/data/yubo/models/Phi-4-reasoning-plus"
