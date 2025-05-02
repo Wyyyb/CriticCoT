@@ -4,7 +4,7 @@
 #SBATCH --ntasks-per-node=1         # 每节点1个任务
 #SBATCH --gres=gpu:8                # 请求8个GPU
 #SBATCH --mem=512G                   # 请求32GB内存
-#SBATCH --time=8:00:00             # 最长运行8小时
+#SBATCH --time=36:00:00             # 最长运行8小时
 #SBATCH --job-name=eval            # 作业名称
 #SBATCH --output=eval_%j.log    # Slurm的标准输出和错误日志，%j表示作业ID
 
