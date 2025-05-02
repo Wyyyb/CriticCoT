@@ -141,3 +141,17 @@ huggingface-cli download --repo-type model microsoft/Phi-4-reasoning --local-dir
 huggingface-cli download --repo-type model microsoft/Phi-4 --local-dir /mnt/hwfile/opendatalab/yubo/models/Phi-4
 
 huggingface-cli download --repo-type model microsoft/Phi-4-reasoning-plus --local-dir /mnt/hwfile/opendatalab/yubo/models/Phi-4-reasoning-plus
+
+huggingface-cli download --repo-type model microsoft/Phi-4-reasoning --local-dir /data/yubo/models/Phi-4-reasoning
+
+huggingface-cli download --repo-type model microsoft/Phi-4 --local-dir /data/yubo/models/Phi-4
+
+huggingface-cli download --repo-type model microsoft/Phi-4-reasoning-plus --local-dir /data/yubo/models/Phi-4-reasoning-plus
+
+huggingface-cli download --repo-type model Qwen/Qwen3-8B-Base --local-dir /data/yubo/models/Qwen3-8B-Base
+
+huggingface-cli download --repo-type model Qwen/Qwen3-8B --local-dir /data/yubo/models/Qwen3-8B
+
+huggingface-cli download --repo-type model Qwen/Qwen3-14B-Base --local-dir /data/yubo/models/Qwen3-14B-Base
+
+huggingface-cli download --repo-type model Qwen/Qwen3-14B --local-dir /data/yubo/models/Qwen3-14B
