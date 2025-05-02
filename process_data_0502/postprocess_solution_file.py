@@ -41,6 +41,7 @@ def main():
     new_correct_count = 0
     with open(input_file, "r") as fi:
         data = json.load(fi)
+    display = 0
     for k, v in data.items():
         discard_keys = ["instruction_1", "instruction_2", "instruction_3",
                         "r1_solution_1", "r1_solution_2", "r1_solution_3",
@@ -48,6 +49,9 @@ def main():
         for each in discard_keys:
             if each in v:
                 data[k].pop(each)
+        if display < 2:
+            print(data[k])
+            display += 1
     #     ori_correctness = v.get("qwen-2.5-32b_answer_correctness", None)
     #     gt_answer = v["gt_answer"]
     #     qwen_answer = v["qwen-2.5-32b_answer"]
@@ -62,9 +66,7 @@ def main():
     #     else:
     #         data[k]["qwen-2.5-32b_answer_correctness"] = False
     # print("new_correct_count", new_correct_count)
-    print("data[0]", data[0])
-    print("data[1]", data[1])
-    print("data[-1]", data[-1])
+
     with open(output_file, "w") as fo:
         fo.write(json.dumps(data, indent=4))
 
