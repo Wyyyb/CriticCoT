@@ -145,6 +145,14 @@ PROMPT_TEMPLATES = {
         "{output}",
         "\n\n",
     ),
+    "phi4": (
+        "<|im_start|>system<|im_sep|>\nPlease reason step by step, and put your final answer \
+        within \\boxed{{}}.<|im_end|>\n"
+        "<|im_start|>user<|im_sep|>\n{input}<|im_end|>\n"
+        "<|im_start|>assistant<|im_sep|>\n",
+        "{output}",
+        "\n\n",
+    ),
     "deepseek-r1-distilled-qwen-think": (
         "<|im_start|>user\nPlease reason step by step, and put your final answer within \\boxed{{}}.\n{input}<|im_end|>\n"
         "<|im_start|>assistant\n<think>\n",
