@@ -1,6 +1,6 @@
 set -ex
 
-PROMPT_TYPE="deepseek-r1-distilled-qwen-think"
+PROMPT_TYPE="phi4"
 MODEL_NAME_OR_PATH=$1
 OUTPUT_DIR=$2
 SUMMARY_PATH=$3
@@ -10,7 +10,7 @@ NUM_TEST_SAMPLE=-1
 mkdir -p $OUTPUT_DIR
 cd ..
 
-DATA_NAME="aime24"
+DATA_NAME="aime25,aime24,amc23"
 # DATA_NAME="minerva_math"
 TOKENIZERS_PARALLELISM=false \
 python3 -u math_eval.py \
@@ -21,8 +21,9 @@ python3 -u math_eval.py \
     --split ${SPLIT} \
     --prompt_type ${PROMPT_TYPE} \
     --num_test_sample ${NUM_TEST_SAMPLE} \
+    --max_tokens_per_call 32768 \
     --seed 0 \
-    --temperature 0.6 \
+    --temperature 0.8 \
     --n_sampling 1 \
     --top_p 0.95 \
     --start 0 \
