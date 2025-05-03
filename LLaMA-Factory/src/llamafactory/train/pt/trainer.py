@@ -1,4 +1,4 @@
-# Copyright 2024 the LlamaFactory team.
+# Copyright 2025 the LlamaFactory team.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,27 +13,25 @@
 # limitations under the License.
 
 from types import MethodType
-from typing import TYPE_CHECKING, Dict, List, Optional, Tuple, Union
+from typing import TYPE_CHECKING, Optional
 
 import torch
 from transformers import Trainer
 from typing_extensions import override
 
-from ...extras.packages import is_transformers_version_equal_to_4_46, is_transformers_version_greater_than
+from ...extras.packages import is_transformers_version_greater_than
 from ..callbacks import SaveProcessorCallback
 from ..trainer_utils import create_custom_optimizer, create_custom_scheduler
 
 
 if TYPE_CHECKING:
-    from transformers import PreTrainedModel, ProcessorMixin
+    from transformers import ProcessorMixin
 
     from ...hparams import FinetuningArguments
 
 
 class CustomTrainer(Trainer):
-    r"""
-    Inherits Trainer for custom optimizer.
-    """
+    r"""Inherit Trainer for custom optimizer."""
 
     def __init__(
         self, finetuning_args: "FinetuningArguments", processor: Optional["ProcessorMixin"], **kwargs
@@ -42,6 +40,11 @@ class CustomTrainer(Trainer):
             kwargs["processing_class"] = kwargs.pop("tokenizer")
 
         super().__init__(**kwargs)
+        if processor is not None:
+            # avoid wrong loss under gradient accumulation
+            # https://github.com/huggingface/transformers/pull/36044#issuecomment-2746657112
+            self.model_accepts_loss_kwargs = False
+
         self.finetuning_args = finetuning_args
 
         if processor is not None:
@@ -74,19 +77,5 @@ class CustomTrainer(Trainer):
         return super()._get_train_sampler()
 
     @override
-    def compute_loss(
-        self, model: "PreTrainedModel", inputs: Dict[str, "torch.Tensor"], return_outputs: bool = False, **kwargs
-    ) -> Union["torch.Tensor", Tuple["torch.Tensor", List["torch.Tensor"]]]:
-        r"""
-        Fixes the loss value for transformers 4.46.0.
-        https://github.com/huggingface/transformers/blob/v4.46.0/src/transformers/trainer.py#L3605
-        """
-        loss = super().compute_loss(model, inputs, return_outputs, **kwargs)
-        if is_transformers_version_equal_to_4_46() and not getattr(self, "model_accepts_loss_kwargs", False):
-            # other model should not scale the loss
-            if return_outputs:
-                return (loss[0] / self.args.gradient_accumulation_steps, *loss[1:])
-            else:
-                return loss / self.args.gradient_accumulation_steps
-
-        return loss
+    def compute_loss(self, model, inputs, *args, **kwargs):
+        return super().compute_loss(model, inputs, *args, **kwargs)
