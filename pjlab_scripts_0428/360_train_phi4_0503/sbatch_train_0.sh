@@ -22,4 +22,4 @@ export MASTER_PORT=$(shuf -i 30000-40000 -n 1)
 export MASTER_ADDR="127.0.0.1"
 
 # FORCE_TORCHRUN=1 llamafactory-cli train ../pjlab_scripts_0428/360_train_phi4_0503/phi4_qwen3_corr_0503.yaml > phi4_qwen3_corr_0503_output.txt 2>&1
-llamafactory-cli train ../pjlab_scripts_0428/360_train_phi4_0503/phi4_qwen3_corr_0503.yaml
+llamafactory-cli train ../pjlab_scripts_0428/360_train_phi4_0503/phi4_qwen3_corr_0503.yaml > phi4_qwen3_corr_0503_output.txt 2>&1
