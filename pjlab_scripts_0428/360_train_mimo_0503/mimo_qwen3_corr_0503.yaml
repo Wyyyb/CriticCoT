@@ -12,7 +12,7 @@ deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
 dataset: deepmath_qwen3_32b_correction_data_0430
-template: phi4
+template: qwen2
 cutoff_len: 16384
 drop_exceed_length_data: true
 max_samples: 1000000
