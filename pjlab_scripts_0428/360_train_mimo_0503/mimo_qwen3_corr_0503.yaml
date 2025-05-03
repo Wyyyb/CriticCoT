@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: /mnt/hwfile/opendatalab/yubo/models/Phi-4
+model_name_or_path: /mnt/hwfile/opendatalab/yubo/models/MiMo-7B-Base
 #trust_remote_code: true
 
 ### method
@@ -20,7 +20,7 @@ overwrite_cache: true
 preprocessing_num_workers: 64
 
 ### output
-output_dir: output_models_0503/phi4_deepmath_deepmath_qwen3_32b_correction_data_0430
+output_dir: output_models_0503/mimo_7b_base_deepmath_deepmath_qwen3_32b_correction_data_0430
 logging_steps: 1
 save_steps: 2
 plot_loss: true
