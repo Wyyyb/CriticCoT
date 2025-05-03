@@ -9,7 +9,7 @@
 #SBATCH --output=lf_train_%j.log    # Slurm的标准输出和错误日志，%j表示作业ID
 
 source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
-conda activate t1
+conda activate t2
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/LLaMA-Factory/
 PROJECT_NAME="critic_cot"
