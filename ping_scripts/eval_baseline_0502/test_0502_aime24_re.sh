@@ -15,9 +15,9 @@ conda activate cft
 #bash evaluate_distilled_qwen.sh $model_path $output_path $summary_path
 
 
-summary_path="../baseline_eval_results_0430/Qwen3-8B/summary.txt"
+summary_path="../baseline_eval_results_0430_re/Qwen3-8B/summary.txt"
 model_path="/data/yubo/models/Qwen3-8B"
-output_path="../baseline_eval_results_0430/Qwen3-8B/"
+output_path="../baseline_eval_results_0430_re/Qwen3-8B/"
 
 mkdir -p $output_path
 
