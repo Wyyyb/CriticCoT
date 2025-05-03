@@ -22,13 +22,12 @@ preprocessing_num_workers: 64
 ### output
 output_dir: output_models_0503/deepmath_deepmath_qwen3_32b_correction_data_0430
 logging_steps: 1
-save_steps: 16
+save_steps: 2
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: true
 
 ### train
-sequence_parallel_size: 8
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 128
 learning_rate: 5.0e-6

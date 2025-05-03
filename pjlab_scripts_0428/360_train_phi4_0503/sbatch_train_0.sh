@@ -11,7 +11,7 @@
 source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
 conda activate t1
 
-cd /mnt/hwfile/opendatalab/yubo/CriticCoT/360-LLaMA-Factory-sp/
+cd /mnt/hwfile/opendatalab/yubo/CriticCoT/LLaMA-Factory/
 PROJECT_NAME="critic_cot"
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export WANDB_API_KEY=f318ffd0dcf5d31701fd33aee12e57e9cf15444f

@@ -1,207 +1,15 @@
 {
+  "deepmath_qwen3_32b_correction_data_0430": {
+    "file_name": "deepmath_qwen3_32b_correction_data_0430.json"
+  },
+  "deepmath_qwen_32b_distill_correction_data_0430": {
+    "file_name": "deepmath_qwen_32b_distill_correction_data_0430.json"
+  },
+  "deepmath_qwen_32b_distill_cft_filter_0427": {
+    "file_name": "deepmath_qwen_32b_distill_cft_filter_0427.json"
+  },
   "deepmath_qwen_32b_distill_cft_0424": {
     "file_name": "deepmath_qwen_32b_distill_cft_0424.json"
-  },
-  "ori_deepmath_sft_data": {
-    "file_name": "ori_deepmath_sft_data.json"
-  },
-  "bespoke_merge_r1_data_0223": {
-    "file_name": "bespoke_merge_r1_data_0223.json"
-  },
-  "bespoke_2k_data_0223": {
-    "file_name": "bespoke_2k_data_0223.json"
-  },
-  "webinstruct_2-4k_r1_cft_data_0223": {
-    "file_name": "webinstruct_2-4k_r1_cft_data_0223.json"
-  },
-  "opc-sft-stage2_o1_mini_cft_data_0207": {
-    "file_name": "opc-sft-stage2_o1_mini_cft_data_0207.json"
-  },
-  "webinstruct_cft_80k_o1_mini_long_0204": {
-    "file_name": "webinstruct_cft_80k_o1_mini_long_0204.json"
-  },
-  "webinstruct_cft_40k_o1_mini_brief": {
-    "file_name": "webinstruct_cft_40k_o1_mini_brief.json"
-  },
-  "WebInstruct_40k_critique_gpt-4o-mini_0127": {
-    "file_name": "WebInstruct_40k_critique_gpt-4o-mini_0127.json"
-  },
-  "Numina_80k_critique_gpt-4o-1120_0125": {
-    "file_name": "Numina_80k_critique_gpt-4o-1120_0125.json"
-  },
-  "MetaMath_80k_critique_gpt-4o-1120_0124": {
-    "file_name": "MetaMath_80k_critique_gpt-4o-1120_0124.json"
-  },
-  "ace_80k_critique_gpt-4o-1120_ace_0123": {
-    "file_name": "ace_80k_critique_gpt-4o-1120_ace_0123.json"
-  },
-  "webinstruct_ori_sft_80k_0123": {
-    "file_name": "webinstruct_ori_sft_80k_0123.json"
-  },
-  "webinstruct_merge_ace_cft_160k_0123": {
-    "file_name": "webinstruct_merge_ace_cft_160k_0123.json"
-  },
-  "webinstruct_cft_80k_0119_add_1022": {
-    "file_name": "webinstruct_cft_80k_0119_add_1022.json"
-  },
-  "webinstruct_cft_80k_0121_p3_v2": {
-    "file_name": "webinstruct_cft_80k_0121_p3_v2.json"
-  },
-  "test_sample_0122": {
-    "file_name": "test_sample_0122.json"
-  },
-  "webinstruct_cft_80k_0122_p0": {
-    "file_name": "webinstruct_cft_80k_0122_p0.json"
-  },
-  "webinstruct_cft_80k_0122_p1": {
-    "file_name": "webinstruct_cft_80k_0122_p1.json"
-  },
-  "webinstruct_cft_80k_0122_p2": {
-    "file_name": "webinstruct_cft_80k_0122_p2.json"
-  },
-  "webinstruct_cft_80k_0122_p3": {
-    "file_name": "webinstruct_cft_80k_0122_p3.json"
-  },
-  "webinstruct_cft_80k_0122_p4": {
-    "file_name": "webinstruct_cft_80k_0122_p4.json"
-  },
-  "webinstruct_cft_80k_0122_p5": {
-    "file_name": "webinstruct_cft_80k_0122_p5.json"
-  },
-  "webinstruct_cft_80k_0122_p6": {
-    "file_name": "webinstruct_cft_80k_0122_p6.json"
-  },
-  "webinstruct_cft_80k_0122_p7": {
-    "file_name": "webinstruct_cft_80k_0122_p7.json"
-  },
-  "webinstruct_cft_80k_0122_p8": {
-    "file_name": "webinstruct_cft_80k_0122_p8.json"
-  },
-  "webinstruct_cft_80k_0122_p9": {
-    "file_name": "webinstruct_cft_80k_0122_p9.json"
-  },
-  "ace_10k_gpt4o_cft_0121": {
-    "file_name": "ace_10k_gpt4o_cft_0121.json"
-  },
-  "webinstruct_ace_80k_gpt4o_cft_0121": {
-    "file_name": "webinstruct_ace_80k_gpt4o_cft_0121.json"
-  },
-  "webinstruct_cft_80k_0121_p1": {
-    "file_name": "webinstruct_cft_80k_0121_p1.json"
-  },
-  "webinstruct_cft_80k_0121_p2": {
-    "file_name": "webinstruct_cft_80k_0121_p2.json"
-  },
-  "webinstruct_cft_80k_0121_p3": {
-    "file_name": "webinstruct_cft_80k_0121_p3.json"
-  },
-  "webinstruct_cft_80k_0121_p4": {
-    "file_name": "webinstruct_cft_80k_0121_p4.json"
-  },
-  "webinstruct_cft_80k_0121_p5": {
-    "file_name": "webinstruct_cft_80k_0121_p5.json"
-  },
-  "webinstruct_cft_80k_0121_pp1": {
-    "file_name": "webinstruct_cft_80k_0121_pp1.json"
-  },
-  "webinstruct_cft_80k_0121_pp2": {
-    "file_name": "webinstruct_cft_80k_0121_pp2.json"
-  },
-  "webinstruct_cft_80k_0121_pp3": {
-    "file_name": "webinstruct_cft_80k_0121_pp3.json"
-  },
-  "webinstruct_cft_80k_0121_pp4": {
-    "file_name": "webinstruct_cft_80k_0121_pp4.json"
-  },
-  "webinstruct_cft_80k_0121_pp5": {
-    "file_name": "webinstruct_cft_80k_0121_pp5.json"
-  },
-  "numina_cft_gpt4o-1120_on-policy_50k_0120": {
-    "file_name": "numina_cft_gpt4o-1120_on-policy_50k_0120.json"
-  },
-  "ace_80k_critique_qwen_on-policy_0120": {
-    "file_name": "ace_80k_critique_qwen_on-policy_0120.json"
-  },
-  "ace_80k_critique_ace_0120": {
-    "file_name": "ace_80k_critique_ace_0120.json"
-  },
-  "ace_80k_sft_0120": {
-    "file_name": "ace_80k_sft_0120.json"
-  },
-  "webinstruct_on-policy_cft_80k_0120": {
-    "file_name": "webinstruct_on-policy_cft_80k_0120.json"
-  },
-  "numina_cft_80k_0119": {
-    "file_name": "numina_cft_80k_0119.json"
-  },
-  "numina_sft_80k_0119": {
-    "file_name": "numina_sft_80k_0119.json"
-  },
-  "webinstruct_critique_right_80k_0119": {
-    "file_name": "webinstruct_critique_right_80k_0119.json"
-  },
-  "webinstruct_critique_wrong_80k_0119": {
-    "file_name": "webinstruct_critique_wrong_80k_0119.json"
-  },
-  "webinstruct_sft_gpt4o_80k_0119": {
-    "file_name": "webinstruct_sft_gpt4o_80k_0119.json"
-  },
-  "webinstruct_cft_80k_0119": {
-    "file_name": "webinstruct_cft_80k_0119.json"
-  },
-  "MetaMathQA_sample_80k_data_0118": {
-    "file_name": "MetaMathQA_sample_80k_data_0118.json"
-  },
-  "numina_sample_80k_data_0118": {
-    "file_name": "numina_sample_80k_data_0118.json"
-  },
-  "CriticCoT_self_critique_MATH-TRAIN-8_data_0116_positive_samples": {
-    "file_name": "CriticCoT_self_critique_MATH-TRAIN-8_data_0116_positive_samples.json"
-  },
-  "CriticCoT_self_critique_MATH-TRAIN-8_data_0116": {
-    "file_name": "CriticCoT_self_critique_MATH-TRAIN-8_data_0116.json"
-  },
-  "CriticCoT_t1_critic_data_0115": {
-    "file_name": "CriticCoT_t1_critic_data_0115.json"
-  },
-  "CriticCoT_t2_critic_data_0115": {
-    "file_name": "CriticCoT_t2_critic_data_0115.json"
-  },
-  "CriticCoT_merged_critic_data_0115": {
-    "file_name": "CriticCoT_merged_critic_data_0115.json"
-  },
-  "critic_numina_260k_data_0110": {
-    "file_name": "critic_numina_260k_data_0110.json"
-  },
-  "critic_numina_860k_data_0110": {
-    "file_name": "critic_numina_860k_data_0110.json"
-  },
-  "numina_data_0110": {
-    "file_name": "numina_860k_data_0110.json"
-  },
-  "CriticCoT_correct_only_data_1231": {
-    "file_name": "CriticCoT_correct_only_data_1231.json"
-  },
-  "CriticCoT_critic_data_1231": {
-    "file_name": "CriticCoT_critic_data_1231.json"
-  },
-  "CriticCoT_critic_add_50k_correct_data_1231": {
-    "file_name": "CriticCoT_critic_add_50k_correct_data_1231.json"
-  },
-  "CriticCoT_critic_add_50k_correct_data_1230": {
-    "file_name": "CriticCoT_critic_add_50k_correct_data_1230.json"
-  },
-  "CriticCoT_qwq_data_1229": {
-    "file_name": "CriticCoT_qwq_data_1229.json"
-  },
-  "CriticCoT_qwq_critic_data_1229": {
-    "file_name": "CriticCoT_qwq_critic_data_1229.json"
-  },
-  "CriticCoT_correct_only_data_1228": {
-    "file_name": "CriticCoT_correct_only_data_1228.json"
-  },
-  "CriticCoT_critic_data_1228": {
-    "file_name": "CriticCoT_critic_data_1228.json"
   },
   "identity": {
     "file_name": "identity.json"
@@ -500,14 +308,6 @@
       "response": "answer"
     }
   },
-  "openo1_sft": {
-    "hf_hub_url": "llamafactory/OpenO1-SFT",
-    "ms_hub_url": "llamafactory/OpenO1-SFT",
-    "columns": {
-      "prompt": "prompt",
-      "response": "response"
-    }
-  },
   "llava_1k_en": {
     "hf_hub_url": "BUAADreamer/llava-en-zh-2k",
     "subset": "en",
@@ -638,7 +438,7 @@
     }
   },
   "dpo_mix_en": {
-    "hf_hub_url": "llamafactory/DPO-En-Zh-20k",
+    "hf_hub_url": "hiyouga/DPO-En-Zh-20k",
     "subset": "en",
     "ranking": true,
     "formatting": "sharegpt",
@@ -649,7 +449,7 @@
     }
   },
   "dpo_mix_zh": {
-    "hf_hub_url": "llamafactory/DPO-En-Zh-20k",
+    "hf_hub_url": "hiyouga/DPO-En-Zh-20k",
     "subset": "zh",
     "ranking": true,
     "formatting": "sharegpt",
