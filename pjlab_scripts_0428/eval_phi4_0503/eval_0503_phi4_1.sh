@@ -18,7 +18,7 @@ models_dir="/mnt/hwfile/opendatalab/yubo/CriticCoT/LLaMA-Factory/output_models_0
 start=10
 end=100
 
-export CUDA_VISIBLE_DEVICES=4,5,6,7
+export CUDA_VISIBLE_DEVICES=6,7
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/multi_eval_0425
 
