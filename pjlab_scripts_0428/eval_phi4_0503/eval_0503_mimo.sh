@@ -13,7 +13,7 @@
 source /mnt/petrelfs/wangyubo.p/miniconda3/etc/profile.d/conda.sh
 conda activate cft
 
-summary_path="/mnt/hwfile/opendatalab/yubo/CriticCoT/0503_phi4_correction_deepmath/summary.txt"
+summary_path="/mnt/hwfile/opendatalab/yubo/CriticCoT/0503_mimo_correction_deepmath/summary.txt"
 models_dir="/mnt/hwfile/opendatalab/yubo/CriticCoT/LLaMA-Factory/output_models_0503/mimo_7b_base_deepmath_deepmath_qwen3_32b_correction_data_0430/"
 start=0
 end=10
@@ -44,7 +44,7 @@ for checkpoint_dir in ${models_dir}/checkpoint-*; do
             echo "Output dir: ${output_dir}"
 
             # 执行评估脚本
-            bash eval_phi4.sh "$checkpoint_dir" "$output_dir" "$summary_path"
+            bash eval_qwen3.sh "$checkpoint_dir" "$output_dir" "$summary_path"
         else
             echo "Skipping checkpoint-${checkpoint_num}"
         fi
