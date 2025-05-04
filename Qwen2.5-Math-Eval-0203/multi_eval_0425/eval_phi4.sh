@@ -21,7 +21,7 @@ python3 -u math_eval.py \
     --split ${SPLIT} \
     --prompt_type ${PROMPT_TYPE} \
     --num_test_sample ${NUM_TEST_SAMPLE} \
-    --max_tokens_per_call 32768 \
+    --max_tokens_per_call 16384 \
     --seed 0 \
     --temperature 0.8 \
     --n_sampling 1 \
