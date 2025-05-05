@@ -73,6 +73,7 @@ def main():
         # if critique_answer is None:
         #     continue
         if each.get("qwen3-32b_answer_correctness", False) is False:
+            invalid_count += 1
             continue
         curr_input = f"Question:\n{question}\n"
         curr_output = f"Answer:\n{solution}"
