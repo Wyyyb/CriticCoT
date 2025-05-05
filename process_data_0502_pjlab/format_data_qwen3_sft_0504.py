@@ -62,7 +62,7 @@ def main():
         #     continue
         # if not filter_single(each):
         #     continue
-        if not each.get("qwen3-32b_answer_valid", False) or not each.get("qwen3-32b_answer", None):
+        if not each.get("qwen3-32b_answer_valid", False) or each.get("qwen3-32b_answer", None) is None:
             continue
         question = each["question"]
         ins = "Please reason step by step to find a solution to the following question, " \
