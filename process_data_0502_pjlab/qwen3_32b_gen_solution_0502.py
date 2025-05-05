@@ -140,7 +140,7 @@ def extract_boxed_answer(text):
 
 def main():
     input_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_0502.json"
-    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_add_solution_0502.json"
+    output_file = "../local_data/deepmath_cft_data/deepmath_integrate_data_add_solution_0504.json"
     start_idx, end_idx = 0, 110000
     # start_idx, end_idx = 0, 110000
     # model_path = "/map-vepfs/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
