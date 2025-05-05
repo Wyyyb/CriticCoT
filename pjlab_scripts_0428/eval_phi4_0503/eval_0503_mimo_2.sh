@@ -15,10 +15,10 @@ conda activate cft
 
 summary_path="/mnt/hwfile/opendatalab/yubo/CriticCoT/eval_result_0503_mimo_correction_deepmath/summary.txt"
 models_dir="/mnt/hwfile/opendatalab/yubo/CriticCoT/LLaMA-Factory/output_models_0503/mimo_7b_base_deepmath_deepmath_qwen3_32b_correction_data_0430/"
-start=10
-end=18
+start=18
+end=23
 
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=4,5,6,7
 
 cd /mnt/hwfile/opendatalab/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/multi_eval_0425
 
