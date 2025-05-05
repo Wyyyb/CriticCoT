@@ -51,7 +51,7 @@ def filter_single(item):
 def main():
     output_path = "../360-LLaMA-Factory-sp/data/deepmath_qwen3_32b_sft_data_0504.json"
     with open("/mnt/hwfile/opendatalab/yubo/CriticCoT/local_data/deepmath_cft_data/"
-              "deepmath_integrate_data_add_solution_0502.json",
+              "deepmath_integrate_data_add_solution_0504.json",
               "r") as fi:
         data = json.load(fi)
     format_data = []
