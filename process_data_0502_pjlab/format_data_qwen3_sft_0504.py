@@ -57,10 +57,12 @@ def main():
     format_data = []
     invalid_count = 0
     for k, each in data.items():
-        if not each.get("qwen-2.5-32b_answer_valid") or not each.get("Qwen3-32B_critique_valid"):
-            invalid_count += 1
-            continue
-        if not filter_single(each):
+        # if not each.get("qwen-2.5-32b_answer_valid") or not each.get("Qwen3-32B_critique_valid"):
+        #     invalid_count += 1
+        #     continue
+        # if not filter_single(each):
+        #     continue
+        if each.get("qwen3-32b_answer_valid", False):
             continue
         question = each["question"]
         ins = "Please reason step by step to find a solution to the following question, " \
