@@ -27,7 +27,7 @@ def download_webinstruct_verified(output_path="../local_data/cft_data_0506/webin
 
         # 将数据集转换为列表
         data_list = [item for item in dataset]
-        output_data = []
+        output_data = {}
         for item in data_list:
             if item.get("category") != "Mathematics":
                 continue
@@ -35,7 +35,7 @@ def download_webinstruct_verified(output_path="../local_data/cft_data_0506/webin
                 continue
             item["gt_answer"] = item["answer"]
             item.pop("answer")
-            output_data.append(item)
+            output_data[item["question"]] = item
         print("len(output_data)", len(output_data))
         # 保存为JSON文件
         with open(output_path, 'w', encoding='utf-8') as f:
