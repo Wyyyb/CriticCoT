@@ -96,7 +96,7 @@ def get_process_data(output_data):
 def filter_output_data(output_data, start, end):
     res = {}
     for k, v in output_data.items():
-        if start <= int(v["idx"]) < end:
+        if start <= int(v["id"]) < end:
             res[k] = v
     return res
 
