@@ -160,8 +160,8 @@ def main():
         output_data = preprocess_long_text(output_data)
         with open(output_file, "w") as fo:
             fo.write(json.dumps(output_data, indent=4))
-        output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
-        print("filtered output data length", len(output_data))
+        # output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
+        # print("filtered output data length", len(output_data))
     llm, sampling_params = load_vllm_model(model_path)
 
     process_data = get_process_data(output_data)

@@ -56,9 +56,9 @@ def batch_predict(llm, sampling_params, prompts: List[str]) -> List[str]:
 
 def get_prompt(question):
     question = "Question:\n" + question
-    prompt = (f"<|im_start|>system\nPlease reason step by step, and put your final answer within \\boxed{{}}.<|im_end|>\n"
-              f"<|im_start|>user\n{question}<|im_end|>\n"
-              f"<|im_start|>assistant\n"),
+    prompt = f"<|im_start|>system\nPlease reason step by step, and put your final answer within \\boxed{{}}.<|im_end|>\n" \
+             f"<|im_start|>user\n{question}<|im_end|>\n" \
+             f"<|im_start|>assistant\n"
     return prompt
 
 
@@ -135,7 +135,6 @@ def main():
     input_file = "../local_data/cft_data_0506/webinstruct_train.json"
     output_file = "../local_data/cft_data_0506/webinstruct_data_qwen_2-5_math_7b_add_solution_0506.json"
     start_idx, end_idx = 0, 100000
-    # start_idx, end_idx = 0, 110000
     # model_path = "/map-vepfs/yubo/models/DeepSeek-R1-Distill-Qwen-32B"
     model_path = "/data/yubo/models/Qwen2.5-Math-7B-Instruct"
 
@@ -160,8 +159,8 @@ def main():
         output_data = preprocess_long_text(output_data)
         with open(output_file, "w") as fo:
             fo.write(json.dumps(output_data, indent=4))
-        output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
-        print("filtered output data length", len(output_data))
+        # output_data = filter_output_data(output_data, start=start_idx, end=end_idx)
+        # print("filtered output data length", len(output_data))
     llm, sampling_params = load_vllm_model(model_path)
 
     process_data = get_process_data(output_data)
