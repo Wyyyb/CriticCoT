@@ -156,7 +156,7 @@ def main():
     else:
         with open(input_file, "r") as fi:
             output_data = json.load(fi)
-        output_data = output_data[::-1]
+        output_data = dict(reversed(list(output_data.items())))
         print("input data length", len(output_data))
         output_data = preprocess_long_text(output_data)
         with open(output_file, "w") as fo:
