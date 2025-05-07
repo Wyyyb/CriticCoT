@@ -159,3 +159,7 @@ huggingface-cli download --repo-type model Qwen/Qwen3-14B --local-dir /data/yubo
 huggingface-cli download --repo-type model XiaomiMiMo/MiMo-7B-Base --local-dir /data/yubo/models/MiMo-7B-Base
 
 huggingface-cli download --repo-type model XiaomiMiMo/MiMo-7B-SFT --local-dir /data/yubo/models/MiMo-7B-SFT
+
+huggingface-cli download --repo-type model Qwen/Qwen3-32B --local-dir /data/yubo/models/Qwen3-32B
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /data/yubo/models/Qwen2.5-Math-7B
