@@ -17,13 +17,10 @@ def simple_query(api_key: str):
     delta_thinking_in_completion = []
     all_content = []
     with client.messages.stream(
-            model="claude-3-7-sonnet-20250219",
-            messages=messages,
-            thinking={
-                "type": "enabled",
-                "budget_tokens": 32000,  # Set a reasonable thinking budget
-            },
-            max_tokens=36000  # Set a reasonable token limit for the response
+        model="claude-3-7-sonnet-20250219",
+        messages=messages,
+        thinking={"type": "enabled", "budget_tokens": 32000},
+        max_tokens=36000  # Set a reasonable token limit for the response
     ) as stream:
         for event in stream:
             if event.type == "content_block_start":
