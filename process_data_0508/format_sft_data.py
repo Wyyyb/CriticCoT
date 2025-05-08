@@ -17,6 +17,8 @@ def format_all_data(input_path, output_path):
         data = json.load(f)
     output_data = []
     for k, v in data.items():
+        if not v.get("qwen3-32b_answer_valid", None):
+            continue
         curr = format_single(v)
         output_data.append(curr)
     print("len(output_data)", len(output_data))
