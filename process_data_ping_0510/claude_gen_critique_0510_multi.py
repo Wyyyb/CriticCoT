@@ -448,7 +448,7 @@ def main_claude_solver_multiprocessing(
 if __name__ == "__main__":
     API_KEY = os.getenv("CLAUDE_API_KEY")
     INPUT_FILE = "../local_data/cft_data_0506/webinstruct_data_add_solution_0506_ids_merged.json"  # 包含数学问题的JSON文件
-    OUTPUT_FILE = "../local_data/cft_data_0506/webinstruct_claude_cft_data_30k_0510.json"  # 结果输出文件路径
+    OUTPUT_FILE = "../local_data/cft_data_0506/webinstruct_claude_cft_data_30k_0511.json"  # 结果输出文件路径
     NUM_PROCESSES = 2  # 默认进程数，可以根据需要调整
 
     main_claude_solver_multiprocessing(
