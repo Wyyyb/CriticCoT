@@ -75,17 +75,6 @@ def is_same_answer(str_1, str_2):
 
 
 def query_claude(client, question: str, solution: str, model_name: str = "claude-3-7-sonnet-20250219") -> Dict[str, str]:
-    """
-    向Claude API发送查询并获取回答
-
-    Args:
-        client: Claude API客户端
-        question: 问题文本
-        model_name: 使用的Claude模型名称
-
-    Returns:
-        包含答案和思考过程的字典
-    """
     print("prompt", get_claude_prompt(question, solution))
     messages = [
         {
@@ -176,8 +165,7 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
     for q_data in batch_questions:
         question_id = str(q_data.get("id"))
         question_text = q_data["question"]
-        gt_answer = q_data.get("gt_answer", None)
-        solution = q_data.get("qwen3-32b_short_answer", None)
+        solution = q_data["qwen3-32b_short_answer"]
 
         # 检查是否已经处理过且有效
         if question_id in results and results[question_id].get("claude_cft_extracted_answer", None) is not None\
@@ -205,8 +193,6 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
                     "id": question_id,
                     "question": question_text
                 }
-                if gt_answer:
-                    results[question_id]["gt_answer"] = gt_answer
 
             results[question_id]["claude_cft_answer"] = answer_text
             results[question_id]["claude_cft_thinking"] = thinking_text
