@@ -351,11 +351,7 @@ def get_questions_to_process(input_data, existing_results, start_idx=0, end_idx=
                 continue
 
             # 添加到待处理列表
-            questions_to_process.append({
-                "id": q_id,
-                "question": q_data["question"],
-                "gt_answer": q_data.get("gt_answer", None)
-            })
+            questions_to_process.append(q_data)
             stats["to_process"] += 1
 
     print(
