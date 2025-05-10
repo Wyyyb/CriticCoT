@@ -7,6 +7,8 @@ def merge(input_path_1, input_path_2, output_path):
         data_1 = json.load(f)
     with open(input_path_2, "r") as f:
         data_2 = json.load(f)
+    print("len(data_1)", len(data_1))
+    print("len(data_2)", len(data_2))
     output_data = {}
     for k, v in data_1.items():
         if k not in data_2:
