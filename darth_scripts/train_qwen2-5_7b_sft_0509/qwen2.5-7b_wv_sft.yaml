@@ -11,7 +11,7 @@ finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset:
+dataset: webinstruct_v_qwen3_32b_sft_data_70k
 template: qwen
 cutoff_len: 32000
 drop_exceed_length_data: true
