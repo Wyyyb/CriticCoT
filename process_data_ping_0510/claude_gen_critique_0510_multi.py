@@ -50,6 +50,21 @@ def extract_boxed_answer(pred_str: str):
     return a
 
 
+def extract_con(critique):
+    # if "Conclusion" not in text:
+    #     print("Conclusion not found", text)
+    #     return None
+    segs = critique.lower().split("conclusion")
+    res_seg = segs[-1].lower()
+    if "wrong" in res_seg or "incorrect" in res_seg:
+        return False
+    elif "right" in res_seg or "correct" in res_seg:
+        return True
+    else:
+        # print("*******************recognize failed\n", res_seg, text)
+        return None
+
+
 def is_same_answer(str_1, str_2):
     if not str_1 or not str_2:
         return False
@@ -165,7 +180,8 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
         solution = q_data.get("qwen3-32b_short_answer", None)
 
         # 检查是否已经处理过且有效
-        if question_id in results and results[question_id].get("claude_cft_answer_valid", False):
+        if question_id in results and results[question_id].get("claude_cft_extracted_answer", None) is not None\
+                and results[question_id].get("claude_cft_extracted_conclusion", None) is not None:
             print(f"进程 {process_id}: 问题 {question_id} 已处理且有效，跳过")
             continue
 
@@ -201,21 +217,19 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
             stats["total"] += 1
 
             if extracted_answer is None:
-                results[question_id]["claude_cft_answer_valid"] = False
-                stats["invalid_answers"] += 1
-            else:
-                results[question_id]["claude_cft_answer_valid"] = True
                 results[question_id]["claude_cft_extracted_answer"] = extracted_answer
-                stats["valid_answers"] += 1
+                stats["invalid_cft_answers"] += 1
+            else:
+                results[question_id]["claude_cft_extracted_answer"] = extracted_answer
+                stats["valid_cft_answers"] += 1
 
-                # 检查答案正确性
-                if gt_answer is not None:
-                    if is_same_answer(extracted_answer, gt_answer):
-                        results[question_id]["claude_answer_correctness"] = True
-                        stats["correct_answers"] += 1
-                    else:
-                        results[question_id]["claude_answer_correctness"] = False
-                        stats["incorrect_answers"] += 1
+            # 提取结论
+            extracted_con = extract_con(answer_text)
+            results[question_id]["claude_cft_extracted_conclusion"] = extracted_con
+            if extracted_con is None:
+                stats["invalid_cft_conclusion"] += 1
+            else:
+                stats["valid_cft_conclusion"] += 1
 
             # 每个问题处理后立即保存到进程特定的文件
             with open(process_output_file, "w") as fo:
@@ -230,8 +244,7 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
                 }
 
             results[question_id]["error"] = str(e)
-            results[question_id]["claude_cft_answer_valid"] = False
-            stats["invalid_answers"] += 1
+            stats["invalid_cft_answers"] += 1
 
             # 错误后也立即保存
             with open(process_output_file, "w") as fo:
