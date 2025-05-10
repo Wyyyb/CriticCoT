@@ -166,6 +166,7 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
     # 处理批次中的每个问题
     for q_data in batch_questions:
         question_id = str(q_data.get("id"))
+        print("q_data:\n", q_data)
         question_text = q_data["question"]
         solution = q_data["qwen3-32b_short_answer"]
 
