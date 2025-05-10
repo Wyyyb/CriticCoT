@@ -177,16 +177,8 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
                 solution=solution,
                 model_name=model_name
             )
-
-            answer_text = gemini_response.get("answer", "")
-            thinking_text = gemini_response.get("thinking", "")
-
-            # 保存结果
-            if question_id not in results:
-                results[question_id] = {
-                    "id": question_id,
-                    "question": question_text
-                }
+            answer_text = gemini_response
+            thinking_text = ""
 
             results[question_id]["gemini_cft_answer"] = answer_text
             results[question_id]["gemini_cft_thinking"] = thinking_text
