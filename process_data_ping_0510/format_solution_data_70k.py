@@ -59,6 +59,8 @@ def add_extract_ans(data):
             continue
         v["qwen3-32b_extracted_answer"] = extracted_answer
         v.pop("qwen3-32b_answer")
+        v.pop("qwen3-32b_answer_valid")
+        v.pop("qwen3-32b_answer_correctness")
         v["qwen3-32b_thinking_content"] = thinking_content
         v["qwen3-32b_short_answer"] = short_answer
         output_data[k] = v
