@@ -1,5 +1,5 @@
 import json
-import os
+import random
 
 
 def add_ids(input_path, output_path):

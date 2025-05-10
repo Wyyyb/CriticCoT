@@ -89,7 +89,6 @@ def query_claude(client, question: str, solution: str, model_name: str = "claude
     try:
         with client.messages.stream(
                 model=model_name,
-                temperature=0.6,
                 messages=messages,
                 thinking={
                     "type": "enabled",
@@ -330,7 +329,7 @@ def load_existing_results(output_dir, main_output_file):
     return existing_results
 
 
-def get_questions_to_process(input_data, existing_results, start_idx=0, end_idx=30000):
+def get_questions_to_process(input_data, existing_results, start_idx=0, end_idx=20000):
     questions_to_process = []
     stats = {
         "total_input": len(input_data),
@@ -380,7 +379,7 @@ def main_claude_solver_multiprocessing(
         model_name: str = "claude-3-7-sonnet-20250219",
         num_processes: int = 1,
         start_idx: int = 0,
-        end_idx: int = 30000
+        end_idx: int = 20000
 ):
 
     # 创建输出目录
@@ -448,7 +447,7 @@ def main_claude_solver_multiprocessing(
 if __name__ == "__main__":
     API_KEY = os.getenv("CLAUDE_API_KEY")
     INPUT_FILE = "../local_data/cft_data_0506/webinstruct_data_add_solution_0506_ids_merged.json"  # 包含数学问题的JSON文件
-    OUTPUT_FILE = "../local_data/cft_data_0506/webinstruct_claude_cft_data_30k_0511.json"  # 结果输出文件路径
+    OUTPUT_FILE = "../local_data/cft_data_0506/webinstruct_claude_cft_data_20k_0510.json"  # 结果输出文件路径
     NUM_PROCESSES = 2  # 默认进程数，可以根据需要调整
 
     main_claude_solver_multiprocessing(
@@ -458,5 +457,5 @@ if __name__ == "__main__":
         model_name="claude-3-7-sonnet-20250219",
         num_processes=NUM_PROCESSES,
         start_idx=0,
-        end_idx=30000,
+        end_idx=20000,
     )
