@@ -16,6 +16,8 @@ def merge(input_path_1, input_path_2, output_path):
             continue
         if v.get("qwen3-32b_answer_valid", False) is True:
             output_data[k] = v
+            if data_2[k].get("qwen3-32b_answer_valid", False) is True:
+                print("duplicate")
         elif data_2[k].get("qwen3-32b_answer_valid", False) is True:
             output_data[k] = data_2[k]
     print("len(output_data)", len(output_data))
