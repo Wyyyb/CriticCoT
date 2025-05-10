@@ -39,13 +39,27 @@ def extract_boxed_answer(pred_str: str):
     return a
 
 
+def parse_answer(qwen3_32b_answer):
+    segments = qwen3_32b_answer.split("</think>")
+    if len(segments) != 2:
+        print("len(segments) != 2: ", len(segments))
+        return None, None
+    return "<think>\n" + segments[0].strip() + "\n</think>", segments[1].strip()
+
+
 def add_extract_ans(data):
     output_data = {}
     for k, v in data.items():
         qwen3_32b_answer = v["qwen3-32b_answer"]
-        short_answer = extract_boxed_answer(qwen3_32b_answer)
-        if short_answer is None or short_answer == "":
+        thinking_content, short_answer = parse_answer(qwen3_32b_answer)
+        if short_answer is None or thinking_content is None:
             continue
+        extracted_answer = extract_boxed_answer(qwen3_32b_answer)
+        if extracted_answer is None or extracted_answer == "":
+            continue
+        v["qwen3-32b_extracted_answer"] = extracted_answer
+        v.pop("qwen3-32b_answer")
+        v["qwen3-32b_thinking_content"] = thinking_content
         v["qwen3-32b_short_answer"] = short_answer
         output_data[k] = v
     return output_data

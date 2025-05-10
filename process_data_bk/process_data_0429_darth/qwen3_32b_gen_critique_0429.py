@@ -56,7 +56,7 @@ def batch_predict(llm, sampling_params, prompts: List[str]) -> List[str]:
 
 def get_prompt(question):
     question = "Question:\n" + question
-    prompt = f"<|im_start|>user\nYou are a mathematics expert. Analyze if the student's solution is correct. " \
+    prompt = f"<|im_start|>user\nYou are a mathematics expert. Analyze if the student's solution to the given question is correct. " \
              f"Follow these steps:\n" \
              f"1. Identify the key mathematical concepts and correct approach.\n" \
              f"2. Check each step of the student's solution.\n" \
