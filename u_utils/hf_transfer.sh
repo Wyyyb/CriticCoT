@@ -119,4 +119,4 @@ huggingface-cli download ubowang/deepmath_integrate_data_0421 --local-dir . --re
 
 huggingface-cli upload ubowang/deepmath_integrate_data_0421 deepmath_integrate_data_0428_add_solution.json --repo-type dataset
 
-huggingface-cli upload ubowang/webinstruct_verified_0509 webinstruct_data_add_solution_0506_2222.json --repo-type dataset
+huggingface-cli upload ubowang/webinstruct_verified_0509 webinstruct_v_qwen3_32b_sft_data_70k.json --repo-type dataset
