@@ -7,7 +7,7 @@ def add_ids(input_path, output_path):
         data = json.load(f)
     count = 0
     for k, v in data.items():
-        data[k]["ori_id"] = data["id"]
+        data[k]["ori_id"] = data[k]["id"]
         data[k]["id"] = str(count)
         count += 1
     print("count", count)
