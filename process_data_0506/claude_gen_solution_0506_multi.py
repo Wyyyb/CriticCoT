@@ -80,7 +80,7 @@ def query_claude(client, question: str, model_name: str = "claude-3-7-sonnet-202
                 messages=messages,
                 thinking={
                     "type": "enabled",
-                    "budget_tokens": 32000,
+                    "budget_tokens": 10000,
                 },
                 max_tokens=36000
         ) as stream:
@@ -467,8 +467,8 @@ def main_claude_solver_multiprocessing(
 if __name__ == "__main__":
     API_KEY = os.getenv("CLAUDE_API_KEY")
     INPUT_FILE = "../local_data/cft_data_0506/webinstruct_train.json"  # 包含数学问题的JSON文件
-    OUTPUT_FILE = "../local_data/cft_data_0506/webinstruct_claude_add_solutions_0506.json"  # 结果输出文件路径
-    NUM_PROCESSES = 3  # 默认进程数，可以根据需要调整
+    OUTPUT_FILE = "../local_data/cft_data_0506/webinstruct_claude_add_solutions_0510.json"  # 结果输出文件路径
+    NUM_PROCESSES = 2  # 默认进程数，可以根据需要调整
 
     main_claude_solver_multiprocessing(
         input_file=INPUT_FILE,
