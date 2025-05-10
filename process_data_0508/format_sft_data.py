@@ -27,8 +27,8 @@ def format_all_data(input_path, output_path):
 
 
 if __name__ == "__main__":
-    format_all_data("../local_data/cft_data_0506/webinstruct_data_add_solution_0506.json",
-                    "../local_data/cft_data_0506/webinstruct_qwen3_32b_sft_data_p3334.json")
+    format_all_data("../local_data/cft_data_0506/webinstruct_data_add_solution_0506_merged.json",
+                    "../360-LLaMA-Factory-sp/data/webinstruct_v_qwen3_32b_sft_data_70k.json")
     #format_all_data("../local_data/cft_data_0506/webinstruct_data_add_solution_0506_2222.json",
     #                "../local_data/cft_data_0506/webinstruct_qwen3_32b_sft_data_p2222.json")
 

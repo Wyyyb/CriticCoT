@@ -1,4 +1,7 @@
 {
+  "webinstruct_v_qwen3_32b_sft_data_70k": {
+    "file_name": "webinstruct_v_qwen3_32b_sft_data_70k.json"
+  },
   "deepmath_qwen3_32b_correction_data_0430": {
     "file_name": "deepmath_qwen3_32b_correction_data_0430.json"
   },

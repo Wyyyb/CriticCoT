@@ -165,3 +165,5 @@ huggingface-cli download --repo-type model Qwen/Qwen3-32B --local-dir /data/yubo
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /data/yubo/models/Qwen2.5-Math-7B
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B-Instruct --local-dir /data/yubo/models/Qwen2.5-Math-7B-Instruct
+
+huggingface-cli download --repo-type model Qwen/Qwen3-4B --local-dir /data/yubo/models/Qwen3-4B
