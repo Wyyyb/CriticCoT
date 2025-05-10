@@ -3,18 +3,20 @@ import time
 import re
 import os
 import anthropic
+from google import genai
+from google.genai import types
 import multiprocessing
 from typing import List, Dict, Any, Optional
 from functools import partial
 import glob
 
 
-def setup_claude_client(api_key: str):
-    """初始化Claude客户端"""
-    return anthropic.Anthropic(api_key=api_key)
+def setup_gemini_client(api_key: str):
+    """初始化gemini客户端"""
+    return genai.Client(api_key=api_key)
 
 
-def get_claude_prompt(question, solution):
+def get_gemini_prompt(question, solution):
     question = "Question:\n" + question
     solution = "Student's Solution:\n" + solution
     prompt = f"You are a mathematics expert. Analyze if the student's solution to the given question is correct. " \
@@ -74,12 +76,12 @@ def is_same_answer(str_1, str_2):
     return str_1 == str_2
 
 
-def query_claude(client, question: str, solution: str, model_name: str = "claude-3-7-sonnet-20250219") -> Dict[str, str]:
-    # print("prompt", get_claude_prompt(question, solution))
+def query_gemini(client, question: str, solution: str, model_name: str = "gemini-2.5-pro-exp-03-25"):
+    # print("prompt", get_gemini_prompt(question, solution))
     messages = [
         {
             "role": "user",
-            "content": get_claude_prompt(question, solution)
+            "content": get_gemini_prompt(question, solution)
         }
     ]
 
@@ -87,38 +89,29 @@ def query_claude(client, question: str, solution: str, model_name: str = "claude
     delta_thinking_in_completion = []
 
     try:
-        with client.messages.stream(
-                model=model_name,
-                messages=messages,
-                thinking={
-                    "type": "enabled",
-                    "budget_tokens": 8000,
-                },
-                max_tokens=16000
-        ) as stream:
-            for event in stream:
-                if event.type == "content_block_delta":
-                    if event.delta.type == "thinking_delta":
-                        delta_thinking_in_completion.append(event.delta.thinking)
-                    elif event.delta.type == "text_delta":
-                        delta_text_in_completion.append(event.delta.text)
-
-        completion_thinking = "".join(delta_thinking_in_completion)
-        completion_text = "".join(delta_text_in_completion)
-        print("completion_text", completion_text)
-        print("completion_thinking", completion_thinking)
-
-        return {
-            "answer": completion_text,
-            "thinking": completion_thinking
-        }
+        response = client.models.generate_content(
+            model="gemini-2.5-pro-exp-03-25",
+            contents=get_gemini_prompt(question, solution),
+            config=types.GenerateContentConfig(
+                thinking_config=types.ThinkingConfig(thinking_budget=8000)
+            ),
+        )
+        return response.text
     except Exception as e:
-        print(f"Error querying Claude: {str(e)}")
-        return {
-            "answer": "",
-            "thinking": "",
-            "error": str(e)
-        }
+        print(f"Error querying gemini: {str(e)}")
+        time.sleep(30)
+        try:
+            response = client.models.generate_content(
+                model="gemini-2.5-pro-exp-03-25",
+                contents=get_gemini_prompt(question, solution),
+                config=types.GenerateContentConfig(
+                    thinking_config=types.ThinkingConfig(thinking_budget=8000)
+                ),
+            )
+            return response.text
+        except Exception as e:
+            print(f"Error querying gemini: {str(e)}")
+            return None
 
 
 def process_batch(process_id, batch_questions, api_key, model_name, output_dir, main_output_file):
@@ -128,8 +121,8 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
     Args:
         process_id: 进程ID
         batch_questions: 要处理的问题列表
-        api_key: Claude API密钥
-        model_name: 使用的Claude模型
+        api_key: gemini API密钥
+        model_name: 使用的gemini模型
         output_dir: 输出目录
         main_output_file: 主输出文件名（用于生成进程特定的文件名）
 
@@ -137,7 +130,7 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
         处理的统计信息
     """
     # 初始化客户端
-    client = setup_claude_client(api_key)
+    client = setup_gemini_client(api_key)
 
     # 为每个进程创建独立的输出文件
     base_filename = os.path.basename(main_output_file)
@@ -169,24 +162,24 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
         solution = q_data["qwen3-32b_short_answer"]
 
         # 检查是否已经处理过且有效
-        if question_id in results and results[question_id].get("claude_cft_extracted_answer", None) is not None\
-                and results[question_id].get("claude_cft_extracted_conclusion", None) is not None:
+        if question_id in results and results[question_id].get("gemini_cft_extracted_answer", None) is not None\
+                and results[question_id].get("gemini_cft_extracted_conclusion", None) is not None:
             print(f"进程 {process_id}: 问题 {question_id} 已处理且有效，跳过")
             continue
 
         print(f"进程 {process_id}: 处理问题 {question_id}...")
 
         try:
-            # 调用Claude API
-            claude_response = query_claude(
+            # 调用gemini API
+            gemini_response = query_gemini(
                 client=client,
                 question=question_text,
                 solution=solution,
                 model_name=model_name
             )
 
-            answer_text = claude_response.get("answer", "")
-            thinking_text = claude_response.get("thinking", "")
+            answer_text = gemini_response.get("answer", "")
+            thinking_text = gemini_response.get("thinking", "")
 
             # 保存结果
             if question_id not in results:
@@ -195,8 +188,8 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
                     "question": question_text
                 }
 
-            results[question_id]["claude_cft_answer"] = answer_text
-            results[question_id]["claude_cft_thinking"] = thinking_text
+            results[question_id]["gemini_cft_answer"] = answer_text
+            results[question_id]["gemini_cft_thinking"] = thinking_text
 
             # 提取答案
             extracted_answer = extract_boxed_answer(answer_text)
@@ -204,15 +197,15 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
             stats["total"] += 1
 
             if extracted_answer is None:
-                results[question_id]["claude_cft_extracted_answer"] = extracted_answer
+                results[question_id]["gemini_cft_extracted_answer"] = extracted_answer
                 stats["invalid_cft_answers"] += 1
             else:
-                results[question_id]["claude_cft_extracted_answer"] = extracted_answer
+                results[question_id]["gemini_cft_extracted_answer"] = extracted_answer
                 stats["valid_cft_answers"] += 1
 
             # 提取结论
             extracted_con = extract_con(answer_text)
-            results[question_id]["claude_cft_extracted_conclusion"] = extracted_con
+            results[question_id]["gemini_cft_extracted_conclusion"] = extracted_con
             if extracted_con is None:
                 stats["invalid_cft_conclusion"] += 1
             else:
@@ -277,7 +270,7 @@ def merge_result_files(output_dir, main_output_file):
             # 合并到主结果中
             for q_id, result in process_results.items():
                 # 只更新未处理或无效的结果
-                if q_id not in merged_results or not merged_results[q_id].get("claude_cft_answer_valid", False):
+                if q_id not in merged_results or not merged_results[q_id].get("gemini_cft_answer_valid", False):
                     merged_results[q_id] = result
 
     # 保存合并结果
@@ -320,8 +313,8 @@ def load_existing_results(output_dir, main_output_file):
             # 合并到结果中，优先保留有效的结果
             for q_id, result in process_results.items():
                 if q_id not in existing_results or (
-                        result.get("claude_cft_answer_valid", False) and
-                        not existing_results[q_id].get("claude_cft_answer_valid", False)
+                        result.get("gemini_cft_answer_valid", False) and
+                        not existing_results[q_id].get("gemini_cft_answer_valid", False)
                 ):
                     existing_results[q_id] = result
 
@@ -344,7 +337,7 @@ def get_questions_to_process(input_data, existing_results, start_idx=0, end_idx=
             # 跳过已经成功处理的问题
             if int(q_data["id"]) < start_idx or int(q_data["id"]) >= end_idx:
                 continue
-            if q_id in existing_results and existing_results[q_id].get("claude_answer_valid", False):
+            if q_id in existing_results and existing_results[q_id].get("gemini_answer_valid", False):
                 stats["already_processed"] += 1
                 continue
 
@@ -372,11 +365,11 @@ def distribute_questions(questions_to_process, num_processes):
     return batches
 
 
-def main_claude_solver_multiprocessing(
+def main_gemini_solver_multiprocessing(
         input_file: str,
         output_file: str,
         api_key: str,
-        model_name: str = "claude-3-7-sonnet-20250219",
+        model_name: str = "gemini-3-7-sonnet-20250219",
         num_processes: int = 1,
         start_idx: int = 0,
         end_idx: int = 20000
@@ -432,7 +425,7 @@ def main_claude_solver_multiprocessing(
         # 如果还有未处理的问题，继续处理
         if questions_to_process:
             print(f"处理后仍有 {len(questions_to_process)} 个问题需要处理，继续下一轮...")
-            main_claude_solver_multiprocessing(
+            main_gemini_solver_multiprocessing(
                 input_file, output_file, api_key, model_name, num_processes, start_idx, end_idx
             )
         else:
@@ -445,17 +438,21 @@ def main_claude_solver_multiprocessing(
 
 # 示例用法
 if __name__ == "__main__":
-    API_KEY = os.getenv("CLAUDE_API_KEY")
+    api_key_p1 = "AIzaSyAl1mKjEWAVCY"
+    api_key_p2 = "shrQHK0D996VP6DsRf-p0"
+    API_KEY = api_key_p1 + api_key_p2
+    start_id = 0
+    end_id = 2000
     INPUT_FILE = "../local_data/cft_data_0506/webinstruct_data_add_solution_0506_ids_merged.json"  # 包含数学问题的JSON文件
-    OUTPUT_FILE = "../local_data/cft_data_0506/webinstruct_claude_cft_data_20k_0510.json"  # 结果输出文件路径
-    NUM_PROCESSES = 2  # 默认进程数，可以根据需要调整
+    OUTPUT_FILE = f"../local_data/cft_data_0506/webinstruct_gemini_cft_data_0510_{str(start_id)}-{str(end_id)}.json"  # 结果输出文件路径
+    NUM_PROCESSES = 1  # 默认进程数，可以根据需要调整
 
-    main_claude_solver_multiprocessing(
+    main_gemini_solver_multiprocessing(
         input_file=INPUT_FILE,
         output_file=OUTPUT_FILE,
         api_key=API_KEY,
-        model_name="claude-3-7-sonnet-20250219",
+        model_name="gemini-2.5-pro-exp-03-25",
         num_processes=NUM_PROCESSES,
-        start_idx=0,
-        end_idx=20000,
+        start_idx=start_id,
+        end_idx=end_id,
     )
