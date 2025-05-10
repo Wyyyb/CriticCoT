@@ -75,6 +75,8 @@ def is_same_answer(str_1, str_2):
 
 
 def query_claude(client, question: str, solution: str, model_name: str = "claude-3-7-sonnet-20250219") -> Dict[str, str]:
+    print("question", question)
+    print("solution", solution)
     print("prompt", get_claude_prompt(question, solution))
     messages = [
         {
