@@ -44,7 +44,7 @@ def add_extract_ans(data):
     for k, v in data.items():
         qwen3_32b_answer = v["qwen3-32b_answer"]
         short_answer = extract_boxed_answer(qwen3_32b_answer)
-        if short_answer is None:
+        if short_answer is None or short_answer == "":
             continue
         v["qwen3-32b_short_answer"] = short_answer
         output_data[k] = v
