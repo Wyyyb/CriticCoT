@@ -166,8 +166,8 @@ def main():
                   #"Qwen3-8B": "qwen3",
                   #"Qwen3-14B": "qwen3",
                   #"Qwen3-32B": "qwen3",
-                  "MiMo-7B-RL": "qwen3",
-                  "MiMo-7B-SFT": "qwen3",
+                  #"MiMo-7B-RL": "qwen3",
+                  #"MiMo-7B-SFT": "qwen3",
                   "Phi-4-reasoning-plus": "phi4",
                   "Phi-4-reasoning": "phi4",
                   }
