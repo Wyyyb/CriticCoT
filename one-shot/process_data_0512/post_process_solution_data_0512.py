@@ -2,6 +2,12 @@ import json
 from copy import deepcopy
 
 
+def remove_thinking(solution):
+    if "</think>" in solution:
+        solution = solution.split("</think>")[-1].strip()
+    return solution
+
+
 def process(input_path, output_path):
     with open(input_path, "r") as fi:
         data = json.load(fi)
@@ -12,11 +18,10 @@ def process(input_path, output_path):
     for k, v in data.items():
         for each_k, each_v in v["student_solutions"].items():
             for solution_id, solution in enumerate(each_v):
-                if len(solution["solution"]) > 50000:
-                    print("exceed length 50000", len(solution["solution"]))
-                    count += 1
-                if 10000 < len(solution["solution"]) < 50000:
-                    print("solution", solution["solution"])
+                short = remove_thinking(solution["solution"])
+                if len(short) > 10000:
+                    print("len(short)", len(short), short)
+
                 curr = deepcopy(v)
                 curr.pop("student_solutions")
                 curr["solution_id"] = solution_id
