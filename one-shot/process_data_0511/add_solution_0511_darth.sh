@@ -1,4 +1,4 @@
-export CUDA_VISIBLE_DEVICES=2,3
+export CUDA_VISIBLE_DEVICES=2,3,6,7
 
 cd /data/yubowang/CriticCoT/one-shot/process_data_0511
 
