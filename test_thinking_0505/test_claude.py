@@ -19,8 +19,8 @@ def simple_query(api_key: str):
     with client.messages.stream(
         model="claude-3-7-sonnet-20250219",
         messages=messages,
-        thinking={"type": "enabled", "budget_tokens": 32000},
-        max_tokens=36000  # Set a reasonable token limit for the response
+        thinking={"type": "enabled", "budget_tokens": 8000},
+        max_tokens=16000  # Set a reasonable token limit for the response
     ) as stream:
         for event in stream:
             if event.type == "content_block_start":
@@ -38,13 +38,12 @@ def simple_query(api_key: str):
 
             elif event.type == "content_block_stop":
                 pass
-                # print("\nBlock complete.")
 
         completion_thinking = "".join(delta_thinking_in_completion)
         completion_text = "".join(delta_text_in_completion)
         all_content_text = "".join(all_content)
 
-    return completion_text, completion_thinking, all_content_text
+    return "<think>\n" + completion_thinking + "\n</think>\n" + completion_text
 
 
 my_api_key_p1 = "sk-ant-api03-x0YUYEWj6wFXu594YHkOEtCraDlMWbvPQUo4Jf-"
