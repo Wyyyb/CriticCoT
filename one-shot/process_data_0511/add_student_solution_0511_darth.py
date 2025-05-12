@@ -159,14 +159,15 @@ def get_single_solution_item(solution, gt_answer):
 
 def main():
     model_dir = "/data/yubowang/models"
-    model_info = {"DeepSeek-R1-Distill-Qwen-32B": "qwen3",
+    model_info = {
+                  "Qwen2.5-Math-7B-Instruct": "qwen2-5",
+                  "DeepSeek-R1-Distill-Qwen-32B": "qwen3",
                   "Qwen3-4B": "qwen3",
                   "Qwen3-8B": "qwen3",
                   "Qwen3-14B": "qwen3",
                   "Qwen3-32B": "qwen3",
                   "Phi-4-reasoning": "phi4",
                   "Phi-4-reasoning-plus": "phi4",
-                  "Qwen2.5-Math-7B-Instruct": "qwen2-5",
                   "MiMo-7B-SFT": "qwen3",
                   "MiMo-7B-RL": "qwen3"
                   }
