@@ -21,7 +21,7 @@ def process(input_path, output_path):
                 short = remove_thinking(solution["solution"])
                 if len(short) > 30000:
                     print("len(short)", len(short), short)
-
+                    count += 1
                 curr = deepcopy(v)
                 curr.pop("student_solutions")
                 curr["solution_id"] = solution_id
