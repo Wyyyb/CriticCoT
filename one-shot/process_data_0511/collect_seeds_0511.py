@@ -22,10 +22,11 @@ def get_deepmath_seeds(input_path):
         if "qwen-2.5-32b_answer_correctness" not in v:
             continue
         v["data_source"] = "deepmath"
-        v = post_process_item(v)
         if v["qwen-2.5-32b_answer_correctness"] is True:
+            v = post_process_item(v)
             right_candidates.append(v)
         elif v["qwen-2.5-32b_answer_correctness"] is False:
+            v = post_process_item(v)
             wrong_candidates.append(v)
     random.shuffle(right_candidates)
     random.shuffle(wrong_candidates)
@@ -42,10 +43,11 @@ def get_webinstruct_v_seeds(input_path):
         if "qwen3-32b_extracted_answer" not in v:
             continue
         v["data_source"] = "webinstruct_verified"
-        v = post_process_item(v)
         if v["qwen3-32b_extracted_answer"] == v["gt_answer"]:
+            v = post_process_item(v)
             right_candidates.append(v)
         elif v["qwen3-32b_extracted_answer"] != v["gt_answer"]:
+            v = post_process_item(v)
             wrong_candidates.append(v)
     random.shuffle(right_candidates)
     random.shuffle(wrong_candidates)
