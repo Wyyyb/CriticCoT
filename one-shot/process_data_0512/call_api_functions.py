@@ -5,12 +5,17 @@ from openai import OpenAI
 
 
 def get_client(model_type, model_name, api_key):
-    if model_type == "anthropic":
+    if model_type == "anthropic-think" or model_type == "anthropic":
         client = anthropic.Anthropic(api_key=api_key)
     elif model_type == "gemini":
         client = genai.Client(api_key=api_key)
     elif model_type == "openai":
         client = OpenAI()
+    elif model_type == "grok":
+        client = OpenAI(
+            api_key=api_key,
+            base_url="https://api.x.ai/v1",
+        )
     else:
         print("unsupported model:", model_type, model_name)
         return None
@@ -29,7 +34,7 @@ def send_request(client, model_type, model_name, message):
             ),
         )
         return response.text
-    elif model_type == "anthropic":
+    elif model_type == "anthropic-think":
         delta_text_in_completion = []
         delta_thinking_in_completion = []
         all_content = []
@@ -58,7 +63,35 @@ def send_request(client, model_type, model_name, message):
             completion_thinking = "".join(delta_thinking_in_completion)
             completion_text = "".join(delta_text_in_completion)
         return "<think>\n" + completion_thinking + "\n</think>\n" + completion_text
-    elif model_type == "openai":
+    elif model_type == "anthropic":
+        delta_text_in_completion = []
+        delta_thinking_in_completion = []
+        all_content = []
+        with client.messages.stream(
+                model=model_name,
+                messages=message,
+                max_tokens=8000
+        ) as stream:
+            for event in stream:
+                if event.type == "content_block_start":
+                    pass
+                    # print(f"\nStarting {event.content_block.type} block...")
+                elif event.type == "content_block_delta":
+                    if event.delta.type == "thinking_delta":
+                        # print(f"Thinking: {event.delta.thinking}", end="", flush=True)
+                        delta_thinking_in_completion.append(event.delta.thinking)
+                        all_content.append(event.delta.thinking)
+                    elif event.delta.type == "text_delta":
+                        # print(f"Response: {event.delta.text}", end="", flush=True)
+                        delta_text_in_completion.append(event.delta.text)
+                        all_content.append(event.delta.text)
+                elif event.type == "content_block_stop":
+                    pass
+                    # print("\nBlock complete.")
+            completion_thinking = "".join(delta_thinking_in_completion)
+            completion_text = "".join(delta_text_in_completion)
+        return completion_text
+    elif model_type == "openai" or model_type == "grok":
         completion = client.chat.completions.create(
             model=model_name,
             messages=message,
@@ -86,7 +119,7 @@ def get_prompt(question, solution):
 
 
 def get_messages(model_type, question, solution):
-    if model_type == "anthropic":
+    if model_type == "anthropic-think" or model_type == "anthropic" or model_type == "grok":
         messages = [
             {
                 "role": "user",
