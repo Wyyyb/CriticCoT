@@ -20,7 +20,7 @@ def process(input_path, output_path):
             for solution_id, solution in enumerate(each_v):
                 short = remove_thinking(solution["solution"])
                 if len(short) > 10000:
-                    print("len(short)", len(short), short)
+                    print("len(short)", len(short))
 
                 curr = deepcopy(v)
                 curr.pop("student_solutions")
