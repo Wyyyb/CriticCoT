@@ -11,6 +11,8 @@ def process(input_path, output_path):
     for k, v in data.items():
         for each_k, each_v in v["student_solutions"].items():
             for solution_id, solution in enumerate(each_v):
+                if len(solution) > 50000:
+                    print("exceed length 50000", len(solution), "\n", solution)
                 curr = deepcopy(v)
                 curr.pop("student_solutions")
                 curr["solution_id"] = solution_id
