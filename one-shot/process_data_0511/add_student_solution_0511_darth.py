@@ -12,7 +12,7 @@ def load_vllm_model(model_path: str):
     try:
         stop_words = ["</s>", "<|im_end|>", "<|endoftext|>"]
         # 初始化模型
-        if "Qwen2.5-Math-7B" in model_path:
+        if "Qwen2.5-Math-7B" in model_path or "Phi-4" in model_path:
             tp_size = min(4, len(os.environ["CUDA_VISIBLE_DEVICES"].split(",")))
         else:
             tp_size = len(os.environ["CUDA_VISIBLE_DEVICES"].split(","))
