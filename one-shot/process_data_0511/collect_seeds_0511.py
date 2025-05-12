@@ -3,6 +3,16 @@ import random
 import os
 
 
+def post_process_item(item):
+    pop_keys = ["qwen-2.5-32b_answer", "qwen-2.5-32b_answer_valid", "qwen-2.5-32b_answer_correctness",
+                "qwen-2.5-32b_short_answer", "qwen3-32b_short_answer", "qwen3-32b_thinking_content",
+                "qwen3-32b_extracted_answer"]
+    for each in pop_keys:
+        if each in item:
+            item.pop(each)
+    return item
+
+
 def get_deepmath_seeds(input_path):
     with open(input_path) as f:
         data = json.load(f)
