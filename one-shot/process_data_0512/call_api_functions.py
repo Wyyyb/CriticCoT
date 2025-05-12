@@ -52,7 +52,6 @@ def send_request(client, model_type, model_name, message):
                         # print(f"Response: {event.delta.text}", end="", flush=True)
                         delta_text_in_completion.append(event.delta.text)
                         all_content.append(event.delta.text)
-
                 elif event.type == "content_block_stop":
                     pass
                     # print("\nBlock complete.")
@@ -63,14 +62,48 @@ def send_request(client, model_type, model_name, message):
         completion = client.chat.completions.create(
             model=model_name,
             messages=message,
-            temperature=0.6,
+            temperature=0.2,
             max_tokens=16000,
             top_p=0.95
         )
         # 保存结果
         return completion.choices[0].message.content
 
-    return
+    return None
+
+
+def get_prompt(question, solution):
+    question = "Question:\n" + question
+    solution = "Student's Solution:\n" + solution
+    prompt = f"You are a mathematics expert. Analyze if the student's solution to the given question is correct. " \
+             f"Follow these steps:\n" \
+             f"1. Identify the key mathematical concepts and correct approach.\n" \
+             f"2. Check each step of the student's solution.\n" \
+             f"3. If incorrect, point out errors and provide the correct solution, " \
+             f"putting your final answer within \\boxed{{}}.\n" \
+             f"Conclude with \"Conclusion: right/wrong [END]\"\n\n{question}\n\n{solution}"
+    return prompt
+
+
+def get_messages(model_type, question, solution):
+    if model_type == "anthropic":
+        messages = [
+            {
+                "role": "user",
+                "content": get_prompt(question, solution)
+            }
+        ]
+        return messages
+    elif model_type == "gemini":
+        return get_prompt(question, solution)
+    elif model_type == "openai":
+        messages = [{"role": "user",
+                     "content": [{"type": "text","text": get_prompt(question, solution)}]}]
+        return messages
+    return None
+
+
+
 
 
 
