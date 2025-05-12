@@ -51,8 +51,11 @@ def main():
     r, w = get_webinstruct_v_seeds(webinstruct_v_input_path)
     output_data.extend(r)
     output_data.extend(w)
+    temp_data = {}
+    for each in output_data:
+        temp_data[each["question"]] = each
     with open(output_path, "w") as f:
-        f.write(json.dumps(output_data, indent=4))
+        f.write(json.dumps(temp_data, indent=4))
 
 
 if __name__ == "__main__":
