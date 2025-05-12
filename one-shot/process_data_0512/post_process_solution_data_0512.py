@@ -15,8 +15,8 @@ def process(input_path, output_path):
                 if len(solution["solution"]) > 50000:
                     print("exceed length 50000", len(solution["solution"]))
                     count += 1
-                    if 5000 < len(solution["solution"]) < 50000:
-                        print("solution", solution["solution"])
+                if 10000 < len(solution["solution"]) < 50000:
+                    print("solution", solution["solution"])
                 curr = deepcopy(v)
                 curr.pop("student_solutions")
                 curr["solution_id"] = solution_id
