@@ -153,7 +153,8 @@ def get_single_solution_item(solution, gt_answer):
 
 def main():
     model_dir = "/data/yubo/models"
-    model_info = {"Qwen2.5-Math-7B-Instruct": "qwen2-5",
+    model_info = {"DeepSeek-R1-Distill-Qwen-32B": "qwen3",
+                  "Qwen2.5-Math-7B-Instruct": "qwen2-5",
                   "Qwen3-4B": "qwen3",
                   "Qwen3-8B": "qwen3",
                   "Qwen3-14B": "qwen3",
@@ -161,13 +162,15 @@ def main():
                   "Phi-4-reasoning": "phi4",
                   "Phi-4-reasoning-plus": "phi4",
                   "MiMo-7B-SFT": "qwen3",
-                  "MiMo-7B-RL": "qwen3",
-                  "DeepSeek-R1-Distill-Qwen-32B": "qwen3"}
+                  "MiMo-7B-RL": "qwen3"
+                  }
     output_path = "/data/yubo/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512.json"
 
     for model_name, model_type in model_info.items():
         print(f"processing {model_name}")
         model_path = os.path.join(model_dir, model_name)
+        if not os.path.exists(model_path):
+            continue
         single_model_inference(model_path, model_name, model_type, output_path)
 
 
