@@ -49,8 +49,8 @@ def main():
     output_data.extend(r)
     output_data.extend(w)
     r, w = get_webinstruct_v_seeds(webinstruct_v_input_path)
-    output_data.extend(w)
     output_data.extend(r)
+    output_data.extend(w)
     with open(output_path, "w") as f:
         f.write(json.dumps(output_data, indent=4))
 
