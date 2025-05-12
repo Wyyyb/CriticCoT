@@ -1,5 +1,6 @@
 import json
 import random
+import os
 
 
 def get_deepmath_seeds(input_path):
@@ -44,6 +45,7 @@ def main():
     deepmath_input_path = "/data/yubo/CriticCoT/local_data/cft_data_0506/deepmath_integrate_data_0428_add_solution.json"
     webinstruct_v_input_path = "/data/yubo/CriticCoT/local_data/cft_data_0506/webinstruct_data_add_solution_0506_ids_merged.json"
     output_path = "/data/yubo/CriticCoT/local_data/one_shot_data_0511/seed_questions_0511.json"
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     output_data = []
     r, w = get_deepmath_seeds(deepmath_input_path)
     output_data.extend(r)
