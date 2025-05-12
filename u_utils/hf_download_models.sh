@@ -167,3 +167,12 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /dat
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B-Instruct --local-dir /data/yubo/models/Qwen2.5-Math-7B-Instruct
 
 huggingface-cli download --repo-type model Qwen/Qwen3-4B --local-dir /data/yubo/models/Qwen3-4B
+
+huggingface-cli download --repo-type model XiaomiMiMo/MiMo-7B-RL --local-dir /data/yubo/models/MiMo-7B-RL
+
+huggingface-cli download --repo-type model microsoft/Phi-4-reasoning --local-dir /data/yubo/models/Phi-4-reasoning
+
+huggingface-cli download --repo-type model microsoft/Phi-4-reasoning-plus --local-dir /data/yubo/models/Phi-4-reasoning-plus
+
+huggingface-cli download --repo-type model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --local-dir /data/yubo/models/DeepSeek-R1-Distill-Qwen-32B
+
