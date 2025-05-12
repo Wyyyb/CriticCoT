@@ -122,3 +122,6 @@ huggingface-cli upload ubowang/deepmath_integrate_data_0421 deepmath_integrate_d
 huggingface-cli upload ubowang/webinstruct_verified_0509 webinstruct_v_qwen3_32b_sft_data_70k.json --repo-type dataset
 
 huggingface-cli upload ubowang/webinstruct_verified_0509 webinstruct_data_add_solution_0506_ids_merged.json --repo-type dataset
+
+huggingface-cli upload ubowang/one-shot_data_0512 seed_questions_add_solution_0512.json --repo-type dataset
+
