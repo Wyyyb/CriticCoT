@@ -12,10 +12,14 @@ def load_vllm_model(model_path: str):
     try:
         stop_words = ["</s>", "<|im_end|>", "<|endoftext|>"]
         # 初始化模型
+        if "Qwen2.5-Math-7B" in model_path:
+            tp_size = min(4, len(os.environ["CUDA_VISIBLE_DEVICES"].split(",")))
+        else:
+            tp_size = len(os.environ["CUDA_VISIBLE_DEVICES"].split(","))
         llm = LLM(
             model=model_path,
             trust_remote_code=True,
-            tensor_parallel_size=len(os.environ["CUDA_VISIBLE_DEVICES"].split(","))  # 根据GPU数量调整
+            tensor_parallel_size=tp_size  # 根据GPU数量调整
         )
 
         # 设置采样参数
@@ -118,6 +122,8 @@ def single_model_inference(model_path, model_name, model_type, output_path):
 
 
 def extract_boxed_answer(pred_str: str):
+    if "boxed" not in pred_str:
+        return None
     ans = pred_str.split("boxed")[-1]
     if not ans:
         return None
@@ -154,13 +160,13 @@ def get_single_solution_item(solution, gt_answer):
 def main():
     model_dir = "/data/yubowang/models"
     model_info = {"DeepSeek-R1-Distill-Qwen-32B": "qwen3",
-                  "Qwen2.5-Math-7B-Instruct": "qwen2-5",
                   "Qwen3-4B": "qwen3",
                   "Qwen3-8B": "qwen3",
                   "Qwen3-14B": "qwen3",
                   "Qwen3-32B": "qwen3",
                   "Phi-4-reasoning": "phi4",
                   "Phi-4-reasoning-plus": "phi4",
+                  "Qwen2.5-Math-7B-Instruct": "qwen2-5",
                   "MiMo-7B-SFT": "qwen3",
                   "MiMo-7B-RL": "qwen3"
                   }
