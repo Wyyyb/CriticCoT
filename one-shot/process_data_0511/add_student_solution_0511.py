@@ -170,6 +170,7 @@ def main():
         print(f"processing {model_name}")
         model_path = os.path.join(model_dir, model_name)
         if not os.path.exists(model_path):
+            print(f"model path {model_path} does not exist")
             continue
         single_model_inference(model_path, model_name, model_type, output_path)
 
