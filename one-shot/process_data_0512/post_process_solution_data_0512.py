@@ -7,6 +7,7 @@ def process(input_path, output_path):
         data = json.load(fi)
     critique_id = 0
     output_data = []
+    sta_map = {}
     for k, v in data.items():
         for each_k, each_v in v["student_solutions"].items():
             for solution_id, solution in enumerate(each_v):
@@ -14,11 +15,15 @@ def process(input_path, output_path):
                 curr.pop("student_solutions")
                 curr["solution_id"] = solution_id
                 curr["student_model"] = each_k
+                if each_k not in sta_map:
+                    sta_map[each_k] = 0
+                sta_map[each_k] += 1
                 curr["student_solution"] = solution
                 curr["critique_id"] = str(critique_id)
                 critique_id += 1
                 output_data.append(curr)
     print("len(output_data)", len(output_data))
+    print("sta_map", sta_map)
     with open(output_path, "w") as fo:
         fo.write(json.dumps(output_data, indent=4))
 
