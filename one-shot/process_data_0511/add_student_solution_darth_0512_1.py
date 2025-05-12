@@ -169,7 +169,7 @@ def main():
                   #"MiMo-7B-RL": "qwen3",
                   #"MiMo-7B-SFT": "qwen3",
                   "Phi-4-reasoning-plus": "phi4",
-                  "Phi-4-reasoning": "phi4",
+                  #"Phi-4-reasoning": "phi4",
                   }
     output_path = "/data/yubowang/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512.json"
 
