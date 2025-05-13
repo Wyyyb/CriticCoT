@@ -122,7 +122,7 @@ def main():
     output_path = "../../local_data/one_shot_data_0513/judge_critique_correctness_data_50k_0513_p$.json"
     batch_idx = 3
     os.environ["CUDA_VISIBLE_DEVICES"] = str(batch_idx)
-    model_path = "/data/yubowang/models/Qwen2.5-Math-7B-Instruct"
+    model_path = "/data/yubowang/models/Qwen2.5-7B-Instruct"
     process(model_path, input_path, output_path, batch_idx)
 
 
