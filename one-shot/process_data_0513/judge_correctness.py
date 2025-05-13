@@ -76,7 +76,7 @@ def process(model_path, input_path, output_path, batch_idx):
         if int(each["critique_id"]) // 927 == batch_idx:
             process_data.append(each)
     random.shuffle(process_data)
-    process_data = process_data[:10]
+    process_data = process_data[:3]
     print("number of data points to be processed: ", len(process_data))
     student_prompts = []
     critique_prompts = []
