@@ -116,7 +116,7 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
         question_id = str(q_data.get("critique_id"))
         results[question_id] = q_data
         question_text = q_data["question"]
-        solution = q_data["student_solution"]
+        solution = q_data["student_solution"]["solution"]
         solution = remove_thinking(solution)
 
         # 检查是否已经处理过且有效
