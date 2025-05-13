@@ -392,13 +392,15 @@ if __name__ == "__main__":
     teacher_models = [
         "claude-3-7-sonnet-20250219",
         "claude-3-5-sonnet-20241022",
+        "gpt-4.1-2025-04-14",
         "gpt-4o-2024-11-20",
         # "gpt-4o-2024-08-06",
         "o3-2025-04-16",
         "o4-mini-2025-04-16",
-        "o3-mini-2025-01-31"
+        "o3-mini-2025-01-31",
+        "o1-2024-12-17"
     ]
-    teacher_model_name = "o3-mini-2025-01-31"
+    teacher_model_name = "o4-mini-2025-04-16"
     INPUT_FILE = "../../local_data/one_shot_data_0511/one_shot_data_with_solution_0512.json"
     OUTPUT_FILE = f"../../local_data/one_shot_data_0511/one_shot_data_with_critique_{teacher_model_name}_0512.json"  # 结果输出文件路径
     NUM_PROCESSES = 2  # 进程数
