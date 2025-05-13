@@ -69,7 +69,7 @@ def get_prompt(question, gt_answer, student_answer):
 def process(model_path, input_path, output_path, batch_idx):
     output_path = output_path.replace("$", str(batch_idx))
     with open(input_path, "r", encoding="utf-8") as f:
-        input_data = json.load(input_path)
+        input_data = json.load(f)
     process_data = []
     for each in input_data:
         if int(each["critique_id"]) // 927 == batch_idx:
