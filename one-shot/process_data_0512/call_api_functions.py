@@ -9,7 +9,7 @@ def get_client(model_type, model_name, api_key):
         client = anthropic.Anthropic(api_key=api_key)
     elif model_type == "gemini":
         client = genai.Client(api_key=api_key)
-    elif model_type == "openai":
+    elif model_type == "openai" or model_type == "openai-reasoning":
         client = OpenAI()
     elif model_type == "grok":
         client = OpenAI(
@@ -137,7 +137,7 @@ def get_messages(model_type, question, solution):
         return messages
     elif model_type == "gemini":
         return get_prompt(question, solution)
-    elif model_type == "openai":
+    elif model_type == "openai" or model_type == "openai-reasoning":
         messages = [{"role": "user",
                      "content": [{"type": "text","text": get_prompt(question, solution)}]}]
         return messages
