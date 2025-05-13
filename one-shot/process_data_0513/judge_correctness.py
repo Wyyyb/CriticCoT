@@ -79,7 +79,7 @@ def process(model_path, input_path, output_path, batch_idx):
     student_prompts = []
     critique_prompts = []
     for each in process_data:
-        print("each", each)
+        # print("each", each)
         question = each["question"]
         gt_answer = each["gt_answer"]
         student_answer = each["student_solution"]["extracted_answer"]
