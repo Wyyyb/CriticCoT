@@ -108,6 +108,10 @@ def process(model_path, input_path, output_path, batch_idx):
 
 
 def extract_conclusion(text):
+    if len(text) < 12 and "right" in text.lower():
+        return True
+    if len(text) < 12 and "wrong" in text.lower():
+        return False
     if "boxed" not in text:
         return None
     text = text.split("boxed")[-1]
@@ -121,9 +125,9 @@ def extract_conclusion(text):
 def main():
     input_path = "../../local_data/one_shot_data_0513/merged_critique_data_50k_0513.json"
     output_path = "../../local_data/one_shot_data_0513/judge_critique_correctness_data_50k_0513_p$.json"
-    batch_idx = 0
+    batch_idx = 1
     # os.environ["CUDA_VISIBLE_DEVICES"] = str(batch_idx)
-    os.environ["CUDA_VISIBLE_DEVICES"] = "4,5"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "4,5,6,7"
     model_path = "/data/yubowang/models/Qwen2.5-7B-Instruct"
     process(model_path, input_path, output_path, batch_idx)
 
