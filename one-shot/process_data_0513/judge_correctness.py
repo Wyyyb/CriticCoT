@@ -4,6 +4,7 @@ from vllm import LLM, SamplingParams
 from typing import List
 import time
 import re
+import random
 
 invalid_count = 0
 valid_count = 0
@@ -74,6 +75,7 @@ def process(model_path, input_path, output_path, batch_idx):
     for each in input_data:
         if int(each["critique_id"]) // 927 == batch_idx:
             process_data.append(each)
+    random.shuffle(process_data)
     process_data = process_data[:10]
     print("number of data points to be processed: ", len(process_data))
     student_prompts = []
