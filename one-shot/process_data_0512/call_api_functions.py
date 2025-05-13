@@ -96,9 +96,16 @@ def send_request(client, model_type, model_name, message):
             model=model_name,
             messages=message,
             temperature=0.2,
-            # max_tokens=16000,
-            max_completion_tokens=16000,
+            max_tokens=16000,
             top_p=0.95
+        )
+        # 保存结果
+        return completion.choices[0].message.content
+    elif model_type == "openai-reasoning":
+        completion = client.chat.completions.create(
+            model=model_name,
+            messages=message,
+            max_completion_tokens=16000,
         )
         # 保存结果
         return completion.choices[0].message.content
