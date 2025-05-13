@@ -397,8 +397,8 @@ if __name__ == "__main__":
         "o3-mini-2025-01-31"
     ]
     teacher_model_name = "claude-3-7-sonnet-20250219"
-    INPUT_FILE = "../../local_data/one_shot_data_with_solution_0512.json"
-    OUTPUT_FILE = f"../../local_data/one_shot_data_with_critique_{teacher_model_name}_0512.json"  # 结果输出文件路径
+    INPUT_FILE = "../../local_data/one_shot_data_0511/one_shot_data_with_solution_0512.json"
+    OUTPUT_FILE = f"../../local_data/one_shot_data_0511/one_shot_data_with_critique_{teacher_model_name}_0512.json"  # 结果输出文件路径
     NUM_PROCESSES = 2  # 进程数
 
     main_solver_multiprocessing(
