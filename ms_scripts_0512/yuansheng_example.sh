@@ -3,14 +3,12 @@ set -x
 # Base execution environment
 # export MODELSCOPE_CACHE='/data/yuansheng/cache'
 # export HF_HOME='/data/yuansheng/cache'
-# export HF_TOKEN=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
 # export SWIFT_DEBUG_ARGS=True
 
 # wandb
 # if [ -z "$RUN_NAME" ]; then
 #     RUN_NAME="python_200K_vis_code_lr5e6"
 # fi
-# export WANDB_API_KEY="016403cfa08b9b44e9f8448803e2bf29dac0bbef"
 # export WANDB_PROJECT="qwen2_5_3b_coder_python_200K"
 # export WANDB_NAME=$RUN_NAME
 
