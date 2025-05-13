@@ -30,6 +30,6 @@ def main(input_dir, output_path):
 
 if __name__ == "__main__":
     my_input_dir = "../../local_data/one_shot_data_0513/"
-    my_output_path = "../../local_data/one_shot_data_0513/merged_critique_data_50k_0513.jsonl"
+    my_output_path = "../../local_data/one_shot_data_0513/merged_critique_data_50k_0513.json"
     main(my_input_dir, my_output_path)
 
