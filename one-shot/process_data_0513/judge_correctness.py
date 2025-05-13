@@ -125,5 +125,6 @@ def main():
     process(model_path, input_path, output_path, batch_idx)
 
 
-
+if __name__ == "__main__":
+    main()
 
