@@ -24,8 +24,8 @@ def merge(input_path_1, input_path_2, output_path):
 
 
 if __name__ == "__main__":
-    path_1 = "/data/yubo/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512.json"
-    path_2 = "/data/yubo/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512_p1.json"
-    output_path_1 = "/data/yubo/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512_merged.json"
+    path_1 = "/data/yubowang/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512.json"
+    path_2 = "/data/yubowang/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512_p1.json"
+    output_path_1 = "/data/yubowang/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512_merged.json"
     merge(path_1, path_2, output_path_1)
 
