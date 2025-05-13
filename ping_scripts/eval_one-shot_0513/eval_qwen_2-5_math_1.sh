@@ -14,9 +14,9 @@ for i in "${!checkpoint_numbers[@]}"; do
     
     # 为每个任务创建子shell并在后台运行
     (
-        summary_path="../eval_results_0513/one-shot_exp_0_ckpt_${ckpt_num}/summary.txt"
-        model_path="/data/yubo/CriticCoT/ms-swift/output_models_0513/v0-20250513-182640/checkpoint-${ckpt_num}"
-        output_path="../eval_results_0513/one-shot_exp_0_ckpt_${ckpt_num}/"
+        summary_path="../eval_results_0513_1/one-shot_exp_ckpt_${ckpt_num}/summary.txt"
+        model_path="/data/yubo/CriticCoT/ms-swift/output_models_0513_rm_thinking/v0-20250513-200706/checkpoint-${ckpt_num}"
+        output_path="../eval_results_0513_1/one-shot_exp_ckpt_${ckpt_num}/"
 
         echo "Processing checkpoint ${ckpt_num} on GPU ${gpu_id}..."
 
