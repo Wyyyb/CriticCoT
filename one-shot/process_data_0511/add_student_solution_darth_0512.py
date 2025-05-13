@@ -171,7 +171,7 @@ def main():
                   "MiMo-7B-SFT": "qwen3",
                   #"MiMo-7B-RL": "qwen3"
                   }
-    output_path = "/data/yubowang/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512.json"
+    output_path = "/data/yubowang/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512_p1.json"
 
     for model_name, model_type in model_info.items():
         print(f"processing {model_name}")
