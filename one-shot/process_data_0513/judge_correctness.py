@@ -95,8 +95,10 @@ def process(model_path, input_path, output_path, batch_idx):
     print("number of critique output: ", len(critique_output))
     for i in range(len(student_prompts)):
         curr_student_res = students_output[i]
+        process_data[i]["student_solution"]["judgement"] = curr_student_res
         process_data[i]["student_solution"]["judged_correctness"] = extract_conclusion(curr_student_res)
         curr_critique_res = critique_output[i]
+        process_data[i]["critique_judgement"] = curr_critique_res
         process_data[i]["critique_judged_correctness"] = extract_conclusion(curr_critique_res)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(json.dumps(process_data, indent=4))
