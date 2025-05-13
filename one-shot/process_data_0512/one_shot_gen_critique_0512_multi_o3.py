@@ -396,7 +396,7 @@ if __name__ == "__main__":
         "o4-mini-2025-04-16",
         "o3-mini-2025-01-31"
     ]
-    teacher_model_name = "o3-2025-04-16"
+    teacher_model_name = "o3-mini-2025-01-31"
     INPUT_FILE = "../../local_data/one_shot_data_0511/one_shot_data_with_solution_0512.json"
     OUTPUT_FILE = f"../../local_data/one_shot_data_0511/one_shot_data_with_critique_{teacher_model_name}_0512.json"  # 结果输出文件路径
     NUM_PROCESSES = 2  # 进程数
