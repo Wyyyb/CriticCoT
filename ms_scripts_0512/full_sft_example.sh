@@ -3,7 +3,7 @@ cd ../ms-swift/
 
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
 swift sft \
-    --model /data/yubowang/models/Qwen2.5-7B-Instruct \
+    --model /data/yubowang/models/Qwen2.5-Math-7B \
     --train_type full \
     --dataset 'AI-ModelScope/alpaca-gpt4-data-zh#500' \
               'AI-ModelScope/alpaca-gpt4-data-en#500' \
@@ -18,7 +18,7 @@ swift sft \
     --save_steps 100 \
     --save_total_limit 2 \
     --logging_steps 5 \
-    --max_length 2048 \
+    --max_length 16384 \
     --output_dir output \
     --system 'You are a helpful assistant.' \
     --warmup_ratio 0.05 \

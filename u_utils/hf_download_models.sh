@@ -193,3 +193,5 @@ huggingface-cli download --repo-type model microsoft/Phi-4-reasoning-plus --loca
 huggingface-cli download --repo-type model XiaomiMiMo/MiMo-7B-RL --local-dir /data/yubowang/models/MiMo-7B-RL
 
 huggingface-cli download --repo-type model XiaomiMiMo/MiMo-7B-SFT --local-dir /data/yubowang/models/MiMo-7B-SFT
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /data/yubowang/models/Qwen2.5-Math-7B
