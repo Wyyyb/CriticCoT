@@ -60,7 +60,7 @@ def batch_predict(llm, sampling_params, prompts: List[str]) -> List[str]:
 
 
 def get_prompt(question, gt_answer, student_answer):
-    prompt = f"<|im_start|>system\nI will give you a math problem, its standard answer, and a student's answer. You do not need to solve this math problem yourself. The student's answer might be in a different format than the standard answer. Please determine if the student's answer can be considered correct based only on the standard answer. Format your conclusion as either: \n<conclusion>Right</conclusion>\n or \n<conclusion>Wrong</conclusion>.<|im_end|>\n" \
+    prompt = f"<|im_start|>system\nI will give you a math problem, its standard answer, and a student's answer. You do not need to solve this math problem yourself. The student's answer might be in a different format than the standard answer. Please determine if the student's answer can be considered correct based only on the standard answer. And put your final answer \"Right\" or \"Wrong\" within \\boxed{{}} <|im_end|>\n" \
              f"<|im_start|>user\nQuestion:\n{question}\nStandard Answer:\n{gt_answer}\nStudent's Answer:\n{student_answer}<|im_end|>\n" \
              f"<|im_start|>assistant\n"
     return prompt
@@ -105,17 +105,13 @@ def process(model_path, input_path, output_path, batch_idx):
 
 
 def extract_conclusion(text):
-    # Look for <conclusion>Right</conclusion> or <conclusion>Wrong</conclusion>
-    pattern = r'<conclusion>(right|wrong)</conclusion>'
-    match = re.search(pattern, text.lower(), re.IGNORECASE)
-
-    if match:
-        conclusion = match.group(1).lower()
-        if conclusion == 'right':
-            return True
-        elif conclusion == 'wrong':
-            return False
-
+    if "boxed" not in text:
+        return None
+    text = text.split("boxed")[-1]
+    if "right" in text.lower():
+        return True
+    elif "wrong" in text.lower():
+        return False
     return None
 
 
@@ -124,7 +120,7 @@ def main():
     output_path = "../../local_data/one_shot_data_0513/judge_critique_correctness_data_50k_0513_p$.json"
     batch_idx = 3
     os.environ["CUDA_VISIBLE_DEVICES"] = str(batch_idx)
-    model_path = "/data/yubowang/models/Qwen2.5-7B-Instruct"
+    model_path = "/data/yubowang/models/Qwen2.5-Math-7B-Instruct"
     process(model_path, input_path, output_path, batch_idx)
 
 
