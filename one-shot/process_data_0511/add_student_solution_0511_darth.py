@@ -164,16 +164,16 @@ def main():
     model_info = {
         "Qwen2.5-Math-7B-Instruct": "qwen2-5",
         "Qwen3-4B": "qwen3",
-        "Qwen3-8B": "qwen3",
+        #"Qwen3-8B": "qwen3",
         "Qwen3-14B": "qwen3",
         "Qwen3-32B": "qwen3",
-        "MiMo-7B-SFT": "qwen3",
+        #"MiMo-7B-SFT": "qwen3",
         "MiMo-7B-RL": "qwen3",
         "DeepSeek-R1-Distill-Qwen-32B": "qwen3",
         "Phi-4-reasoning": "phi4",
         "Phi-4-reasoning-plus": "phi4",
     }
-    output_path = "/data/yubowang/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512_p1.json"
+    output_path = "/data/yubowang/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512.json"
 
     for model_name, model_type in model_info.items():
         print(f"processing {model_name}")
