@@ -15,7 +15,7 @@ def process(input_path, output_path):
 
 
 if __name__ == "__main__":
-    process("../../local_data/one_shot_data_0513/judge_critique_correctness_data_50k_0513_p0.json",
+    process("../../local_data/one_shot_data_0513/judge_critique_correctness_data_50k_0513_p1.json",
             "../../local_data/one_shot_data_0513/filtered_critique_data_0513.json")
 
 
