@@ -41,7 +41,7 @@ def process(input_path, output_path):
 
 
 if __name__ == "__main__":
-    process("../../local_data/one_shot_data_0511/seed_questions_add_solution_0512.json",
+    process("../../local_data/one_shot_data_0511/seed_questions_add_solution_0512_merged.json",
             "../../local_data/one_shot_data_0511/one_shot_data_with_solution_0512.json")
 
 
