@@ -73,10 +73,11 @@ def process(model_path, input_path, output_path, batch_idx):
         input_data = json.load(f)
     process_data = []
     for each in input_data:
-        if int(each["critique_id"]) // 927 == batch_idx:
-            process_data.append(each)
-    random.shuffle(process_data)
-    process_data = process_data[:3]
+        process_data.append(each)
+        # if int(each["critique_id"]) // 927 == batch_idx:
+        #     process_data.append(each)
+    # random.shuffle(process_data)
+    # process_data = process_data[:3]
     print("number of data points to be processed: ", len(process_data))
     student_prompts = []
     critique_prompts = []
@@ -120,8 +121,9 @@ def extract_conclusion(text):
 def main():
     input_path = "../../local_data/one_shot_data_0513/merged_critique_data_50k_0513.json"
     output_path = "../../local_data/one_shot_data_0513/judge_critique_correctness_data_50k_0513_p$.json"
-    batch_idx = 3
-    os.environ["CUDA_VISIBLE_DEVICES"] = str(batch_idx)
+    batch_idx = 0
+    # os.environ["CUDA_VISIBLE_DEVICES"] = str(batch_idx)
+    os.environ["CUDA_VISIBLE_DEVICES"] = "4,5"
     model_path = "/data/yubowang/models/Qwen2.5-7B-Instruct"
     process(model_path, input_path, output_path, batch_idx)
 
