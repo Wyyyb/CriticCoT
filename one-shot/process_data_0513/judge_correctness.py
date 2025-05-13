@@ -106,8 +106,8 @@ def process(model_path, input_path, output_path, batch_idx):
 
 def extract_conclusion(text):
     # Look for <conclusion>Right</conclusion> or <conclusion>Wrong</conclusion>
-    pattern = r'<conclusion>(Right|Wrong)</conclusion>'
-    match = re.search(pattern, text, re.IGNORECASE)
+    pattern = r'<conclusion>(right|wrong)</conclusion>'
+    match = re.search(pattern, text.lower(), re.IGNORECASE)
 
     if match:
         conclusion = match.group(1).lower()
@@ -124,7 +124,7 @@ def main():
     output_path = "../../local_data/one_shot_data_0513/judge_critique_correctness_data_50k_0513_p$.json"
     batch_idx = 3
     os.environ["CUDA_VISIBLE_DEVICES"] = str(batch_idx)
-    model_path = "/data/yubowang/models/Qwen2.5-Math-7B-Instruct"
+    model_path = "/data/yubowang/models/Qwen2.5-7B-Instruct"
     process(model_path, input_path, output_path, batch_idx)
 
 
