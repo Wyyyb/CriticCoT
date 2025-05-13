@@ -61,8 +61,8 @@ def batch_predict(llm, sampling_params, prompts: List[str]) -> List[str]:
 
 
 def get_prompt(question, gt_answer, student_answer):
-    prompt = f"<|im_start|>system\nI will give you a math problem, its standard answer, and a student's answer. You do not need to solve this math problem yourself. The student's answer might be in a different format than the standard answer. Please determine if the student's answer can be considered correct based only on the standard answer. And put your final answer \"Right\" or \"Wrong\" within \\boxed{{}} <|im_end|>\n" \
-             f"<|im_start|>user\nQuestion:\n{question}\nStandard Answer:\n{gt_answer}\nStudent's Answer:\n{student_answer}<|im_end|>\n" \
+    prompt = f"<|im_start|>system\nI will give you a math problem's standard answer, and a student's answer. You do not need to solve this math problem yourself. The student's answer might be in a different format than the standard answer. Please determine if the student's answer can be considered correct based only on the standard answer. And put your final answer \"Right\" or \"Wrong\" within \\boxed{{}} <|im_end|>\n" \
+             f"<|im_start|>user\nStandard Answer:\n{gt_answer}\nStudent's Answer:\n{student_answer}<|im_end|>\n" \
              f"<|im_start|>assistant\n"
     return prompt
 
