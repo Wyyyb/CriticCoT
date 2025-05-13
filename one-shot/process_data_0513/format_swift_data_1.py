@@ -43,9 +43,7 @@ def main(input_dir, output_path):
             continue
         file_path = os.path.join(input_dir, file)
         with open(file_path, "r") as f:
-            data = json.load(f)
-        for k, v in data.items():
-            input_data.append(v)
+            input_data = json.load(f)
     output_data = []
     for each in input_data:
         curr = format_single(each)
