@@ -14,9 +14,9 @@ set -x
 
 MODEL_PATH="/data/yubo/models/Qwen2.5-Math-7B"
 
-DATA_PATH="/data/yubo/CriticCoT/local_data/training_data_0513/full_one-shot_train_data_0513.jsonl"
+DATA_PATH="/data/yubo/CriticCoT/local_data/training_data_0513/full_one-shot_train_data_rm_thinking_0513.jsonl"
 
-OUTPUT_DIR="/data/yubo/CriticCoT/ms-swift/output_models_0513/"
+OUTPUT_DIR="/data/yubo/CriticCoT/ms-swift/output_models_0513_rm_thinking/"
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"

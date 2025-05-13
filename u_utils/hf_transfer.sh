@@ -125,4 +125,4 @@ huggingface-cli upload ubowang/webinstruct_verified_0509 webinstruct_data_add_so
 
 huggingface-cli upload ubowang/one-shot_data_0512 seed_questions_add_solution_0512.json --repo-type dataset
 
-huggingface-cli upload ubowang/one-shot_data_0512 full_one-shot_train_data_0513.jsonl --repo-type dataset
+huggingface-cli upload ubowang/one-shot_data_0512 merged_critique_data_50k_0513.jsonl --repo-type dataset
