@@ -20,8 +20,8 @@ def process(input_path, output_path):
             for solution_id, solution in enumerate(each_v):
                 short = remove_thinking(solution["solution"])
                 if len(short) > 16000:
-                    print("len(short)", len(short))
                     count += 1
+                    continue
                 curr = deepcopy(v)
                 curr.pop("student_solutions")
                 curr["solution_id"] = solution_id
@@ -35,7 +35,7 @@ def process(input_path, output_path):
                 output_data[curr["critique_id"]] = curr
     print("len(output_data)", len(output_data))
     print("sta_map", sta_map)
-    print("count", count)
+    print("too long, may repeat, count", count)
     with open(output_path, "w") as fo:
         fo.write(json.dumps(output_data, indent=4))
 
