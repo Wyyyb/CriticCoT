@@ -74,7 +74,7 @@ def process(model_path, input_path, output_path, batch_idx):
     for each in input_data:
         if int(each["critique_id"]) // 927 == batch_idx:
             process_data.append(each)
-    process_data = process_data[10]
+    process_data = process_data[:10]
     print("number of data points to be processed: ", len(process_data))
     student_prompts = []
     critique_prompts = []
