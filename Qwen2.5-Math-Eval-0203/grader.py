@@ -92,7 +92,10 @@ def convert_to_number(text):
         base = float(match.group(1))
         exponent = int(match.group(2))
         # 计算结果
-        result = base * (10 ** exponent)
+        try:
+            result = base * (10 ** exponent)
+        except ValueError as e:
+            return float('inf') if base > 0 else float('-inf')
         # 如果是整数，去掉小数点
         if result.is_integer():
             return int(result)
