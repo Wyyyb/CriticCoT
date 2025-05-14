@@ -15,7 +15,7 @@ for ckpt_num in "${checkpoint_numbers[@]}"; do
     model_path="/data/yubo/CriticCoT/ms-swift/output_models_0513_filtered_full_38k/v2-20250514-010049/checkpoint-${ckpt_num}"
     output_path="../eval_results_0513_2/one-shot_exp_ckpt_${ckpt_num}/"
 
-    echo "Processing checkpoint ${ckpt_num} using all 4 GPUs (0-3)..."
+    echo "Processing checkpoint ${ckpt_num}"
 
     cd /data/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
     mkdir -p $output_path
