@@ -2,7 +2,10 @@ import json
 import os
 
 
-def data_filter(item):
+def data_filter(item, map_info):
+    question = item["question"]
+    if question != map_info:
+        return {}
     critique = item.get("critique", None)
     if not critique:
         return {}
@@ -14,9 +17,9 @@ def data_filter(item):
     return item
 
 
-def format_single(item):
+def format_single(item, map_info):
     instruction = "Please critique whether the following solution to the question is correct.\n\n"
-    item = data_filter(item)
+    item = data_filter(item, map_info)
     if not item:
         return None
     question = item.get("question", None)
@@ -53,7 +56,14 @@ def get_map_info(input_data):
             map_info[question]["critique_wrong"] += 1
     with open("map_info.json", "w") as f:
         f.write(json.dumps(map_info, indent=4))
-    return map_info
+
+    candidates = []
+    for k, v in map_info.items():
+        if v["solution_right"] > 100 and v["solution_wrong"] > 100:
+            candidates.append([k, v["critique_right"]])
+    candidates = sorted(candidates, key=lambda x: x[1], reverse=True)
+    selected_question = candidates[0][0]
+    return selected_question
 
 
 def main(input_file_path, output_path):
@@ -63,7 +73,7 @@ def main(input_file_path, output_path):
     map_info = get_map_info(input_data)
     output_data = []
     for each in input_data:
-        curr = format_single(each)
+        curr = format_single(each, map_info)
         if not curr:
             continue
         output_data.append(curr)
