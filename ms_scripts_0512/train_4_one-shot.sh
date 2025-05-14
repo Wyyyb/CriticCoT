@@ -82,5 +82,4 @@ torchrun \
     # --eval_strategy None \
     # --custom_dataset_in
 
-cd /data/yubo/CriticCoT/ping_scripts/eval_one-shot_0513/eval_qwen_2-5_math_4.sh
 
