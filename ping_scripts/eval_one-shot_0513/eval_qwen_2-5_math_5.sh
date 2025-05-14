@@ -10,7 +10,7 @@
 checkpoint_numbers=(4 8 12 16 20 24 28 32 36 40)
 
  # 使用所有4张GPU
-export CUDA_VISIBLE_DEVICES=4,5
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 # 串行处理每个检查点，每次都使用全部4张卡
 for ckpt_num in "${checkpoint_numbers[@]}"; do
