@@ -11,7 +11,7 @@ export CUDA_VISIBLE_DEVICES=6,7
 
 # 串行处理每个检查点，每次都使用全部4张卡
 for ckpt_num in "${checkpoint_numbers[@]}"; do
-    summary_path="../eval_results_0513_3/balance_one-shot_exp_ckpt_${ckpt_num}/summary.txt"
+    summary_path="../eval_results_0513_3/summary.txt"
     model_path="/data/yubo/CriticCoT/ms-swift/output_models_0513_one_shot_balance/v0-20250514-021302/checkpoint-${ckpt_num}"
     output_path="../eval_results_0513_3/balance_one-shot_exp_ckpt_${ckpt_num}/"
 
@@ -41,7 +41,7 @@ export CUDA_VISIBLE_DEVICES=6,7
 
 # 串行处理每个检查点，每次都使用全部4张卡
 for ckpt_num in "${checkpoint_numbers[@]}"; do
-    summary_path="../eval_results_0513_2/one-shot_exp_ckpt_${ckpt_num}/summary.txt"
+    summary_path="../eval_results_0513_2//summary.txt"
     model_path="/data/yubo/CriticCoT/ms-swift/output_models_0513_filtered_full_38k/v2-20250514-010049/checkpoint-${ckpt_num}"
     output_path="../eval_results_0513_2/one-shot_exp_ckpt_${ckpt_num}/"
 
