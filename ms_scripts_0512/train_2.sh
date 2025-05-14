@@ -27,7 +27,7 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 cd ../ms-swift
 
 torchrun \
-    --nproc_per_node 8 \
+    --nproc_per_node 4 \
     --standalone \
     swift/cli/sft.py\
     --use_hf True \
@@ -39,18 +39,18 @@ torchrun \
     \
     --dataset $DATA_PATH \
     --split_dataset_ratio 0 \
-    --dataset_num_proc 8 \
+    --dataset_num_proc 4 \
     --streaming False \
     --strict False \
     --deepspeed zero3 \
     --remove_unused_columns False \
-    --dataloader_num_workers 8 \
+    --dataloader_num_workers 4 \
     \
     --truncation_strategy delete \
     \
     --output_dir $OUTPUT_DIR \
     --gradient_checkpointing True \
-    --per_device_train_batch_size 4 \
+    --per_device_train_batch_size 8 \
     --weight_decay 0.05 \
     --learning_rate 5e-6 \
     --lr_scheduler_type "cosine" \
