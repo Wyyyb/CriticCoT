@@ -4,8 +4,8 @@
 conda activate cft
 
 # 设置要处理的检查点数字列表
-checkpoint_numbers=(4 8 12 16 20 24 28 32)
-gpu_count=8  # 可用GPU总数
+checkpoint_numbers=(4 8 12 16)
+gpu_count=4  # 可用GPU总数
 
 for i in "${!checkpoint_numbers[@]}"; do
     ckpt_num="${checkpoint_numbers[$i]}"
@@ -15,7 +15,7 @@ for i in "${!checkpoint_numbers[@]}"; do
     # 为每个任务创建子shell并在后台运行
     (
         summary_path="../eval_results_0513_2/summary.txt"
-        model_path="/data/yubo/CriticCoT/ms-swift/output_models_0513_rm_thinking/v0-20250513-200706/checkpoint-${ckpt_num}"
+        model_path="/data/yubo/CriticCoT/ms-swift/output_models_0513_filtered_full_38k/v2-20250514-010049/checkpoint-${ckpt_num}"
         output_path="../eval_results_0513_2/one-shot_exp_ckpt_${ckpt_num}/"
 
         echo "Processing checkpoint ${ckpt_num} on GPU ${gpu_id}..."
@@ -34,6 +34,6 @@ done
 wait
 
 # 设置要处理的检查点数字列表
-checkpoint_numbers=(36 40 44 48 52 56 60 64)
+checkpoint_numbers=()
 
 echo "All checkpoints processed successfully!"
