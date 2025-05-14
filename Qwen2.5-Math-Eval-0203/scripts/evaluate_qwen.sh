@@ -12,7 +12,7 @@ cd ..
 
 # DATA_NAME="aime25,aime24,math-500,minerva_math,olympiadbench,amc23,theoremqa,gsm8k"
 # DATA_NAME="minerva_math"
-DATA_NAME="aime25,aime24,math-500,minerva_math,olympiadbench,amc23"
+DATA_NAME="aime25,aime24,math-500,minerva_math,amc23,olympiadbench"
 TOKENIZERS_PARALLELISM=false \
 python3 -u math_eval.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \

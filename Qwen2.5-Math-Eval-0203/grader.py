@@ -94,7 +94,8 @@ def convert_to_number(text):
         # 计算结果
         try:
             result = base * (10 ** exponent)
-        except ValueError as e:
+        except Exception as e:
+            print("exception", e)
             return float('inf') if base > 0 else float('-inf')
         # 如果是整数，去掉小数点
         if result.is_integer():
