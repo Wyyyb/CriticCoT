@@ -181,10 +181,11 @@ def main():
         if not os.path.exists(model_path):
             print(f"model path {model_path} does not exist")
             continue
-        try:
-            single_model_inference(model_path, model_name, model_type, output_path)
-        except Exception as e:
-            print("exception", e)
+        single_model_inference(model_path, model_name, model_type, output_path)
+        #try:
+        #    single_model_inference(model_path, model_name, model_type, output_path)
+        #except Exception as e:
+        #    print("exception", e)
 
 
 if __name__ == "__main__":
