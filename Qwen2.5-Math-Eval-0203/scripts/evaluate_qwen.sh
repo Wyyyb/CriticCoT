@@ -10,8 +10,9 @@ NUM_TEST_SAMPLE=-1
 mkdir -p $OUTPUT_DIR
 cd ..
 
-DATA_NAME="aime25,aime24,math-500,minerva_math,olympiadbench,amc23,theoremqa,gsm8k"
+# DATA_NAME="aime25,aime24,math-500,minerva_math,olympiadbench,amc23,theoremqa,gsm8k"
 # DATA_NAME="minerva_math"
+DATA_NAME="aime25,aime24,math-500,minerva_math,olympiadbench,amc23"
 TOKENIZERS_PARALLELISM=false \
 python3 -u math_eval.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \
