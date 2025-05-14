@@ -1,26 +1,26 @@
 {
-  "1":  {
+  "The pressure \\\\( P \\\\) exerted by wind on a sail varies jointly as the area \\\\( A \\\\) of the sail and the cube of the wind's velocity \\\\( V \\\\). When the velocity is \\\\( 8 \\\\) miles per hour, the pressure on a sail of \\\\( 2 \\\\) square feet is \\\\( 4 \\\\) pounds. Find the wind velocity when the pressure on \\\\( 4 \\\\) square feet of sail is \\\\( 32 \\\\) pounds.":  {
     "question": "The pressure \\\\( P \\\\) exerted by wind on a sail varies jointly as the area \\\\( A \\\\) of the sail and the cube of the wind's velocity \\\\( V \\\\). When the velocity is \\\\( 8 \\\\) miles per hour, the pressure on a sail of \\\\( 2 \\\\) square feet is \\\\( 4 \\\\) pounds. Find the wind velocity when the pressure on \\\\( 4 \\\\) square feet of sail is \\\\( 32 \\\\) pounds.",
     "id": "1",
     "gt_answer": "12.8",
     "source": "deepscaler",
     "dsr_index": 124
   },
-  "2":  {
+  "How many positive divisors do 9240 and 13860 have in common?":  {
     "question": "How many positive divisors do 9240 and 13860 have in common?",
     "id": "2",
     "gt_answer": "24",
     "source": "deepscaler",
     "dsr_index": 267
   },
-  "13":  {
+  "Given that circle $C$ passes through points $P(0,-4)$, $Q(2,0)$, and $R(3,-1)$.  \\n$(1)$ Find the equation of circle $C$.  \\n$(2)$ If the line $l: mx+y-1=0$ intersects circle $C$ at points $A$ and $B$, and $|AB|=4$, find the value of $m$.":  {
     "question": "Given that circle $C$ passes through points $P(0,-4)$, $Q(2,0)$, and $R(3,-1)$.  \\n$(1)$ Find the equation of circle $C$.  \\n$(2)$ If the line $l: mx+y-1=0$ intersects circle $C$ at points $A$ and $B$, and $|AB|=4$, find the value of $m$.",
     "id": "13",
     "gt_answer": "\\\\frac{4}{3}\"",
     "source": "deepscaler",
     "dsr_index": 682
   },
-  "1209":  {
+  "Define the derivative of the $(n-1)$th derivative as the $n$th derivative $(n \\\\in N^{*}, n \\\\geqslant 2)$, that is, $f^{(n)}(x)=[f^{(n-1)}(x)]'$. They are denoted as $f''(x)$, $f'''(x)$, $f^{(4)}(x)$, ..., $f^{(n)}(x)$. If $f(x) = xe^{x}$, then the $2023$rd derivative of the function $f(x)$ at the point $(0, f^{(2023)}(0))$ has a $y$-intercept on the $x$-axis of ______.":  {
     "question": "Define the derivative of the $(n-1)$th derivative as the $n$th derivative $(n \\\\in N^{*}, n \\\\geqslant 2)$, that is, $f^{(n)}(x)=[f^{(n-1)}(x)]'$. They are denoted as $f''(x)$, $f'''(x)$, $f^{(4)}(x)$, ..., $f^{(n)}(x)$. If $f(x) = xe^{x}$, then the $2023$rd derivative of the function $f(x)$ at the point $(0, f^{(2023)}(0))$ has a $y$-intercept on the $x$-axis of ______.",
     "id": "1209",
     "gt_answer": "-\\\\frac{2023}{2024}",
