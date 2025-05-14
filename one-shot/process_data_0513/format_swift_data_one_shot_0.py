@@ -85,7 +85,7 @@ def main(input_file_path, output_path):
 
 if __name__ == "__main__":
     input_path = "../../local_data/one_shot_data_0513/filtered_critique_data_0513.json"
-    output_file_path = "../../local_data/training_data_0513/full_one-shot_train_data_filtered_38k_0513.jsonl"
+    output_file_path = "../../local_data/training_data_0513/balance_one-shot_train_data_filtered_38k_0513.jsonl"
     os.makedirs("../../local_data/training_data_0513/", exist_ok=True)
     main(input_path, output_file_path)
 
