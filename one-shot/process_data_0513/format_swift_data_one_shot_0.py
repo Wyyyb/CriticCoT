@@ -62,7 +62,7 @@ def get_map_info(input_data):
         if v["solution_right"] > 100 and v["solution_wrong"] > 100:
             candidates.append([k, v["critique_right"]])
     candidates = sorted(candidates, key=lambda x: x[1], reverse=True)
-    selected_question = candidates[1][0]
+    selected_question = candidates[2][0]
     return selected_question
 
 
@@ -71,6 +71,7 @@ def main(input_file_path, output_path):
     with open(input_file_path, "r") as f:
         input_data = json.load(f)
     map_info = get_map_info(input_data)
+    print("selected_question:", map_info)
     output_data = []
     for each in input_data:
         curr = format_single(each, map_info)

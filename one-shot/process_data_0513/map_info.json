@@ -1,0 +1,476 @@
+{
+    "Evaluate the integral \\(\\int_{C}\\frac{z^3}{(z+2)(z-2)}dz\\) where \\(C\\) is the circle \\(|z|=3\\).": {
+        "solution_right": 664,
+        "solution_wrong": 0,
+        "critique_right": 664,
+        "critique_wrong": 0
+    },
+    "A triangle with sides of 5, 12, and 13 has both an inscribed and a circumscribed circle.  What is the distance between the centers of those circles?": {
+        "solution_right": 655,
+        "solution_wrong": 0,
+        "critique_right": 655,
+        "critique_wrong": 0
+    },
+    "How many $4 \\times 4$ matrices with entries from $\\{0, 1\\}$ have an odd determinant?": {
+        "solution_right": 664,
+        "solution_wrong": 0,
+        "critique_right": 664,
+        "critique_wrong": 0
+    },
+    "Compute the degree of the splitting field of the polynomial \\(X^{4}+X^{3}+X^{2}+X+1\\) over the field \\(\\mathbb{F}_{3}\\).": {
+        "solution_right": 649,
+        "solution_wrong": 5,
+        "critique_right": 654,
+        "critique_wrong": 0
+    },
+    "Given that the number of defects per yard in a certain fabric, \\( Y \\), follows a Poisson distribution with parameter \\( \\lambda \\), where \\( \\lambda \\) is a random variable with a density function \\( f(\\lambda) = e^{-\\lambda} \\) for \\( \\lambda \\geq 0 \\), find the variance of \\( Y \\).": {
+        "solution_right": 671,
+        "solution_wrong": 0,
+        "critique_right": 671,
+        "critique_wrong": 0
+    },
+    "Find the product of \\(\\tan x\\) and \\(\\cot x\\) using the series definitions:\n\\[\\tan(x) = \\sum_{n=1}^{\\infty} \\frac{B_{2n}(-4)^n(1-4^n)}{(2n)!} x^{2n-1}\\]\n\\[\\cot(x) = \\sum_{n=0}^{\\infty} \\frac{(-1)^n 2^{2n} B_{2n}}{(2n)!} x^{2n}\\]": {
+        "solution_right": 614,
+        "solution_wrong": 11,
+        "critique_right": 625,
+        "critique_wrong": 0
+    },
+    "Suppose that \\(\\varphi(n)\\) is a positive monotone increasing function defined on \\(\\mathbb{N}\\) and \\(\\lim_{n\\to \\infty}\\frac{\\varphi(n)}{n}=0\\). Let \\(\\{n_k\\}\\) be a subsequence with \\(\\lim_{k\\to \\infty}\\frac{n_k}{n_{k+1}}=1.\\) Determine if \\(\\lim_{k\\to\\infty}\\frac{\\varphi(n_k)}{\\varphi(n_{k+1})}=1\\).": {
+        "solution_right": 381,
+        "solution_wrong": 5,
+        "critique_right": 386,
+        "critique_wrong": 0
+    },
+    "Determine whether the sequence \\(a_n\\) defined by \\(a_1=1\\) and \\(a_{n+1}=a_n+\\frac{\\sqrt{n}}{a_n}\\) has a limit. If it does, find the value of the limit.": {
+        "solution_right": 677,
+        "solution_wrong": 6,
+        "critique_right": 683,
+        "critique_wrong": 0
+    },
+    "In a random triangle where all pairs of angles have the same joint distribution, determine the correlation between two of the angles, assuming the variance of the angles is nonzero.": {
+        "solution_right": 670,
+        "solution_wrong": 5,
+        "critique_right": 675,
+        "critique_wrong": 0
+    },
+    "Find the value of \\(x\\) in the interval \\([0, \\pi]\\) that satisfies the equation \\(\\sin (x + \\sin x) = \\cos (x - \\cos x)\\).": {
+        "solution_right": 652,
+        "solution_wrong": 0,
+        "critique_right": 652,
+        "critique_wrong": 0
+    },
+    "Two ants start at the same point on a plane. Each minute, they choose to walk either north, east, south, or west. In the first minute, they walk 1 meter. In each subsequent minute, the distance they walk is multiplied by a rational number \\( q > 0 \\). They meet again after a whole number of minutes, but they have not taken exactly the same route. Determine all possible values of \\( q \\).": {
+        "solution_right": 339,
+        "solution_wrong": 42,
+        "critique_right": 381,
+        "critique_wrong": 0
+    },
+    "Determine the convergence and find the limit of the sequence defined by \\( x_{n} = \\sqrt{a\\sqrt{a\\sqrt{\\ldots a\\sqrt{a}}}} \\), where there are \\( n \\) square root signs.": {
+        "solution_right": 550,
+        "solution_wrong": 0,
+        "critique_right": 550,
+        "critique_wrong": 0
+    },
+    "Let \\( i \\) be the imaginary unit, and \\( a \\) and \\( b \\) be positive integers. Given \\( |(a+i)(2+i)| = \\left|\\frac{b-i}{2-i}\\right| \\), find the value of \\( a + b \\).": {
+        "solution_right": 621,
+        "solution_wrong": 0,
+        "critique_right": 621,
+        "critique_wrong": 0
+    },
+    "In the polynomial ring $R_n = \\mathbb{C}[x_1, \\ldots, x_n]$ for $n \\geq 2$, consider the intersection $I$ of the ideals $\\langle x_1 - c \\rangle$ as $c$ ranges over $\\mathbb{C}$. Is $I = 0$?": {
+        "solution_right": 637,
+        "solution_wrong": 2,
+        "critique_right": 639,
+        "critique_wrong": 0
+    },
+    "Compute the limit of \\( \\mathbb{P}\\{S_n \\leq n\\} \\) as \\( n \\to \\infty \\), where \\( S_n = X_1 + \\ldots + X_n \\) and each \\( X_i \\sim \\text{Poisson}(1) \\) are independent and identically distributed random variables.": {
+        "solution_right": 685,
+        "solution_wrong": 0,
+        "critique_right": 685,
+        "critique_wrong": 0
+    },
+    "Maximize the function $f(x, y) = x + y$ subject to the constraints $x^2 + y^2 \\leq 4$, $x \\geq 0$, and $y \\geq 0$ using the Kuhn-Tucker conditions.": {
+        "solution_right": 602,
+        "solution_wrong": 26,
+        "critique_right": 628,
+        "critique_wrong": 0
+    },
+    "A bus departs from station $A$ and travels along the road, reaching each of the bus stops $B, C, \\ldots, I$ exactly once before finally returning to station $A$. Determine the number of different sequences of bus stops that the bus can take.": {
+        "solution_right": 621,
+        "solution_wrong": 19,
+        "critique_right": 640,
+        "critique_wrong": 0
+    },
+    "Find the largest integer \\( n \\) such that \\( 1 \\cdot 2 \\cdot 3 \\cdot \\ldots \\cdot 2016 \\cdot 2017 \\) is divisible by \\( 7^n \\).": {
+        "solution_right": 648,
+        "solution_wrong": 0,
+        "critique_right": 648,
+        "critique_wrong": 0
+    },
+    "Find the minimum value of the expression \\( P = \\frac{32a^3}{(b+3c)^3} + \\frac{32b^3}{(a+3c)^3} - \\frac{\\sqrt{a^2 + b^2}}{c} \\), given that \\( a, b, c \\) are positive real numbers satisfying \\( (a+c)(b+c) = 4c^2 \\).": {
+        "solution_right": 574,
+        "solution_wrong": 37,
+        "critique_right": 611,
+        "critique_wrong": 0
+    },
+    "Determine the smallest integer \\( n \\) such that \\( |e^x - p_n(x)| < 10^{-15} \\) for all \\( x \\) in the interval \\([-1, 1]\\).": {
+        "solution_right": 565,
+        "solution_wrong": 57,
+        "critique_right": 622,
+        "critique_wrong": 0
+    },
+    "Suppose that $F \\subseteq K$ are fields and $r_1, r_2 \\in K$. Given that $[F(r_1):F] = 5$ and $[F(r_2):F] = 3$, and knowing that $r_1 \\notin F(r_2)$, determine the degree of the field extension $[F(r_1, r_2):F]$. Provide your answer as a single integer.": {
+        "solution_right": 660,
+        "solution_wrong": 0,
+        "critique_right": 660,
+        "critique_wrong": 0
+    },
+    "Consider a positive matrix $X \\in M_n(\\mathbb{C})$, meaning it has positive eigenvalues and is self-adjoint. Determine if there exists a vector $\\xi \\in \\mathbb{C}^n$ such that $X = \\xi \\xi^*$, where $\\xi^*$ is the conjugate transpose of $\\xi$. Answer with 'Yes' or 'No'.": {
+        "solution_right": 648,
+        "solution_wrong": 7,
+        "critique_right": 655,
+        "critique_wrong": 0
+    },
+    "Find the general solution for the functional equation \\( g(x+y) = g(x) + g(y) \\), given that \\( g \\) is a continuous function.": {
+        "solution_right": 675,
+        "solution_wrong": 0,
+        "critique_right": 675,
+        "critique_wrong": 0
+    },
+    "Evaluate $1234_5+2341_5$. Express your answer in base 5.": {
+        "solution_right": 657,
+        "solution_wrong": 0,
+        "critique_right": 657,
+        "critique_wrong": 0
+    },
+    "For a given $n \\in \\mathbb{N}$, determine the values of $p > 0$ for which the function $\\frac{1}{|x|^p}$ is integrable over the region $\\mathbb{R}^n \\setminus B_r(0)$, where $B_r(0)$ is the ball of radius $r$ centered at the origin.": {
+        "solution_right": 672,
+        "solution_wrong": 11,
+        "critique_right": 683,
+        "critique_wrong": 0
+    },
+    "Place the numbers $1, 2, 3, \\cdots, 2001$ in a clockwise direction on a circle. First, eliminate the number 2. Then proceed to eliminate every second number in a clockwise direction until only one number remains. What is the last remaining number?": {
+        "solution_right": 543,
+        "solution_wrong": 19,
+        "critique_right": 562,
+        "critique_wrong": 0
+    },
+    "Consider an infinite sequence of independent and fair coin tosses. Let $H_i$ denote the event that the $i$th coin lands heads (where $H_i = 1$ for heads and $0$ for tails). Compute the probability of the event:\n\n$$\\mathbb{P}\\left(\\bigcap_{i=1}^{\\log_2(n)} H_{n+i} \\text{ occurs infinitely often}\\right)$$": {
+        "solution_right": 346,
+        "solution_wrong": 70,
+        "critique_right": 416,
+        "critique_wrong": 0
+    },
+    "Let $X$ be a set and $T_1, T_2$ be topologies on $X$. Assume that for any topological space $Y$, the following conditions hold: (1) A function $f:Y\\rightarrow X$ is continuous with respect to $T_1$ if and only if it is continuous with respect to $T_2$. (2) A function $f:X\\rightarrow Y$ is continuous with respect to $T_2$ if and only if it is continuous with respect to $T_1$. Must $T_1$ and $T_2$ be the same topologies?": {
+        "solution_right": 618,
+        "solution_wrong": 6,
+        "critique_right": 624,
+        "critique_wrong": 0
+    },
+    "Calculate the expected number of times the random draw function \\( R(n) \\), which selects integers between \\( 0 \\) and \\( n-1 \\) (inclusive), must be applied starting with \\( 10^{100} \\) until the integer \\( 0 \\) is obtained.": {
+        "solution_right": 105,
+        "solution_wrong": 66,
+        "critique_right": 171,
+        "critique_wrong": 0
+    },
+    "Evaluate the limit: \\[ \\lim_{n\\to \\infty} \\sum_{k=0}^n \\frac {\\binom{n}{k}}{(n^k)(k+3)} \\]": {
+        "solution_right": 623,
+        "solution_wrong": 29,
+        "critique_right": 652,
+        "critique_wrong": 0
+    },
+    "What is the minimum number of comparisons required to determine if a given number $x$ is present in a matrix $B$, where the matrix satisfies the condition $B_{ij} \\le B_{kl}$ for all $i \\ge k$ and $j \\le l$?": {
+        "solution_right": 261,
+        "solution_wrong": 120,
+        "critique_right": 381,
+        "critique_wrong": 0
+    },
+    "Evaluate the double integral \\( \\iint_R x \\, dx \\, dy \\) using the change of variables \\( x = \\sqrt{u+v} \\) and \\( y = v \\), where the region \\( R \\) is in the first quadrant of the \\( xy \\)-plane and is bounded by \\( y = 0 \\), \\( y = 16 \\), \\( y = x^2 \\), and \\( y = x^2 - 9 \\).": {
+        "solution_right": 510,
+        "solution_wrong": 17,
+        "critique_right": 527,
+        "critique_wrong": 0
+    },
+    "Evaluate the limit: \\[ \\lim_{x \\to 10} (x^2 - 100)^{\\frac{1}{\\ln(x-10)}}. \\]": {
+        "solution_right": 667,
+        "solution_wrong": 0,
+        "critique_right": 667,
+        "critique_wrong": 0
+    },
+    "Evaluate the limit: \\[ \\lim_{x \\to 0} \\frac{\\cos x - \\sqrt{2 - e^{x^2}}}{\\ln(\\cos x) + \\frac{1}{2} x \\sin x} \\cdot \\frac{(x+2)^{2017}}{(x-2)^{2015}} \\]": {
+        "solution_right": 502,
+        "solution_wrong": 66,
+        "critique_right": 568,
+        "critique_wrong": 0
+    },
+    "In the diagram, $QRS$ is a straight line. What is the measure of $\\angle RPS,$ in degrees? [asy]\npair Q=(0,0);\npair R=(1.3,0);\npair SS=(2.3,0);\npair P=(.8,1);\n\ndraw(P--Q--R--SS--P--R);\n\nlabel(\"$Q$\",Q,S);\nlabel(\"$R$\",R,S);\nlabel(\"$S$\",SS,S);\nlabel(\"$P$\",P,N);\n\nlabel(\"$48^\\circ$\",Q+(.12,.05),NE);\nlabel(\"$67^\\circ$\",P-(.02,.15),S);\nlabel(\"$38^\\circ$\",SS+(-.32,.05),NW);\n\n[/asy]": {
+        "solution_right": 541,
+        "solution_wrong": 72,
+        "critique_right": 613,
+        "critique_wrong": 0
+    },
+    "Solve the exponential equation \\(2^{a+1} + 2^{b+1} = 9 \\times 2^{\\frac{a+b-1}{2}}\\) and find the value of \\(|a-b|\\).": {
+        "solution_right": 547,
+        "solution_wrong": 22,
+        "critique_right": 569,
+        "critique_wrong": 0
+    },
+    "In triangle $ABC$, point $E$ is on $BC$ such that $BE : EC = 3:2$. Points $D$ and $F$ are on sides $AB$ and $AC$, respectively, such that $3AD = 2AF$. Let $G$ be the intersection of $AE$ and $DF$. Given $AB = 7$ and $AC = 9$, find the ratio $DG:GF$. Express your answer as a simplified ratio.": {
+        "solution_right": 534,
+        "solution_wrong": 22,
+        "critique_right": 556,
+        "critique_wrong": 0
+    },
+    "Determine the probability that a sample of 5 high performance tires will have an average life of more than 40,000 miles, given that high performance tires have a normally distributed life with a mean of 50,000 miles and a standard deviation of 7489.64 miles.": {
+        "solution_right": 396,
+        "solution_wrong": 39,
+        "critique_right": 435,
+        "critique_wrong": 0
+    },
+    "Use the Alternating Series Remainder Theorem to determine the smallest number of terms required to approximate the sum of the convergent series {eq}\\displaystyle\n\n\\sum_{n=0}^\\infty \\frac{(-1)^n}{n!} =\\frac{1}{e}\n\n{/eq} with an error of less than {eq}0.001\n\n{/eq}.": {
+        "solution_right": 583,
+        "solution_wrong": 28,
+        "critique_right": 611,
+        "critique_wrong": 0
+    },
+    "The Phicitlius Bauber bird's songs are always 10 seconds in length and consist of a series of notes that are either high or low pitched and are either 1 or 2 seconds long. How many different songs can the Bauber bird sing?": {
+        "solution_right": 577,
+        "solution_wrong": 55,
+        "critique_right": 632,
+        "critique_wrong": 0
+    },
+    "Determine the smallest number of terms sufficient to obtain the sum of the series $\\sum_{n=0}^\\infty \\frac{(-2)^{n+6}}{(n+1)!}$ accurate to three decimal places.": {
+        "solution_right": 417,
+        "solution_wrong": 39,
+        "critique_right": 456,
+        "critique_wrong": 0
+    },
+    "Find {eq}f'(3), where {eq}f(t) = u(t) \\cdot v(t), u(3) = \\left \\langle 2, 1, -1 \\right \\rangle, u'(3) = \\left \\langle 9, 1, 4 \\right \\rangle, and {eq}v(t) = \\left \\langle t, t^2, t^3 \\right \\rangle{/eq}.": {
+        "solution_right": 571,
+        "solution_wrong": 45,
+        "critique_right": 616,
+        "critique_wrong": 0
+    },
+    "Assume $\\{f_n\\}$ and $f$ are Lebesgue measurable. Let $f_n$ be integrable $\\forall n$, and assume $f_n\\rightarrow f$ uniformly on $\\mathbb{R}$. Assume $f$ is integrable. Is it true that $\\int_\\mathbb{R} f_nd\\mu\\rightarrow\\int_\\mathbb{R} fd\\mu$?": {
+        "solution_right": 393,
+        "solution_wrong": 36,
+        "critique_right": 429,
+        "critique_wrong": 0
+    },
+    "Does there exist a bijection $f$ from $\\mathbb{N}$ to $\\mathbb{Q}^+$ such that $$\\lim_{n \\to \\infty} \\frac{f(n+1)}{f(n)}$$ exists?": {
+        "solution_right": 62,
+        "solution_wrong": 22,
+        "critique_right": 84,
+        "critique_wrong": 0
+    },
+    "I want to prove the inequality: $$1\\le\\int_1^4 \\frac{1}{1+\\sqrt{x}} \\,dx$$ Where did I go wrong in my attempt to prove this inequality? Am I on the right track? Or am I way wrong?": {
+        "solution_right": 425,
+        "solution_wrong": 57,
+        "critique_right": 482,
+        "critique_wrong": 0
+    },
+    "What is the t-value for a right-tailed test with a sample size of 40 at the 95% confidence level?": {
+        "solution_right": 656,
+        "solution_wrong": 20,
+        "critique_right": 676,
+        "critique_wrong": 0
+    },
+    "Given a normal random variable X with {eq}\\mu{/eq} = 20 and {eq}\\sigma^2{/eq} = 9, and a random sample {eq}n{/eq} taken from the distribution, what sample size {eq}n{/eq} is necessary so that P(19.9 {eq}\\leq \\bar{X} \\leq{/eq} 20.1) = 0.95?": {
+        "solution_right": 572,
+        "solution_wrong": 5,
+        "critique_right": 577,
+        "critique_wrong": 0
+    },
+    "Use Newton's Method to estimate the point of intersection of the graphs to three decimal places. Continue the iterations until two successive approximations differ by less than 0.001.\n\nf(x) = -x+2\ng(x) = ln x": {
+        "solution_right": 440,
+        "solution_wrong": 26,
+        "critique_right": 466,
+        "critique_wrong": 0
+    },
+    "Use {eq}n = 4{/eq} subdivisions to approximate the value of {eq}\\displaystyle \\int_1^2 \\frac{1}{x}dx{/eq} by the midpoint approximation. Express your answer to six decimal places.": {
+        "solution_right": 643,
+        "solution_wrong": 0,
+        "critique_right": 643,
+        "critique_wrong": 0
+    },
+    "For |x| < 1, consider the function defined by the infinite series \\displaystyle f(x) = \\sum_{k=1}^{\\infty} \\frac{x^{2^{k-1}}}{1 - x^{2^{k}}}. What \"simple\" function is (1 - x)f (x)? Justify your answer.": {
+        "solution_right": 406,
+        "solution_wrong": 21,
+        "critique_right": 427,
+        "critique_wrong": 0
+    },
+    "Suppose $Ax=b$ does not admit any solution for some $n \\times n$ matrix $A$ and some $b \\in \\mathbb{R}^n$. Does it imply $A^tx=b$ also does not admit a solution?": {
+        "solution_right": 394,
+        "solution_wrong": 88,
+        "critique_right": 482,
+        "critique_wrong": 0
+    },
+    "Prove by definition that the supremum of the set $S:=\\lbrace{\\frac{1}{a} - \\frac{3}{b}:a,b \\in \\mathbb{N}}\\rbrace $ is $\\sup(S)=1$. Specifically, prove that if $u<\\sup(S)=1$ then $\\exists s\\in S$ such that $u<s\\leq \\sup(S)$.\nThe definition of \"prove by definition\" requires:\ni) Prove that $\\sup(S)=1$ is an upper bound (i.e. $s\\leq \\sup(S)=1 \\forall s \\in S$).\nii) Then prove such number (i) IS the least upper bound (i.e. if $u<\\sup(S)=1$ then $\\exists s \\in S$ such that $u<s\\leq \\sup(S)=1$).\nAssume (i) is already proven.": {
+        "solution_right": 585,
+        "solution_wrong": 1,
+        "critique_right": 586,
+        "critique_wrong": 0
+    },
+    "Suppose {eq}f{/eq} is a differentiable function whose cross-section for {eq}y = 4{/eq} is {eq}f(x, 4) = 4x^3 - e^{3x}{/eq}. Find {eq}f_x(1, 4){/eq}.": {
+        "solution_right": 670,
+        "solution_wrong": 0,
+        "critique_right": 670,
+        "critique_wrong": 0
+    },
+    "What is the probability of getting a sample mean between 500 and 520 if the population mean is 500 and the standard error of the mean is 20?": {
+        "solution_right": 627,
+        "solution_wrong": 0,
+        "critique_right": 627,
+        "critique_wrong": 0
+    },
+    "Find the equation of the tangent plane to the surface z - e^y + x + x^4 + 6 = 0 at the point (2, 0, 25). Express the equation in the form z = ...": {
+        "solution_right": 222,
+        "solution_wrong": 6,
+        "critique_right": 228,
+        "critique_wrong": 0
+    },
+    "If the $n$-th Fourier coefficient of a periodic function $f$ satisfies $a_n =O(1/|n|^k) \\quad \\text{as $n\\rightarrow \\infty$}$, is the function $f$ k times differentiable?": {
+        "solution_right": 378,
+        "solution_wrong": 70,
+        "critique_right": 448,
+        "critique_wrong": 0
+    },
+    "Solve the initial-value problem.\n\n{eq}xy' = y + 4x^2 sinx, \\space y(\\pi) = 0{/eq}": {
+        "solution_right": 207,
+        "solution_wrong": 51,
+        "critique_right": 258,
+        "critique_wrong": 0
+    },
+    "Throwing $k$ balls into $n$ bins. What is the probability that exactly $z$ bins are not empty?": {
+        "solution_right": 5,
+        "solution_wrong": 84,
+        "critique_right": 89,
+        "critique_wrong": 0
+    },
+    "Evaluate the triple integral {eq}\\int \\int_Q \\int(2x+y)dV{/eq}, where Q is bounded by the cylinder {eq}y = x^2{/eq} and the planes y = z, x = y, and z = 0.": {
+        "solution_right": 294,
+        "solution_wrong": 238,
+        "critique_right": 532,
+        "critique_wrong": 0
+    },
+    "Find {eq}y{/eq} as a function of {eq}t{/eq} if {eq}\\displaystyle 5184 y'' + 2736 y' + 361 y = 0,\\ y (0) = 8,\\ y'' (0) = 6{/eq}.": {
+        "solution_right": 492,
+        "solution_wrong": 20,
+        "critique_right": 512,
+        "critique_wrong": 0
+    },
+    "I have the following bases which are bases of $\\mathbb{R}^3$ $$B = ((1,1,1), (0,1,1), (0,0,1))$$ $$C = ((1,2,3), (-1,0,1), (1,0,1))$$ I need to find if this equation is correct $$[(1,2,3)]_B = (1,1,1)^t ?$$ I do know how to calculate $[(1,2,3)]_B$ but i'm not sure how to calculate $(1,1,1)^t$ from my calculation I got $[(1,2,3)]_B = (1, -1, 0)$ but how do I find $(1,1,1)^t$ ?": {
+        "solution_right": 546,
+        "solution_wrong": 91,
+        "critique_right": 637,
+        "critique_wrong": 0
+    },
+    "If $\\mathcal{A}$ is a von Neumann algebra with cyclic vector, then is it true that $\\mathcal{A}$ has property (P)?": {
+        "solution_right": 212,
+        "solution_wrong": 195,
+        "critique_right": 407,
+        "critique_wrong": 0
+    },
+    "Use Lagrange multipliers to find the shortest distance from the point (3, 0, -5) to the plane x + y + z = 1.": {
+        "solution_right": 609,
+        "solution_wrong": 8,
+        "critique_right": 617,
+        "critique_wrong": 0
+    },
+    "Let $B(x) = \\begin{pmatrix} 1 & x \\\\x & 1 \\end{pmatrix}$, and $2=p_1<p_2<\\cdots <p_n <\\cdots$ primes number. Compute $$\\displaystyle \\lim_{n\\to \\infty}\\prod_{i=1}^n B(p_i^{-2})$$": {
+        "solution_right": 397,
+        "solution_wrong": 56,
+        "critique_right": 453,
+        "critique_wrong": 0
+    },
+    "How can I prove the equation $\\sum\\limits^\\infty_{n=0} \\sum\\limits^n_{k=0} \\frac {b^k} {k!} \\cdot \\frac {a^{n-k}} {(n-k)!}$ = $\\sum\\limits^\\infty_{n=0} \\frac {{(a+b)}^n} {n!}$? I recognize that $\\sum\\limits^n_{k=0} \\frac {b^k} {k!} \\cdot \\frac {a^{n-k}} {(n-k)!}$ is a Cauchy-Product and the terms look similar to the binomial theorem, but I don't know how to prove it for an infinite amount of terms.": {
+        "solution_right": 340,
+        "solution_wrong": 163,
+        "critique_right": 503,
+        "critique_wrong": 0
+    },
+    "Find the value that separates the top 10% of the time that elapses from one call to the next, given that calls come in at an average rate of one call every two minutes and the time that elapses from one call to the next has the exponential distribution.": {
+        "solution_right": 568,
+        "solution_wrong": 11,
+        "critique_right": 579,
+        "critique_wrong": 0
+    },
+    "How can I calculate the image of a linear transformation of a subspace? Example: Given a subspace $A$ defined by $x + y + 2z=0$, and a linear transformation defined by the matrix $$M= \\left( \\begin{matrix} 1 & 2 & -1\\\\ 0 & 2 & 3\\\\ 1 & -1 & 1\\\\ \\end{matrix}\\right) $$ What is the image of the transformation of A by M?": {
+        "solution_right": 94,
+        "solution_wrong": 26,
+        "critique_right": 120,
+        "critique_wrong": 0
+    },
+    "Find the Laplace transform F(s) of {eq}\\displaystyle f(t) = \\left\\{\\begin{matrix}0&t<6\\\\3\\sin(\\pi t)&6\\leq t<7\\\\0&t\\geq7\\end{matrix}\\right. {/eq}": {
+        "solution_right": 397,
+        "solution_wrong": 37,
+        "critique_right": 434,
+        "critique_wrong": 0
+    },
+    "Evaluate using Integration by Parts: {eq}\\int x^2 \\cos(3x) dx": {
+        "solution_right": 231,
+        "solution_wrong": 104,
+        "critique_right": 335,
+        "critique_wrong": 0
+    },
+    "Given a circle with radius 1 and a diameter, find the point on the circle such that the distance between the point and one end of the diameter is $\\frac{1}{2}$ the length of the arc connecting the point to the other end of the diameter. Find a mathematical way to solve for the angle or the arc length.": {
+        "solution_right": 249,
+        "solution_wrong": 52,
+        "critique_right": 301,
+        "critique_wrong": 0
+    },
+    "Let $\\mathcal{F}$ be a sheaf of modules on a scheme $X$, and let $f: X \\to Y$ be a morphism of schemes. If $\\mathcal{F}$ is generated by global sections, is the natural map $f^*f_*(\\mathcal{F}) \\to \\mathcal{F}$ surjective?": {
+        "solution_right": 232,
+        "solution_wrong": 28,
+        "critique_right": 260,
+        "critique_wrong": 0
+    },
+    "Evaluate the integral: $$\\int^{1/2}_0 \\int^{1-x}_x (x+y)^9(x-y)^9 \\, dy \\, dx $$": {
+        "solution_right": 445,
+        "solution_wrong": 31,
+        "critique_right": 476,
+        "critique_wrong": 0
+    },
+    "Is the regression model statistically significant? Use significance level of 0.05. Explain how you arrived at the conclusion?": {
+        "solution_right": 215,
+        "solution_wrong": 81,
+        "critique_right": 296,
+        "critique_wrong": 0
+    },
+    "Find the equation of the plane that passes through the point (-4, 4, 3) and contains the line x(t) = 3-4t, y(t) = 1 - 3t, z(t) = -4 + 3t.": {
+        "solution_right": 80,
+        "solution_wrong": 14,
+        "critique_right": 94,
+        "critique_wrong": 0
+    },
+    "Determine if the correction factor should be used. If so, use it in your calculations when you find the probability.\n\nIn a sample of 700 gas stations, the mean price for regular gasoline at the pump was $2.829 per gallon and the standard deviation was $0.008 per gallon. A sample of size 45 is drawn from this population.\n\nWhat is the probability that the mean price per gallon is less than $2.825?": {
+        "solution_right": 10,
+        "solution_wrong": 9,
+        "critique_right": 19,
+        "critique_wrong": 0
+    },
+    "Let $\\phi (x) = x^2$, $k,\\lambda\\in \\mathbb{R}$, and $[a,b]\\subset\\mathbb{R}$ and define the integral $$I(\\lambda;k)=\\int_{a}^{b}e^{i(\\lambda\\phi(x)-kx)}dx$$ Prove that $|I(\\lambda;k)|\\leq c_\\phi|\\lambda|^{-\\frac{1}{2}}$ such that $c_{\\phi}$ is a constant depending only on $\\phi$.": {
+        "solution_right": 1,
+        "solution_wrong": 40,
+        "critique_right": 41,
+        "critique_wrong": 0
+    },
+    "Do these data indicate, with 80% confidence, that there is a significant difference in the fractions of fish having fat contents in excess of 10% between the two oceans?": {
+        "solution_right": 75,
+        "solution_wrong": 8,
+        "critique_right": 83,
+        "critique_wrong": 0
+    },
+    "Find a closed form solution for $a^x - b^x = 1$ where $a,b\\in \\mathbb{R}$ are known and $x$ is unknown.": {
+        "solution_right": 0,
+        "solution_wrong": 3,
+        "critique_right": 3,
+        "critique_wrong": 0
+    },
+    "Let $f$ be the function defined by $f(x) = -2 \\sin(\\pi x)$.  How many values of $x$ such that $-2 \\le x \\le 2$ satisfy the equation $f(f(f(x))) = f(x)$?": {
+        "solution_right": 0,
+        "solution_wrong": 1,
+        "critique_right": 1,
+        "critique_wrong": 0
+    }
+}
