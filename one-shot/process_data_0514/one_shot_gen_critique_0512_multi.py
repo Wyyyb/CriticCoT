@@ -378,6 +378,7 @@ if __name__ == "__main__":
     teacher_models = [
         "claude-3-7-sonnet-20250219",
         "claude-3-5-sonnet-20241022",
+        "gpt-4.1-mini"
         "gpt-4.1-2025-04-14",
         "gpt-4o-2024-11-20",
         # "gpt-4o-2024-08-06",
@@ -387,8 +388,8 @@ if __name__ == "__main__":
         "o1-2024-12-17"
     ]
     teacher_model_name = "gpt-4.1-2025-04-14"
-    INPUT_FILE = "../../local_data/one_shot_data_0511/one_shot_data_with_solution_0512.json"
-    OUTPUT_FILE = f"../../local_data/one_shot_data_0511/one_shot_data_with_critique_{teacher_model_name}_0512.json"  # 结果输出文件路径
+    INPUT_FILE = "../../local_data/one_shot_data_0514/dsr_shot_data_with_solution_0514.json"
+    OUTPUT_FILE = f"../../local_data/one_shot_data_0514/dsr_shot_data_with_critique_{teacher_model_name}_0514.json"  # 结果输出文件路径
     NUM_PROCESSES = 2  # 进程数
 
     main_solver_multiprocessing(
