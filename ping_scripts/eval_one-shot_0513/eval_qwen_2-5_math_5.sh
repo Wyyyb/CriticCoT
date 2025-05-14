@@ -2,7 +2,7 @@
 
 # 激活conda环境
 # conda activate cft
-bash eval_qwen_2-5_math_5_1.sh
+# bash eval_qwen_2-5_math_5_1.sh
 
 # 设置要处理的检查点数字列表
 # checkpoint_numbers=(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40)
@@ -10,13 +10,13 @@ bash eval_qwen_2-5_math_5_1.sh
 checkpoint_numbers=(4 8 12 16 20 24 28 32 36 40)
 
  # 使用所有4张GPU
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=4,5
 
 # 串行处理每个检查点，每次都使用全部4张卡
 for ckpt_num in "${checkpoint_numbers[@]}"; do
-    summary_path="../eval_results_0514_qwen3-8b_1/summary.txt"
+    summary_path="../eval_results_0514_qwen3-8b/summary.txt"
     model_path="/data/yubo/CriticCoT/ms-swift/output_models_0514_qwen3-8b_one_shot_balance/v1-20250514-155509/checkpoint-${ckpt_num}"
-    output_path="../eval_results_0514_qwen3-8b_1/balance_one-shot_exp_ckpt_${ckpt_num}/"
+    output_path="../eval_results_0514_qwen3-8b/balance_one-shot_exp_ckpt_${ckpt_num}/"
 
     echo "Processing checkpoint ${ckpt_num}"
 
