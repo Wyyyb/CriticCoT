@@ -387,10 +387,10 @@ if __name__ == "__main__":
         "o3-mini-2025-01-31",
         "o1-2024-12-17"
     ]
-    teacher_model_name = "gpt-4.1-2025-04-14"
+    teacher_model_name = "o3-mini-2025-01-31"
     INPUT_FILE = "../../local_data/one_shot_data_0514/dsr_shot_data_with_solution_0514.json"
     OUTPUT_FILE = f"../../local_data/one_shot_data_0514/dsr_shot_data_with_critique_{teacher_model_name}_0514.json"  # 结果输出文件路径
-    NUM_PROCESSES = 2  # 进程数
+    NUM_PROCESSES = 20  # 进程数
 
     main_solver_multiprocessing(
         input_file=INPUT_FILE,
