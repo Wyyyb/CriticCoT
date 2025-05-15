@@ -128,3 +128,5 @@ huggingface-cli upload ubowang/one-shot_data_0512 seed_questions_add_solution_05
 huggingface-cli upload ubowang/one-shot_data_0512 merged_critique_data_50k_0513.jsonl --repo-type dataset
 
 huggingface-cli upload ubowang/one-shot_data_0512 filtered_critique_data_0513.json --repo-type dataset
+
+huggingface-cli upload ubowang/one-shot_data_0512 one-shot_train_data_filtered_think_0514.jsonl --repo-type dataset

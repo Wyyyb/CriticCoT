@@ -9,12 +9,12 @@ checkpoint_numbers=(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40)
 # checkpoint_numbers=(4 8 12 16 20 24 28 32 36 40)
 
  # 使用所有4张GPU
-export CUDA_VISIBLE_DEVICES=4,5,6,7
+export CUDA_VISIBLE_DEVICES=2,3
 
 # 串行处理每个检查点，每次都使用全部4张卡
 for ckpt_num in "${checkpoint_numbers[@]}"; do
     summary_path="../eval_results_dsr_0514_p1/summary.txt"
-    model_path="/data/yubo/CriticCoT/ms-swift/output_models_dsr_0514_p1/v0-20250515-005734/checkpoint-${ckpt_num}"
+    model_path="/data/yubo/CriticCoT/ms-swift/output_models_dsr_0514_p1/v0-20250515-025606/checkpoint-${ckpt_num}"
     output_path="../eval_results_dsr_0514_p1/dsr_p0_ckpt_${ckpt_num}/"
 
     echo "Processing checkpoint ${ckpt_num}"
