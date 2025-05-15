@@ -12,6 +12,9 @@ set -x
 # export WANDB_PROJECT="qwen2_5_3b_coder_python_200K"
 # export WANDB_NAME=$RUN_NAME
 
+source /home/user/miniconda3/etc/profile.d/conda.sh
+conda activate swift
+
 MODEL_PATH="/data/yubo/models/DeepSeek-R1-Distill-Qwen-7B"
 
 DATA_PATH="/data/yubo/CriticCoT/local_data/training_data_0514/one-shot_train_data_filtered_think_0514.jsonl"
@@ -85,7 +88,8 @@ torchrun \
 
 
 cd /data/yubo/CriticCoT/ping_scripts/eval_think_0515/
-conda init
+
+source /home/user/miniconda3/etc/profile.d/conda.sh
 conda activate cft
 
 bash eval_distill_7b_think.sh
