@@ -14,7 +14,7 @@ set -x
 
 MODEL_PATH="/data/yubowang/models/Qwen2.5-Math-1.5B-Instruct"
 
-DATA_PATH="/data/yubo/CriticCoT/dsr_scripts_0514/dsr_one-shot_train_data_0514_p0.jsonl"
+DATA_PATH="/data/yubowang/CriticCoT/dsr_scripts_0514/dsr_one-shot_train_data_0514_p0.jsonl"
 
 OUTPUT_DIR="/data/yubowang/CriticCoT/ms-swift/output_models_dsr_1.5b_ins_0515_p0/"
 
