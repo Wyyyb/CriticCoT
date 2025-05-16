@@ -10,7 +10,7 @@ NUM_TEST_SAMPLE=-1
 mkdir -p $OUTPUT_DIR
 cd ..
 
-DATA_NAME="math,minerva_math,gsm8k,olympiadbench,aime24,amc23,theoremqa"
+DATA_NAME="aime25,aime24,math-500,minerva_math,amc23,olympiadbench"
 TOKENIZERS_PARALLELISM=false \
 python3 -u math_eval.py \
     --model_name_or_path ${MODEL_NAME_OR_PATH} \
@@ -22,6 +22,7 @@ python3 -u math_eval.py \
     --num_test_sample ${NUM_TEST_SAMPLE} \
     --seed 0 \
     --temperature 0 \
+    --max_tokens_per_call 4096 \
     --n_sampling 1 \
     --top_p 1 \
     --start 0 \
