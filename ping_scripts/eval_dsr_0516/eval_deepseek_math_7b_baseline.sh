@@ -2,7 +2,7 @@
 # source /data/yubo/miniconda3/etc/profile.d/conda.sh
 conda activate cft
 
-export CUDA_VISIBLE_DEVICES=0,1
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 summary_path="../baseline_eval_results_0516/summary.txt"
 model_path="/data/yubo/models/deepseek-math-7b-base"
