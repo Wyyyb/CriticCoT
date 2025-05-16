@@ -210,6 +210,7 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-1.5B --local-dir /d
 
 huggingface-cli download --repo-type model meta-llama/Llama-3.2-3B-Instruct --local-dir /data/yubo/models/Llama-3.2-3B-Instruct
 
+huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-base --local-dir /data/yubowang/models/deepseek-math-7b-base
 
 
 
