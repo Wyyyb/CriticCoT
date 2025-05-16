@@ -16,7 +16,7 @@ MODEL_PATH="/data/yubo/models/DeepSeek-R1-Distill-Qwen-1.5B"
 
 DATA_PATH="/data/yubo/CriticCoT/dsr_scripts_0515/dsr_one-shot_train_data_think_0515_p0.jsonl"
 
-OUTPUT_DIR="/data/yubo/CriticCoT/ms-swift/output_models_dsr_1.5b_base_0515_think_p0/"
+OUTPUT_DIR="/data/yubo/CriticCoT/ms-swift/output_models_dsr_distill_1.5b_0515_think_p0/"
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
