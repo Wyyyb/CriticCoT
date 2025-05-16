@@ -19,7 +19,7 @@ for ckpt_num in "${checkpoint_numbers[@]}"; do
 
     echo "Processing checkpoint ${ckpt_num}"
 
-    cd /data/yubowang/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
+    cd /data/yubo/CriticCoT/Qwen2.5-Math-Eval-0203/scripts
     mkdir -p $output_path
 
     bash evaluate_qwen.sh $model_path $output_path $summary_path
