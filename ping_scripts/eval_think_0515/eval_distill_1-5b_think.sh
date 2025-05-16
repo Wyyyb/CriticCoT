@@ -13,9 +13,9 @@ export CUDA_VISIBLE_DEVICES=0,1
 
 # 串行处理每个检查点，每次都使用全部4张卡
 for ckpt_num in "${checkpoint_numbers[@]}"; do
-    summary_path="../eval_results_0514_distill_7b_think_0/summary.txt"
+    summary_path="../eval_results_0516_distill_1-5b_think_1-shot/summary.txt"
     model_path="/data/yubo/CriticCoT/ms-swift/output_models_dsr_distill_1.5b_0515_think_p0/v0-20250516-042304/checkpoint-${ckpt_num}"
-    output_path="../eval_results_0514_distill_7b_think_0/ckpt_${ckpt_num}/"
+    output_path="../eval_results_0516_distill_1-5b_think_1-shot/ckpt_${ckpt_num}/"
 
     echo "Processing checkpoint ${ckpt_num}"
 
