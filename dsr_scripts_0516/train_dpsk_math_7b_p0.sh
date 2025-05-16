@@ -22,12 +22,12 @@ if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
 fi
 
-export CUDA_VISIBLE_DEVICES=4,5,6,7
+export CUDA_VISIBLE_DEVICES=0,1
 
 cd ../ms-swift
 
 torchrun \
-    --nproc_per_node 4 \
+    --nproc_per_node 2 \
     --standalone \
     swift/cli/sft.py\
     --use_hf True \
@@ -39,12 +39,12 @@ torchrun \
     \
     --dataset $DATA_PATH \
     --split_dataset_ratio 0 \
-    --dataset_num_proc 4 \
+    --dataset_num_proc 2 \
     --streaming False \
     --strict False \
     --deepspeed zero3 \
     --remove_unused_columns False \
-    --dataloader_num_workers 4 \
+    --dataloader_num_workers 2 \
     \
     --truncation_strategy delete \
     \
@@ -59,7 +59,7 @@ torchrun \
     --logging_steps 1 \
     \
     --num_train_epochs 40 \
-    --gradient_accumulation_steps 128 \
+    --gradient_accumulation_steps 256 \
     --save_strategy "steps" \
     --save_steps 2 \
     --save_only_model True \
