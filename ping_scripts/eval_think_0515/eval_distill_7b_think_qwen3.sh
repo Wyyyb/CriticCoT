@@ -4,7 +4,7 @@
 # conda activate cft
 
 # 设置要处理的检查点数字列表
-checkpoint_numbers=(2 4 6 8 10 12 14 16 18 20 22 24 26)
+checkpoint_numbers=(14 16 18 20 22 24 26)
 # checkpoint_numbers=(2 4 6 8 10 12 14 16 18 20)
 # checkpoint_numbers=(4 8 12 16 20 24 28 32 36 40)
 
