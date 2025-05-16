@@ -212,6 +212,8 @@ huggingface-cli download --repo-type model meta-llama/Llama-3.2-3B-Instruct --lo
 
 huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-base --local-dir /data/yubo/models/deepseek-math-7b-base
 
+huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-instruct --local-dir /data/yubo/models/deepseek-math-7b-instruct
+
 
 
 
