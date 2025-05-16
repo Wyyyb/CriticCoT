@@ -12,11 +12,11 @@ set -x
 # export WANDB_PROJECT="qwen2_5_3b_coder_python_200K"
 # export WANDB_NAME=$RUN_NAME
 
-MODEL_PATH="/data/yubowang/models/Qwen2.5-Math-1.5B"
+MODEL_PATH="/data/yubowang/models/Qwen2.5-Math-1.5B-Instruct"
 
 DATA_PATH="/data/yubo/CriticCoT/dsr_scripts_0514/dsr_one-shot_train_data_0514_p0.jsonl"
 
-OUTPUT_DIR="/data/yubowang/CriticCoT/ms-swift/output_models_dsr_1.5b_0515_p0/"
+OUTPUT_DIR="/data/yubowang/CriticCoT/ms-swift/output_models_dsr_1.5b_ins_0515_p0/"
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
