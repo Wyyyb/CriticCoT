@@ -5,6 +5,8 @@ set -x
 
 export VLLM_ATTENTION_BACKEND=XFORMERS
 
+cd ../..
+
 python3 -m verl.trainer.main_ppo \
  algorithm.adv_estimator=grpo \
  data.train_files=data/train/one_shot_rlvr/pi1_r128.parquet \
