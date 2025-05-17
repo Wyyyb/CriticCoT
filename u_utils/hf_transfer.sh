@@ -130,3 +130,17 @@ huggingface-cli upload ubowang/one-shot_data_0512 merged_critique_data_50k_0513.
 huggingface-cli upload ubowang/one-shot_data_0512 filtered_critique_data_0513.json --repo-type dataset
 
 huggingface-cli upload ubowang/one-shot_data_0512 one-shot_train_data_filtered_think_0514.jsonl --repo-type dataset
+
+huggingface-cli upload ubowang/1-shot_cft_qwen3_4b_base . --repo-type model
+
+huggingface-cli upload ubowang/1-shot_cft_qwen2-5_math_7b . --repo-type model
+
+huggingface-cli upload ubowang/1-shot_cft_qwen2-5_math_1-5b . --repo-type model
+
+huggingface-cli upload ubowang/1-shot_cft_llama3-2_3b_instruct . --repo-type model
+
+
+
+
+
+
