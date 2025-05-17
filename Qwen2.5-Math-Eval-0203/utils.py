@@ -159,6 +159,12 @@ PROMPT_TEMPLATES = {
         "{output}",
         "\n\n",
     ),
+    "qwen3-no-think": (
+        "<|im_start|>user\nPlease reason step by step, and put your final answer within \\boxed{{}}.\n{input}<|im_end|>\n"
+        "<|im_start|>assistant\n<think>\n\n</think>\n",
+        "{output}",
+        "\n\n",
+    ),
     "llama": (
         "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 17 Apr 2025\n\n"
         " <|eot_id|><|start_header_id|>user<|end_header_id|>\n\n{input}<|eot_id|>"

@@ -216,5 +216,7 @@ huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-instruct
 
 huggingface-cli download --repo-type model Qwen/Qwen3-4B-Base --local-dir /data/yubo/models/Qwen3-4B-Base
 
+huggingface-cli download --repo-type model Qwen/Qwen3-4B --local-dir /data/yubo/models/Qwen3-4B
 
+huggingface-cli download --repo-type model Qwen/Qwen3-8B --local-dir /data/yubo/models/Qwen3-8B
 
