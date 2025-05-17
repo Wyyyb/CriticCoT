@@ -23,6 +23,7 @@ python3 -u math_eval.py \
     --num_test_sample ${NUM_TEST_SAMPLE} \
     --seed 0 \
     --temperature 0.6 \
+    --max_tokens_per_call 8000 \
     --n_sampling 1 \
     --top_p 0.95 \
     --start 0 \
