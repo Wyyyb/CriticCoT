@@ -161,7 +161,7 @@ PROMPT_TEMPLATES = {
     ),
     "qwen3-no-think": (
         "<|im_start|>user\nPlease reason step by step, and put your final answer within \\boxed{{}}.\n{input}<|im_end|>\n"
-        "<|im_start|>assistant\n<think>\n\n</think>\n",
+        "<|im_start|>assistant\n",
         "{output}",
         "\n\n",
     ),
