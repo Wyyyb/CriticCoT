@@ -135,7 +135,7 @@ huggingface-cli upload ubowang/1-shot_cft_qwen3_4b_base . --repo-type model
 
 huggingface-cli upload ubowang/1-shot_cft_qwen2-5_math_7b . --repo-type model
 
-huggingface-cli upload ubowang/1-shot_cft_qwen2-5_math_1-5b . --repo-type model
+huggingface-cli upload ubowang/1-shot_cft_qwen2-5_math_1-5b_ckpt92_0-328 . --repo-type model
 
 huggingface-cli upload ubowang/1-shot_cft_llama3-2_3b_instruct . --repo-type model
 

@@ -220,3 +220,12 @@ huggingface-cli download --repo-type model Qwen/Qwen3-4B --local-dir /data/yubo/
 
 huggingface-cli download --repo-type model Qwen/Qwen3-8B --local-dir /data/yubo/models/Qwen3-8B
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-14B --local-dir /data/yubo/models/Qwen2.5-14B
+
+
+
+
+
+
+
+
