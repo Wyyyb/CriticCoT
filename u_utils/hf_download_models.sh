@@ -188,7 +188,7 @@ huggingface-cli download --repo-type model Qwen/Qwen3-32B --local-dir /data/yubo
 
 huggingface-cli download --repo-type model microsoft/Phi-4-reasoning --local-dir /data/yubowang/models/Phi-4-reasoning
 
-huggingface-cli download --repo-type model microsoft/Phi-4-reasoning-plus --local-dir /data/yubowang/models/Phi-4-reasoning-plus
+huggingface-cli download --repo-type model microsoft/Phi-4-reasoning-plus --local-dir /data/yubo/models/Phi-4-reasoning-plus
 
 huggingface-cli download --repo-type model XiaomiMiMo/MiMo-7B-RL --local-dir /data/yubowang/models/MiMo-7B-RL
 
