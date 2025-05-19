@@ -86,7 +86,7 @@ def single_model_inference(model_path, model_name, model_type, output_path):
     with open(output_path, "r") as f:
         input_data = json.load(f)
     for k, v in input_data.items():
-        count = 100
+        count = 120
         if "student_solutions" not in v:
             v["student_solutions"] = {}
         if model_name not in v["student_solutions"]:
