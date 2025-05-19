@@ -65,6 +65,7 @@ def process_batch(process_id, batch_questions, api_key, model_name, output_dir, 
                       "gpt-4o-2024-11-20": "openai",
                       "gpt-4o-2024-08-06": "openai",
                       "gpt-4.1-2025-04-14": "openai",
+                      "gpt-4.1-mini-2025-04-14": "openai",
                       # "o3-2025-04-16": "openai-reasoning",
                       "o4-mini-2025-04-16": "openai-reasoning",
                       "o3-mini-2025-01-31": "openai-reasoning",
@@ -378,7 +379,7 @@ if __name__ == "__main__":
     teacher_models = [
         "claude-3-7-sonnet-20250219",
         "claude-3-5-sonnet-20241022",
-        "gpt-4.1-mini"
+        "gpt-4.1-mini-2025-04-14"
         "gpt-4.1-2025-04-14",
         "gpt-4o-2024-11-20",
         # "gpt-4o-2024-08-06",
@@ -387,10 +388,10 @@ if __name__ == "__main__":
         "o3-mini-2025-01-31",
         "o1-2024-12-17"
     ]
-    teacher_model_name = "claude-3-7-sonnet-20250219"
+    teacher_model_name = "o1-2024-12-17"
     INPUT_FILE = "dsr_p0_100_to_critique_0518_qwen_math_7b.json"
     OUTPUT_FILE = f"dsr_p0_100_with_critique_{teacher_model_name}_qwen_math_7b_0518.json"  # 结果输出文件路径
-    NUM_PROCESSES = 2  # 进程数
+    NUM_PROCESSES = 20  # 进程数
 
     main_solver_multiprocessing(
         input_file=INPUT_FILE,
