@@ -387,10 +387,10 @@ if __name__ == "__main__":
         "o3-mini-2025-01-31",
         "o1-2024-12-17"
     ]
-    teacher_model_name = "claude-3-7-sonnet-20250219"
-    INPUT_FILE = "dsr_p0_100_to_critique_0518_qwen_math_7b.json"
-    OUTPUT_FILE = f"dsr_p0_100_with_critique_{teacher_model_name}_qwen_math_7b_0518.json"  # 结果输出文件路径
-    NUM_PROCESSES = 2  # 进程数
+    teacher_model_name = "o3-mini-2025-01-31"
+    INPUT_FILE = "dsr_p0_100_to_critique_0518_phi4-r-plus.json"
+    OUTPUT_FILE = f"dsr_p0_100_with_critique_{teacher_model_name}_phi4-r-plus_0518.json"  # 结果输出文件路径
+    NUM_PROCESSES = 20  # 进程数
 
     main_solver_multiprocessing(
         input_file=INPUT_FILE,
