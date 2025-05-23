@@ -139,8 +139,11 @@ huggingface-cli upload ubowang/1-shot_cft_qwen2-5_math_1-5b_ckpt92_0-328 . --rep
 
 huggingface-cli upload ubowang/1-shot_cft_llama3-2_3b_instruct . --repo-type model
 
+huggingface-cli upload ubowang/1-shot_cft_qwen2-5_14b_ckpt60_0-36 . --repo-type model
 
+huggingface-cli upload ubowang/arxiv-llm-0520_bk arxiv_plain_latex_data_1028.tar.gz --repo-type dataset
 
+huggingface-cli upload ubowang/arxiv-llm-0520_bk ./ --repo-type dataset
 
 
 
