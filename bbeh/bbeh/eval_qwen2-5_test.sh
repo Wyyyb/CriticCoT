@@ -9,8 +9,8 @@ python3 -u run_evaluate.py \
     --model_path ${MODEL_NAME_OR_PATH} \
     --output_dir_path ${OUTPUT_DIR} \
     --summary_path ${SUMMARY_PATH} \
-    --temperature 0.0 \
-    --top_p 1.0 \
+    --temperature 0.7 \
+    --top_p 0.8 \
     --max_tokens 8192
 
 
