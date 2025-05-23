@@ -27,7 +27,7 @@ def main():
     llm, sampling_params = load_vllm_model(args)
     tasks = load_tasks(args.sub_task_list)
 
-    task_map = run_vllm(llm, sampling_params, tasks, args.prompt_template, args.output_dir_path)
+    task_map = run_vllm(llm, sampling_params, tasks, args.prompt_template, args.output_dir_path, args)
     score_sta = compute_score(task_map, args.output_dir_path)
     statistic(score_sta, args)
 
