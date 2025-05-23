@@ -126,7 +126,7 @@ def run_vllm(llm, sampling_params, tasks, prompt_type, output_dir_path, args, en
         accu = score_sta[k]["right"] / (score_sta[k]["right"] + score_sta[k]["wrong"])
         print(k, "accu:", accu)
         with open(args.summary_path, "a") as f:
-            f.write("/".join(args.model_path.split("/")[-2:]) + "\t" + k + "\t" + accu + "\n")
+            f.write("/".join(args.model_path.split("/")[-2:]) + "\t" + k + "\t" + str(accu) + "\n")
         with open(output_res_path, "w") as f:
             f.write(json.dumps(results, indent=4))
         task_map[k] = results
