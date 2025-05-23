@@ -52,7 +52,10 @@ def batch_predict(llm, sampling_params, prompts: List[str]) -> List[str]:
 
 
 def load_tasks(task_list_str):
-    task_list = task_list_str.split(",")
+    if not task_list_str:
+        task_list = None
+    else:
+        task_list = task_list_str.split(",")
     task_map = {}
     for sub_dir in os.listdir("benchmark_tasks"):
         if sub_dir.startswith("bbeh_"):
