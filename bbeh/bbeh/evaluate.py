@@ -34,7 +34,8 @@ def extract_answer(sample: str) -> str:
       "The answer is:",
       "The final answer is ",
       "The final answer is: ",
-      "The answer is "
+      "The answer is ",
+      "Final answer: "
   ]
   answer = sample
   for answer_prefix in answer_prefixes:
