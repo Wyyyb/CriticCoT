@@ -99,11 +99,11 @@ def evaluate_correctness(sample: str, reference: str) -> bool:
 
 
 # Examples
-print(evaluate_correctness("Ok The final answer is: \\boxed{4}.", "4"))
-print(evaluate_correctness("[Reasoning] The final answer is: \\boxed{4}.", "3"))
-print(evaluate_correctness("Alright! The final answer is: 2, 3, 4", "2,3,4"))
-print(evaluate_correctness("blah blah The final answer is: 2, 3, 4", "2,3,5"))
-print(evaluate_correctness("Ok The answer is: \\boxed{(A)}", "a"))
-print(evaluate_correctness("Ok The answer is: (A)", "b"))
-print(evaluate_correctness("Ok The answer is: **25**\nHere's why.", "25.0"))
-print(evaluate_correctness("Ok The answer is: **25**\nHere's why.", "26.0"))
+# print(evaluate_correctness("Ok The final answer is: \\boxed{4}.", "4"))
+# print(evaluate_correctness("[Reasoning] The final answer is: \\boxed{4}.", "3"))
+# print(evaluate_correctness("Alright! The final answer is: 2, 3, 4", "2,3,4"))
+# print(evaluate_correctness("blah blah The final answer is: 2, 3, 4", "2,3,5"))
+# print(evaluate_correctness("Ok The answer is: \\boxed{(A)}", "a"))
+# print(evaluate_correctness("Ok The answer is: (A)", "b"))
+# print(evaluate_correctness("Ok The answer is: **25**\nHere's why.", "25.0"))
+# print(evaluate_correctness("Ok The answer is: **25**\nHere's why.", "26.0"))

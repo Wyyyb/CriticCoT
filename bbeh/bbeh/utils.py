@@ -112,11 +112,13 @@ def run_vllm(llm, sampling_params, tasks, prompt_type, output_dir_path, args, en
         for i, each in enumerate(questions):
             model_output = outputs[i]
             box_ans = extract_boxed_answer(model_output)
+            pred = None
             if box_ans is not None:
-                task_map[k][i]["pred"] = box_ans
+                pred = box_ans
                 model_output = "The answer is: " + box_ans
             score = evaluate_correctness(model_output, gt[i])
-            results.append({"question": each, "output": outputs[i], "gt": gt[i], "score": score})
+            results.append({"question": each, "output": outputs[i], "gt": gt[i],
+                            "pred": pred, "score": score})
             if score is True:
                 score_sta[k]["right"] += 1
             else:
