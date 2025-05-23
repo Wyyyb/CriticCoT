@@ -11,7 +11,7 @@ python3 -u run_evaluate.py \
     --summary_path ${SUMMARY_PATH} \
     --temperature 0.0 \
     --top_p 1.0 \
-    --max_token 4096
+    --max_tokens 4096
 
 
 

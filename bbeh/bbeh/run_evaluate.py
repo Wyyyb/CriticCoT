@@ -17,7 +17,7 @@ def main():
     parser.add_argument("--summary_path", type=str, required=True, help="Path to save the evaluation summary")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--top_p", type=float, default=1.0, help="top_p")
-    parser.add_argument("--max_token", type=int, default=4096, help="Maximum number of tokens to generate")
+    parser.add_argument("--max_tokens", type=int, default=4096, help="Maximum number of tokens to generate")
     parser.add_argument("--sub_task_list", type=str, default=None, help="List of subtasks to evaluate")
     parser.add_argument("--prompt_template", default="qwen2-5", type=str)
     parser.add_argument("--enable_result", default=True, type=str)
