@@ -10,7 +10,7 @@ mkdir -p $output_path
 
 export CUDA_VISIBLE_DEVICES=0,1
 
-bash eval_qwen2-5_bbeh_sarc_triples.sh $model_path $output_path $summary_path
+bash eval_qwen2-5.sh $model_path $output_path $summary_path
 
 
 
