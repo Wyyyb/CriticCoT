@@ -8,7 +8,7 @@ cd /data/yubo/CriticCoT/bbeh/bbeh
 
 mkdir -p $output_path
 
-export CUDA_VISIBLE_DEVICES=4,5,6,7
+export CUDA_VISIBLE_DEVICES=0,1
 
 bash eval_qwen2-5_test.sh $model_path $output_path $summary_path
 
