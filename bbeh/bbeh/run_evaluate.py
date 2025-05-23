@@ -85,11 +85,12 @@ def statistic(score_sta, args):
         "wrong": total_wrong,
         "micro_average_accu": total_right/ (total_wrong + total_right),
         "harmonic_mean": harmonic_mean}
-    score_sta["aa_mini"] = {
-        "right": score_sta["bbeh_zz_mini"]["right"],
-        "wrong": score_sta["bbeh_zz_mini"]["wrong"],
-        "micro_average_accu": score_sta["bbeh_zz_mini"]["right"] / (score_sta["bbeh_zz_mini"]["right"] + score_sta["bbeh_zz_mini"]["wrong"])
-    }
+    if "bbeh_zz_mini" in score_sta:
+        score_sta["aa_mini"] = {
+            "right": score_sta["bbeh_zz_mini"]["right"],
+            "wrong": score_sta["bbeh_zz_mini"]["wrong"],
+            "micro_average_accu": score_sta["bbeh_zz_mini"]["right"] / (score_sta["bbeh_zz_mini"]["right"] + score_sta["bbeh_zz_mini"]["wrong"])
+        }
     sta_output_path = os.path.join(args.output_dir_path, "sta_result.json")
     with open(sta_output_path, "w") as f:
         f.write(json.dumps(score_sta, indent=4))
