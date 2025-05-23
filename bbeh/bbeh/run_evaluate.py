@@ -62,7 +62,7 @@ def compute_harmonic(score_sta):
             continue
         accuracies.append(v["accu"])
     n = len(accuracies)
-    reciprocal_sum = sum(1 / acc for acc in accuracies)
+    reciprocal_sum = sum(1 / (acc + 0.01) for acc in accuracies)
     return n / reciprocal_sum
 
 
