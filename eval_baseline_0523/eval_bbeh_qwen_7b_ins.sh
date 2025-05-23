@@ -2,7 +2,7 @@
 
 summary_path="../baseline_eval_results_0523/qwen2-5_7b_ins/summary.txt"
 model_path="/data/yubo/models/Qwen2.5-7B-Instruct"
-output_path="../baseline_eval_results_0428/qwen3_32b/"
+output_path="../baseline_eval_results_0523/qwen2-5_7b_ins/"
 
 mkdir -p $output_path
 
