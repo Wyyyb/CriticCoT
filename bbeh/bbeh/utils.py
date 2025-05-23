@@ -102,6 +102,7 @@ def run_vllm(llm, sampling_params, tasks, prompt_type, output_dir_path, enable_r
         for each in questions:
             prompts.append(build_prompt(prompt_type, each["input"]))
             gt.append(each["target"])
+        print("len(prompts)", len(prompts), prompts[0])
         outputs = batch_predict(llm, sampling_params, prompts)
         if len(outputs) != len(questions):
             print("inconsistent length of the output and questions", len(outputs), len(questions))
