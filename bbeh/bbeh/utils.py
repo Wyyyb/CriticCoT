@@ -2,7 +2,7 @@ import json
 from vllm import LLM, SamplingParams
 import os
 from typing import List, Dict, Any, Optional
-
+from evaluate import evaluate_correctness
 
 def load_vllm_model(args):
     try:
@@ -87,7 +87,9 @@ def build_prompt(prompt_type, question):
 
 def run_vllm(llm, sampling_params, tasks, prompt_type, output_dir_path, enable_resume=True):
     task_map = {}
+    score_sta = {}
     for k, v in tasks.items():
+        score_sta[k] = {"right": 0.0, "wrong": 0.0}
         output_res_path = os.path.join(output_dir_path, k + "_eval_result.json")
         if os.path.exists(output_res_path) and enable_resume:
             with open(output_res_path, "r") as f:
@@ -102,13 +104,24 @@ def run_vllm(llm, sampling_params, tasks, prompt_type, output_dir_path, enable_r
         for each in questions:
             prompts.append(build_prompt(prompt_type, each["input"]))
             gt.append(each["target"])
-        print("len(prompts)", len(prompts), prompts[0])
+        print("len(prompts)", len(prompts))
         outputs = batch_predict(llm, sampling_params, prompts)
         if len(outputs) != len(questions):
             print("inconsistent length of the output and questions", len(outputs), len(questions))
         results = []
         for i, each in enumerate(questions):
-            results.append({"question": each, "output": outputs[i], "gt": gt[i]})
+            model_output = outputs[i]
+            box_ans = extract_boxed_answer(model_output)
+            if box_ans is not None:
+                task_map[k][i]["pred"] = box_ans
+                model_output = "The answer is: " + box_ans
+            score = evaluate_correctness(model_output, gt[i])
+            results.append({"question": each, "output": outputs[i], "gt": gt[i], "score": score})
+            if score is True:
+                score_sta[k]["right"] += 1
+            else:
+                score_sta[k]["wrong"] += 1
+        print(k, "accu:", score_sta[k]["right"] / (score_sta[k]["right"] + score_sta[k]["wrong"]))
         with open(output_res_path, "w") as f:
             f.write(json.dumps(results, indent=4))
         task_map[k] = results
