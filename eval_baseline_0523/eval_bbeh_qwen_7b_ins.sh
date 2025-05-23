@@ -1,12 +1,12 @@
 
 
-summary_path="../baseline_eval_results_0523/qwen2-5_7b_ins/summary.txt"
+summary_path="../../baseline_eval_results_0523/qwen2-5_7b_ins/summary.txt"
 model_path="/data/yubo/models/Qwen2.5-7B-Instruct"
-output_path="../baseline_eval_results_0523/qwen2-5_7b_ins/"
-
-mkdir -p $output_path
+output_path="../../baseline_eval_results_0523/qwen2-5_7b_ins/"
 
 cd /data/yubo/CriticCoT/bbeh/bbeh
+
+mkdir -p $output_path
 
 export CUDA_VISIBLE_DEVICES=4,5,6,7
 
