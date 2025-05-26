@@ -75,6 +75,11 @@ def build_prompt(prompt_type, question):
                     f"<|im_start|>user\n{question}<|im_end|>\n",
                     "<|im_start|>assistant\n")
         prompt = "\n".join(template)
+    elif prompt_type == "qwen3":
+        template = ("",
+                    f"<|im_start|>user\nPlease reason step by step, and put your final answer within \\boxed{{}}.\n{question}<|im_end|>\n",
+                    "<|im_start|>assistant\n<think>\n")
+        prompt = "\n".join(template)
     else:
         print("unsupported prompt type", prompt_type)
         template = (

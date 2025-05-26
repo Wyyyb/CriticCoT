@@ -1,0 +1,4 @@
+{
+            "input": "Let the answer to Question1 be X.\n\nQuestion1: Rachel was born on 2012-Apr-05 and Brad was born on 2013-Jan-21. How many days is Rachel older than Brad? Your answer should be the number of days without the unit (for example, 233).\n\nLet the answer to Question2 be Y.\n\nQuestion2: Elizabeth and William were born on 2022-May-17 and 2022-Oct-31 respectively. When William was 333 days old, how old was Elizabeth in days? Your answer should be the number of days without the unit (for example, 233).\n\nLet X' = X - 276 and Y' = Y - 472.\n\nUse these values to solve Question3.\n\nQuestion3: Alan and Mary tried a new restaurant on  05-Y'-2002 and really liked it. They decided to go to the same restaurant every X' days. If today is 07-24-2002, when is the next time they will go to that restaurant? Use the date format in the question to report the result.",
+            "target": "07-27-2002"
+        }
