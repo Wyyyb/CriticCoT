@@ -14,6 +14,8 @@ def load_vllm_model(model_path: str):
         # 初始化模型
         if "Qwen2.5-Math-7B" in model_path:
             tp_size = min(4, len(os.environ["CUDA_VISIBLE_DEVICES"].split(",")))
+        elif "Phi-4" in model_path:
+            tp_size = min(2, len(os.environ["CUDA_VISIBLE_DEVICES"].split(",")))
         else:
             tp_size = len(os.environ["CUDA_VISIBLE_DEVICES"].split(","))
         llm = LLM(
@@ -158,7 +160,7 @@ def get_single_solution_item(solution, gt_answer):
 
 
 def main():
-    model_dir = "/data/yubo/models"
+    model_dir = "/data/yubowang/models"
     model_info = {
                   "Qwen2.5-Math-7B-Instruct": "qwen2-5",
                   "Qwen3-4B": "qwen3",
@@ -171,7 +173,7 @@ def main():
                   "MiMo-7B-RL": "qwen3",
                   "DeepSeek-R1-Distill-Qwen-32B": "qwen3",
                   }
-    output_path = "/data/yubo/CriticCoT/local_data/one_shot_data_0511/seed_questions_add_solution_0512.json"
+    output_path = "/data/yubowang/CriticCoT/bbeh_process_data_0525/2_add_solution_data/add_solution_0526.json"
 
     for model_name, model_type in model_info.items():
         print(f"processing {model_name}")
