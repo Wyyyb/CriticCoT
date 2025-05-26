@@ -5,7 +5,7 @@ import json
 def main():
     output_file_path = "2_add_solution_data/add_solution_0526.json"
     input_dir_path = "1_seeds_data/"
-    output_data = []
+    output_data = {}
     for file in os.listdir(input_dir_path):
         if not file.endswith(".json"):
             continue
@@ -14,7 +14,7 @@ def main():
             curr = {"question": data["input"].replace("Question: ", ""),
                     "source": file,
                     "gt_answer": data["target"]}
-            output_data.append(curr)
+            output_data[file] = curr
     with open(output_file_path, "w") as f:
         f.write(json.dumps(output_data))
 
