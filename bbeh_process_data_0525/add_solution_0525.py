@@ -85,6 +85,7 @@ def single_model_inference(model_path, model_name, model_type, output_path):
     global invalid_count, valid_count
     prompts = []
     questions = []
+    cat_list = []
     with open(output_path, "r") as f:
         input_data = json.load(f)
     for k, v in input_data.items():
@@ -100,6 +101,7 @@ def single_model_inference(model_path, model_name, model_type, output_path):
                 print("invalid answer", model_name, v["question"])
         prompt = get_prompt(v["question"], model_type)
         for _ in range(count):
+            cat_list.append(k)
             questions.append(v["question"])
             prompts.append(prompt)
 
@@ -112,7 +114,7 @@ def single_model_inference(model_path, model_name, model_type, output_path):
     # postprocess
     for i, question in enumerate(questions):
         solution = outputs[i]
-        item = get_single_solution_item(solution, input_data[question]["gt_answer"])
+        item = get_single_solution_item(solution, input_data[cat_list[i]]["gt_answer"])
         # if item["extracted_answer"] is None:
         #     invalid_count += 1
         #     continue
