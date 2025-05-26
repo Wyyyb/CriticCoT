@@ -1,10 +1,10 @@
 
 
 summary_path="../../baseline_eval_results_0523/qwen3_4b/summary.txt"
-model_path="/data/yubo/models/Qwen3-4B"
+model_path="/data/yubowang/models/Qwen3-4B"
 output_path="../../baseline_eval_results_0523/qwen3_4b/"
 
-cd /data/yubo/CriticCoT/bbeh/bbeh
+cd /data/yubowang/CriticCoT/bbeh/bbeh
 
 mkdir -p $output_path
 
