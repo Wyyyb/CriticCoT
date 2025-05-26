@@ -10,7 +10,7 @@ mkdir -p $output_path
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
-bash eval_qwen2-5.sh $model_path $output_path $summary_path
+bash eval_qwen3.sh $model_path $output_path $summary_path
 
 
 
