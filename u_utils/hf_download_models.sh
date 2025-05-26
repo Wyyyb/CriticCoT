@@ -214,7 +214,9 @@ huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-base --l
 
 huggingface-cli download --repo-type model deepseek-ai/deepseek-math-7b-instruct --local-dir /data/yubo/models/deepseek-math-7b-instruct
 
-huggingface-cli download --repo-type model Qwen/Qwen3-4B-Base --local-dir /data/yubo/models/Qwen3-4B-Base
+huggingface-cli download --repo-type model Qwen/Qwen3-4B-Base --local-dir /data/yubowang/models/Qwen3-4B-Base
+
+huggingface-cli download --repo-type model Qwen/Qwen3-8B-Base --local-dir /data/yubowang/models/Qwen3-8B-Base
 
 huggingface-cli download --repo-type model Qwen/Qwen3-4B --local-dir /data/yubo/models/Qwen3-4B
 
@@ -224,9 +226,13 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-7B-Instruct --local-dir 
 
 huggingface-cli download --repo-type model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --local-dir /data/yubowang/models/DeepSeek-R1-Distill-Qwen-32B
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-7B --local-dir /data/yubowang/models/Qwen2.5-7B
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-14B --local-dir /data/yubowang/models/Qwen2.5-14B
 
+huggingface-cli download --repo-type model meta-llama/Llama-3.1-8B --local-dir /data/yubowang/models/Llama-3.1-8B
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-14B-Instruct --local-dir /data/yubowang/models/Qwen2.5-14B-Instruct
 
 
 

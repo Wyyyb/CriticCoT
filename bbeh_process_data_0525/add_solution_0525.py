@@ -113,9 +113,9 @@ def single_model_inference(model_path, model_name, model_type, output_path):
     for i, question in enumerate(questions):
         solution = outputs[i]
         item = get_single_solution_item(solution, input_data[question]["gt_answer"])
-        if item["extracted_answer"] is None:
-            invalid_count += 1
-            continue
+        # if item["extracted_answer"] is None:
+        #     invalid_count += 1
+        #     continue
         input_data[question]["student_solutions"][model_name].append(item)
         valid_count += 1
     with open(output_path, "w") as f:
@@ -181,10 +181,11 @@ def main():
         if not os.path.exists(model_path):
             print(f"model path {model_path} does not exist")
             continue
-        try:
-            single_model_inference(model_path, model_name, model_type, output_path)
-        except Exception as e:
-            print("exception", e)
+        # try:
+        #     single_model_inference(model_path, model_name, model_type, output_path)
+        # except Exception as e:
+        #     print("exception", e)
+        single_model_inference(model_path, model_name, model_type, output_path)
 
 
 if __name__ == "__main__":
