@@ -113,12 +113,13 @@ def single_model_inference(model_path, model_name, model_type, output_path):
 
     # postprocess
     for i, question in enumerate(questions):
+        k = cat_list[i]
         solution = outputs[i]
-        item = get_single_solution_item(solution, input_data[cat_list[i]]["gt_answer"])
+        item = get_single_solution_item(solution, input_data[k]["gt_answer"])
         # if item["extracted_answer"] is None:
         #     invalid_count += 1
         #     continue
-        input_data[question]["student_solutions"][model_name].append(item)
+        input_data[k]["student_solutions"][model_name].append(item)
         valid_count += 1
     with open(output_path, "w") as f:
         f.write(json.dumps(input_data, indent=4))
