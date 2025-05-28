@@ -6,9 +6,9 @@ set -x
 
 MODEL_PATH="/data/yubo/models/Qwen2.5-Math-7B"
 
-DATA_PATH="/data/yubo/CriticCoT/bbeh_exp_0528/training_data_0528/bbeh_one-shot_train_data_0528-medium_time_arithmetic_p1.jsonl"
+DATA_PATH="/data/yubo/CriticCoT/bbeh_exp_0528/training_data_0528/bbeh_one-shot_train_data_0528-medium_time_arithmetic_p0.jsonl"
 
-OUTPUT_DIR="/data/yubo/CriticCoT/ms-swift/output_models_0528_bbeh_qwen_2-5_math_7b_medium_time_arithmetic_p1/"
+OUTPUT_DIR="/data/yubo/CriticCoT/ms-swift/output_models_0528_bbeh_qwen_2-5_math_7b_medium_time_arithmetic_p0/"
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
