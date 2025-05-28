@@ -15,3 +15,6 @@ export CUDA_VISIBLE_DEVICES=4,5,6,7
 
 bash eval_qwen2-5_task.sh $model_path $output_path $summary_path $task_list
 
+cd /map-vepfs/yubo/CriticCoT/bbeh_exp_0528/map_scripts_0528/
+
+bash eval_qwen25_math_easy_causal_understanding_p1.sh
