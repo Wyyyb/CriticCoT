@@ -13,7 +13,7 @@ cd /data/yubo/CriticCoT/bbeh/bbeh
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 # 循环处理checkpoint-2到checkpoint-50，步长为2
-for i in $(seq 20 2 50); do
+for i in $(seq 8 2 50); do
   checkpoint="checkpoint-$i"
   model_path="$base_dir/$checkpoint"
 
