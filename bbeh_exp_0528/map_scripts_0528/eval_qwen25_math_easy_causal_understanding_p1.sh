@@ -19,7 +19,7 @@ for i in $(seq 2 2 50); do
 
   # 创建对应的输出目录
   output_path="$output_base_dir/$model_name/$checkpoint"
-  summary_path="$output_path/summary.txt"
+  summary_path="$output_base_dir/$model_name/summary.txt"
 
   # 确保输出目录存在
   mkdir -p $output_path
