@@ -9,10 +9,10 @@ task_list="bbeh_causal_understanding,bbeh_disambiguation_qa,bbeh_boolean_express
 
 cd /data/yubo/CriticCoT/bbeh/bbeh
 
-export CUDA_VISIBLE_DEVICES=4,5,6,7
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 # 循环处理checkpoint-2到checkpoint-50，步长为2
-for i in $(seq 2 2 50); do
+for i in $(seq 20 2 50); do
   checkpoint="checkpoint-$i"
   model_path="$base_dir/$checkpoint"
 
