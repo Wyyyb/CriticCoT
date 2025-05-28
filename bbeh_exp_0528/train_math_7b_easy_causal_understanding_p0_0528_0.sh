@@ -24,7 +24,6 @@ torchrun \
     --model $MODEL_PATH \
     --train_type full \
     --torch_dtype bfloat16 \
-    --attn_impl flash_attn \
     \
     --dataset $DATA_PATH \
     --split_dataset_ratio 0 \
@@ -59,6 +58,7 @@ torchrun \
     --freeze_vit False \
     --freeze_aligner False\
 
+    # --attn_impl flash_attn \
 
     # --save_strategy "epoch" \
     # --save_strategy "steps" \
