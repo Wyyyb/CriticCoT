@@ -7,7 +7,7 @@ output_base_dir="../../eval_results_0528_easy_causal_understanding_p1"
 model_name="Qwen2.5-Math-7B"
 task_list="bbeh_causal_understanding,bbeh_disambiguation_qa,bbeh_boolean_expressions,bbeh_time_arithmetic,bbeh_buggy_tables,bbeh_object_counting,bbeh_zz_mini"
 
-cd /data/yubo/CriticCoT/bbeh/bbeh
+cd /map-vepfs/yubo/CriticCoT/bbeh/bbeh
 
 export CUDA_VISIBLE_DEVICES=0
 
