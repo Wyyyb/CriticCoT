@@ -9,5 +9,10 @@ pip install timm -U
 pip install deepspeed -U
 pip install qwen_vl_utils qwen_omni_utils decord librosa pyav icecream soundfile -U
 pip install liger_kernel nvitop pre-commit -U
+
+pip install wandb --upgrade
+
 pip install flash-attn -U --no-build-isolation
 # flash-attn: https://github.com/Dao-AILab/flash-attention/releases
+
+
