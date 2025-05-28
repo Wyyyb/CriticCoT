@@ -1,15 +1,15 @@
 
-source /map-vepfs/miniconda3/bin/activate
-conda activate yubo_eval
+# source /map-vepfs/miniconda3/bin/activate
+conda activate cft_eval
 
-base_dir="/map-vepfs/yubo/CriticCoT/ms-swift/output_models_0528_bbeh_qwen_2-5_math_7b_easy_causal_understanding_p1/v0-20250528-183855"
-output_base_dir="../../eval_results_0528_easy_causal_understanding_p1"
+base_dir="/data/yubo/CriticCoT/ms-swift/output_models_0528_bbeh_qwen_2-5_math_7b_easy_causal_understanding_p0/v3-20250528-180315"
+output_base_dir="../../eval_results_0528_easy_causal_understanding_p0"
 model_name="Qwen2.5-Math-7B"
 task_list="bbeh_causal_understanding,bbeh_disambiguation_qa,bbeh_boolean_expressions,bbeh_time_arithmetic,bbeh_buggy_tables,bbeh_object_counting,bbeh_zz_mini"
 
 cd /data/yubo/CriticCoT/bbeh/bbeh
 
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=4,5,6,7
 
 # 循环处理checkpoint-2到checkpoint-50，步长为2
 for i in $(seq 2 2 50); do
