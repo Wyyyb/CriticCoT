@@ -12,6 +12,7 @@ def load_vllm_model(args):
             config["max_position_embeddings"] = 8192
             with open(config_path, "w") as fo:
                 json.dump(config, fo, indent=4)
+
     generation_config_path = os.path.join(args.model_path, "generation_config.json")
     with open(generation_config_path, "r") as f:
         config = json.load(f)
