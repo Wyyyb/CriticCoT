@@ -234,5 +234,6 @@ huggingface-cli download --repo-type model meta-llama/Llama-3.1-8B --local-dir /
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-14B-Instruct --local-dir /data/yubowang/models/Qwen2.5-14B-Instruct
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-7B --local-dir /map-vepfs/yubo/models/Qwen2.5-7B
 
 
