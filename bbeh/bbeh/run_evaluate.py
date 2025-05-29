@@ -96,7 +96,7 @@ def statistic(score_sta, args):
         f.write(json.dumps(score_sta, indent=4))
     with open(args.summary_path, "a") as f:
         f.write(model_name + "\t" + formatted_time + "\n")
-        f.write(json.dumps(score_sta))
+        f.write(json.dumps(score_sta) + "\n")
     print("json.dumps(score_sta)", json.dumps(score_sta))
 
 
