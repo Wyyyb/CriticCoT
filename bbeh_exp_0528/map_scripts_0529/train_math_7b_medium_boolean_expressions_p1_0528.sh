@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -x
 
+source /map-vepfs/miniconda3/bin/activate
+conda activate ys_swift
+
 MODEL_PATH="/map-vepfs/yubo/models/Qwen2.5-Math-7B"
 
 DATA_PATH="/map-vepfs/yubo/CriticCoT/bbeh_exp_0528/training_data_0528/bbeh_one-shot_train_data_0528-medium_boolean_expressions_p1.jsonl"
