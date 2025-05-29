@@ -74,4 +74,6 @@ torchrun \
     # --eval_strategy None \
     # --custom_dataset_in
 
+cd /data/yubo/CriticCoT/bbeh_exp_0528/ping_scripts_0529
 
+bash eval_qwen3_4b_medium_boolean_expressions_p0.sh
