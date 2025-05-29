@@ -4,13 +4,11 @@
 source /map-vepfs/miniconda3/bin/activate
 conda activate ys_swift
 
-echo "123"
-
 MODEL_PATH="/map-vepfs/yubo/models/Qwen2.5-Math-7B"
 
 DATA_PATH="/map-vepfs/yubo/CriticCoT/bbeh_exp_0528/training_data_0528/bbeh_one-shot_train_data_0528-easy_disambiguation_qa_p1.jsonl"
 
-OUTPUT_DIR="/map-vepfs/yubo/CriticCoT/ms-swift/output_models_0528_bbeh_qwen_2-5_math_7b_easy_disambiguation_qa_p1/"
+OUTPUT_DIR="/map-vepfs/yubo/CriticCoT/ms-swift/output_models_0528_bbeh_qwen_2-5_math_7b_easy_disambiguation_qa_p1_attn/"
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
@@ -62,7 +60,7 @@ torchrun \
     --freeze_llm False \
     --freeze_vit False \
     --freeze_aligner False\
-    #--attn_impl flash_attn \
+    --attn_impl flash_attn \
 
     # --attn_impl flash_attn \
 

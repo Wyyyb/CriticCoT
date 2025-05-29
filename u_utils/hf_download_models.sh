@@ -228,7 +228,7 @@ huggingface-cli download --repo-type model deepseek-ai/DeepSeek-R1-Distill-Qwen-
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-7B --local-dir /data/yubowang/models/Qwen2.5-7B
 
-huggingface-cli download --repo-type model Qwen/Qwen2.5-14B --local-dir /data/yubowang/models/Qwen2.5-14B
+huggingface-cli download --repo-type model Qwen/Qwen2.5-14B --local-dir /map-vepfs/yubo/models/Qwen2.5-14B
 
 huggingface-cli download --repo-type model meta-llama/Llama-3.1-8B --local-dir /data/yubowang/models/Llama-3.1-8B
 
