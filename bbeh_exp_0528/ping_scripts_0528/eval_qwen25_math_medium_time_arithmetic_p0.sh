@@ -6,7 +6,7 @@ base_dir="/data/yubo/CriticCoT/ms-swift/output_models_0528_bbeh_qwen_2-5_math_7b
 output_base_dir="../../eval_results_0528_medium_time_arithmetic_p0"
 model_name="Qwen2.5-Math-7B"
 # task_list="bbeh_causal_understanding,bbeh_disambiguation_qa,bbeh_boolean_expressions,bbeh_time_arithmetic,bbeh_buggy_tables,bbeh_object_counting,bbeh_zz_mini"
-task_list="bbeh_causal_understanding,bbeh_zz_mini"
+task_list="bbeh_time_arithmetic,bbeh_zz_mini"
 
 cd /data/yubo/CriticCoT/bbeh/bbeh
 

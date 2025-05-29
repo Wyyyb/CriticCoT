@@ -1,12 +1,12 @@
 
-# source /map-vepfs/miniconda3/bin/activate
-conda activate cft_eval
+source /map-vepfs/miniconda3/bin/activate
+conda activate yubo_eval
 
 base_dir="/map-vepfs/yubo/CriticCoT/ms-swift/output_models_0528_bbeh_qwen_2-5_math_7b_medium_time_arithmetic_p1/v0-20250528-213335"
 output_base_dir="../../eval_results_0528_medium_time_arithmetic_p1"
 model_name="Qwen2.5-Math-7B"
 # task_list="bbeh_causal_understanding,bbeh_disambiguation_qa,bbeh_boolean_expressions,bbeh_time_arithmetic,bbeh_buggy_tables,bbeh_object_counting,bbeh_zz_mini"
-task_list="bbeh_causal_understanding,bbeh_zz_mini"
+task_list="bbeh_time_arithmetic,bbeh_zz_mini"
 
 cd /map-vepfs/yubo/CriticCoT/bbeh/bbeh
 
