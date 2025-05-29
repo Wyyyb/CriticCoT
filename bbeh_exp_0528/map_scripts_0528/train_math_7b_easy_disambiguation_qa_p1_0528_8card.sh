@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+#set -x
 
 source /map-vepfs/miniconda3/bin/activate
 conda activate ys_swift
