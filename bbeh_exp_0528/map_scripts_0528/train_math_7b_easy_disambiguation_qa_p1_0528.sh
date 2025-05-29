@@ -60,7 +60,7 @@ torchrun \
     --freeze_llm False \
     --freeze_vit False \
     --freeze_aligner False\
-    --attn_impl flash_attn \
+    #--attn_impl flash_attn \
 
     # --attn_impl flash_attn \
 
