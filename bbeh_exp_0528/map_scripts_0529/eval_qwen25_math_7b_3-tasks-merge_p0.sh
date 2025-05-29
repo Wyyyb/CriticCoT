@@ -10,7 +10,7 @@ task_list="bbeh_causal_understanding,bbeh_disambiguation_qa,bbeh_time_arithmetic
 
 cd /map-vepfs/yubo/CriticCoT/bbeh/bbeh
 
-export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 # 循环处理checkpoint-2到checkpoint-50，步长为2
 for i in $(seq 10 10 150); do
