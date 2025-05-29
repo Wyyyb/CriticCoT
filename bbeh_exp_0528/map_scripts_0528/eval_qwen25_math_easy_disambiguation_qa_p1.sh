@@ -1,4 +1,8 @@
 
+cd /map-vepfs/yubo/CriticCoT/bbeh_exp_0528/map_scripts_0528
+
+bash train_qwen_14b_easy_disambiguation_qa_p0_0529.sh
+
 source /map-vepfs/miniconda3/bin/activate
 conda activate yubo_eval
 
