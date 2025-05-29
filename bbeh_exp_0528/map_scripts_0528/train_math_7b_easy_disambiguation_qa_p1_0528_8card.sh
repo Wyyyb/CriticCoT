@@ -4,6 +4,8 @@
 source /map-vepfs/miniconda3/bin/activate
 conda activate ys_swift
 
+echo "123"
+
 MODEL_PATH="/map-vepfs/yubo/models/Qwen2.5-Math-7B"
 
 DATA_PATH="/map-vepfs/yubo/CriticCoT/bbeh_exp_0528/training_data_0528/bbeh_one-shot_train_data_0528-easy_disambiguation_qa_p1.jsonl"
