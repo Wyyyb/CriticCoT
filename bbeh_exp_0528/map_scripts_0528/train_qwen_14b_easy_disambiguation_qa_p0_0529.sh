@@ -2,7 +2,7 @@
 set -x
 
 source /map-vepfs/miniconda3/bin/activate
-conda activate u_swift
+conda activate ys_swift
 
 MODEL_PATH="/map-vepfs/yubo/models/Qwen2.5-14B"
 
