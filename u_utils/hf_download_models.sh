@@ -236,4 +236,5 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-14B-Instruct --local-dir
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-7B --local-dir /map-vepfs/yubo/models/Qwen2.5-7B
 
+huggingface-cli download --repo-type model Qwen/Qwen3-4B-Base --local-dir /map-vepfs/yubo/models/Qwen3-4B-Base
 
