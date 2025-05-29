@@ -45,7 +45,7 @@ torchrun \
     --weight_decay 0.05 \
     --learning_rate 5e-6 \
     --lr_scheduler_type "cosine" \
-    --report_to "wandb" \
+    --report_to none \
     --logging_first_step True \
     --logging_steps 1 \
     \
