@@ -49,12 +49,12 @@ torchrun \
     --logging_first_step True \
     --logging_steps 1 \
     \
-    --num_train_epochs 150 \
+    --num_train_epochs 50 \
     --gradient_accumulation_steps 64 \
     --save_strategy "steps" \
-    --save_steps 5 \
+    --save_steps 10 \
     --save_only_model True \
-    --warmup_ratio 0.1 \
+    --warmup_ratio 0.05 \
     --ddp_backend "nccl" \
     \
     --freeze_llm False \
