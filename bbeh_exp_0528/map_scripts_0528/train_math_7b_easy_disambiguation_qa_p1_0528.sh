@@ -75,6 +75,6 @@ torchrun \
     # --eval_strategy None \
     # --custom_dataset_in
 
-
+cd /map-vepfs/yubo/CriticCoT/bbeh_exp_0528/map_scripts_0528
 bash eval_qwen25_math_easy_disambiguation_qa_p1.sh
 
