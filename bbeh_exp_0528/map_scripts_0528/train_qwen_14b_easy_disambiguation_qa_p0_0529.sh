@@ -45,7 +45,7 @@ torchrun \
     --weight_decay 0.05 \
     --learning_rate 5e-6 \
     --lr_scheduler_type "cosine" \
-    --report_to "wandb" \
+    --report_to none \
     --logging_first_step True \
     --logging_steps 1 \
     \
@@ -60,7 +60,7 @@ torchrun \
     --freeze_llm False \
     --freeze_vit False \
     --freeze_aligner False\
-    --attn_impl flash_attn \
+    # --attn_impl flash_attn \
 
     # --save_strategy "epoch" \
     # --save_strategy "steps" \
@@ -73,4 +73,8 @@ torchrun \
     # --eval_strategy None \
     # --custom_dataset_in
 
+
+cd /map-vepfs/yubo/CriticCoT/bbeh_exp_0528/map_scripts_0528
+
+bash eval_qwen_14b_easy_disambiguation_qa_p0.sh
 
