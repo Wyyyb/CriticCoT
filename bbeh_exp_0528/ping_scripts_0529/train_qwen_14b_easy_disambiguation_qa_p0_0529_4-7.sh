@@ -14,12 +14,12 @@ if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
 fi
 
-export CUDA_VISIBLE_DEVICES=4,5,6,7
+export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
 cd /data/yubo/CriticCoT/ms-swift
 
 torchrun \
-    --nproc_per_node 4 \
+    --nproc_per_node 8 \
     --standalone \
     swift/cli/sft.py\
     --use_hf True \
@@ -30,12 +30,12 @@ torchrun \
     \
     --dataset $DATA_PATH \
     --split_dataset_ratio 0 \
-    --dataset_num_proc 4 \
+    --dataset_num_proc 8 \
     --streaming False \
     --strict False \
     --deepspeed zero3 \
     --remove_unused_columns False \
-    --dataloader_num_workers 4 \
+    --dataloader_num_workers 8 \
     \
     --truncation_strategy delete \
     \
@@ -50,7 +50,7 @@ torchrun \
     --logging_steps 1 \
     \
     --num_train_epochs 50 \
-    --gradient_accumulation_steps 128 \
+    --gradient_accumulation_steps 64 \
     --save_strategy "steps" \
     --save_steps 10 \
     --save_only_model True \
