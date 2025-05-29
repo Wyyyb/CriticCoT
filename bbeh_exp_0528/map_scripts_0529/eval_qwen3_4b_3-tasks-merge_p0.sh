@@ -2,7 +2,7 @@
 source /map-vepfs/miniconda3/bin/activate
 conda activate yubo_eval
 
-base_dir="/map-vepfs/yubo/CriticCoT/ms-swift/output_models_0529_bbeh_qwen3_4b_base_3-tasks-merge_p0/v0-20250529-182039"
+base_dir="/map-vepfs/yubo/CriticCoT/ms-swift/output_models_0529_bbeh_qwen3_4b_base_3-tasks-merge_p0/v1-20250529-182439"
 output_base_dir="../../eval_results_0529_qwen3_4b_3-tasks-merge_p0"
 model_name="Qwen3-4B-Base"
 # task_list="bbeh_causal_understanding,bbeh_disambiguation_qa,bbeh_boolean_expressions,bbeh_time_arithmetic,bbeh_buggy_tables,bbeh_object_counting,bbeh_zz_mini"
