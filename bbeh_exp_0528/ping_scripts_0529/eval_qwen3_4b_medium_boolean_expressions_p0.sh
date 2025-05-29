@@ -37,3 +37,9 @@ for i in $(seq 10 10 100); do
   # 可选：添加间隔时间，避免资源冲突
   sleep 5
 done
+
+
+cd /data/yubo/CriticCoT/bbeh_exp_0528/ping_scripts_0528
+
+bash eval_qwen25_math_medium_boolean_expressions_p0.sh
+
