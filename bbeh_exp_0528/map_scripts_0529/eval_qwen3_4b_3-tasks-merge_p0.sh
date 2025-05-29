@@ -32,7 +32,7 @@ for i in $(seq 10 10 150); do
   echo "==========================================================="
 
   # 运行评估脚本
-  bash eval_qwen2-5_task.sh $model_path $output_path $summary_path $task_list
+  bash eval_qwen3_task.sh $model_path $output_path $summary_path $task_list
 
   # 可选：添加间隔时间，避免资源冲突
   sleep 5
