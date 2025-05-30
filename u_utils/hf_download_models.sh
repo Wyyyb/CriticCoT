@@ -238,3 +238,12 @@ huggingface-cli download --repo-type model Qwen/Qwen2.5-7B --local-dir /map-vepf
 
 huggingface-cli download --repo-type model Qwen/Qwen3-4B-Base --local-dir /map-vepfs/yubo/models/Qwen3-4B-Base
 
+huggingface-cli download --repo-type model ubowang/bbeh_qwen25_math_7b_1-shot_cft_causal_understanding_ckpt40 --local-dir /map-vepfs/yubo/cft_models/bbeh_qwen25_math_7b_1-shot_cft_causal_understanding_ckpt40
+
+huggingface-cli download --repo-type model ubowang/bbeh_qwen25_math_7b_1-shot_cft_disambiguation_qa_ckpt30 --local-dir /map-vepfs/yubo/cft_models/bbeh_qwen25_math_7b_1-shot_cft_disambiguation_qa_ckpt30
+
+huggingface-cli download --repo-type model ubowang/bbeh_qwen25_math_7b_1-shot_cft_time_arithmetic_ckpt30 --local-dir /map-vepfs/yubo/cft_models/bbeh_qwen25_math_7b_1-shot_cft_time_arithmetic_ckpt30
+
+
+
+

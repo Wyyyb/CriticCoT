@@ -145,5 +145,9 @@ huggingface-cli upload ubowang/arxiv-llm-0520_bk arxiv_plain_latex_data_1028.tar
 
 huggingface-cli upload ubowang/arxiv-llm-0520_bk ./ --repo-type dataset
 
+huggingface-cli upload ubowang/bbeh_qwen25_math_7b_1-shot_cft_causal_understanding_ckpt40 . --repo-type model
 
+huggingface-cli upload ubowang/bbeh_qwen25_math_7b_1-shot_cft_disambiguation_qa_ckpt30 . --repo-type model
+
+huggingface-cli upload ubowang/bbeh_qwen25_math_7b_1-shot_cft_time_arithmetic_ckpt30 . --repo-type model
 
