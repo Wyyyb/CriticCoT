@@ -11,7 +11,7 @@ cd /map-vepfs/yubo/CriticCoT/bbeh/bbeh
 
 mkdir -p $output_path
 
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=4,5,6,7
 
 bash eval_qwen2-5_task.sh $model_path $output_path $summary_path $task_list
 
