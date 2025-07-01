@@ -244,6 +244,8 @@ huggingface-cli download --repo-type model ubowang/bbeh_qwen25_math_7b_1-shot_cf
 
 huggingface-cli download --repo-type model ubowang/bbeh_qwen25_math_7b_1-shot_cft_time_arithmetic_ckpt30 --local-dir /map-vepfs/yubo/cft_models/bbeh_qwen25_math_7b_1-shot_cft_time_arithmetic_ckpt30
 
+huggingface-cli download --repo-type model OpenSciLM/OpenScholar_Retriever --local-dir /data/yubo/models/OpenScholar_Retriever
 
+huggingface-cli download --repo-type model OpenSciLM/OpenScholar_Reranker --local-dir /data/yubo/models/OpenScholar_Reranker
 
 

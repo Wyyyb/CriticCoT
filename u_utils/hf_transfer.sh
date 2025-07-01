@@ -151,3 +151,7 @@ huggingface-cli upload ubowang/bbeh_qwen25_math_7b_1-shot_cft_disambiguation_qa_
 
 huggingface-cli upload ubowang/bbeh_qwen25_math_7b_1-shot_cft_time_arithmetic_ckpt30 . --repo-type model
 
+huggingface-cli upload ubowang/1-shot-cft-data ./ --repo-type dataset
+
+
+huggingface-cli upload ubowang/qwen3_4b_cft_ckpt40 . --repo-type model

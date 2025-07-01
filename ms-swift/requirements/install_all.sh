@@ -10,6 +10,7 @@ pip install deepspeed -U
 pip install qwen_vl_utils qwen_omni_utils decord librosa pyav icecream soundfile -U
 pip install liger_kernel nvitop pre-commit -U
 
+huggingface-cli download Qwen/Qwen3-4B-Base --local-dir /Qwen3-4B-Base
 pip install wandb --upgrade
 
 pip install flash-attn -U --no-build-isolation

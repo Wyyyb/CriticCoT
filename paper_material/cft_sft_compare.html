@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFT vs CFT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            font-size: 19px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 0px;
+            gap: 0px;
+        }
+
+        .section {
+            width: 49%;
+            border: 0.1px solid #ddd;
+            border-radius: 1px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensures consistent height */
+            min-height: 500px; /* Set consistent height for both sections */
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 0px;
+            background-color: #f9f9f9;
+        }
+
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background-color: #f0f8ff;
+            padding: 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        /* Specific Arrow Styles for SFT and CFT */
+        .sft-arrow {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 21px 0; /* Larger margin for SFT arrow */
+        }
+
+        .cft-arrow {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 12px 0; /* Smaller margin for CFT arrow */
+        }
+
+        .output {
+            background-color: #e6ffe6;
+            border: 1px solid #b3ffb3;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SFT Section -->
+        <div class="section">
+            <div class="title">Supervised Fine-Tuning (SFT)</div>
+
+            <!-- Input -->
+            <div class="box">
+                <div class="box-title">Model Input:</div>
+                <p><span class="highlight">Instruction:</span> "Please solve the following question step by step."</p>
+                <p><span class="highlight">Question:</span> "The pressure \\( P \\) exerted by wind on a sail varies jointly as the area \\( A \\) and the cube of the wind's velocity \\( V \\). When the velocity is 8 miles per hour, the pressure on a sail of 2 square feet is 4 pounds. Find the wind velocity when the pressure on 4 square feet of sail is 32 pounds."</p>
+            </div>
+
+            <div class="arrow sft-arrow">↓</div>
+
+            <!-- Output -->
+            <div class="box output">
+                <div class="box-title">Model Output:</div>
+                <p><span class="highlight">Solution:</span></p>
+                <p>
+                    Wind pressure \( P \) varies jointly with sail area \( A \) and cube of wind velocity \( V \): \( P = k \cdot A \cdot V^3 \).
+                </p>
+                <p>
+                    <strong>Given:</strong> When \( V = 8 \) mph, \( A = 2 \) sq ft, \( P = 4 \) lbs. Finding \( k \): <br>
+                    \( 4 = k \cdot 2 \cdot 8^3 \) <br>
+                    \( 4 = k \cdot 2 \cdot 512 \) <br>
+                    \( k = \frac{1}{256} \)
+                </p>
+                <p>
+                    <strong>Finding \( V \):</strong> When \( A = 4 \) sq ft, \( P = 32 \) lbs: <br>
+                    \( 32 = \frac{1}{256} \cdot 4 \cdot V^3 \) <br>
+                    \( 32 = \frac{1}{64} \cdot V^3 \) <br>
+                    \( V^3 = 2048 = 2^{11} \) <br>
+                    \( V = \sqrt[3]{2048} = 2^{11/3} = 8 \cdot \sqrt[3]{4} \)
+                </p>
+                <p>
+                    <strong>Answer:</strong> Wind velocity is \( 8\sqrt[3]{4} \) mph.
+                </p>
+            </div>
+        </div>
+
+        <!-- CFT Section -->
+        <div class="section">
+            <div class="title">Critique Fine-Tuning (CFT)</div>
+
+            <!-- Input -->
+            <div class="box">
+                <div class="box-title">Model Input:</div>
+                <p><span class="highlight">Critique instruction:</span> "Please critique whether the following solution to the question is correct."</p>
+                <p><span class="highlight">Question:</span> "The pressure \\( P \\) exerted by wind on a sail varies jointly as the area \\( A \\) and the cube of the wind's velocity \\( V \\). When the velocity is 8 miles per hour, the pressure on a sail of 2 square feet is 4 pounds. Find the wind velocity when the pressure on 4 square feet of sail is 32 pounds."</p>
+                <p><span class="highlight">Candidate solution:</span> <br>
+
+\( P = k \cdot A \cdot V^3 \) <br>
+
+Given: \( P = 4 \), \( A = 2 \), \( V = 8 \) <br>
+
+\( 4 = k \cdot 2 \cdot 8^3 \) → \( k = \frac{1}{256} \) <br>
+
+Find \( V \) when \( A = 4 \), \( P = 32 \): <br>
+
+\( 32 = \frac{1}{256} \cdot 4 \cdot V^3 \) → \( V^3 = 2048 \) → \( V = 8\sqrt[3]{4} \) mph
+
+</p>
+            </div>
+
+            <div class="arrow cft-arrow">↓</div>
+
+            <!-- Output -->
+            <div class="box output">
+                <div class="box-title">Model Output:</div>
+                <p><span class="highlight">Critique:</span></p>
+                <ul>
+                    <li><strong>Key Mathematical Concepts:</strong> Joint variation, cube relationships, solving for constants, and simplifying cube roots.</li>
+                    <li><strong>Step-by-step Check:</strong></li>
+                    <ul>
+                        <li>Initial equation setup \( P = k \cdot A \cdot V^3 \) is correct.</li>
+                        <li>Substitution with \( P = 4, A = 2, V = 8 \): \( k = 1/256 \) is correct.</li>
+                        <li>Solving \( V^3 = 2048 \) and simplifying \( V = 8\sqrt[3]{4} \) are accurate.</li>
+                    </ul>
+                    <li><strong>Final Answer:</strong> \( \boxed{8\sqrt[3]{4}} \) miles per hour is correct.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
