@@ -248,4 +248,5 @@ huggingface-cli download --repo-type model OpenSciLM/OpenScholar_Retriever --loc
 
 huggingface-cli download --repo-type model OpenSciLM/OpenScholar_Reranker --local-dir /data/yubo/models/OpenScholar_Reranker
 
+huggingface-cli download --repo-type model Qwen/Qwen2.5-14B-Instruct --local-dir /data/yubo/models/Qwen2.5-14B-Instruct
 
