@@ -124,8 +124,13 @@ python generate_critique_data.py \
     --analyze
 print_success "Critique data generated successfully."
 
-# Step 8: Summary
-print_status "Step 8: Pipeline summary..."
+# Step 8: Format critique data
+print_status "Step 8: Formatting critique data..."
+python format_critique_data.py --analyze
+print_success "Critique data formatted successfully."
+
+# Step 9: Summary
+print_status "Step 9: Pipeline summary..."
 echo "=========================================="
 echo "Pipeline completed successfully!"
 echo "=========================================="
@@ -141,19 +146,26 @@ if [ -f "../cft_data/deepscaler_critique.json" ]; then
     print_success "Critique data: $CRITIQUE_COUNT critiques"
 fi
 
+if [ -f "../cft_data/deepscaler_critique_formatted.json" ]; then
+    FORMATTED_COUNT=$(python -c "import json; print(len(json.load(open('../cft_data/deepscaler_critique_formatted.json'))))")
+    print_success "Formatted critique data: $FORMATTED_COUNT items"
+fi
+
 echo ""
 print_success "Output files created:"
 echo "  - ../cft_data/deepscaler_qwen25_solutions.json"
 echo "  - ../cft_data/deepscaler_qwen3_solutions.json"
 echo "  - ../cft_data/deepscaler_train_filter.json"
 echo "  - ../cft_data/deepscaler_critique.json"
+echo "  - ../cft_data/deepscaler_critique_formatted.json"
 
 echo ""
 print_status "Next steps:"
 echo "  1. Review the generated critique data"
-echo "  2. Use the critique data for training your critique model"
+echo "  2. Use the formatted critique data for training your critique model"
 echo "  3. Optionally, run test scripts to verify the logic:"
 echo "     - python test_filter.py"
 echo "     - python test_critique.py"
+echo "     - python test_format.py"
 
 print_success "Pipeline completed!" 

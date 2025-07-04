@@ -4,12 +4,13 @@ This directory contains scripts for generating candidate solutions using vLLM wi
 
 ## Overview
 
-The process is split into five main steps:
+The process is split into six main steps:
 1. **Generate Solutions** - Use vLLM to generate solutions for each chunk
 2. **Merge Results** - Combine all chunk results into single files
 3. **Filter Solutions** - Remove questions where both models answered all correctly or all incorrectly
 4. **Generate Critique Data** - Convert solutions to right/wrong critique training data
-5. **Create Critique Data** - Generate critique training data (separate script)
+5. **Format Critique Data** - Format critique data to match original train data structure
+6. **Create Critique Data** - Generate critique training data (separate script)
 
 ## Files
 
@@ -18,10 +19,12 @@ The process is split into five main steps:
 - `merge_solutions.py` - Merge all chunk results into single files
 - `filter_solutions.py` - Filter solutions by model consistency
 - `generate_critique_data.py` - Generate critique training data from filtered solutions
+- `format_critique_data.py` - Format critique data to match train data structure
 - `run_qwen25_parallel.sh` - Shell script to run 8 parallel processes
 - `run_full_pipeline.sh` - Complete pipeline script for all steps
 - `test_filter.py` - Test script for filtering logic
 - `test_critique.py` - Test script for critique data generation
+- `test_format.py` - Test script for data formatting
 - `requirements.txt` - Python dependencies
 
 ## Prerequisites
@@ -166,23 +169,48 @@ Features:
 - Provides distribution analysis of right/wrong ratios
 - Includes metadata for tracking solution sources
 
+#### Step 6: Format Critique Data
+
+After generating critique data, format it to match the original train data structure:
+
+```bash
+python format_critique_data.py --analyze
+```
+
+This will create:
+- `deepscaler_critique_formatted.json` - Formatted critique data matching train data structure
+
+The formatted data includes:
+- **Same structure** as original train data with all required fields
+- **Prompt format** with role-based structure
+- **Reward model** with ground_truth and style fields
+- **Ability field** set to "critique" instead of "math"
+- **Extra info** with additional metadata for tracking
+
+Key differences from original train data:
+- `answer` and `target` are "right"/"wrong" instead of numerical answers
+- `ability` is "critique" instead of "math"
+- `data_source` is "deepscaler_critique"
+- `extra_info` includes original solution and question ground truth
+
 ## Directory Structure
 
 ```
 cft_data/
-├── deepscaler_train.json              # Input data
-├── solutions_qwen25/                  # qwen-2.5-math-7b chunk files
+├── deepscaler_train.json                  # Input data
+├── solutions_qwen25/                      # qwen-2.5-math-7b chunk files
 │   ├── qwen-2.5-math-7b_chunk_000.json
 │   ├── qwen-2.5-math-7b_chunk_001.json
 │   └── ...
-├── solutions_qwen3/                   # qwen3-4b-base chunk files
+├── solutions_qwen3/                       # qwen3-4b-base chunk files
 │   ├── qwen3-4b-base_chunk_000.json
 │   ├── qwen3-4b-base_chunk_001.json
 │   └── ...
-├── deepscaler_qwen25_solutions.json   # Merged qwen-2.5-math-7b results
-├── deepscaler_qwen3_solutions.json    # Merged qwen3-4b-base results
-├── deepscaler_train_filter.json       # Filtered training data
-└── deepscaler_critique.json           # Critique training data
+├── deepscaler_qwen25_solutions.json       # Merged qwen-2.5-math-7b results
+├── deepscaler_qwen3_solutions.json        # Merged qwen3-4b-base results
+├── deepscaler_train_filter.json           # Filtered training data
+├── deepscaler_critique.json               # Critique training data
+└── deepscaler_critique_formatted.json     # Formatted critique data
 ```
 
 ## Parameters
@@ -216,6 +244,11 @@ cft_data/
 - `--output_file` - Output critique training data file
 - `--max_samples_per_question` - Maximum solutions per question (default: 4)
 - `--analyze` - Analyze critique distribution after generation
+
+### format_critique_data.py
+- `--critique_file` - Input critique data file
+- `--output_file` - Output formatted critique data file
+- `--analyze` - Analyze formatted data after generation
 
 ## Example for 40K Questions
 
@@ -251,6 +284,9 @@ python filter_solutions.py
 
 # 6. Generate critique data
 python generate_critique_data.py --analyze
+
+# 7. Format critique data
+python format_critique_data.py --analyze
 ```
 
 ## Notes

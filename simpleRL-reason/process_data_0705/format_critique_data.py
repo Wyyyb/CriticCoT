@@ -138,10 +138,10 @@ def main():
     
     # Format critique data
     format_critique_data(args.critique_file, args.output_file)
-    
+    analyze_formatted_data(args.output_file)
     # Analyze formatted data if requested
-    if args.analyze:
-        analyze_formatted_data(args.output_file)
+    # if args.analyze:
+    #     analyze_formatted_data(args.output_file)
 
 if __name__ == "__main__":
     main() 
