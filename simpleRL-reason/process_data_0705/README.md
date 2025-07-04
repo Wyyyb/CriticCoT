@@ -4,16 +4,24 @@ This directory contains scripts for generating candidate solutions using vLLM wi
 
 ## Overview
 
-The process is split into three main steps:
+The process is split into five main steps:
 1. **Generate Solutions** - Use vLLM to generate solutions for each chunk
 2. **Merge Results** - Combine all chunk results into single files
-3. **Create Critique Data** - Generate critique training data (separate script)
+3. **Filter Solutions** - Remove questions where both models answered all correctly or all incorrectly
+4. **Generate Critique Data** - Convert solutions to right/wrong critique training data
+5. **Create Critique Data** - Generate critique training data (separate script)
 
 ## Files
 
 - `generate_solutions.py` - Main script for generating solutions with vLLM
 - `generate_commands.py` - Generate shell commands for running chunks on different GPUs
 - `merge_solutions.py` - Merge all chunk results into single files
+- `filter_solutions.py` - Filter solutions by model consistency
+- `generate_critique_data.py` - Generate critique training data from filtered solutions
+- `run_qwen25_parallel.sh` - Shell script to run 8 parallel processes
+- `run_full_pipeline.sh` - Complete pipeline script for all steps
+- `test_filter.py` - Test script for filtering logic
+- `test_critique.py` - Test script for critique data generation
 - `requirements.txt` - Python dependencies
 
 ## Prerequisites
@@ -29,9 +37,26 @@ pip install -r requirements.txt
 
 3. Make sure `deepscaler_train.json` exists in `../cft_data/`
 
-## Usage
+## Quick Start
 
-### Step 1: Generate Commands
+### Option 1: Run Complete Pipeline (Recommended)
+
+```bash
+# Run the complete pipeline with interactive prompts
+chmod +x run_full_pipeline.sh
+./run_full_pipeline.sh
+```
+
+This will:
+1. Generate commands and run scripts
+2. Check for existing solutions
+3. Guide you through solution generation (if needed)
+4. Merge, filter, and generate critique data
+5. Provide summary statistics
+
+### Option 2: Manual Step-by-Step
+
+#### Step 1: Generate Commands
 
 First, generate the shell commands to see how many chunks you'll have:
 
@@ -41,7 +66,7 @@ python generate_commands.py --chunk_size 1000
 
 This will show you the total number of chunks and generate commands for each GPU.
 
-### Step 2: Run Solution Generation
+#### Step 2: Run Solution Generation
 
 #### Option A: Run all chunks sequentially
 ```bash
@@ -84,7 +109,7 @@ chmod +x run_qwen25.sh
 ./run_qwen25.sh
 ```
 
-### Step 3: Merge Results
+#### Step 3: Merge Results
 
 After all chunks are processed, merge them into single files:
 
@@ -96,21 +121,68 @@ This will create:
 - `deepscaler_qwen25_solutions.json` - All qwen-2.5-math-7b solutions
 - `deepscaler_qwen3_solutions.json` - All qwen3-4b-base solutions
 
+#### Step 4: Filter Solutions
+
+After merging, filter out questions where both models answered all correctly or all incorrectly:
+
+```bash
+python filter_solutions.py
+```
+
+This will create:
+- `deepscaler_train_filter.json` - Filtered training data with solution information
+
+The filtering criteria:
+- **Keep**: Questions where at least one model has mixed results (some correct, some incorrect)
+- **Remove**: Questions where both models answered all correctly OR both models answered all incorrectly
+
+The filtered data includes:
+- All original fields from `deepscaler_train.json`
+- `qwen25_solutions` - All 8 solutions from qwen-2.5-math-7b
+- `qwen3_solutions` - All 8 solutions from qwen3-4b-base
+- Consistency flags for each model
+
+#### Step 5: Generate Critique Data
+
+After filtering, generate critique training data from the filtered solutions:
+
+```bash
+python generate_critique_data.py --analyze
+```
+
+This will create:
+- `deepscaler_critique.json` - Critique training data with right/wrong judgments
+
+The critique data format:
+- **Prompt**: "You are a mathematics expert. A student is trying to solve a question. Please explain briefly whether his answer is correct or not. Finally, conclude your judgement with 'Conclusion: right/wrong [END]'"
+- **Target**: "right" or "wrong" based on solution correctness
+- **Question**: Original math question
+- **Solution**: Candidate solution from models
+- **Ground Truth**: Correct answer for verification
+
+Features:
+- Samples up to 4 solutions per question (configurable)
+- Combines solutions from both models
+- Provides distribution analysis of right/wrong ratios
+- Includes metadata for tracking solution sources
+
 ## Directory Structure
 
 ```
 cft_data/
-├── deepscaler_train.json          # Input data
-├── solutions_qwen25/              # qwen-2.5-math-7b chunk files
+├── deepscaler_train.json              # Input data
+├── solutions_qwen25/                  # qwen-2.5-math-7b chunk files
 │   ├── qwen-2.5-math-7b_chunk_000.json
 │   ├── qwen-2.5-math-7b_chunk_001.json
 │   └── ...
-├── solutions_qwen3/               # qwen3-4b-base chunk files
+├── solutions_qwen3/                   # qwen3-4b-base chunk files
 │   ├── qwen3-4b-base_chunk_000.json
 │   ├── qwen3-4b-base_chunk_001.json
 │   └── ...
-├── deepscaler_qwen25_solutions.json  # Merged qwen-2.5-math-7b results
-└── deepscaler_qwen3_solutions.json   # Merged qwen3-4b-base results
+├── deepscaler_qwen25_solutions.json   # Merged qwen-2.5-math-7b results
+├── deepscaler_qwen3_solutions.json    # Merged qwen3-4b-base results
+├── deepscaler_train_filter.json       # Filtered training data
+└── deepscaler_critique.json           # Critique training data
 ```
 
 ## Parameters
@@ -133,6 +205,18 @@ cft_data/
 - `--qwen3_dir` - Directory containing qwen3-4b-base chunks
 - `--output_dir` - Output directory for merged files
 
+### filter_solutions.py
+- `--qwen25_file` - qwen-2.5-math-7b solutions file
+- `--qwen3_file` - qwen3-4b-base solutions file  
+- `--original_file` - Original training data file
+- `--output_file` - Output filtered training data file
+
+### generate_critique_data.py
+- `--filtered_file` - Filtered training data file
+- `--output_file` - Output critique training data file
+- `--max_samples_per_question` - Maximum solutions per question (default: 4)
+- `--analyze` - Analyze critique distribution after generation
+
 ## Example for 40K Questions
 
 For 40,000 questions with chunk size 1000:
@@ -143,6 +227,10 @@ For 40,000 questions with chunk size 1000:
 ### Quick Start Commands
 
 ```bash
+# Option 1: Complete pipeline (recommended)
+./run_full_pipeline.sh
+
+# Option 2: Manual step-by-step
 # 1. Generate commands
 python generate_commands.py --chunk_size 1000 > commands.txt
 
@@ -157,6 +245,12 @@ chmod +x run_qwen25.sh run_qwen3.sh
 
 # 4. Merge results
 python merge_solutions.py
+
+# 5. Filter solutions
+python filter_solutions.py
+
+# 6. Generate critique data
+python generate_critique_data.py --analyze
 ```
 
 ## Notes

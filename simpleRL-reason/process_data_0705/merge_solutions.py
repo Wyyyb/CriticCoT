@@ -14,7 +14,7 @@ def merge_solution_chunks(input_dir: str, output_file: str, model_name: str):
     print(f"Merging {model_name} solution chunks from {input_dir}")
     
     # Find all chunk files for this model
-    pattern = os.path.join(input_dir, f"{model_name.replace('/', '_')}_chunk_*.json")
+    pattern = os.path.join(input_dir, f"_data_minimax-dialogue_feishan_models_Qwen2.5-Math-7B_chunk_*.json")
     chunk_files = sorted(glob.glob(pattern))
     
     if not chunk_files:
