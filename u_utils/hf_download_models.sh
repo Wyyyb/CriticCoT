@@ -250,3 +250,6 @@ huggingface-cli download --repo-type model OpenSciLM/OpenScholar_Reranker --loca
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-14B-Instruct --local-dir /data/yubo/models/Qwen2.5-14B-Instruct
 
+huggingface-cli download --repo-type model Qwen/Qwen3-4B-Base --local-dir /data/minimax-dialogue/feishan/models/Qwen3-4B-Base
+
+huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /data/minimax-dialogue/feishan/models/Qwen2.5-Math-7B
