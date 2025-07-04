@@ -4,18 +4,18 @@
 # Each GPU processes one chunk
 
 # Model path
-MODEL_PATH="/data/minimax-dialogue/feishan/models/Qwen2.5-Math-7B"
+MODEL_PATH="/data/minimax-dialogue/feishan/models/Qwen3-4B-Base"
 
 # Input and output paths
 INPUT_FILE="../cft_data/deepscaler_train.json"
-OUTPUT_DIR="../cft_data/solutions_qwen3"
+OUTPUT_DIR="../cft_data/solutions_qwen25"
 CHUNK_SIZE=5000
 NUM_SAMPLES=8
 
 # Create output directory
 mkdir -p $OUTPUT_DIR
 
-echo "Starting 8 parallel processes for qwen3-4b"
+echo "Starting 8 parallel processes for qwen-2.5-math-7b"
 echo "Model path: $MODEL_PATH"
 echo "Input file: $INPUT_FILE"
 echo "Output directory: $OUTPUT_DIR"

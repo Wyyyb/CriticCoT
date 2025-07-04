@@ -40,7 +40,7 @@ def generate_solutions_with_vllm(model: LLM, prompts: List[str], num_samples: in
     )
     
     results = []
-    batch_size = 10  # Process in batches to avoid memory issues
+    batch_size = 1000  # Process in batches to avoid memory issues
     
     for i in range(0, len(prompts), batch_size):
         batch_prompts = prompts[i:i + batch_size]
