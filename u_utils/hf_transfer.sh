@@ -153,5 +153,14 @@ huggingface-cli upload ubowang/bbeh_qwen25_math_7b_1-shot_cft_time_arithmetic_ck
 
 huggingface-cli upload ubowang/1-shot-cft-data ./ --repo-type dataset
 
-
 huggingface-cli upload ubowang/qwen3_4b_cft_ckpt40 . --repo-type model
+
+huggingface-cli upload ubowang/critique_rl deepscaler_critique_formatted.json --repo-type dataset
+
+huggingface-cli upload ubowang/critique_rl deepscaler_train_filter.json --repo-type dataset
+
+huggingface-cli upload ubowang/critique_rl deepscaler_critique_formatted.jsonl --repo-type dataset
+
+huggingface-cli upload ubowang/critique_rl deepscaler_train_filter.jsonl --repo-type dataset
+
+
