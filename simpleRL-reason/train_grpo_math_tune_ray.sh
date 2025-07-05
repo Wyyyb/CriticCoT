@@ -8,11 +8,11 @@ export RAY_DEDUP_LOGS=1
 
 export PROJECT_NAME=verl_train
 export VLLM_ATTENTION_BACKEND=XFORMERS
-export HDFS_DATA_PATH="/data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason/verl_data"
+export HDFS_DATA_PATH="/data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason/verl_data/training_data/"
 export HDFS_MODEL_PATH="/data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason/verl_data/models"
 export HDFS_CHECKPOINT_PATH="/data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason/verl_data/checkpoints"
 export HDFS_LOG_PATH="/data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason/verl_data/log"
-export RUN_NAME=verl-grpo
+export RUN_NAME=simple_rl_qwen2-5_math_7b
 export ARNOLD_WORKER_NUM=1 # number of nodes you want to use
 
 
@@ -34,7 +34,7 @@ LOG_PROB_MICRO_BATCH_SIZE=160
 ROLLOUT_N=8
 KL_COEF=0.001
 TOTAL_EPOCHS=20
-DATASET_NAME=simplelr_math_35
+DATASET_NAME=deepscaler_train_filter
 ROLLOUT_GPU_MEMORY_UTIL=0.6
 MODEL_NAME=Qwen2.5-Math-7B
 SAVE_FREQ=20

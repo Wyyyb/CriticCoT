@@ -23,6 +23,7 @@ from verl.utils.reward_score import kk
 # from verl.utils.reward_score import simplelr_math
 # from verl.utils.reward_score import deepseek_r1
 from verl.utils.reward_score import hf_math_verify
+from verl.utils.reward_score import critique_verify
 
 def _default_compute_score(data_source, solution_str, ground_truth):
     if data_source == 'openai/gsm8k':
@@ -34,7 +35,9 @@ def _default_compute_score(data_source, solution_str, ground_truth):
     
     elif "kk" in data_source:
         return kk.compute_score(solution_str, ground_truth)
-    elif "simplelr" in data_source:
+    elif "deepscaler_critique" in data_source:
+        return critique_verify.compute_score(solution_str, ground_truth)
+    elif "simplelr" in data_source or "deepscaler" in data_source:
         return hf_math_verify.compute_score(solution_str, ground_truth)
     elif "deepseek_r1" in data_source:
         return deepseek_r1.compute_score(solution_str, ground_truth)
