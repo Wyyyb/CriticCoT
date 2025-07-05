@@ -463,7 +463,7 @@ class RayPPOTrainer(object):
             elif isinstance(files, list):
                 return any(f.endswith('.json') or f.endswith('.jsonl') for f in files)
             return False
-        
+        print("train_files", train_files)
         use_json = is_json_format(train_files)
         print("use_json:", use_json)
         jsonl_format = any(f.endswith('.jsonl') for f in (train_files if isinstance(train_files, list) else [train_files]))
