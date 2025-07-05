@@ -231,8 +231,11 @@ class JSONDataset(Dataset):
                 data = []
                 with open(json_file, 'r') as f:
                     for line in f:
-                        if line.strip():
-                            data.append(json.loads(line))
+                        try:
+                            if line.strip():
+                                data.append(json.loads(line))
+                        except Exception as e:
+                            print("_read_files_and_tokenize", e)
                 dataframe = pd.DataFrame(data)
             else:
                 # Single JSON file with array of objects
