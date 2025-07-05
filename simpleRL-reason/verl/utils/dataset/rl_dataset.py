@@ -229,14 +229,14 @@ class JSONDataset(Dataset):
             if self.jsonl_format:
                 # JSONL format: one JSON object per line
                 data = []
-                with open(json_file, 'r', encoding='utf-8') as f:
+                with open(json_file, 'r') as f:
                     for line in f:
                         if line.strip():
                             data.append(json.loads(line))
                 dataframe = pd.DataFrame(data)
             else:
                 # Single JSON file with array of objects
-                with open(json_file, 'r', encoding='utf-8') as f:
+                with open(json_file, 'r') as f:
                     data = json.load(f)
                 if isinstance(data, list):
                     dataframe = pd.DataFrame(data)
