@@ -8,7 +8,7 @@ export RAY_DEDUP_LOGS=1
 
 export PROJECT_NAME=verl_train
 export VLLM_ATTENTION_BACKEND=XFORMERS
-export HDFS_DATA_PATH="/data/minimax-dialogue/feishan/CriticCoT/verl_data/training_data/"
+export HDFS_DATA_PATH="/data/minimax-dialogue/feishan/CriticCoT/verl_data/training_data"
 export HDFS_MODEL_PATH="/data/minimax-dialogue/feishan/CriticCoT/verl_data/models"
 export HDFS_CHECKPOINT_PATH="/data/minimax-dialogue/feishan/CriticCoT/verl_data/checkpoints"
 export HDFS_LOG_PATH="/data/minimax-dialogue/feishan/CriticCoT/verl_data/log"
