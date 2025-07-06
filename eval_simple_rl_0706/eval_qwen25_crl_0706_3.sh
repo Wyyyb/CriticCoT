@@ -8,10 +8,10 @@ cd /data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason
 
 # 定义检查点编号数组
 #checkpoint_numbers=(5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100)
-checkpoint_numbers=(70 75 80 85)
+checkpoint_numbers=(30 35 40 45)
 
 # GPU 设置
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=2
 
 # 遍历每个检查点进行评估
 for ckpt_num in "${checkpoint_numbers[@]}"; do
