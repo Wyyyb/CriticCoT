@@ -8,8 +8,8 @@ numpy
 pybind11
 ray[default]==2.10.0
 tensordict
-transformers<4.48
-vllm<=0.6.3
+transformers
+vllm
 peft
 liger-kernel
 word2number
