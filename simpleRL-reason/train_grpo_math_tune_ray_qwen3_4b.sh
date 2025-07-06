@@ -3,7 +3,6 @@
 USER_ENV=`whoami`
 set -x
 
-pip install word2number
 export NCCL_DEBUG=DEBUG
 export RAY_BACKEND_LOG_LEVEL=debug
 export RAY_DEDUP_LOGS=1
