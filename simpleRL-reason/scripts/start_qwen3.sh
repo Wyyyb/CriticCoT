@@ -4,16 +4,6 @@ conda activate yb_verl
 
 cd /data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason
 
-unset proxy https_proxy http_proxy ftp_proxy no_proxy
-
-ray start --head --node-ip-address 0.0.0.0 --num-gpus 8 --disable-usage-stats
-
-sleep 30
-
-ray status
-
-echo "ray started"
-
 bash train_grpo_math_tune_ray_qwen3_4b.sh \
   --model_name Qwen3-4B-Base \
   --max_response_length 4096 \
