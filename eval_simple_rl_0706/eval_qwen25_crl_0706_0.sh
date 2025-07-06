@@ -1,8 +1,8 @@
 #!/bin/bash
 
-eval "$(/data/minimax-dialogue/feishan/miniconda3/bin/conda shell.bash hook)"
-
-conda activate yb_verl
+#eval "$(/data/minimax-dialogue/feishan/miniconda3/bin/conda shell.bash hook)"
+#
+#conda activate yb_verl
 
 cd /data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason
 
