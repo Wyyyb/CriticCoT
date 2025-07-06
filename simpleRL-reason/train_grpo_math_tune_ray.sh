@@ -175,7 +175,7 @@ ray job submit --address=${HEAD_IP}:${HEAD_PORT} \
   -- python -m verl.trainer.main_ppo \
   algorithm.adv_estimator=grpo \
   data.train_files=$HDFS_DATA_PATH/$DATASET_NAME/deepscaler_train_filter.json \
-  data.val_files= \
+  data.val_files=$HDFS_DATA_PATH/$DATASET_NAME/deepscaler_train_filter_valid.json \
   data.train_batch_size=$TRAIN_BATCH_SIZE \
   data.val_batch_size=$VAL_BATCH_SIZE \
   data.max_prompt_length=$MAX_PROMPT_LENGTH \

@@ -6,10 +6,16 @@ with open("../verl_data/training_data/deepscaler_critique_formatted/deepscaler_c
     critique_data = json.load(fi)
     print(len(critique_data))
 
+with open("../verl_data/training_data/deepscaler_critique_formatted/deepscaler_critique_formatted_valid.json", "w") as fo:
+    json.dump(critique_data[:100], fo)
+
 # 读取第二个文件并打印长度
 with open("../verl_data/training_data/deepscaler_train_filter/deepscaler_train_filter.json", "r") as fi:
     train_data = json.load(fi)
     print(len(train_data))
+
+with open("../verl_data/training_data/deepscaler_train_filter/deepscaler_train_filter_valid.json", "w") as fo:
+    fo.write(json.dumps(train_data[:100]))
 
 # 将第一个文件转换为DataFrame，然后保存为Parquet格式
 critique_df = pd.DataFrame(critique_data)
@@ -20,3 +26,4 @@ train_df = pd.DataFrame(train_data)
 train_df.to_parquet("../verl_data/training_data/deepscaler_train_filter/deepscaler_train_filter.parquet", index=False)
 
 print("转换完成！")
+
