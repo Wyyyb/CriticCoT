@@ -1,0 +1,18 @@
+FROM harbor.xaminim.com/minimax-dialogue/deepswe_vllm_serve
+
+ENV http_proxy=http://pac-internal.xaminim.com:3129
+ENV https_proxy=http://pac-internal.xaminim.com:3129
+ENV no_proxy=localhost,127.0.0.1,algeng.xaminim.com,10.0.0.0/8
+
+# RUN pip install wandb
+# RUN pip install -U vllm tensordict
+# RUN pip install antlr4-python3-runtime==4.9.3 sympy math-verify word2number fastapi uvicorn
+
+RUN pip install timeout-decorator Pebble word2number latex2sympy2 python_dateutil multiprocess datasets tqdm
+
+WORKDIR /root/code
+
+RUN rm -rf /root/code/verl
+COPY . /root/code/verl
+
+# RUN cd verl/r2e-gym && pip install -e .

@@ -17,6 +17,7 @@ Pebble
 timeout-decorator
 
 
-pip install timeout-decorator Pebble word2number latex2sympy2 python_dateutil
+pip install timeout-decorator Pebble word2number latex2sympy2 python_dateutil multiprocess
+pip install datasets tqdm
 
 flash_attn
