@@ -17,7 +17,7 @@ export CUDA_VISIBLE_DEVICES=0
 for ckpt_num in "${checkpoint_numbers[@]}"; do
     # 定义路径
     summary_path="/data/minimax-dialogue/feishan/CriticCoT/verl_data/eval_results/qwen25_math_7b_crl/summary.txt"
-    model_path="/data/minimax-dialogue/feishan/CriticCoT/verl_data/checkpoints/simple_rl_qwen2-5_math_7b_crl/global_step_${ckpt_num}/actor/huggingface/"
+    model_path="/data/minimax-dialogue/feishan/CriticCoT/verl_data/checkpoints/simple_rl_qwen2-5_math_7b_crl_Qwen2.5-Math-7B_max_response4096_batch1024_rollout8_klcoef0.0001_entcoef0.001_deepscaler_critique_formatted/global_step_${ckpt_num}/actor/huggingface/"
     output_path="/data/minimax-dialogue/feishan/CriticCoT/verl_data/eval_results/qwen25_math_7b_crl/ckpt-${ckpt_num}/"
 
     # 检查模型是否存在
