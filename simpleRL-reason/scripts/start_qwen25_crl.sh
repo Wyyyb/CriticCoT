@@ -1,18 +1,18 @@
-eval "$(/data/minimax-dialogue/feishan/miniconda3/bin/conda shell.bash hook)"
-
-conda activate yb_verl
+#eval "$(/data/minimax-dialogue/feishan/miniconda3/bin/conda shell.bash hook)"
+#
+#conda activate yb_verl
 
 cd /data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason
 
-unset proxy https_proxy http_proxy ftp_proxy no_proxy
-
-ray start --head --node-ip-address 0.0.0.0 --num-gpus 8 --disable-usage-stats
+#unset proxy https_proxy http_proxy ftp_proxy no_proxy
+#
+#ray start --head --node-ip-address 0.0.0.0 --num-gpus 8 --disable-usage-stats
 
 #sleep 30
 #
 #ray status
 
-echo "ray started"
+# echo "ray started"
 
 bash train_grpo_math_tune_ray_qwen25_crl.sh \
   --model_name Qwen2.5-Math-7B \
@@ -23,4 +23,4 @@ bash train_grpo_math_tune_ray_qwen25_crl.sh \
   --entropy_coeffient 0.001 \
   --rollout_gpu_memory_util 0.75 \
   --rollout_tp 2 \
-  --save_freq 5
+  --save_freq 20
