@@ -6,11 +6,11 @@ cd /data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason
 
 unset proxy https_proxy http_proxy ftp_proxy no_proxy
 
-ray start --head --node-ip-address 0.0.0.0 --num-gpus 8
+ray start --head --node-ip-address 0.0.0.0 --num-gpus 8 --port 12345
 
 echo "ray started"
 
-bash train_grpo_math_tune_ray.sh \
+bash train_grpo_math_tune_ray_qwen25.sh \
   --model_name Qwen2.5-Math-7B \
   --max_response_length 4096 \
   --train_batch_size 1024 \
