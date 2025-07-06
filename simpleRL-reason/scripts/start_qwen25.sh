@@ -4,6 +4,8 @@ conda activate yb_verl
 
 cd /data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason
 
+unset proxy https_proxy http_proxy ftp_proxy no_proxy
+
 ray start --head --node-ip-address 0.0.0.0 --num-gpus 8
 
 echo "ray started"

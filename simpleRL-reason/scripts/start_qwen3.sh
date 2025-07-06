@@ -2,6 +2,8 @@ eval "$(/data/minimax-dialogue/feishan/miniconda3/bin/conda shell.bash hook)"
 
 conda activate yb_verl
 
+unset proxy https_proxy http_proxy ftp_proxy no_proxy
+
 cd /data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason
 
 ray start --head --node-ip-address 0.0.0.0 --num-gpus 8
