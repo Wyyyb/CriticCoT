@@ -1,0 +1,1 @@
+python -m tests.workers.rollout.rollout_vllm.test_vllm_r2e_chat_scheduler

@@ -1,0 +1,312 @@
+/root/miniconda3/lib/python3.10/site-packages/swebench/harness/modal_eval/run_evaluation_modal.py:309: DeprecationError: 2025-02-03: Modal will stop implicitly adding local Python modules to the Image ("automounting") in a future update. The following modules need to be explicitly added for future compatibility:
+* _remote_module_non_scriptable
+* r2egym
+* tests
+* verl
+
+e.g.:
+image_with_source = my_image.add_local_python_source("_remote_module_non_scriptable", "r2egym", "tests", "verl")
+
+For more information, see https://modal.com/docs/guide/modal-1-0-migration
+  def run_instance_modal(
+2025-06-25 17:12:25,537	INFO worker.py:1832 -- Started a local Ray instance. View the dashboard at [1m[32m127.0.0.1:8265 [39m[22m
+2025-06-25 17:12:26,162	WARNING __init__.py:161 -- DeprecationWarning: `ray.state.available_resources_per_node` is a private attribute and access will be removed in a future Ray version.
+WARNING:root:Waiting for register center actor 7Qsd8E_register_center to be ready. Elapsed time: 0 seconds out of 300 seconds.
+[36m(pid=389617)[0m Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+[36m(pid=389870)[0m Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+[36m(pid=389872)[0m Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+[36m(WorkerDict pid=389874)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(WorkerDict pid=389874)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(WorkerDict pid=389870)[0m Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]
+[36m(WorkerDict pid=389870)[0m Loading checkpoint shards: 100%|██████████| 29/29 [00:00<00:00, 307.94it/s]
+[36m(WorkerDict pid=389617)[0m Loading checkpoint shards:  86%|████████▌ | 25/29 [00:00<00:00, 242.79it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:00<00:00, 248.91it/s]
+[36m(WorkerDict pid=389874)[0m /root/miniconda3/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=389874)[0m   warnings.warn(
+[36m(pid=389871)[0m Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.[32m [repeated 5x across cluster][0m
+[36m(WorkerDict pid=389617)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=389617)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.[32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=389617)[0m Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s][32m [repeated 7x across cluster][0m
+[36m(WorkerDict pid=389872)[0m Loading checkpoint shards: 100%|██████████| 29/29 [00:00<00:00, 297.86it/s][32m [repeated 6x across cluster][0m
+[36m(WorkerDict pid=389617)[0m   0%|          | 0/35 [00:00<?, ?it/s]Capturing batches (avail_mem=26.13 GB):   0%|          | 0/35 [00:00<?, ?it/s]
+[36m(WorkerDict pid=389871)[0m /root/miniconda3/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .[32m [repeated 6x across cluster][0m
+[36m(WorkerDict pid=389871)[0m   warnings.warn([32m [repeated 6x across cluster][0m
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=26.13 GB):   3%|▎         | 1/35 [00:00<00:31,  1.08it/s]Capturing batches (avail_mem=25.67 GB):   3%|▎         | 1/35 [00:00<00:31,  1.08it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=25.67 GB):   6%|▌         | 2/35 [00:01<00:22,  1.49it/s]Capturing batches (avail_mem=25.49 GB):   6%|▌         | 2/35 [00:01<00:22,  1.49it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=25.49 GB):   9%|▊         | 3/35 [00:02<00:20,  1.55it/s]Capturing batches (avail_mem=25.31 GB):   9%|▊         | 3/35 [00:02<00:20,  1.55it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=25.31 GB):  11%|█▏        | 4/35 [00:02<00:17,  1.74it/s]Capturing batches (avail_mem=25.14 GB):  11%|█▏        | 4/35 [00:02<00:17,  1.74it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=25.14 GB):  14%|█▍        | 5/35 [00:02<00:14,  2.01it/s]Capturing batches (avail_mem=24.97 GB):  14%|█▍        | 5/35 [00:02<00:14,  2.01it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=24.97 GB):  17%|█▋        | 6/35 [00:03<00:13,  2.16it/s]Capturing batches (avail_mem=24.81 GB):  17%|█▋        | 6/35 [00:03<00:13,  2.16it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=24.81 GB):  20%|██        | 7/35 [00:03<00:11,  2.34it/s]Capturing batches (avail_mem=24.65 GB):  20%|██        | 7/35 [00:03<00:11,  2.34it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=24.65 GB):  23%|██▎       | 8/35 [00:04<00:11,  2.36it/s]Capturing batches (avail_mem=24.50 GB):  23%|██▎       | 8/35 [00:04<00:11,  2.36it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=24.50 GB):  26%|██▌       | 9/35 [00:04<00:11,  2.33it/s]Capturing batches (avail_mem=24.36 GB):  26%|██▌       | 9/35 [00:04<00:11,  2.33it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=24.36 GB):  29%|██▊       | 10/35 [00:04<00:10,  2.36it/s]Capturing batches (avail_mem=24.22 GB):  29%|██▊       | 10/35 [00:04<00:10,  2.36it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=24.22 GB):  31%|███▏      | 11/35 [00:05<00:09,  2.45it/s]Capturing batches (avail_mem=24.09 GB):  31%|███▏      | 11/35 [00:05<00:09,  2.45it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=24.09 GB):  34%|███▍      | 12/35 [00:05<00:09,  2.37it/s]Capturing batches (avail_mem=23.96 GB):  34%|███▍      | 12/35 [00:05<00:09,  2.37it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.96 GB):  37%|███▋      | 13/35 [00:06<00:08,  2.51it/s]Capturing batches (avail_mem=23.84 GB):  37%|███▋      | 13/35 [00:06<00:08,  2.51it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.84 GB):  40%|████      | 14/35 [00:06<00:08,  2.55it/s]Capturing batches (avail_mem=23.72 GB):  40%|████      | 14/35 [00:06<00:08,  2.55it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.72 GB):  43%|████▎     | 15/35 [00:06<00:08,  2.28it/s]Capturing batches (avail_mem=23.61 GB):  43%|████▎     | 15/35 [00:06<00:08,  2.28it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.61 GB):  46%|████▌     | 16/35 [00:07<00:08,  2.28it/s]Capturing batches (avail_mem=23.50 GB):  46%|████▌     | 16/35 [00:07<00:08,  2.28it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.50 GB):  49%|████▊     | 17/35 [00:07<00:07,  2.40it/s]Capturing batches (avail_mem=23.47 GB):  49%|████▊     | 17/35 [00:07<00:07,  2.40it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.47 GB):  51%|█████▏    | 18/35 [00:08<00:06,  2.49it/s]Capturing batches (avail_mem=23.45 GB):  51%|█████▏    | 18/35 [00:08<00:06,  2.49it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.45 GB):  54%|█████▍    | 19/35 [00:08<00:06,  2.51it/s]Capturing batches (avail_mem=23.36 GB):  54%|█████▍    | 19/35 [00:08<00:06,  2.51it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.36 GB):  57%|█████▋    | 20/35 [00:08<00:06,  2.45it/s]Capturing batches (avail_mem=23.27 GB):  57%|█████▋    | 20/35 [00:08<00:06,  2.45it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.27 GB):  60%|██████    | 21/35 [00:09<00:05,  2.57it/s]Capturing batches (avail_mem=23.19 GB):  60%|██████    | 21/35 [00:09<00:05,  2.57it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.19 GB):  63%|██████▎   | 22/35 [00:09<00:04,  2.64it/s]Capturing batches (avail_mem=23.12 GB):  63%|██████▎   | 22/35 [00:09<00:04,  2.64it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.12 GB):  66%|██████▌   | 23/35 [00:10<00:04,  2.66it/s]Capturing batches (avail_mem=23.05 GB):  66%|██████▌   | 23/35 [00:10<00:04,  2.66it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=23.05 GB):  69%|██████▊   | 24/35 [00:10<00:04,  2.62it/s]Capturing batches (avail_mem=22.98 GB):  69%|██████▊   | 24/35 [00:10<00:04,  2.62it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.98 GB):  71%|███████▏  | 25/35 [00:10<00:03,  2.59it/s]Capturing batches (avail_mem=22.97 GB):  71%|███████▏  | 25/35 [00:10<00:03,  2.59it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.97 GB):  74%|███████▍  | 26/35 [00:11<00:03,  2.54it/s]Capturing batches (avail_mem=22.90 GB):  74%|███████▍  | 26/35 [00:11<00:03,  2.54it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.90 GB):  77%|███████▋  | 27/35 [00:11<00:03,  2.54it/s]Capturing batches (avail_mem=22.87 GB):  77%|███████▋  | 27/35 [00:11<00:03,  2.54it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.87 GB):  80%|████████  | 28/35 [00:11<00:02,  2.63it/s]Capturing batches (avail_mem=22.83 GB):  80%|████████  | 28/35 [00:11<00:02,  2.63it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.83 GB):  83%|████████▎ | 29/35 [00:12<00:02,  2.66it/s]Capturing batches (avail_mem=22.80 GB):  83%|████████▎ | 29/35 [00:12<00:02,  2.66it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.80 GB):  86%|████████▌ | 30/35 [00:12<00:01,  2.73it/s]Capturing batches (avail_mem=22.78 GB):  86%|████████▌ | 30/35 [00:12<00:01,  2.73it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.78 GB):  89%|████████▊ | 31/35 [00:13<00:01,  2.78it/s]Capturing batches (avail_mem=22.77 GB):  89%|████████▊ | 31/35 [00:13<00:01,  2.78it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.77 GB):  91%|█████████▏| 32/35 [00:13<00:01,  2.82it/s]Capturing batches (avail_mem=22.76 GB):  91%|█████████▏| 32/35 [00:13<00:01,  2.82it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.76 GB):  94%|█████████▍| 33/35 [00:13<00:00,  2.84it/s]Capturing batches (avail_mem=22.75 GB):  94%|█████████▍| 33/35 [00:13<00:00,  2.84it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.75 GB):  97%|█████████▋| 34/35 [00:14<00:00,  2.71it/s]Capturing batches (avail_mem=22.73 GB):  97%|█████████▋| 34/35 [00:14<00:00,  2.71it/s]
+[36m(WorkerDict pid=389617)[0m Capturing batches (avail_mem=22.73 GB): 100%|██████████| 35/35 [00:14<00:00,  2.65it/s]Capturing batches (avail_mem=22.73 GB): 100%|██████████| 35/35 [00:14<00:00,  2.41it/s]
+[36m(WorkerDict pid=389617)[0m /root/miniconda3/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=389617)[0m   warnings.warn(
+[36m(pid=393147)[0m /root/miniconda3/lib/python3.10/site-packages/swebench/harness/modal_eval/run_evaluation_modal.py:309: DeprecationError: 2025-02-03: Modal will stop implicitly adding local Python modules to the Image ("automounting") in a future update. The following modules need to be explicitly added for future compatibility:
+[36m(pid=393147)[0m * _remote_module_non_scriptable
+[36m(pid=393147)[0m * r2egym
+[36m(pid=393147)[0m * verl
+[36m(pid=393147)[0m 
+[36m(pid=393147)[0m e.g.:
+[36m(pid=393147)[0m image_with_source = my_image.add_local_python_source("_remote_module_non_scriptable", "r2egym", "verl")
+[36m(pid=393147)[0m 
+[36m(pid=393147)[0m For more information, see https://modal.com/docs/guide/modal-1-0-migration
+[36m(pid=393147)[0m   def run_instance_modal(
+WARNING:/root/code/verl/verl/workers/rollout/chat_scheduler.py:completion_callback is None, use R2ECompletionCallback
+[36m(WorkerDict pid=389617)[0m Process Process-9:
+[36m(WorkerDict pid=389617)[0m Process Process-8:
+[36m(WorkerDict pid=389617)[0m Process Process-7:
+[36m(WorkerDict pid=389617)[0m Process Process-4:
+[36m(WorkerDict pid=389617)[0m Process Process-6:
+[36m(WorkerDict pid=389617)[0m Process Process-5:
+[36m(WorkerDict pid=389617)[0m Process Process-3:
+[36m(WorkerDict pid=389617)[0m Process Process-2:
+[36m(WorkerDict pid=389617)[0m Process Process-1:
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 2311, in run_scheduler_process
+[36m(WorkerDict pid=389617)[0m     scheduler.event_loop_overlap()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 661, in event_loop_overlap
+[36m(WorkerDict pid=389617)[0m     recv_reqs = self.recv_requests()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 872, in recv_requests
+[36m(WorkerDict pid=389617)[0m     recv_reqs = broadcast_pyobj(
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/utils.py", line 951, in broadcast_pyobj
+[36m(WorkerDict pid=389617)[0m     size = tensor_size.item()
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/detokenizer_manager.py", line 275, in run_detokenizer_process
+[36m(WorkerDict pid=389617)[0m     manager.event_loop()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/detokenizer_manager.py", line 109, in event_loop
+[36m(WorkerDict pid=389617)[0m     recv_obj = self.recv_from_scheduler.recv_pyobj()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/zmq/sugar/socket.py", line 975, in recv_pyobj
+[36m(WorkerDict pid=389617)[0m     msg = self.recv(flags)
+[36m(WorkerDict pid=389617)[0m   File "zmq/backend/cython/socket.pyx", line 805, in zmq.backend.cython.socket.Socket.recv
+[36m(WorkerDict pid=389617)[0m   File "zmq/backend/cython/socket.pyx", line 841, in zmq.backend.cython.socket.Socket.recv
+[36m(WorkerDict pid=389617)[0m   File "zmq/backend/cython/socket.pyx", line 194, in zmq.backend.cython.socket._recv_copy
+[36m(WorkerDict pid=389617)[0m   File "zmq/backend/cython/checkrc.pxd", line 13, in zmq.backend.cython.checkrc._check_rc
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 2311, in run_scheduler_process
+[36m(WorkerDict pid=389617)[0m     scheduler.event_loop_overlap()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 661, in event_loop_overlap
+[36m(WorkerDict pid=389617)[0m     recv_reqs = self.recv_requests()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 872, in recv_requests
+[36m(WorkerDict pid=389617)[0m     recv_reqs = broadcast_pyobj(
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/utils.py", line 950, in broadcast_pyobj
+[36m(WorkerDict pid=389617)[0m     dist.broadcast(tensor_size, src=src, group=dist_group)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2726, in broadcast
+[36m(WorkerDict pid=389617)[0m     work = group.broadcast([tensor], opts)
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 2311, in run_scheduler_process
+[36m(WorkerDict pid=389617)[0m     scheduler.event_loop_overlap()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 661, in event_loop_overlap
+[36m(WorkerDict pid=389617)[0m     recv_reqs = self.recv_requests()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 872, in recv_requests
+[36m(WorkerDict pid=389617)[0m     recv_reqs = broadcast_pyobj(
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/utils.py", line 950, in broadcast_pyobj
+[36m(WorkerDict pid=389617)[0m     dist.broadcast(tensor_size, src=src, group=dist_group)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2730, in broadcast
+[36m(WorkerDict pid=389617)[0m     work.wait()
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 2311, in run_scheduler_process
+[36m(WorkerDict pid=389617)[0m     scheduler.event_loop_overlap()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 661, in event_loop_overlap
+[36m(WorkerDict pid=389617)[0m     recv_reqs = self.recv_requests()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 872, in recv_requests
+[36m(WorkerDict pid=389617)[0m     recv_reqs = broadcast_pyobj(
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/utils.py", line 950, in broadcast_pyobj
+[36m(WorkerDict pid=389617)[0m     dist.broadcast(tensor_size, src=src, group=dist_group)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2730, in broadcast
+[36m(WorkerDict pid=389617)[0m     work.wait()
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 2311, in run_scheduler_process
+[36m(WorkerDict pid=389617)[0m     scheduler.event_loop_overlap()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 661, in event_loop_overlap
+[36m(WorkerDict pid=389617)[0m     recv_reqs = self.recv_requests()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 872, in recv_requests
+[36m(WorkerDict pid=389617)[0m     recv_reqs = broadcast_pyobj(
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/utils.py", line 950, in broadcast_pyobj
+[36m(WorkerDict pid=389617)[0m     dist.broadcast(tensor_size, src=src, group=dist_group)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2730, in broadcast
+[36m(WorkerDict pid=389617)[0m     work.wait()
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 2311, in run_scheduler_process
+[36m(WorkerDict pid=389617)[0m     scheduler.event_loop_overlap()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 661, in event_loop_overlap
+[36m(WorkerDict pid=389617)[0m     recv_reqs = self.recv_requests()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 872, in recv_requests
+[36m(WorkerDict pid=389617)[0m     recv_reqs = broadcast_pyobj(
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/utils.py", line 950, in broadcast_pyobj
+[36m(WorkerDict pid=389617)[0m     dist.broadcast(tensor_size, src=src, group=dist_group)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2730, in broadcast
+[36m(WorkerDict pid=389617)[0m     work.wait()
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 2311, in run_scheduler_process
+[36m(WorkerDict pid=389617)[0m     scheduler.event_loop_overlap()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 661, in event_loop_overlap
+[36m(WorkerDict pid=389617)[0m     recv_reqs = self.recv_requests()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 872, in recv_requests
+[36m(WorkerDict pid=389617)[0m     recv_reqs = broadcast_pyobj(
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/utils.py", line 935, in broadcast_pyobj
+[36m(WorkerDict pid=389617)[0m     dist.broadcast(tensor_size, src=src, group=dist_group)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2730, in broadcast
+[36m(WorkerDict pid=389617)[0m     work.wait()
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+[36m(WorkerDict pid=389617)[0m Traceback (most recent call last):
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+[36m(WorkerDict pid=389617)[0m     self.run()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+[36m(WorkerDict pid=389617)[0m     self._target(*self._args, **self._kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 2311, in run_scheduler_process
+[36m(WorkerDict pid=389617)[0m     scheduler.event_loop_overlap()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 661, in event_loop_overlap
+[36m(WorkerDict pid=389617)[0m     recv_reqs = self.recv_requests()
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/managers/scheduler.py", line 872, in recv_requests
+[36m(WorkerDict pid=389617)[0m     recv_reqs = broadcast_pyobj(
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/sglang/srt/utils.py", line 950, in broadcast_pyobj
+[36m(WorkerDict pid=389617)[0m     dist.broadcast(tensor_size, src=src, group=dist_group)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[36m(WorkerDict pid=389617)[0m     return func(*args, **kwargs)
+[36m(WorkerDict pid=389617)[0m   File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2730, in broadcast
+[36m(WorkerDict pid=389617)[0m     work.wait()
+[36m(WorkerDict pid=389617)[0m KeyboardInterrupt
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/code/verl/tests/workers/rollout/rollout_vllm/test_vllm_r2e_chat_scheduler.py", line 317, in <module>
+    test_vllm_async_rollout_without_tool_calls(init_config())
+  File "/root/code/verl/tests/workers/rollout/rollout_vllm/test_vllm_r2e_chat_scheduler.py", line 278, in test_vllm_async_rollout_without_tool_calls
+    async_rollout_manager.wake_up()
+  File "/root/code/verl/verl/workers/rollout/async_server.py", line 185, in wake_up
+    ray.get([server.wake_up.remote() for server in self.async_llm_servers])
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/_private/worker.py", line 2771, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/_private/worker.py", line 893, in get_objects
+    ] = self.core_worker.get_objects(
+  File "python/ray/_raylet.pyx", line 3189, in ray._raylet.CoreWorker.get_objects
+  File "python/ray/includes/common.pxi", line 83, in ray._raylet.check_status
+KeyboardInterrupt
+Exception ignored in atexit callback: <function shutdown at 0x7f9fcd0545e0>
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/_private/worker.py", line 1903, in shutdown
+    from ray.dag.compiled_dag_node import _shutdown_all_compiled_dags
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/dag/__init__.py", line 1, in <module>
+    from ray.dag.dag_node import DAGNode
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/dag/dag_node.py", line 2, in <module>
+    from ray.experimental.channel.auto_transport_type import AutoTransportType
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/experimental/channel/__init__.py", line 16, in <module>
+    from ray.experimental.channel.shared_memory_channel import (
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/experimental/channel/shared_memory_channel.py", line 151, in <module>
+    class Channel(ChannelInterface):
+  File "/root/miniconda3/lib/python3.10/site-packages/ray/experimental/channel/shared_memory_channel.py", line 164, in Channel
+    _node_id_to_reader_ref_info: Optional[Dict[str, ReaderRefInfo]] = None,
+  File "/root/miniconda3/lib/python3.10/typing.py", line 309, in inner
+    return cached(*args, **kwds)
+  File "/root/miniconda3/lib/python3.10/typing.py", line 403, in __getitem__
+    return self._getitem(self, parameters)
+  File "/root/miniconda3/lib/python3.10/typing.py", line 530, in Optional
+    return Union[arg, type(None)]
+  File "/root/miniconda3/lib/python3.10/typing.py", line 309, in inner
+    return cached(*args, **kwds)
+  File "/root/miniconda3/lib/python3.10/typing.py", line 403, in __getitem__
+    return self._getitem(self, parameters)
+  File "/root/miniconda3/lib/python3.10/typing.py", line 517, in Union
+    if len(parameters) == 1:
+KeyboardInterrupt: 
