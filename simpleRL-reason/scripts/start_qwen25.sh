@@ -8,9 +8,9 @@ unset proxy https_proxy http_proxy ftp_proxy no_proxy
 
 ray start --head --node-ip-address 0.0.0.0 --num-gpus 8 --port 6378
 
-ray status
-
 sleep 30
+
+ray status
 
 echo "ray started"
 
