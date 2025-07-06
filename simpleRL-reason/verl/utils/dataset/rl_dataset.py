@@ -239,6 +239,7 @@ class JSONDataset(Dataset):
                 dataframe = pd.DataFrame(data)
             else:
                 # Single JSON file with array of objects
+                print("json_file", json_file)
                 with open(json_file, 'r') as f:
                     data = json.load(f)
                 if isinstance(data, list):
