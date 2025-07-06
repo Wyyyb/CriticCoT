@@ -8,8 +8,9 @@ ray start --head --node-ip-address 0.0.0.0 --num-gpus 8
 
 echo "ray started"
 
-bash train_grpo_math_tune_ray.sh \
-  --model_name Qwen2.5-Math-7B \
+
+bash train_grpo_math_tune_ray_qwen3_4b_crl.sh \
+  --model_name Qwen3-4B-Base \
   --max_response_length 4096 \
   --train_batch_size 1024 \
   --rollout_n 8 \
