@@ -3,7 +3,7 @@
 set -xv
 
 TASK=crl
-VERSION=0.1
+VERSION=0.2
 
 # cd ./math_serving/reasonreason && git checkout main && git pull && cd -
 
