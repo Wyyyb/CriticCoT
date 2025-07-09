@@ -8,7 +8,7 @@ ENV no_proxy=localhost,127.0.0.1,algeng.xaminim.com,10.0.0.0/8
 # RUN pip install wandb
 # RUN pip install -U vllm tensordict
 # RUN pip install antlr4-python3-runtime==4.9.3 sympy math-verify word2number fastapi uvicorn
-RUN pip uninstall vllm
+RUN pip uninstall -y vllm
 RUN pip install vllm==0.6.3
 
 WORKDIR /root/code
