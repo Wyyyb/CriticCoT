@@ -167,6 +167,7 @@ ray job submit --address=${HEAD_IP}:${HEAD_PORT} \
   --entrypoint-num-cpus=1 \
   --runtime-env-json='{
         "working_dir": "'${WORKING_DIR}'",
+        "excludes": [/data/minimax-dialogue/feishan/CriticCoT/simpleRL-reason/examples/simplelr_math_eval/data/tabmwp/test.jsonl],
         "env_vars": {
           "http_proxy": "",
           "https_proxy": ""

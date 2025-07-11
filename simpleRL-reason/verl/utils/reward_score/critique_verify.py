@@ -113,7 +113,7 @@ def extract_conclusion_pattern(text):
         - has_conclusion_format: 是否包含结论格式 (True/False)
     """
     # 匹配结论模式，支持大小写不敏感
-    pattern = r'\n\nConclusion:\s*(right|wrong|correct|incorrect)\s*\[END\]\n\n'
+    pattern = r'\nConclusion:\s*(right|wrong|correct|incorrect)\s*\[END\]\n'
     match = re.search(pattern, text, re.IGNORECASE)
     
     if match:

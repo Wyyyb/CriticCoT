@@ -163,4 +163,7 @@ huggingface-cli upload ubowang/critique_rl deepscaler_critique_formatted.jsonl -
 
 huggingface-cli upload ubowang/critique_rl deepscaler_train_filter.jsonl --repo-type dataset
 
+huggingface-cli upload ubowang/critique_rl train.parquet --repo-type dataset
+
+huggingface-cli upload ubowang/critique_rl deepscaler_train_filter.jsonl --repo-type dataset
 
