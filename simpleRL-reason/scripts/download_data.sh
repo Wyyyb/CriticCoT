@@ -36,6 +36,13 @@ huggingface-cli download --repo-type model Qwen/Qwen3-4B-Base --local-dir /data/
 
 huggingface-cli download --repo-type model Qwen/Qwen2.5-Math-7B --local-dir /data/minimax-dialogue/feishan/models/Qwen2.5-Math-7B
 
+cd /data/minimax-dialogue/feishan/critique_rl
+
+#mkdir -p verl_cft_data_bk
+#
+#mv critique_verl/cft_data verl_cft_data_bk/
+#
+#mv critique_verl/data verl_cft_data_bk/
 
 
 
