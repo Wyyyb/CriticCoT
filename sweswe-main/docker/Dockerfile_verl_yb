@@ -9,7 +9,7 @@ ENV no_proxy=localhost,127.0.0.1,algeng.xaminim.com,10.0.0.0/8
 # RUN pip install -U vllm tensordict
 RUN pip install antlr4-python3-runtime==4.9.3 sympy math-verify word2number fastapi uvicorn
 
-RUN cd ../r2e-gym && pip install -e .
+RUN cd /data/minimax-dialogue/feishan/CriticCoT/sweswe-main/r2e-gym && pip install -e .
 
 WORKDIR /root/code
 
