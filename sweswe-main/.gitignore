@@ -123,7 +123,6 @@ logs
 log
 outputs
 output_example
-r2e-gym
 data
 sample_log
 .history
